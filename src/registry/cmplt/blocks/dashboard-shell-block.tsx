@@ -89,7 +89,7 @@ export function DashboardShellBlock() {
                     <span>{item.label}</span>
                   </div>
                   {item.badge && (
-                    <Badge variant={isActive ? "brand" : "neutral"} size="sm">
+                    <Badge variant={isActive ? "brand" : "default"} size="sm">
                       {item.badge}
                     </Badge>
                   )}

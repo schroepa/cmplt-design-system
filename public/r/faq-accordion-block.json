@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "faq-accordion-block",
+  "type": "registry:block",
+  "title": "FAQ Accordion Knowledge Block",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Structured knowledge section with smooth Base UI accordion disclosure panels for licensing, tokens, and CLI usage.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "accordion",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/blocks/faq-accordion-block.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport {\n  Accordion,\n  AccordionItem,\n  AccordionTrigger,\n  AccordionContent,\n} from \"@/registry/cmplt/ui/accordion\";\nimport { Badge } from \"@/registry/cmplt/ui/badge\";\nimport { HelpCircle, Sparkles } from \"lucide-react\";\n\nexport function FaqAccordionBlock() {\n  const faqs = [\n    {\n      id: \"faq-1\",\n      question: \"How does cmplt compare to standard shadcn/ui?\",\n      answer:\n        \"cmplt builds directly upon shadcn's distribution model (installing uncompiled source code into your repository via CLI). However, instead of Radix UI, cmplt uses @base-ui/react for unstyled headless primitives, pairs it with an OKLCH 3-tier perceptual color token architecture, and includes GSAP fluid liquid physics.\",\n    },\n    {\n      id: \"faq-2\",\n      question: \"Can I use cmplt in commercial and client projects?\",\n      answer:\n        \"Yes, absolutely. The core primitives and registry blocks are MIT licensed, allowing unlimited commercial usage, SaaS deployment, and custom theme modifications with no royalties or attribution requirements.\",\n    },\n    {\n      id: \"faq-3\",\n      question: \"How do OKLCH tokens handle dark mode?\",\n      answer:\n        \"OKLCH provides perceptual uniformity across the human color gamut. In cmplt, light and dark modes share identical chroma and hue parameters, altering only the calibrated lightness values. This eliminates muddy contrast artifacts, poor accessibility ratios, and manual color re-tuning.\",\n    },\n    {\n      id: \"faq-4\",\n      question: \"What browsers are supported for OKLCH and Base UI?\",\n      answer:\n        \"OKLCH is natively supported across all modern evergreen browsers (Chrome 111+, Safari 15.4+, Firefox 113+, Edge 111+), covering 96%+ of global web traffic. Fallback sRGB variables are embedded automatically via CSS custom properties for legacy environments.\",\n    },\n    {\n      id: \"faq-5\",\n      question: \"How do I install individual blocks or components?\",\n      answer:\n        \"Run `npx shadcn add @cmplt/[block-name]` (or `npm run registry:build` locally). The CLI automatically detects and downloads all required primitives, hooks, utility helpers, and dependency packages into your project's `components/` directory.\",\n    },\n  ];\n\n  return (\n    <section className=\"space-y-8 max-w-3xl mx-auto w-full\">\n      <div className=\"text-center space-y-3\">\n        <div className=\"flex justify-center\">\n          <Badge variant=\"brand\">\n            <HelpCircle className=\"size-3\" /> Frequently Asked Questions\n          </Badge>\n        </div>\n        <h2 className=\"text-2xl sm:text-3xl font-semibold tracking-tight text-fg\">\n          Everything you need to know.\n        </h2>\n        <p className=\"text-sm text-fg-secondary max-w-lg mx-auto leading-relaxed\">\n          Clear answers about licensing, CLI installation, Base UI architecture, and token sync.\n        </p>\n      </div>\n\n      <div className=\"rounded-cmplt-panel border border-border-default bg-surface p-4 sm:p-6 shadow-cmplt-xs\">\n        <Accordion defaultValue={[\"faq-1\"]} className=\"divide-y divide-border-subtle\">\n          {faqs.map((faq) => (\n            <AccordionItem key={faq.id} value={faq.id} className=\"py-2 first:pt-0 last:pb-0\">\n              <AccordionTrigger className=\"text-sm sm:text-base font-medium text-fg hover:text-accent transition-colors\">\n                {faq.question}\n              </AccordionTrigger>\n              <AccordionContent className=\"text-xs sm:text-sm text-fg-secondary leading-relaxed pt-2 pb-3\">\n                {faq.answer}\n              </AccordionContent>\n            </AccordionItem>\n          ))}\n        </Accordion>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/blocks/faq-accordion-block.tsx"
+    }
+  ]
+}

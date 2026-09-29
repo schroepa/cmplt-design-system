@@ -61,7 +61,7 @@ export function FaqAccordionBlock() {
       </div>
 
       <div className="rounded-cmplt-panel border border-border-default bg-surface p-4 sm:p-6 shadow-cmplt-xs">
-        <Accordion defaultValue="faq-1" className="divide-y divide-border-subtle">
+        <Accordion defaultValue={["faq-1"]} className="divide-y divide-border-subtle">
           {faqs.map((faq) => (
             <AccordionItem key={faq.id} value={faq.id} className="py-2 first:pt-0 last:pb-0">
               <AccordionTrigger className="text-sm sm:text-base font-medium text-fg hover:text-accent transition-colors">

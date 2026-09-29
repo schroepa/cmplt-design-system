@@ -69,7 +69,7 @@ export function CtaBannerBlock() {
               required
               className="h-10 bg-subtle/50 text-sm"
             />
-            <Button type="submit" size="default" className="w-full sm:w-auto h-10 gap-1.5 shrink-0 shadow-cmplt-xs">
+            <Button type="submit" size="md" className="w-full sm:w-auto h-10 gap-1.5 shrink-0 shadow-cmplt-xs">
               <span>Subscribe</span>
               <ArrowRight className="size-4" />
             </Button>
@@ -78,20 +78,20 @@ export function CtaBannerBlock() {
 
         {/* Social Proof */}
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-fg-muted">
-          <AvatarGroup max={4} size="sm">
-            <Avatar>
+          <AvatarGroup max={4}>
+            <Avatar size="sm">
               <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80" />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
-            <Avatar>
+            <Avatar size="sm">
               <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80" />
               <AvatarFallback>MK</AvatarFallback>
             </Avatar>
-            <Avatar>
+            <Avatar size="sm">
               <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80" />
               <AvatarFallback>JL</AvatarFallback>
             </Avatar>
-            <Avatar>
+            <Avatar size="sm">
               <AvatarImage src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80" />
               <AvatarFallback>ET</AvatarFallback>
             </Avatar>

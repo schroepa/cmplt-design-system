@@ -1392,6 +1392,233 @@
       ]
     },
     {
+      "name": "site-header-block",
+      "type": "registry:block",
+      "title": "Site Header Navigation Block",
+      "description": "Responsive sticky header navbar with logo mark, navigation links, command palette search trigger, dropdown menus, and mobile drawer.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "kbd",
+        "drawer",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/site-header-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/site-header-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "feature-bento-block",
+      "type": "registry:block",
+      "title": "Feature Bento Grid Block",
+      "description": "Asymmetric Bento-grid feature section highlighting OKLCH tokens, Base UI primitives, fluid motion, and CLI integration.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "slider",
+        "progress",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/feature-bento-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/feature-bento-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stats-metric-block",
+      "type": "registry:block",
+      "title": "Stats & Metrics KPI Block",
+      "description": "High-impact KPI telemetry grid featuring real-time meters, percentage trend badges, and tabular typography.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "meter"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/stats-metric-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/stats-metric-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "faq-accordion-block",
+      "type": "registry:block",
+      "title": "FAQ Accordion Knowledge Block",
+      "description": "Structured knowledge section with smooth Base UI accordion disclosure panels for licensing, tokens, and CLI usage.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "accordion",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/faq-accordion-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/faq-accordion-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cta-banner-block",
+      "type": "registry:block",
+      "title": "CTA Launch & Newsletter Banner Block",
+      "description": "High-conversion action banner with email input, glowing accent gradients, and avatar group social proof.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "input",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/cta-banner-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/cta-banner-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "site-footer-block",
+      "type": "registry:block",
+      "title": "Site Footer Multi-Column Block",
+      "description": "Comprehensive website footer with categorized navigation links, live system status indicator, and social channels.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/site-footer-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/site-footer-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard-shell-block",
+      "type": "registry:block",
+      "title": "Dashboard Application Shell Block",
+      "description": "Full-featured SaaS dashboard shell with collapsible navigation sidebar, breadcrumb header, search, and user profile menu.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "avatar",
+        "button",
+        "badge",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/dashboard-shell-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/dashboard-shell-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "activity-feed-block",
+      "type": "registry:block",
+      "title": "Activity Feed & Audit Trail Block",
+      "description": "Real-time activity and audit log stream with connected timeline nodes, actor avatars, and event filters.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "timeline",
+        "avatar",
+        "badge",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/activity-feed-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/activity-feed-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "data-table-toolbar-block",
+      "type": "registry:block",
+      "title": "Data Table Toolbar & Management Block",
+      "description": "Enterprise data table with search filtering, batch row selection, action dropdowns, and pagination controls.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "table",
+        "pagination",
+        "dropdown-menu",
+        "button",
+        "badge",
+        "input",
+        "checkbox"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/data-table-toolbar-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/data-table-toolbar-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "account-settings-block",
+      "type": "registry:block",
+      "title": "Account Settings & Danger Zone Block",
+      "description": "Comprehensive user settings form featuring profile management, plan selection radio cards, and destructive alert dialog.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "textarea",
+        "switch",
+        "button",
+        "badge",
+        "avatar",
+        "alert-dialog",
+        "radio-group"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/account-settings-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/account-settings-block.tsx"
+        }
+      ]
+    },
+    {
       "name": "showcase-page",
       "type": "registry:page",
       "title": "Showcase Landing Page Template",

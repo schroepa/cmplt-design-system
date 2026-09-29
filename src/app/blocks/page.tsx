@@ -8,6 +8,16 @@ import { AppManagerBlock } from "@/registry/cmplt/blocks/app-manager-block";
 import { AiDeploymentCard } from "@/registry/cmplt/blocks/ai-deployment-card";
 import { TokenSyncInspectorBlock } from "@/registry/cmplt/blocks/token-sync-inspector";
 import { PricingTierBlock } from "@/registry/cmplt/blocks/pricing-tier-block";
+import { SiteHeaderBlock } from "@/registry/cmplt/blocks/site-header-block";
+import { FeatureBentoBlock } from "@/registry/cmplt/blocks/feature-bento-block";
+import { StatsMetricBlock } from "@/registry/cmplt/blocks/stats-metric-block";
+import { FaqAccordionBlock } from "@/registry/cmplt/blocks/faq-accordion-block";
+import { CtaBannerBlock } from "@/registry/cmplt/blocks/cta-banner-block";
+import { SiteFooterBlock } from "@/registry/cmplt/blocks/site-footer-block";
+import { DashboardShellBlock } from "@/registry/cmplt/blocks/dashboard-shell-block";
+import { ActivityFeedBlock } from "@/registry/cmplt/blocks/activity-feed-block";
+import { DataTableToolbarBlock } from "@/registry/cmplt/blocks/data-table-toolbar-block";
+import { AccountSettingsBlock } from "@/registry/cmplt/blocks/account-settings-block";
 import { CliInstallTabs } from "@/components/docs/cli-install-tabs";
 import { Badge } from "@/registry/cmplt/ui/badge";
 import { Card } from "@/registry/cmplt/ui/card";
@@ -280,6 +290,316 @@ export default function BlocksLandingPage() {
           <div className="cmplt-stage bg-cmplt-dots">
             <PricingTierBlock />
           </div>
+        </div>
+      </section>
+
+      {/* Block 06: Site Header Navigation */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                06. Site Header &amp; Responsive Navigation Shell
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/site-header-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Sticky frosted navbar with command palette search trigger, ecosystem dropdowns, and mobile slide-out drawer.
+            </p>
+          </div>
+          <a
+            href="/r/site-header-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/site-header-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="site-header-block" />
+        <div className="rounded-cmplt-panel border border-border-default overflow-hidden">
+          <SiteHeaderBlock />
+        </div>
+      </section>
+
+      {/* Block 07: Feature Bento Grid */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                07. Feature Bento Grid Showcase
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/feature-bento-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Asymmetric bento grid displaying OKLCH gamut controls, Base UI primitives, and zero runtime performance.
+            </p>
+          </div>
+          <a
+            href="/r/feature-bento-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/feature-bento-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="feature-bento-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <FeatureBentoBlock />
+        </div>
+      </section>
+
+      {/* Block 08: Real-Time Telemetry & KPIs */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                08. Real-Time Telemetry &amp; KPI Metrics Grid
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/stats-metric-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              High-impact stats grid featuring Base UI Meter bars, percentage badges, and tabular monospace numbers.
+            </p>
+          </div>
+          <a
+            href="/r/stats-metric-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/stats-metric-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="stats-metric-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <StatsMetricBlock />
+        </div>
+      </section>
+
+      {/* Block 09: FAQ Knowledge Accordion */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                09. FAQ Knowledge Accordion
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/faq-accordion-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Structured Q&amp;A knowledge section with smooth Base UI accordion disclosure animations.
+            </p>
+          </div>
+          <a
+            href="/r/faq-accordion-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/faq-accordion-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="faq-accordion-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <FaqAccordionBlock />
+        </div>
+      </section>
+
+      {/* Block 10: CTA Launch & Newsletter Banner */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                10. High-Conversion CTA &amp; Newsletter Banner
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/cta-banner-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Action banner with email capture, radial glow accent, and stacked avatar social proof.
+            </p>
+          </div>
+          <a
+            href="/r/cta-banner-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/cta-banner-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="cta-banner-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <CtaBannerBlock />
+        </div>
+      </section>
+
+      {/* Block 11: SaaS Dashboard Application Shell */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                11. SaaS Dashboard Application Shell
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/dashboard-shell-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Full application frame with collapsible sidebar, active route indicators, breadcrumbs, search, and user profile menu.
+            </p>
+          </div>
+          <a
+            href="/r/dashboard-shell-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/dashboard-shell-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="dashboard-shell-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <DashboardShellBlock />
+        </div>
+      </section>
+
+      {/* Block 12: Real-Time Activity & Audit Trail */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                12. Real-Time Activity &amp; Audit Trail
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/activity-feed-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Chronological event stream with connected timeline nodes, actor avatars, and event category filters.
+            </p>
+          </div>
+          <a
+            href="/r/activity-feed-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/activity-feed-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="activity-feed-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <ActivityFeedBlock />
+        </div>
+      </section>
+
+      {/* Block 13: Enterprise Data Table Toolbar */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                13. Enterprise Data Table &amp; Management Toolbar
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/data-table-toolbar-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Live data table with query filtering, multi-row selection, batch delete actions, and pagination footer.
+            </p>
+          </div>
+          <a
+            href="/r/data-table-toolbar-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/data-table-toolbar-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="data-table-toolbar-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <DataTableToolbarBlock />
+        </div>
+      </section>
+
+      {/* Block 14: Account Settings & Danger Zone */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                14. Account Settings &amp; Danger Zone
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/account-settings-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Multi-section settings card featuring profile fields, radio cards plan selector, switches, and destructive alert dialog.
+            </p>
+          </div>
+          <a
+            href="/r/account-settings-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/account-settings-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="account-settings-block" />
+        <div className="cmplt-stage bg-cmplt-dots">
+          <AccountSettingsBlock />
+        </div>
+      </section>
+
+      {/* Block 15: Site Footer Multi-Column */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h2 className="cmplt-h3 text-fg-primary">
+                15. Site Footer &amp; Categorized Links
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/site-footer-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Multi-column footer layout with categorized navigation links, live system status pill, and social channels.
+            </p>
+          </div>
+          <a
+            href="/r/site-footer-block.json"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+          >
+            /r/site-footer-block.json <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+        <CliInstallTabs itemName="site-footer-block" />
+        <div className="rounded-cmplt-panel border border-border-default overflow-hidden">
+          <SiteFooterBlock />
         </div>
       </section>
     </div>

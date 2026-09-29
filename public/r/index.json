@@ -5,7 +5,7 @@
   "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
   "owner": "Patrick Schrödter (ptrckschrdtr)",
   "github": "https://github.com/schroepa",
-  "totalItems": 68,
+  "totalItems": 78,
   "items": [
     {
       "name": "utils",
@@ -1007,6 +1007,183 @@
         "badge"
       ],
       "endpoint": "/r/hero-motion-block.json"
+    },
+    {
+      "name": "site-header-block",
+      "type": "registry:block",
+      "title": "Site Header Navigation Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Responsive sticky header navbar with logo mark, navigation links, command palette search trigger, dropdown menus, and mobile drawer.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "kbd",
+        "drawer",
+        "dropdown-menu"
+      ],
+      "endpoint": "/r/site-header-block.json"
+    },
+    {
+      "name": "feature-bento-block",
+      "type": "registry:block",
+      "title": "Feature Bento Grid Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Asymmetric Bento-grid feature section highlighting OKLCH tokens, Base UI primitives, fluid motion, and CLI integration.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "slider",
+        "progress",
+        "switch"
+      ],
+      "endpoint": "/r/feature-bento-block.json"
+    },
+    {
+      "name": "stats-metric-block",
+      "type": "registry:block",
+      "title": "Stats & Metrics KPI Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "High-impact KPI telemetry grid featuring real-time meters, percentage trend badges, and tabular typography.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge",
+        "meter"
+      ],
+      "endpoint": "/r/stats-metric-block.json"
+    },
+    {
+      "name": "faq-accordion-block",
+      "type": "registry:block",
+      "title": "FAQ Accordion Knowledge Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Structured knowledge section with smooth Base UI accordion disclosure panels for licensing, tokens, and CLI usage.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "accordion",
+        "badge"
+      ],
+      "endpoint": "/r/faq-accordion-block.json"
+    },
+    {
+      "name": "cta-banner-block",
+      "type": "registry:block",
+      "title": "CTA Launch & Newsletter Banner Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "High-conversion action banner with email input, glowing accent gradients, and avatar group social proof.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "badge",
+        "input",
+        "avatar"
+      ],
+      "endpoint": "/r/cta-banner-block.json"
+    },
+    {
+      "name": "site-footer-block",
+      "type": "registry:block",
+      "title": "Site Footer Multi-Column Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Comprehensive website footer with categorized navigation links, live system status indicator, and social channels.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "badge"
+      ],
+      "endpoint": "/r/site-footer-block.json"
+    },
+    {
+      "name": "dashboard-shell-block",
+      "type": "registry:block",
+      "title": "Dashboard Application Shell Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Full-featured SaaS dashboard shell with collapsible navigation sidebar, breadcrumb header, search, and user profile menu.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "breadcrumb",
+        "dropdown-menu",
+        "avatar",
+        "button",
+        "badge",
+        "input"
+      ],
+      "endpoint": "/r/dashboard-shell-block.json"
+    },
+    {
+      "name": "activity-feed-block",
+      "type": "registry:block",
+      "title": "Activity Feed & Audit Trail Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Real-time activity and audit log stream with connected timeline nodes, actor avatars, and event filters.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "timeline",
+        "avatar",
+        "badge",
+        "button"
+      ],
+      "endpoint": "/r/activity-feed-block.json"
+    },
+    {
+      "name": "data-table-toolbar-block",
+      "type": "registry:block",
+      "title": "Data Table Toolbar & Management Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Enterprise data table with search filtering, batch row selection, action dropdowns, and pagination controls.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "table",
+        "pagination",
+        "dropdown-menu",
+        "button",
+        "badge",
+        "input",
+        "checkbox"
+      ],
+      "endpoint": "/r/data-table-toolbar-block.json"
+    },
+    {
+      "name": "account-settings-block",
+      "type": "registry:block",
+      "title": "Account Settings & Danger Zone Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Comprehensive user settings form featuring profile management, plan selection radio cards, and destructive alert dialog.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "field",
+        "input",
+        "textarea",
+        "switch",
+        "button",
+        "badge",
+        "avatar",
+        "alert-dialog",
+        "radio-group"
+      ],
+      "endpoint": "/r/account-settings-block.json"
     },
     {
       "name": "showcase-page",
