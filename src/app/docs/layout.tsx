@@ -35,6 +35,7 @@ export default function DocsLayout({
           <button
             type="button"
             onClick={() => setMobileSidebarOpen((prev) => !prev)}
+            aria-expanded={mobileSidebarOpen}
             className="flex md:hidden w-full items-center justify-between rounded-cmplt-md border border-border-default bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary shadow-cmplt-xs cursor-pointer"
           >
             <span className="flex items-center gap-2">
@@ -65,6 +66,7 @@ export default function DocsLayout({
                 <li>
                   <Link
                     href="/docs"
+                    aria-current={pathname === "/docs" ? "page" : undefined}
                     className={cn(
                       "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs"
@@ -77,7 +79,27 @@ export default function DocsLayout({
                 </li>
                 <li>
                   <Link
+                    href="/docs/blueprint"
+                    aria-current={
+                      pathname?.startsWith("/docs/blueprint") ? "page" : undefined
+                    }
+                    className={cn(
+                      "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                      pathname?.startsWith("/docs/blueprint")
+                        ? "bg-accent-subtle text-fg-accent font-semibold"
+                        : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
+                    )}
+                  >
+                    <span>Living Blueprint</span>
+                    <Badge variant="outline" size="sm" className="px-1.5 py-0 text-[10px]">
+                      ADR
+                    </Badge>
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/docs/tokens"
+                    aria-current={pathname === "/docs/tokens" ? "page" : undefined}
                     className={cn(
                       "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs/tokens"
@@ -99,9 +121,14 @@ export default function DocsLayout({
               const items = COMPONENT_DOCS.filter((c) => c.category === cat);
               return (
                 <div key={cat}>
-                  <div className="mb-3 flex items-center gap-2 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted">
-                    <Box className="h-3 w-3 text-fg-accent" />
-                    {cat}
+                  <div className="mb-3 flex items-center justify-between gap-2 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted">
+                    <span className="flex items-center gap-2">
+                      <Box className="h-3 w-3 text-fg-accent" />
+                      {cat}
+                    </span>
+                    <span className="font-mono text-[10px] font-normal text-fg-muted/80 cmplt-tabular">
+                      {items.length}
+                    </span>
                   </div>
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1 gap-1">
                     {items.map((item) => {
@@ -111,6 +138,7 @@ export default function DocsLayout({
                         <li key={item.slug}>
                           <Link
                             href={href}
+                            aria-current={active ? "page" : undefined}
                             className={cn(
                               "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
                               active

@@ -11,10 +11,12 @@ export interface ProgressProps
 }
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
-  ({ className, label, showValue = false, value, ...props }, ref) => (
+  // Pin locale so SSR and client format percent the same (avoids "68%" vs "68 %").
+  ({ className, label, showValue = false, value, locale = "en-US", ...props }, ref) => (
     <BaseProgress.Root
       ref={ref}
       value={value}
+      locale={locale}
       className={cn("flex w-full flex-col gap-1.5", className)}
       {...props}
     >
