@@ -61,6 +61,12 @@
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, monospace;
 
+  /* Natural Motion Easing Utilities */
+  --ease-cmplt-out: var(--cmplt-ease-out);
+  --ease-cmplt-in-out: var(--cmplt-ease-in-out);
+  --ease-cmplt-spring: var(--cmplt-ease-spring);
+  --ease-cmplt-bounce: var(--cmplt-ease-bounce);
+
   /* Liquid Type Scale Utilities (Tailwind v4 text-* classes) */
   --text-display-xl: var(--cmplt-step-6);
   --text-display-xl--line-height: var(--cmplt-leading-display);
@@ -556,11 +562,26 @@
   opacity: 0;
 }
 
+/* Accordion Smooth Height Transition (Base UI --accordion-panel-height) */
+.cmplt-accordion-panel {
+  height: var(--accordion-panel-height);
+  overflow: hidden;
+  transition: height var(--cmplt-duration-normal) var(--cmplt-ease-out), opacity var(--cmplt-duration-normal) var(--cmplt-ease-out);
+}
+
+.cmplt-accordion-panel[data-starting-style],
+.cmplt-accordion-panel[data-ending-style] {
+  height: 0;
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cmplt-overlay-popup,
-  .cmplt-overlay-backdrop {
+  .cmplt-overlay-backdrop,
+  .cmplt-accordion-panel {
     transform: none !important;
-    transition-duration: 80ms !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 
   @starting-style {

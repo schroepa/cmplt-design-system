@@ -57,7 +57,7 @@ const TabsTrigger = React.forwardRef<
     <BaseTabs.Tab
       ref={ref}
       className={cn(
-        "inline-flex items-center justify-center whitespace-nowrap text-xs font-medium text-fg-muted transition-all cursor-pointer select-none hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
+        "inline-flex items-center justify-center whitespace-nowrap text-xs font-medium text-fg-muted transition-all duration-200 ease-cmplt-out cursor-pointer select-none active:scale-[0.98] hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
         variant === "segmented"
           ? "rounded-cmplt-full px-3.5 py-1 data-[active]:bg-surface data-[active]:text-fg-primary data-[active]:shadow-cmplt-xs"
           : "relative h-10 rounded-none border-b-2 border-transparent px-1 pb-2.5 pt-2 data-[active]:border-fg-primary data-[active]:text-fg-primary",
@@ -76,7 +76,7 @@ const TabsContent = React.forwardRef<
   <BaseTabs.Panel
     ref={ref}
     className={cn(
-      "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-md",
+      "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-md transition-opacity duration-240 ease-cmplt-out",
       className
     )}
     {...props}

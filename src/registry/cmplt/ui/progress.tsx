@@ -33,7 +33,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
         </div>
       )}
       <BaseProgress.Track className="h-2 w-full overflow-hidden rounded-cmplt-full bg-subtle border border-border-subtle">
-        <BaseProgress.Indicator className="h-full bg-accent transition-all duration-300 ease-out rounded-cmplt-full" />
+        <BaseProgress.Indicator className="h-full bg-accent transition-all duration-500 ease-cmplt-out rounded-cmplt-full" />
       </BaseProgress.Track>
     </BaseProgress.Root>
   )

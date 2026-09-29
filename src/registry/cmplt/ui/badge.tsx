@@ -8,7 +8,7 @@ import { cn } from "@/registry/cmplt/lib/utils";
  * instead of encapsulating text in heavy, fully-saturated colored blocks.
  */
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 font-medium transition-colors select-none whitespace-nowrap cmplt-tabular",
+  "inline-flex items-center gap-1.5 font-medium transition-all duration-200 ease-cmplt-out select-none whitespace-nowrap cmplt-tabular",
   {
     variants: {
       variant: {

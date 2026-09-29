@@ -34,7 +34,7 @@ const DialogContent = React.forwardRef<
       {showClose && (
         <BaseDialog.Close
           aria-label="Close dialog"
-          className="absolute right-5 top-5 inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-cmplt-full text-fg-muted transition-colors hover:bg-subtle hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
+          className="absolute right-5 top-5 inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-cmplt-full text-fg-muted transition-all duration-200 ease-cmplt-out hover:bg-subtle hover:text-fg-primary hover:rotate-90 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
         >
           <X className="h-4 w-4 stroke-[1.75]" />
         </BaseDialog.Close>

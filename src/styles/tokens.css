@@ -113,12 +113,16 @@
   --cmplt-shadow-lg: 0 24px 60px -12px oklch(0.18 0.005 85 / 0.12), 0 8px 22px -6px oklch(0.18 0.005 85 / 0.05);
   --cmplt-shadow-glow: 0 16px 40px -10px oklch(0.645 0.175 34 / 0.18);
 
-  /* Motion Primitives */
+  /* Motion Primitives — Natural, Soft & Tactile Curves */
   --cmplt-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --cmplt-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --cmplt-duration-fast: 140ms;
-  --cmplt-duration-normal: 220ms;
+  --cmplt-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --cmplt-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --cmplt-duration-instant: 90ms;
+  --cmplt-duration-fast: 150ms;
+  --cmplt-duration-normal: 240ms;
   --cmplt-duration-slow: 360ms;
+  --cmplt-duration-liquid: 500ms;
 
   /* ------------------------------------------------------------------------
      TIER 1 & 2: TYPOGRAPHY — Geist Variable + Liquid Dual-Scale (Utopia)

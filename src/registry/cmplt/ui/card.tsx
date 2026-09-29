@@ -33,7 +33,7 @@ import {
  *   FeatureCard, TestimonialCard, EventCard).
  */
 const cardVariants = cva(
-  "cmplt-card rounded-cmplt-lg text-fg-primary transition-all duration-200",
+  "cmplt-card rounded-cmplt-lg text-fg-primary transition-all duration-250 ease-cmplt-out",
   {
     variants: {
       variant: {
@@ -42,7 +42,7 @@ const cardVariants = cva(
           "bg-elevated border border-border-default shadow-cmplt-sm rounded-cmplt-xl",
         subtle: "bg-subtle/55 border border-border-subtle shadow-cmplt-none",
         interactive:
-          "bg-surface border border-border-subtle shadow-cmplt-xs hover:border-border-strong hover:shadow-cmplt-md",
+          "bg-surface border border-border-subtle shadow-cmplt-xs hover:border-border-strong hover:shadow-cmplt-md hover:-translate-y-0.5 active:translate-y-0 active:duration-100 cursor-pointer",
         outline:
           "bg-transparent border border-border-default shadow-cmplt-none",
         featured:

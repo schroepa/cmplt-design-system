@@ -13,7 +13,7 @@ import { cn } from "@/registry/cmplt/lib/utils";
  * - Proportionally wider horizontal padding (px-3.5 / px-4)
  */
 const inputVariants = cva(
-  "flex h-9 w-full border border-border-default bg-surface py-1.5 text-[13px] text-fg-primary shadow-cmplt-none transition-colors placeholder:text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:border-border-accent data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-status-danger data-[invalid]:focus-visible:ring-status-danger",
+  "flex h-9 w-full border border-border-default bg-surface py-1.5 text-[13px] text-fg-primary shadow-cmplt-none transition-all duration-200 ease-cmplt-out hover:border-border-strong placeholder:text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:border-border-accent data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-status-danger data-[invalid]:focus-visible:ring-status-danger",
   {
     variants: {
       variant: {

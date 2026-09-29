@@ -13,14 +13,14 @@ import { cn } from "@/registry/cmplt/lib/utils";
  * - Level 0/1 flat elevation (no heavy drop shadows on buttons)
  */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all duration-150 select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[disabled]:pointer-events-none data-[disabled]:opacity-45 active:scale-[0.985] [&_svg]:stroke-[1.75]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all duration-200 ease-cmplt-out select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[disabled]:pointer-events-none data-[disabled]:opacity-45 active:scale-[0.975] active:duration-100 [&_svg]:stroke-[1.75]",
   {
     variants: {
       variant: {
         primary:
-          "bg-accent text-fg-on-accent hover:bg-accent-hover border border-transparent rounded-cmplt-full",
+          "bg-accent text-fg-on-accent hover:bg-accent-hover hover:shadow-cmplt-xs border border-transparent rounded-cmplt-full",
         secondary:
-          "bg-surface text-fg-primary border border-border-default hover:bg-subtle hover:border-border-strong rounded-cmplt-md",
+          "bg-surface text-fg-primary border border-border-default hover:bg-subtle hover:border-border-strong hover:shadow-cmplt-xs rounded-cmplt-md",
         outline:
           "bg-transparent text-fg-primary border border-border-default hover:bg-subtle hover:border-border-strong rounded-cmplt-md",
         subtle:
