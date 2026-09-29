@@ -8,7 +8,6 @@ import {
   type ThemePreset,
   type RadiusPreset,
 } from "@/components/theme-provider";
-import { Button } from "@/registry/cmplt/ui/button";
 import { Badge } from "@/registry/cmplt/ui/badge";
 import { Kbd } from "@/registry/cmplt/ui/kbd";
 import { Input } from "@/registry/cmplt/ui/input";
@@ -337,15 +336,15 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border-subtle bg-canvas/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full pointer-events-none">
       <div className="cmplt-container flex h-16 items-center justify-between md:grid md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-4">
-        {/* Zone 1 (Left): Clean Brand Identity — Zero Badge Noise */}
+        {/* Zone 1 (Left): Individual Floating Brand Identity */}
         <div className="flex items-center min-w-0">
           <Link
             href="/"
-            className="group inline-flex items-center gap-2.5 font-semibold tracking-tight text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-sm"
+            className="pointer-events-auto group inline-flex h-9 items-center gap-2 rounded-cmplt-full border border-border-subtle/90 bg-surface/85 pl-1.5 pr-3.5 font-semibold tracking-tight text-fg-primary shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
           >
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-cmplt-squircle bg-accent text-fg-on-accent font-mono text-[11px] font-bold transition-transform duration-150 group-hover:scale-[1.03]">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-cmplt-full bg-accent text-fg-on-accent font-mono text-[11px] font-bold transition-transform duration-150 group-hover:scale-[1.03]">
               c/
             </span>
             <span className="text-sm font-semibold tracking-tight truncate">
@@ -354,10 +353,10 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        {/* Zone 2 (Center): 4 Unadorned Primary Navigation Links (NN/g Global Navigation) */}
+        {/* Zone 2 (Center): Floating Top-Level Pill Menu with Distinct Surface */}
         <nav
           aria-label="Primary navigation"
-          className="hidden md:flex items-center justify-center gap-1 lg:gap-2"
+          className="pointer-events-auto hidden md:flex h-9 items-center justify-center gap-1 rounded-cmplt-full border border-border-subtle/90 bg-surface/85 p-1 shadow-cmplt-sm backdrop-blur-md"
         >
           {NAV_ITEMS.map((item) => {
             const active = item.isActive(pathname);
@@ -367,10 +366,10 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative inline-flex items-center rounded-cmplt-md px-3.5 py-1.5 text-[13px] transition-colors duration-150 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus",
+                  "relative inline-flex h-full items-center rounded-cmplt-full px-3.5 text-[13px] transition-colors duration-150 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus",
                   active
-                    ? "bg-subtle/85 text-fg-primary font-semibold"
-                    : "text-fg-secondary font-medium hover:text-fg-primary hover:bg-subtle/40"
+                    ? "bg-subtle text-fg-primary font-semibold shadow-cmplt-xs"
+                    : "text-fg-secondary font-medium hover:text-fg-primary hover:bg-subtle/50"
                 )}
               >
                 {item.label}
@@ -379,16 +378,16 @@ export function SiteHeader() {
           })}
         </nav>
 
-        {/* Zone 3 (Right): Minimal Utility Navigation (2 Quiet Controls: Search + Appearance) */}
-        <div className="flex items-center justify-end gap-1.5 sm:gap-2">
-          {/* Utility 1: Compact Search Trigger (Cmd+K) */}
+        {/* Zone 3 (Right): Individual Floating Utility Controls (Search + Settings Icon) */}
+        <div className="pointer-events-auto flex items-center justify-end gap-2">
+          {/* Utility 1: Floating Search Pill (Cmd+K) */}
           <Dialog open={searchOpen} onOpenChange={setSearchOpen}>
             <DialogTrigger
               render={
                 <button
                   type="button"
                   aria-label="Search documentation and components (Cmd+K)"
-                  className="inline-flex h-8 w-8 sm:w-auto sm:min-w-[128px] items-center justify-center sm:justify-between gap-2 rounded-cmplt-md border border-border-subtle bg-subtle/35 sm:px-2.5 text-xs text-fg-muted transition-colors hover:border-border-default hover:bg-subtle/70 hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
+                  className="inline-flex h-9 w-9 sm:w-auto sm:min-w-[132px] items-center justify-center sm:justify-between gap-2 rounded-cmplt-full border border-border-subtle/90 bg-surface/85 sm:px-3 text-xs text-fg-muted shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
                 >
                   <span className="flex items-center gap-1.5">
                     <Search className="h-3.5 w-3.5 stroke-[1.75] shrink-0" />
@@ -511,19 +510,18 @@ export function SiteHeader() {
             </DialogContent>
           </Dialog>
 
-          {/* Utility 2: Single Uncluttered Appearance & Token Studio Icon Trigger (Progressive Disclosure) */}
+          {/* Utility 2: Floating Appearance & Token Studio Icon Button */}
           <Popover>
             <PopoverTrigger
               render={
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-8 w-8 rounded-cmplt-md text-fg-secondary hover:text-fg-primary"
+                <button
+                  type="button"
                   aria-label="Appearance and theme settings"
                   title="Appearance & Live Token Studio"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-cmplt-full border border-border-subtle/90 bg-surface/85 text-fg-secondary shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
                 >
                   <SlidersHorizontal className="h-4 w-4" />
-                </Button>
+                </button>
               }
             />
             <PopoverContent align="end" className="w-76 space-y-4">
@@ -644,33 +642,32 @@ export function SiteHeader() {
             </PopoverContent>
           </Popover>
 
-          {/* Mobile Navigation Menu Trigger (< 768px) */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 rounded-cmplt-md md:hidden"
+          {/* Floating Mobile Navigation Trigger (< 768px) */}
+          <button
+            type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle mobile navigation"
             aria-expanded={mobileMenuOpen}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-cmplt-full border border-border-subtle/90 bg-surface/85 text-fg-secondary shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus md:hidden cursor-pointer"
           >
             {mobileMenuOpen ? (
               <X className="h-4 w-4" />
             ) : (
               <Menu className="h-4 w-4" />
             )}
-          </Button>
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation Drawer (< 768px) with Backdrop */}
       {mobileMenuOpen && (
-        <>
+        <div className="pointer-events-auto">
           <div
             aria-hidden="true"
             onClick={() => setMobileMenuOpen(false)}
             className="fixed inset-0 top-16 z-30 bg-canvas/60 backdrop-blur-xs md:hidden"
           />
-          <div className="relative z-40 md:hidden border-t border-border-subtle bg-surface/98 backdrop-blur-md shadow-cmplt-lg">
+          <div className="relative z-40 mx-4 rounded-cmplt-lg border border-border-subtle bg-surface/95 backdrop-blur-md shadow-cmplt-lg md:hidden">
             <div className="cmplt-container py-5 space-y-5">
               <div className="space-y-2">
                 <div className="px-1 text-[10px] font-semibold uppercase tracking-wider text-fg-muted">
@@ -731,7 +728,7 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </header>
   );

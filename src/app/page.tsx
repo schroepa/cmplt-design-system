@@ -4,11 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import {
-  useTheme,
-  type ThemePreset,
-  type RadiusPreset,
-} from "@/components/theme-provider";
+import { useTheme } from "@/components/theme-provider";
 import { EngagementPanelBlock } from "@/registry/cmplt/blocks/engagement-panel-block";
 import { AppManagerBlock } from "@/registry/cmplt/blocks/app-manager-block";
 import { AiDeploymentCard } from "@/registry/cmplt/blocks/ai-deployment-card";
@@ -21,7 +17,6 @@ import { HighlightInput } from "@/registry/cmplt/ui/highlight-input";
 import { MotionSurface } from "@/registry/cmplt/ui/motion-surface";
 import { InteractiveDotField } from "@/registry/cmplt/ui/interactive-dot-field";
 import { Badge } from "@/registry/cmplt/ui/badge";
-import { Kbd } from "@/registry/cmplt/ui/kbd";
 import {
   Card,
   CardHeader,
@@ -30,7 +25,6 @@ import {
   CardContent,
   CardFooter,
 } from "@/registry/cmplt/ui/card";
-import { Input } from "@/registry/cmplt/ui/input";
 import { Field, FieldLabel, FieldDescription } from "@/registry/cmplt/ui/field";
 import { Checkbox } from "@/registry/cmplt/ui/checkbox";
 import {
@@ -56,12 +50,9 @@ import {
   Terminal,
   Figma,
   ShieldCheck,
-  Search,
   ExternalLink,
   Sun,
   Moon,
-  Layers,
-  Cpu,
 } from "lucide-react";
 import { cn } from "@/registry/cmplt/lib/utils";
 
@@ -69,17 +60,31 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
 }
 
+
 const HERO_PRIMARY_WORDS = ["The", "Complete", "Design", "System."];
 const HERO_ACCENT_WORDS = ["Engineered", "in", "Code,", "Synced", "to", "Figma."];
 
 export default function HomePage() {
-  const { preset, setPreset, radius, setRadius, mode, setMode } = useTheme();
+  const { mode, setMode } = useTheme();
   const [installComponent, setInstallComponent] = React.useState(
     "interactive-dot-field"
   );
+  const [cliCopied, setCliCopied] = React.useState(false);
+  const [configCopied, setConfigCopied] = React.useState(false);
 
   const heroRef = React.useRef<HTMLElement>(null);
-  const glowOrbRef = React.useRef<HTMLDivElement>(null);
+
+  const handleCliCopy = () => {
+    navigator.clipboard.writeText("npx shadcn@latest add @cmplt/button");
+    setCliCopied(true);
+    setTimeout(() => setCliCopied(false), 2000);
+  };
+
+  const handleConfigCopy = () => {
+    navigator.clipboard.writeText("npx shadcn@latest add @cmplt/config");
+    setConfigCopied(true);
+    setTimeout(() => setConfigCopied(false), 2000);
+  };
 
   useGSAP(
     () => {
@@ -91,7 +96,7 @@ export default function HomePage() {
       ).matches;
       if (prefersReducedMotion) return;
 
-      // 1. Staggered, organic Hero entrance choreography
+      // Staggered, organic Hero entrance choreography
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
       });
@@ -143,96 +148,7 @@ export default function HomePage() {
           { y: 12, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.65 },
           "-=0.48"
-        )
-        .fromTo(
-          "[data-hero-float]",
-          { y: 22, opacity: 0, scale: 0.96 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.95,
-            stagger: 0.12,
-            ease: "power3.out",
-          },
-          "-=0.65"
         );
-
-      // 2. Continuous whisper-soft breathing on floating telemetry badges
-      gsap.to("[data-hero-float='left']", {
-        y: -6,
-        duration: 3.8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-      gsap.to("[data-hero-float='right']", {
-        y: 6,
-        duration: 4.4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      // 3. Subtle ambient breathing on the accent headline glow
-      gsap.to("[data-hero-accent-glow]", {
-        opacity: 0.36,
-        scale: 1.05,
-        duration: 4.2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      // 4. Inertial pointer parallax for floating cards & ambient spotlight orb
-      const floatLeftX = gsap.quickTo("[data-hero-float='left']", "x", {
-        duration: 0.9,
-        ease: "power3.out",
-      });
-      const floatRightX = gsap.quickTo("[data-hero-float='right']", "x", {
-        duration: 0.9,
-        ease: "power3.out",
-      });
-      const orbX = glowOrbRef.current
-        ? gsap.quickTo(glowOrbRef.current, "x", {
-            duration: 1.1,
-            ease: "power3.out",
-          })
-        : null;
-      const orbY = glowOrbRef.current
-        ? gsap.quickTo(glowOrbRef.current, "y", {
-            duration: 1.1,
-            ease: "power3.out",
-          })
-        : null;
-
-      const handlePointerMove = (e: PointerEvent) => {
-        const rect = hero.getBoundingClientRect();
-        const nx = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 .. 0.5
-        const ny = (e.clientY - rect.top) / rect.height - 0.5;
-
-        floatLeftX(nx * -18);
-        floatRightX(nx * 18);
-        orbX?.(nx * 140);
-        orbY?.(ny * 90);
-      };
-
-      const handlePointerLeave = () => {
-        floatLeftX(0);
-        floatRightX(0);
-        orbX?.(0);
-        orbY?.(0);
-      };
-
-      hero.addEventListener("pointermove", handlePointerMove, {
-        passive: true,
-      });
-      hero.addEventListener("pointerleave", handlePointerLeave);
-
-      return () => {
-        hero.removeEventListener("pointermove", handlePointerMove);
-        hero.removeEventListener("pointerleave", handlePointerLeave);
-      };
     },
     { scope: heroRef }
   );
@@ -260,84 +176,19 @@ export default function HomePage() {
           }}
         />
 
-        {/* Inertial GSAP Ambient Accent Glow Orb */}
-        <div
-          ref={glowOrbRef}
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-28 -z-0 h-80 w-[38rem] 2xl:h-96 2xl:w-[48rem] -translate-x-1/2 rounded-full opacity-25 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklch, var(--accent-primary) 42%, transparent) 0%, transparent 72%)",
-          }}
-        />
+
+
 
         <div className="cmplt-container relative z-10">
-          {/* Floating Concentric Telemetry Card — Left (Desktop XL & Desktop+ 2XL) */}
-          <div
-            data-hero-float="left"
-            className="hidden xl:block pointer-events-none absolute left-14 2xl:left-20 top-8 2xl:top-12 w-60 2xl:w-64 rounded-cmplt-lg border border-border-default bg-surface/85 p-3.5 shadow-cmplt-md backdrop-blur-md"
-          >
-            <div className="flex items-center justify-between text-[10px] font-mono text-fg-muted mb-2.5">
-              <span className="inline-flex items-center gap-1.5 text-fg-primary font-medium">
-                <Cpu className="h-3 w-3 text-fg-accent" />
-                WebGL + GSAP
-              </span>
-              <span className="inline-flex items-center gap-1 text-status-success">
-                <span className="h-1.5 w-1.5 rounded-full bg-status-success animate-pulse" />
-                60fps
-              </span>
-            </div>
-            {/* Concentric Inner Box: Outer 16px - 12px (p-3) = rounded-cmplt-lg-inner-sm (8px) */}
-            <div className="rounded-cmplt-lg-inner-sm border border-border-subtle bg-subtle/80 p-3 space-y-1.5">
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-fg-muted">Dot Matrix</span>
-                <span className="font-mono text-fg-primary">Three.js Shader</span>
-              </div>
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-fg-muted">Pointer Wake</span>
-                <span className="font-mono text-fg-accent">quickTo(0.65s)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Concentric Geometry Card — Right (Desktop XL & Desktop+ 2XL) */}
-          <div
-            data-hero-float="right"
-            className="hidden xl:block pointer-events-none absolute right-14 2xl:right-20 top-12 2xl:top-16 w-60 2xl:w-64 rounded-cmplt-lg border border-border-default bg-surface/85 p-3.5 shadow-cmplt-md backdrop-blur-md"
-          >
-            <div className="flex items-center justify-between text-[10px] font-mono text-fg-muted mb-2.5">
-              <span className="inline-flex items-center gap-1.5 text-fg-primary font-medium">
-                <Layers className="h-3 w-3 text-fg-accent" />
-                Concentric Law
-              </span>
-              <span className="text-fg-accent">R_in = R_out − d</span>
-            </div>
-            {/* Concentric Inner Box: Outer 16px - 12px (p-3) = rounded-cmplt-lg-inner-sm (8px) */}
-            <div className="rounded-cmplt-lg-inner-sm border border-border-subtle bg-subtle/80 p-3 space-y-1.5">
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-fg-muted">Outer Shell</span>
-                <span className="font-mono text-fg-primary">24px (xl)</span>
-              </div>
-              <div className="flex items-center justify-between text-[10px]">
-                <span className="text-fg-muted">Nested Card</span>
-                <span className="font-mono text-fg-accent">14px (xl-inner)</span>
-              </div>
-            </div>
-          </div>
-
           {/* Hero Central Editorial Stack with Generous Vertical Rhythm */}
           <div className="mx-auto max-w-4xl 2xl:max-w-5xl text-center space-y-8 md:space-y-10 2xl:space-y-12">
             <div
               data-hero-badge
-              className="inline-flex flex-wrap items-center justify-center gap-2.5 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-4 py-2 shadow-cmplt-xs"
+              className="inline-flex items-center gap-2 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 py-1.5 shadow-cmplt-xs"
             >
-              <Badge variant="brand" size="sm">
-                cmplt v1.5 · Three.js + GSAP
-              </Badge>
-              <span className="text-xs font-medium text-fg-secondary">
-                Interactive WebGL Dot Field +{" "}
-                <code className="font-mono text-fg-primary">Concentric Radii</code> +{" "}
-                <code className="font-mono text-fg-primary">GSAP Physics</code>
+              <Badge variant="success" size="sm">v1.5</Badge>
+              <span className="text-xs text-fg-secondary">
+                Headless primitives · W3C OKLCH tokens · shadcn registry
               </span>
             </div>
 
@@ -356,15 +207,6 @@ export default function HomePage() {
                 </React.Fragment>
               ))}
               <span className="relative inline">
-                <span
-                  data-hero-accent-glow
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-x-3 -inset-y-1 rounded-full opacity-20 blur-2xl"
-                  style={{
-                    background:
-                      "radial-gradient(circle, var(--accent-primary) 0%, transparent 75%)",
-                  }}
-                />
                 <span className="relative text-fg-accent">
                   {HERO_ACCENT_WORDS.map((word, idx) => (
                     <React.Fragment key={`a-${idx}`}>
@@ -382,17 +224,20 @@ export default function HomePage() {
             </h1>
 
             <p data-hero-lead className="cmplt-lead mx-auto">
-              No harsh pure white or pitch black. <strong className="text-fg-primary">cmplt</strong>{" "}
-              pairs headless <strong className="text-fg-primary">Base UI</strong> accessibility
-              with <strong className="text-fg-primary">Geist Variable</strong> liquid typography,
-              concentric corner geometry, and whisper-soft{" "}
-              <strong className="text-fg-primary">Three.js &amp; GSAP physics</strong>.
+              Stop gluing together headless primitives, custom Tailwind configs,
+              and disconnected Figma files.{" "}
+              <strong className="text-fg-primary">cmplt</strong> ships a production-ready
+              design system with{" "}
+              <strong className="text-fg-primary">Base UI accessibility</strong>,{" "}
+              <strong className="text-fg-primary">W3C OKLCH tokens</strong>, and a{" "}
+              <strong className="text-fg-primary">native shadcn registry</strong> — installed
+              in one command.
             </p>
 
-            {/* Primary GSAP-Animated CTAs */}
+            {/* 2 Primary CTAs */}
             <div
               data-hero-ctas
-              className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3.5 md:gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3.5 md:gap-4 pt-2"
             >
               <Link href="/docs" className="w-full sm:w-auto">
                 <AnimatedCtaButton variant="accent-beam" size="lg" className="w-full sm:w-auto">
@@ -401,93 +246,65 @@ export default function HomePage() {
                 </AnimatedCtaButton>
               </Link>
               <Link href="/blocks" className="w-full sm:w-auto">
-                <AnimatedCtaButton variant="surface-halo" size="lg" className="w-full sm:w-auto">
+                <Button variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto">
                   <Sparkles className="h-4 w-4 text-fg-accent" />
                   Browse Pro Blocks
-                </AnimatedCtaButton>
-              </Link>
-              <Link href="/figma" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" shape="pill" className="w-full sm:w-auto">
-                  <Figma className="h-4 w-4" />
-                  Code ↔ Figma Architecture
                 </Button>
               </Link>
             </div>
 
-            {/* GSAP Hierarchy-Highlighted Command / Search Input Preview */}
-            <div data-hero-search className="mx-auto max-w-lg 2xl:max-w-xl pt-2">
-              <HighlightInput
-                shape="pill"
-                highlightMode="ambient"
-                leadingIcon={<Search />}
-                defaultValue="npx shadcn@latest add @cmplt/interactive-dot-field"
-                aria-label="Quick CLI command"
-                className="font-mono text-xs"
-                trailingSlot={
-                  <span className="flex items-center gap-1">
-                    <Kbd>⌘</Kbd>
-                    <Kbd>K</Kbd>
-                  </span>
-                }
-              />
+            {/* CLI Quick-Copy Bar */}
+            <div data-hero-search className="mx-auto max-w-md 2xl:max-w-lg pt-2">
+              <button
+                type="button"
+                onClick={handleCliCopy}
+                className="group flex w-full items-center gap-3 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-4 py-2.5 shadow-cmplt-xs transition-colors hover:border-border-accent hover:bg-surface cursor-pointer"
+                aria-label="Copy CLI install command"
+              >
+                <span className="text-fg-muted font-mono text-xs select-none">$</span>
+                <span className="flex-1 text-left font-mono text-xs text-fg-primary">
+                  npx shadcn@latest add @cmplt/button
+                </span>
+                <span className={cn(
+                  "shrink-0 text-[11px] font-medium transition-colors",
+                  cliCopied ? "text-status-success" : "text-fg-muted group-hover:text-fg-accent"
+                )}>
+                  {cliCopied ? "Copied!" : "Copy"}
+                </span>
+              </button>
             </div>
 
-            {/* Interactive Mode & Luminance Switcher Strip (Concentric Pill inside Pill) */}
+            {/* Interactive Mode Switcher */}
             <div
               data-hero-switcher
-              className="mx-auto pt-4 inline-flex flex-wrap items-center justify-center gap-3 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 py-2 shadow-cmplt-sm"
+              className="mx-auto pt-2 inline-flex items-center gap-1 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm p-1 shadow-cmplt-sm"
             >
-              <div className="flex items-center gap-1 rounded-cmplt-full bg-subtle p-1 border border-border-subtle">
-                <button
-                  type="button"
-                  onClick={() => setMode("light")}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 rounded-cmplt-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer",
-                    mode === "light"
-                      ? "bg-surface text-fg-primary shadow-cmplt-xs"
-                      : "text-fg-muted hover:text-fg-primary"
-                  )}
-                >
-                  <Sun className="h-3.5 w-3.5 text-[var(--cmplt-coral-500)]" />
-                  Light (Warm Alabaster)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setMode("dark")}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 rounded-cmplt-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer",
-                    mode === "dark"
-                      ? "bg-surface text-fg-primary shadow-cmplt-xs"
-                      : "text-fg-muted hover:text-fg-primary"
-                  )}
-                >
-                  <Moon className="h-3.5 w-3.5 text-[var(--cmplt-jade-400)]" />
-                  Dark (Matte Graphite)
-                </button>
-              </div>
-
-              <div className="hidden md:flex items-center gap-2.5 px-3 text-xs text-fg-muted font-mono">
-                <span>
-                  Canvas:{" "}
-                  <strong className="text-fg-primary">
-                    {mode === "dark" ? "#1F1F1E" : "#EEEEEC"}
-                  </strong>
-                </span>
-                <span>·</span>
-                <span>
-                  Shell:{" "}
-                  <strong className="text-fg-primary">
-                    {mode === "dark" ? "#262625" : "#FBFBF9"}
-                  </strong>
-                </span>
-                <span>·</span>
-                <span>
-                  Panel:{" "}
-                  <strong className="text-fg-primary">
-                    {mode === "dark" ? "#2E2E2D" : "#FDFDFC"}
-                  </strong>
-                </span>
-              </div>
+              <button
+                type="button"
+                onClick={() => setMode("light")}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer",
+                  mode === "light"
+                    ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                    : "text-fg-muted hover:text-fg-primary"
+                )}
+              >
+                <Sun className="h-3.5 w-3.5 text-[var(--cmplt-coral-500)]" />
+                Light
+              </button>
+              <button
+                type="button"
+                onClick={() => setMode("dark")}
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer",
+                  mode === "dark"
+                    ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                    : "text-fg-muted hover:text-fg-primary"
+                )}
+              >
+                <Moon className="h-3.5 w-3.5 text-[var(--cmplt-jade-400)]" />
+                Dark
+              </button>
             </div>
           </div>
         </div>
@@ -499,7 +316,7 @@ export default function HomePage() {
          ===================================================================== */}
       <section className="cmplt-section border-b border-border-subtle">
         <div className="cmplt-container space-y-12 md:space-y-16 2xl:space-y-20">
-          <Tabs defaultValue="both" className="w-full space-y-10 md:space-y-12 2xl:space-y-16">
+          <Tabs defaultValue="engagement" className="w-full space-y-10 md:space-y-12 2xl:space-y-16">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2 border-b border-border-subtle/80">
               <div className="space-y-3 max-w-2xl">
                 <Badge variant="brand">4-Step Surface Hierarchy</Badge>
@@ -633,14 +450,15 @@ export default function HomePage() {
                           variant="accent-beam"
                           size="sm"
                           className="w-full"
+                          onClick={handleConfigCopy}
                         >
                           <Terminal className="h-3.5 w-3.5" />
-                          Generate CLI Config
+                          {configCopied ? "Copied @cmplt config!" : "Generate CLI Config"}
                         </AnimatedCtaButton>
                       }
                     />
                     <TooltipContent>
-                      Copies @cmplt registry block to clipboard
+                      Copies @cmplt registry config to clipboard
                     </TooltipContent>
                   </Tooltip>
                 </CardFooter>

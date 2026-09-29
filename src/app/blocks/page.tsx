@@ -17,14 +17,10 @@ export default function BlocksLandingPage() {
     <div className="cmplt-container py-16 md:py-24 lg:py-32 2xl:py-40 space-y-24 md:space-y-32 2xl:space-y-40">
       {/* Hero Header */}
       <div className="max-w-4xl space-y-6">
-        <div className="flex flex-wrap items-center gap-2.5">
+        <div className="flex items-center gap-2">
           <Badge variant="brand">
-            <Sparkles className="h-3 w-3" /> cmplt Registry Blocks
+            <Sparkles className="h-3 w-3" /> cmplt Registry Blocks · 1-Command Install
           </Badge>
-          <Badge variant="mono" dot={false}>
-            registry:block
-          </Badge>
-          <Badge variant="outline">1-Command Install</Badge>
         </div>
         <h1 className="cmplt-h1 text-fg-primary">
           Production-Ready Blocks.{" "}

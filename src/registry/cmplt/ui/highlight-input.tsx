@@ -20,8 +20,8 @@ export interface HighlightInputProps
   shape?: "rounded" | "pill";
   /**
    * Hierarchy highlight mode:
-   * - "ambient": Continuous, whisper-soft orbital border light that intensifies on hover/focus (default)
-   * - "focus-only": Subtle resting border that awakens with a GSAP halo sweep on hover/focus
+   * - "focus-only": Subtle resting border that awakens with a GSAP halo sweep on hover/focus (default)
+   * - "ambient": Continuous, whisper-soft orbital border light that intensifies on hover/focus
    */
   highlightMode?: "ambient" | "focus-only";
   /**
@@ -49,7 +49,7 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
       className,
       wrapperClassName,
       shape = "rounded",
-      highlightMode = "ambient",
+      highlightMode = "focus-only",
       leadingIcon,
       trailingSlot,
       onFocus,
@@ -102,6 +102,12 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
           repeat: -1,
         });
 
+        // In focus-only mode, pause tweens at rest — resume on pointer/focus
+        if (highlightMode === "focus-only") {
+          orbitTween.pause();
+          auraBreath.pause();
+        }
+
         // 3. Inertial cursor spotlight along the frame border
         const spotXTo = gsap.quickTo(spotlight, "x", {
           duration: 0.45,
@@ -113,6 +119,10 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
         });
 
         const handlePointerEnter = () => {
+          if (highlightMode === "focus-only") {
+            orbitTween.resume();
+            auraBreath.resume();
+          }
           gsap.to(orbitTween, { timeScale: 1.35, duration: 0.6, ease: "sine.out" });
           gsap.to(orbit, {
             opacity: 0.95,
@@ -149,6 +159,15 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
               duration: 0.6,
               ease: "power2.out",
             });
+            if (highlightMode === "focus-only") {
+              // Pause after fade-out settles so animation doesn't continue at 0.15 opacity
+              gsap.delayedCall(0.65, () => {
+                if (!isFocusedRef.current) {
+                  orbitTween.pause();
+                  auraBreath.pause();
+                }
+              });
+            }
           }
         };
 

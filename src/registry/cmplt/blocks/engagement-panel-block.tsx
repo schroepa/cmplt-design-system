@@ -122,7 +122,7 @@ export function EngagementPanelBlock() {
                 <div className="flex items-center justify-between py-3 text-[13px]">
                   <span className="text-fg-muted">Weekly Limit</span>
                   <span className="font-medium text-fg-primary cmplt-tabular">
-                    40 Hours / week
+                    40 hrs/week
                   </span>
                 </div>
                 <div className="flex items-center justify-between py-3 text-[13px]">
@@ -157,7 +157,7 @@ export function EngagementPanelBlock() {
                 <div className="flex items-center justify-between py-3 text-[13px]">
                   <span className="text-fg-muted">Weekly Limit</span>
                   <span className="font-medium text-fg-primary cmplt-tabular">
-                    10 Hours / Week
+                    10 hrs/week
                   </span>
                 </div>
                 <div className="flex items-center justify-between py-3 text-[13px]">
@@ -175,15 +175,15 @@ export function EngagementPanelBlock() {
               <span className="text-fg-primary font-medium">Open Ended</span>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <span className="text-fg-muted">Deadline to Respond the Offer</span>
+              <span className="text-fg-muted">Response Deadline</span>
               <span className="text-fg-primary cmplt-tabular">
                 12 December, 2026
               </span>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <span className="text-fg-muted">Estimated Start & End Date</span>
+              <span className="text-fg-muted">Start Date</span>
               <span className="text-fg-primary cmplt-tabular">
-                1 December, 2026 - Open Ended
+                Dec 1, 2026
               </span>
             </div>
             <div className="flex items-center justify-between gap-4">

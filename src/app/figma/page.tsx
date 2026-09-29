@@ -53,12 +53,10 @@ export default function FigmaLandingPage() {
       {/* Hero */}
       <div className="grid gap-12 md:gap-16 lg:gap-16 2xl:gap-24 lg:grid-cols-12 items-center">
         <div className="lg:col-span-6 2xl:col-span-6 space-y-6 md:space-y-8">
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <Badge variant="brand">
-              <Figma className="h-3 w-3" /> Code-First → Figma Parity
+              <Figma className="h-3 w-3" /> Code-First → Figma Parity · W3C DTCG
             </Badge>
-            <Badge variant="mono">W3C Design Tokens Format</Badge>
-            <Badge variant="outline">Figma Variables Ready</Badge>
           </div>
 
           <h1 className="cmplt-h1 text-fg-primary">

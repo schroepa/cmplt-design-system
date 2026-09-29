@@ -40,6 +40,7 @@ export default function LivingBlueprintPage() {
     "all" | PillarSlug
   >("all");
   const [searchQuery, setSearchQuery] = React.useState("");
+  const [allExpanded, setAllExpanded] = React.useState<boolean | null>(null);
 
   const allDecisions = React.useMemo(() => getAllDecisions(), []);
 
@@ -79,14 +80,10 @@ export default function LivingBlueprintPage() {
          ===================================================================== */}
       <div className="space-y-4 border-b border-border-subtle pb-8">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="success">{LIVING_DOC_META.status}</Badge>
-          <Badge variant="brand">v{LIVING_DOC_META.version}</Badge>
-          <Badge variant="mono" className="cmplt-tabular">
-            Synced {LIVING_DOC_META.lastUpdated}
-          </Badge>
-          <Badge variant="outline" className="cmplt-tabular">
-            {allDecisions.length} Granular Decisions
-          </Badge>
+          <Badge variant="brand">Living System Blueprint · v{LIVING_DOC_META.version}</Badge>
+          <span className="text-xs font-mono text-fg-muted cmplt-tabular">
+            Synced {LIVING_DOC_META.lastUpdated} · {allDecisions.length} Decisions
+          </span>
         </div>
 
         <h1 className="cmplt-h1 text-fg-primary">{LIVING_DOC_META.title}</h1>
@@ -95,17 +92,24 @@ export default function LivingBlueprintPage() {
 
         <div className="flex flex-wrap items-center gap-2.5 pt-2">
           {SYSTEM_PILLARS.map((p) => (
-            <Link key={p.slug} href={`/docs/blueprint/${p.slug}`}>
-              <Button variant="secondary" size="sm">
-                {pillarIcons[p.slug]}
-                <span>
-                  {p.number}. {p.shortTitle}
-                </span>
-                <Badge variant="mono" size="sm" dot={false}>
-                  {p.legacyAcronym}
-                </Badge>
-              </Button>
-            </Link>
+            <Button
+              key={p.slug}
+              variant="secondary"
+              size="sm"
+              onClick={() => {
+                setSelectedPillar(p.slug);
+                document.getElementById("decisions")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="cursor-pointer"
+            >
+              {pillarIcons[p.slug]}
+              <span>
+                {p.number}. {p.shortTitle}
+              </span>
+              <Badge variant="mono" size="sm" dot={false}>
+                {p.legacyAcronym}
+              </Badge>
+            </Button>
           ))}
         </div>
       </div>
@@ -305,6 +309,16 @@ export default function LivingBlueprintPage() {
                 <code className="font-mono text-fg-primary">AD-02</code>).
               </p>
             </div>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="xs"
+                onClick={() => setAllExpanded((prev) => (prev ? false : true))}
+                className="cursor-pointer font-mono text-xs"
+              >
+                {allExpanded ? "Collapse All Records" : "Expand All Records"}
+              </Button>
+            </div>
           </div>
 
           {/* Search + Pillar Filter Bar */}
@@ -397,11 +411,14 @@ export default function LivingBlueprintPage() {
           </Card>
         ) : (
           <div className="space-y-6">
-            {filteredDecisions.map((decision) => (
+            {filteredDecisions.map((decision, index) => (
               <DecisionRecordCard
                 key={decision.id}
                 decision={decision}
                 showPillarLink
+                defaultExpanded={index === 0}
+                expanded={allExpanded !== null ? allExpanded : undefined}
+                onToggle={() => setAllExpanded(null)}
               />
             ))}
           </div>

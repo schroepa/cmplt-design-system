@@ -15,10 +15,11 @@ import {
   PenTool,
   Home,
   Plus,
+  Check,
 } from "lucide-react";
 import { cn } from "@/registry/cmplt/lib/utils";
 
-const INSTALLED_APPS = [
+const INITIAL_INSTALLED_APPS = [
   { id: "links", name: "Links", icon: Link2, color: "bg-blue-600 text-white", count: 1 },
   { id: "forums", name: "Forums", icon: MessageSquare, color: "bg-indigo-500 text-white", count: 1 },
   { id: "courses", name: "Courses", icon: GraduationCap, color: "bg-violet-500 text-white", count: 1 },
@@ -26,7 +27,7 @@ const INSTALLED_APPS = [
   { id: "tickets", name: "Tickets", icon: Ticket, color: "bg-sky-100 text-sky-700 border border-sky-300", count: 1 },
 ];
 
-const READY_APPS = [
+const ALL_READY_APPS = [
   { id: "community", name: "Community", icon: Users, color: "bg-rose-100 text-rose-600" },
   { id: "chat", name: "Chat", icon: MessageSquare, color: "bg-[#EA623F] text-white" },
   { id: "calendar", name: "Calendar Booking", icon: Calendar, color: "bg-orange-100 text-orange-600" },
@@ -39,15 +40,36 @@ const READY_APPS = [
  * - Left Sidebar (#F5F5F3 in Light) with GSAP HighlightInput Pill Search, Squircle App Icons, Indigo Count Circles & Coral "+ ADD"
  * - Center Editorial Pane with generous whitespace and clear typographic hierarchy
  * - Right Nested Preview Card with active Coral border highlight ("Suggestions App")
- * - Frosted Bottom Action Bar with GSAP AnimatedCtaButton "Done" Pill Button
+ * - Frosted Bottom Action Bar with GSAP AnimatedCtaButton "Save Changes" Pill Button
  */
 export function AppManagerBlock() {
   const [search, setSearch] = React.useState("");
   const [selectedApp, setSelectedApp] = React.useState("suggestions");
+  const [installedApps, setInstalledApps] = React.useState(INITIAL_INSTALLED_APPS);
+  const [addedIds, setAddedIds] = React.useState<Set<string>>(new Set());
+  const [saved, setSaved] = React.useState(false);
 
-  const filteredInstalled = INSTALLED_APPS.filter((a) =>
+  const filteredInstalled = installedApps.filter((a) =>
     a.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const availableReadyApps = ALL_READY_APPS.filter(
+    (a) => !installedApps.some((inst) => inst.id === a.id)
+  );
+
+  const handleAdd = (app: typeof ALL_READY_APPS[number]) => {
+    setInstalledApps((prev) => [
+      ...prev,
+      { id: app.id, name: app.name, icon: app.icon, color: app.color, count: 0 },
+    ]);
+    setAddedIds((prev) => new Set(prev).add(app.id));
+    setSelectedApp(app.id);
+  };
+
+  const handleSave = () => {
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
 
   return (
     <div className="w-full overflow-hidden rounded-cmplt-xl border border-border-default bg-surface shadow-cmplt-lg">
@@ -112,47 +134,66 @@ export function AppManagerBlock() {
             </div>
 
             {/* Divider + Ready to Install */}
-            <div className="border-t md:border-t-0 md:border-l lg:border-l-0 lg:border-t border-border-subtle pt-5 md:pt-0 md:pl-6 lg:pl-0 lg:pt-5 space-y-2.5">
-              <div className="px-1.5 text-[10px] font-semibold uppercase tracking-wider text-fg-muted">
-                Ready to Install
-              </div>
-              <div className="space-y-1.5">
-                {READY_APPS.map((app) => {
-                  const Icon = app.icon;
-                  return (
-                    <div
-                      key={app.id}
-                      className="flex items-center justify-between rounded-cmplt-lg-inner-sm p-1.5 pr-2.5 text-xs"
-                    >
-                      <span className="flex items-center gap-3">
-                        <span
+            {availableReadyApps.length > 0 && (
+              <div className="border-t md:border-t-0 md:border-l lg:border-l-0 lg:border-t border-border-subtle pt-5 md:pt-0 md:pl-6 lg:pl-0 lg:pt-5 space-y-2.5">
+                <div className="px-1.5 text-[10px] font-semibold uppercase tracking-wider text-fg-muted">
+                  Ready to Install
+                </div>
+                <div className="space-y-1.5">
+                  {availableReadyApps.map((app) => {
+                    const Icon = app.icon;
+                    const isAdded = addedIds.has(app.id);
+                    return (
+                      <div
+                        key={app.id}
+                        className="flex items-center justify-between rounded-cmplt-lg-inner-sm p-1.5 pr-2.5 text-xs"
+                      >
+                        <span className="flex items-center gap-3">
+                          <span
+                            className={cn(
+                              "flex h-7 w-7 items-center justify-center rounded-cmplt-xs",
+                              app.color
+                            )}
+                          >
+                            <Icon className="h-3.5 w-3.5" />
+                          </span>
+                          <span className="font-medium text-fg-primary">
+                            {app.name}
+                          </span>
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => handleAdd(app)}
+                          disabled={isAdded}
                           className={cn(
-                            "flex h-7 w-7 items-center justify-center rounded-cmplt-xs",
-                            app.color
+                            "inline-flex items-center gap-0.5 text-[11px] font-semibold cursor-pointer transition-opacity",
+                            isAdded
+                              ? "text-status-success opacity-75"
+                              : "text-[var(--cmplt-coral-500)] hover:opacity-80"
                           )}
                         >
-                          <Icon className="h-3.5 w-3.5" />
-                        </span>
-                        <span className="font-medium text-fg-primary">
-                          {app.name}
-                        </span>
-                      </span>
-                      <button
-                        type="button"
-                        className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[var(--cmplt-coral-500)] hover:opacity-80 cursor-pointer"
-                      >
-                        <Plus className="h-3 w-3 stroke-[2.5]" />
-                        ADD
-                      </button>
-                    </div>
-                  );
-                })}
+                          {isAdded ? (
+                            <>
+                              <Check className="h-3 w-3 stroke-[2.5]" />
+                              Added
+                            </>
+                          ) : (
+                            <>
+                              <Plus className="h-3 w-3 stroke-[2.5]" />
+                              ADD
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Center & Right Area: Editorial Instructions + Nested App Preview Card */}
+        {/* Center & Right Area: Editorial Summary + Nested App Preview Card */}
         <div className="lg:col-span-8 2xl:col-span-9 flex flex-col justify-between bg-surface">
           {/* Top Grab Handle */}
           <div className="flex justify-center pt-3">
@@ -167,7 +208,7 @@ export function AppManagerBlock() {
                   Manage Apps
                 </h3>
                 <p className="text-xs sm:text-[13px] text-fg-secondary leading-relaxed">
-                  Here you can set up all of your apps. You can browse all the apps on the left.
+                  Install and configure apps for your workspace. Each app adds new capabilities and can be customized individually.
                 </p>
               </div>
 
@@ -176,7 +217,7 @@ export function AppManagerBlock() {
                   Settings
                 </h4>
                 <p className="text-xs sm:text-[13px] text-fg-secondary leading-relaxed">
-                  On each app you will find access and other customization settings.
+                  Each app includes access controls and customization options.
                 </p>
               </div>
 
@@ -186,15 +227,6 @@ export function AppManagerBlock() {
                 </h4>
                 <p className="text-xs sm:text-[13px] text-fg-secondary leading-relaxed">
                   Share links directly to your community and get your customers hyped.
-                </p>
-              </div>
-
-              <div className="space-y-1.5">
-                <h4 className="text-xs sm:text-[13px] font-semibold text-fg-primary">
-                  Browse Apps
-                </h4>
-                <p className="text-xs sm:text-[13px] text-fg-secondary leading-relaxed">
-                  On your left, you can manage and install new apps.
                 </p>
               </div>
             </div>
@@ -220,7 +252,7 @@ export function AppManagerBlock() {
                     Your Apps
                   </div>
                   <div className="space-y-2">
-                    {INSTALLED_APPS.map((app) => {
+                    {installedApps.map((app) => {
                       const Icon = app.icon;
                       const isActive = selectedApp === app.id;
                       return (
@@ -256,13 +288,21 @@ export function AppManagerBlock() {
             </div>
           </div>
 
-          {/* Frosted Bottom Action Bar with Warm Coral "Done" GSAP Pill Button */}
+          {/* Frosted Bottom Action Bar */}
           <div className="flex items-center justify-between border-t border-border-subtle bg-subtle/65 px-6 py-4 sm:px-8 lg:px-10 2xl:px-14 backdrop-blur-md">
-            <span className="text-xs text-fg-muted">
-              Once you&apos;re done, hit done on the right.
+            <span className={cn(
+              "text-xs transition-colors",
+              saved ? "text-status-success font-medium" : "text-fg-muted"
+            )}>
+              {saved ? "Changes saved!" : `${installedApps.length} apps installed`}
             </span>
-            <AnimatedCtaButton variant="accent-beam" size="sm">
-              Done
+            <AnimatedCtaButton
+              variant="accent-beam"
+              size="sm"
+              onClick={handleSave}
+            >
+              {saved ? <Check className="h-3.5 w-3.5" /> : null}
+              {saved ? "Saved" : "Save Changes"}
             </AnimatedCtaButton>
           </div>
         </div>

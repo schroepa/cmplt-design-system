@@ -1,7 +1,5 @@
 import * as React from "react";
 import Link from "next/link";
-import { Badge } from "@/registry/cmplt/ui/badge";
-import { ExternalLink, Github, Globe } from "lucide-react";
 
 export function SiteFooter() {
   return (
@@ -22,56 +20,6 @@ export function SiteFooter() {
               styled with 3-tier W3C OKLCH tokens, distributed via the native{" "}
               <code className="font-mono text-fg-secondary">shadcn</code> registry.
             </p>
-            <div className="rounded-cmplt-md border border-border-subtle bg-subtle/60 p-3.5 space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-fg-muted">
-                  Inventor &amp; Owner
-                </span>
-                <Badge variant="mono" size="sm" dot={false}>
-                  ptrckschrdtr
-                </Badge>
-              </div>
-              <div className="text-xs font-semibold text-fg-primary">
-                Patrick Schrödter{" "}
-                <span className="font-mono font-normal text-fg-muted">
-                  (ptrckschrdtr)
-                </span>
-              </div>
-              <div className="flex flex-wrap items-center gap-3 pt-0.5 text-xs">
-                <a
-                  href="https://ptrckschrdtr.de"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 font-mono text-fg-secondary hover:text-fg-accent transition-colors"
-                >
-                  <Globe className="h-3.5 w-3.5 text-fg-accent" />
-                  ptrckschrdtr.de
-                  <ExternalLink className="h-2.5 w-2.5 opacity-70" />
-                </a>
-                <span className="text-border-strong">·</span>
-                <a
-                  href="https://github.com/schroepa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 font-mono text-fg-secondary hover:text-fg-accent transition-colors"
-                >
-                  <Github className="h-3.5 w-3.5 text-fg-accent" />
-                  github: schroepa
-                  <ExternalLink className="h-2.5 w-2.5 opacity-70" />
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <Badge variant="brand" size="sm">
-                Base UI v1.8
-              </Badge>
-              <Badge variant="outline" size="sm">
-                Tailwind v4
-              </Badge>
-              <Badge variant="mono" size="sm">
-                W3C Tokens
-              </Badge>
-            </div>
           </div>
 
           {/* Link Columns (2-col on Mobile & Tablet, 4 cols total on Desktop/Desktop+) */}
@@ -83,7 +31,7 @@ export function SiteFooter() {
               <ul className="space-y-3 text-xs sm:text-[13px] text-fg-muted">
                 <li>
                   <Link href="/docs" className="hover:text-fg-primary transition-colors">
-                    Introduction & Architecture
+                    Introduction &amp; Architecture
                   </Link>
                 </li>
                 <li>
@@ -106,7 +54,7 @@ export function SiteFooter() {
 
             <div className="space-y-4">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-fg-primary">
-                Product &amp; Owner
+                Product
               </h4>
               <ul className="space-y-3 text-xs sm:text-[13px] text-fg-muted">
                 <li>
@@ -116,35 +64,13 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <Link href="/figma" className="hover:text-fg-primary transition-colors">
-                    Figma Variables & UI Kit
+                    Figma Variables &amp; UI Kit
                   </Link>
                 </li>
                 <li>
                   <Link href="/pricing" className="hover:text-fg-primary transition-colors">
-                    Pricing & Team Licensing
+                    Pricing &amp; Team Licensing
                   </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://ptrckschrdtr.de"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-fg-primary transition-colors inline-flex items-center gap-1"
-                  >
-                    ptrckschrdtr.de
-                    <ExternalLink className="h-3 w-3 opacity-60" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/schroepa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-fg-primary transition-colors inline-flex items-center gap-1 font-mono text-xs"
-                  >
-                    github.com/schroepa
-                    <ExternalLink className="h-3 w-3 opacity-60" />
-                  </a>
                 </li>
               </ul>
             </div>

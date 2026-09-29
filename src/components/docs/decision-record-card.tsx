@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { GranularDecisionRecord } from "@/components/docs/living-blueprint-catalog";
 import { Badge } from "@/registry/cmplt/ui/badge";
 import { Card } from "@/registry/cmplt/ui/card";
+import { Button } from "@/registry/cmplt/ui/button";
 import {
   Check,
   Copy,
@@ -13,6 +14,8 @@ import {
   XCircle,
   Sparkles,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 const PILLAR_BADGE_LABELS: Record<
@@ -36,10 +39,33 @@ const PILLAR_BADGE_LABELS: Record<
 export function DecisionRecordCard({
   decision,
   showPillarLink = false,
+  defaultExpanded = false,
+  expanded: controlledExpanded,
+  onToggle,
 }: {
   decision: GranularDecisionRecord;
   showPillarLink?: boolean;
+  defaultExpanded?: boolean;
+  expanded?: boolean;
+  onToggle?: () => void;
 }) {
+  const [internalExpanded, setInternalExpanded] = React.useState(defaultExpanded);
+  const isExpanded = controlledExpanded !== undefined ? controlledExpanded : internalExpanded;
+
+  React.useEffect(() => {
+    if (controlledExpanded === undefined) {
+      setInternalExpanded(defaultExpanded);
+    }
+  }, [defaultExpanded, controlledExpanded]);
+
+  const toggleExpanded = () => {
+    if (onToggle) {
+      onToggle();
+    } else {
+      setInternalExpanded((prev) => !prev);
+    }
+  };
+
   const [copiedId, setCopiedId] = React.useState(false);
   const [copiedParam, setCopiedParam] = React.useState<string | null>(null);
 
@@ -64,7 +90,7 @@ export function DecisionRecordCard({
       className="overflow-hidden scroll-mt-24"
     >
       {/* Top Header Strip */}
-      <div className="border-b border-border-subtle bg-subtle/45 px-5 py-4 sm:px-6">
+      <div className="bg-subtle/45 px-5 py-4 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
           <div className="flex flex-wrap items-center gap-2">
             <button
@@ -113,8 +139,39 @@ export function DecisionRecordCard({
         </p>
       </div>
 
-      {/* Body Content */}
-      <div className="p-5 sm:p-6 space-y-5">
+      {/* Progressive Disclosure Toggle Bar */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border-subtle bg-subtle/25 px-5 py-2.5 sm:px-6">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-fg-muted">
+          <span className="font-mono text-[11px] text-fg-secondary">
+            {decision.granularSpec.length} spec parameters
+          </span>
+          <span>·</span>
+          <span className="font-mono text-[11px] text-fg-secondary">
+            {decision.sourceFiles.length} source {decision.sourceFiles.length === 1 ? "file" : "files"}
+          </span>
+        </div>
+        <Button
+          variant="secondary"
+          size="xs"
+          onClick={toggleExpanded}
+          className="inline-flex items-center gap-1.5 cursor-pointer"
+        >
+          <span>
+            {isExpanded
+              ? "Collapse Specification"
+              : `Inspect Specification & Rationale (${decision.granularSpec.length})`}
+          </span>
+          {isExpanded ? (
+            <ChevronUp className="h-3.5 w-3.5" />
+          ) : (
+            <ChevronDown className="h-3.5 w-3.5" />
+          )}
+        </Button>
+      </div>
+
+      {/* Body Content (Collapsible) */}
+      {isExpanded && (
+        <div className="border-t border-border-subtle p-5 sm:p-6 space-y-5">
         {/* 1. Context & Problem Statement */}
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-cmplt-md border border-border-subtle bg-subtle/40 p-4 space-y-1.5">
@@ -230,6 +287,7 @@ export function DecisionRecordCard({
           </div>
         </div>
       </div>
-    </Card>
+    )}
+  </Card>
   );
 }

@@ -28,10 +28,8 @@ export default function DocsOverviewPage() {
     <div className="space-y-16 md:space-y-20 lg:space-y-24">
       {/* Hero Header */}
       <div className="space-y-5 border-b border-border-subtle pb-10 md:pb-12">
-        <div className="flex flex-wrap items-center gap-2.5">
-          <Badge variant="brand">Documentation</Badge>
-          <Badge variant="mono">@base-ui/react v1.8</Badge>
-          <Badge variant="outline">shadcn Registry Schema</Badge>
+        <div className="flex items-center gap-2">
+          <Badge variant="brand">Base UI v1.8 · shadcn Registry</Badge>
         </div>
         <h1 className="cmplt-h1 text-fg-primary">
           cmplt Design System &amp; Registry

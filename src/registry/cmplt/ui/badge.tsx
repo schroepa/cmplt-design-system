@@ -43,7 +43,6 @@ const badgeVariants = cva(
 );
 
 const DOT_COLOR_MAP: Partial<Record<NonNullable<BadgeProps["variant"]>, string>> = {
-  brand: "bg-fg-accent",
   success: "bg-status-success",
   warning: "bg-status-warning",
   danger: "bg-status-danger",
