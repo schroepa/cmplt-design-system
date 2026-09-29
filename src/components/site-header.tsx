@@ -310,6 +310,7 @@ export function SiteHeader() {
   const bottomBarRef = React.useRef<HTMLSpanElement | null>(null);
   const overlayRef = React.useRef<HTMLDivElement | null>(null);
   const backdropGlowRef = React.useRef<HTMLDivElement | null>(null);
+  const hasMountedRef = React.useRef(false);
 
   React.useEffect(() => {
     setMenuOpen(false);
@@ -371,6 +372,19 @@ export function SiteHeader() {
         footerBar,
       ]);
 
+      if (!hasMountedRef.current) {
+        hasMountedRef.current = true;
+        gsap.set(overlay, {
+          opacity: 0,
+          visibility: "hidden",
+          clipPath: "inset(0% 0% 100% 0%)",
+        });
+        gsap.set(topBar, { y: -4.5, rotate: 0 });
+        gsap.set(middleBar, { scaleX: 1, opacity: 1 });
+        gsap.set(bottomBar, { y: 4.5, rotate: 0, scaleX: 0.72 });
+        return;
+      }
+
       if (prefersReduced) {
         gsap.set(overlay, {
           autoAlpha: menuOpen ? 1 : 0,
@@ -387,7 +401,7 @@ export function SiteHeader() {
         gsap.set(bottomBar, {
           y: menuOpen ? 0 : 4.5,
           rotate: menuOpen ? -45 : 0,
-          scaleX: 1,
+          scaleX: menuOpen ? 1 : 0.72,
         });
         return;
       }
