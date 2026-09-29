@@ -21,14 +21,14 @@ export function EngagementPanelBlock() {
     <div className="w-full rounded-cmplt-xl border border-border-default bg-surface p-2.5 sm:p-3 shadow-cmplt-lg">
       <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-6 2xl:gap-8">
         {/* Left Column: Summary, Alert Banner, Entity Links & Primary Actions */}
-        <div className="lg:col-span-5 2xl:col-span-4 flex flex-col justify-between p-4 sm:p-6 md:p-7 lg:p-8 2xl:p-10">
-          <div className="space-y-6 md:space-y-7">
+        <div className="lg:col-span-5 2xl:col-span-4 flex flex-col justify-between p-3.5 sm:p-6 md:p-7 lg:p-8 2xl:p-10">
+          <div className="space-y-4 sm:space-y-6 md:space-y-7">
             <h3 className="text-base sm:text-lg font-medium tracking-tight text-fg-primary">
               View Engagement
             </h3>
 
             {/* Subtle Warm Banner */}
-            <div className="flex items-center gap-3 rounded-cmplt-md bg-muted/80 px-4 py-3 text-xs sm:text-[13px] text-fg-primary border border-border-subtle">
+            <div className="flex items-center gap-3 rounded-cmplt-md bg-muted/80 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-[13px] text-fg-primary border border-border-subtle">
               <AlertTriangle className="h-4 w-4 shrink-0 text-status-warning fill-status-warning/20" />
               <span>
                 {status === "pending"
@@ -41,7 +41,7 @@ export function EngagementPanelBlock() {
 
             {/* 1px Divided Entity Rows (2-col on Tablet, stacked on Mobile & Desktop sidebar) */}
             <div className="divide-y md:divide-y-0 lg:divide-y divide-border-subtle md:grid md:grid-cols-2 md:gap-4 lg:block pt-1">
-              <div className="flex items-center gap-3.5 py-4 md:rounded-cmplt-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
+              <div className="flex items-center gap-3.5 py-3 sm:py-4 md:rounded-cmplt-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-sm bg-canvas border border-border-default font-mono text-xs font-bold text-fg-primary">
                   OC
                 </span>
@@ -54,7 +54,7 @@ export function EngagementPanelBlock() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5 py-4 md:rounded-cmplt-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
+              <div className="flex items-center gap-3.5 py-3 sm:py-4 md:rounded-cmplt-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-sm bg-subtle border border-border-subtle text-sm">
                   🖌️
                 </span>
@@ -70,7 +70,7 @@ export function EngagementPanelBlock() {
           </div>
 
           {/* Action Buttons (Side-by-side on Tablet, stacked in Desktop sidebar) */}
-          <div className="mt-8 md:mt-7 lg:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-3 pt-4">
+          <div className="mt-6 md:mt-7 lg:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-2.5 sm:gap-3 pt-2">
             <Button
               shape="rounded"
               onClick={() => setStatus("accepted")}
@@ -92,7 +92,7 @@ export function EngagementPanelBlock() {
         </div>
 
         {/* Right Nested Elevated Panel (Concentric: Outer 24px - 10px p-2.5 = 14px rounded-cmplt-xl-inner) */}
-        <div className="lg:col-span-7 2xl:col-span-8 rounded-cmplt-xl-inner bg-elevated border border-border-subtle p-5 sm:p-7 md:p-8 lg:p-9 2xl:p-11 space-y-6 md:space-y-8">
+        <div className="lg:col-span-7 2xl:col-span-8 rounded-cmplt-xl-inner bg-elevated border border-border-subtle p-3.5 sm:p-7 md:p-8 lg:p-9 2xl:p-11 space-y-5 sm:space-y-6 md:space-y-8">
           {/* Grouped Key-Value Tables (Stacked on Mobile/Tablet/Desktop, Side-by-side on Desktop+ 2xl) */}
           <div className="grid grid-cols-1 2xl:grid-cols-2 gap-6 md:gap-7 2xl:gap-8">
             {/* Group 1 */}

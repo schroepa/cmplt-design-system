@@ -140,7 +140,7 @@ export function DecisionRecordCard({
       </div>
 
       {/* Progressive Disclosure Toggle Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border-subtle bg-subtle/25 px-5 py-2.5 sm:px-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-border-subtle bg-subtle/25 px-4 py-3 sm:px-6 sm:py-2.5">
         <div className="flex flex-wrap items-center gap-2 text-xs text-fg-muted">
           <span className="font-mono text-[11px] text-fg-secondary">
             {decision.granularSpec.length} spec parameters
@@ -154,12 +154,16 @@ export function DecisionRecordCard({
           variant="secondary"
           size="xs"
           onClick={toggleExpanded}
-          className="inline-flex items-center gap-1.5 cursor-pointer"
+          className="inline-flex w-full sm:w-auto min-h-[38px] sm:min-h-0 justify-center items-center gap-1.5 cursor-pointer"
         >
           <span>
-            {isExpanded
-              ? "Collapse Specification"
-              : `Inspect Specification & Rationale (${decision.granularSpec.length})`}
+            {isExpanded ? (
+              "Collapse Specification"
+            ) : (
+              <>
+                Inspect <span className="hidden sm:inline">Specification &amp; Rationale</span><span className="sm:hidden">Spec</span> ({decision.granularSpec.length})
+              </>
+            )}
           </span>
           {isExpanded ? (
             <ChevronUp className="h-3.5 w-3.5" />
@@ -171,7 +175,7 @@ export function DecisionRecordCard({
 
       {/* Body Content (Collapsible) */}
       {isExpanded && (
-        <div className="border-t border-border-subtle p-5 sm:p-6 space-y-5">
+        <div className="border-t border-border-subtle p-4 sm:p-6 space-y-5">
         {/* 1. Context & Problem Statement */}
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-cmplt-md border border-border-subtle bg-subtle/40 p-4 space-y-1.5">
@@ -200,7 +204,7 @@ export function DecisionRecordCard({
             Granular Specification & Exact Parameters
           </div>
           <div className="overflow-x-auto rounded-cmplt-md border border-border-subtle bg-surface">
-            <table className="w-full text-left text-xs">
+            <table className="w-full min-w-[480px] text-left text-xs">
               <thead className="border-b border-border-subtle bg-subtle/60 text-fg-muted uppercase text-[10.5px]">
                 <tr>
                   <th className="py-2.5 px-3.5">Parameter / Token</th>

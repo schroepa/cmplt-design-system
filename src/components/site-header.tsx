@@ -667,8 +667,8 @@ export function SiteHeader() {
             onClick={() => setMobileMenuOpen(false)}
             className="fixed inset-0 top-16 z-30 bg-canvas/60 backdrop-blur-xs md:hidden"
           />
-          <div className="relative z-40 mx-4 rounded-cmplt-lg border border-border-subtle bg-surface/95 backdrop-blur-md shadow-cmplt-lg md:hidden">
-            <div className="cmplt-container py-5 space-y-5">
+          <div className="relative z-40 mx-3 sm:mx-4 rounded-cmplt-lg border border-border-subtle bg-surface/95 backdrop-blur-md shadow-cmplt-lg md:hidden">
+            <div className="p-4 sm:p-5 space-y-4">
               <div className="space-y-2">
                 <div className="px-1 text-[10px] font-semibold uppercase tracking-wider text-fg-muted">
                   Navigation
@@ -683,9 +683,10 @@ export function SiteHeader() {
                       <Link
                         key={item.href}
                         href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "flex items-center justify-between rounded-cmplt-md border px-3.5 py-2.5 text-xs font-medium transition-colors",
+                          "flex min-h-[44px] items-center justify-between rounded-cmplt-md border px-3.5 py-2.5 text-xs font-medium transition-colors",
                           active
                             ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
                             : "border-border-subtle bg-canvas/60 text-fg-primary hover:bg-subtle"
@@ -698,31 +699,43 @@ export function SiteHeader() {
                 </nav>
               </div>
 
-              <div className="space-y-2 border-t border-border-subtle pt-4">
+              <div className="space-y-2 border-t border-border-subtle pt-3.5">
                 <div className="px-1 text-[10px] font-semibold uppercase tracking-wider text-fg-muted">
                   Foundations &amp; Resources
                 </div>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <Link
                     href="/docs/tokens"
-                    className="flex items-center gap-1.5 rounded-cmplt-md border border-border-subtle bg-canvas/40 px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex min-h-[40px] items-center justify-between sm:justify-start gap-2 rounded-cmplt-md border border-border-subtle bg-canvas/40 px-3.5 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
                   >
-                    <Layers className="h-3.5 w-3.5 text-fg-accent shrink-0" />
-                    <span className="truncate">Tokens</span>
+                    <span className="flex items-center gap-2">
+                      <Layers className="h-3.5 w-3.5 text-fg-accent shrink-0" />
+                      <span>Tokens</span>
+                    </span>
+                    <span className="text-[11px] text-fg-muted sm:hidden">3-Tier OKLCH</span>
                   </Link>
                   <Link
                     href="/docs/blueprint"
-                    className="flex items-center gap-1.5 rounded-cmplt-md border border-border-subtle bg-canvas/40 px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex min-h-[40px] items-center justify-between sm:justify-start gap-2 rounded-cmplt-md border border-border-subtle bg-canvas/40 px-3.5 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
                   >
-                    <Compass className="h-3.5 w-3.5 text-fg-accent shrink-0" />
-                    <span className="truncate">Blueprint</span>
+                    <span className="flex items-center gap-2">
+                      <Compass className="h-3.5 w-3.5 text-fg-accent shrink-0" />
+                      <span>Living Blueprint</span>
+                    </span>
+                    <span className="text-[11px] text-fg-muted sm:hidden">24 ADRs</span>
                   </Link>
                   <Link
                     href="/figma"
-                    className="flex items-center gap-1.5 rounded-cmplt-md border border-border-subtle bg-canvas/40 px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex min-h-[40px] items-center justify-between sm:justify-start gap-2 rounded-cmplt-md border border-border-subtle bg-canvas/40 px-3.5 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
                   >
-                    <Figma className="h-3.5 w-3.5 text-fg-accent shrink-0" />
-                    <span className="truncate">Figma Kit</span>
+                    <span className="flex items-center gap-2">
+                      <Figma className="h-3.5 w-3.5 text-fg-accent shrink-0" />
+                      <span>Figma Kit</span>
+                    </span>
+                    <span className="text-[11px] text-fg-muted sm:hidden">W3C Variables</span>
                   </Link>
                 </div>
               </div>

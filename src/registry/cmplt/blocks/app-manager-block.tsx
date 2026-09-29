@@ -75,7 +75,7 @@ export function AppManagerBlock() {
     <div className="w-full overflow-hidden rounded-cmplt-xl border border-border-default bg-surface shadow-cmplt-lg">
       <div className="grid lg:grid-cols-12">
         {/* Left Sidebar: GSAP Highlight Pill Search + Installed & Ready Apps */}
-        <div className="lg:col-span-4 2xl:col-span-3 border-b lg:border-b-0 lg:border-r border-border-subtle bg-subtle/75 p-5 sm:p-6 lg:p-7 2xl:p-8 space-y-6">
+        <div className="lg:col-span-4 2xl:col-span-3 border-b lg:border-b-0 lg:border-r border-border-subtle bg-subtle/75 p-3.5 sm:p-6 lg:p-7 2xl:p-8 space-y-4 sm:space-y-6">
           {/* GSAP Highlight Pill Search Field */}
           <HighlightInput
             shape="pill"
@@ -200,9 +200,9 @@ export function AppManagerBlock() {
             <span className="h-1 w-12 rounded-full bg-border-default" />
           </div>
 
-          <div className="grid gap-8 p-6 sm:p-8 md:p-10 lg:p-10 xl:p-12 2xl:p-14 md:grid-cols-12 md:gap-8 lg:gap-10 2xl:gap-14 items-start">
+          <div className="grid gap-6 p-4 sm:p-8 md:p-10 lg:p-10 xl:p-12 2xl:p-14 md:grid-cols-12 md:gap-8 lg:gap-10 2xl:gap-14 items-start">
             {/* Editorial Column */}
-            <div className="md:col-span-6 2xl:col-span-5 space-y-6 2xl:space-y-7">
+            <div className="md:col-span-6 2xl:col-span-5 space-y-4 sm:space-y-6 2xl:space-y-7">
               <div className="space-y-2">
                 <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-fg-primary">
                   Manage Apps
@@ -232,10 +232,10 @@ export function AppManagerBlock() {
             </div>
 
             {/* Right Nested Card (Concentric: 16px Card -> 10px Row -> 4.5px Icon) */}
-            <div className="md:col-span-6 2xl:col-span-7 rounded-cmplt-xl-inner-sm border border-border-subtle bg-elevated p-3.5 sm:p-4 2xl:p-5 shadow-cmplt-xs">
-              <div className="flex gap-3.5 sm:gap-4 2xl:gap-5">
+            <div className="md:col-span-6 2xl:col-span-7 rounded-cmplt-xl-inner-sm border border-border-subtle bg-elevated p-3 sm:p-4 2xl:p-5 shadow-cmplt-xs">
+              <div className="flex gap-3 sm:gap-4 2xl:gap-5">
                 {/* Mini Icon Rail (16px Card - 10px p-2.5 = 6px rounded-cmplt-xs) */}
-                <div className="flex flex-col items-center gap-2.5 border-r border-border-subtle pr-3.5 sm:pr-4">
+                <div className="flex flex-col items-center gap-2.5 border-r border-border-subtle pr-3 sm:pr-4">
                   <span className="flex h-8 w-8 items-center justify-center rounded-cmplt-xs text-[var(--cmplt-coral-500)] font-bold text-xs">
                     ✦
                   </span>
@@ -247,7 +247,7 @@ export function AppManagerBlock() {
                 </div>
 
                 {/* Your Apps Selection List */}
-                <div className="flex-1 space-y-2.5">
+                <div className="flex-1 space-y-2.5 min-w-0">
                   <div className="px-2 pt-0.5 text-[10px] font-semibold uppercase tracking-wider text-fg-muted">
                     Your Apps
                   </div>
@@ -261,7 +261,7 @@ export function AppManagerBlock() {
                           type="button"
                           onClick={() => setSelectedApp(app.id)}
                           className={cn(
-                            "flex w-full items-center gap-3 rounded-cmplt-md p-2 pr-3 text-left text-xs transition-all cursor-pointer border",
+                            "flex w-full items-center gap-2.5 sm:gap-3 rounded-cmplt-md p-2 pr-3 text-left text-xs transition-all cursor-pointer border min-w-0",
                             isActive
                               ? "border-[var(--cmplt-coral-500)] bg-surface shadow-cmplt-xs"
                               : "border-transparent hover:bg-subtle/60"
@@ -270,13 +270,13 @@ export function AppManagerBlock() {
                           {/* Concentric Icon: Row (10px) - Padding (5.5px) = 4.5px (rounded-cmplt-2xs) */}
                           <span
                             className={cn(
-                              "flex h-6 w-6 items-center justify-center rounded-cmplt-2xs",
+                              "flex h-6 w-6 items-center justify-center rounded-cmplt-2xs shrink-0",
                               app.color
                             )}
                           >
                             <Icon className="h-3 w-3" />
                           </span>
-                          <span className="font-medium text-fg-primary">
+                          <span className="font-medium text-fg-primary truncate">
                             {app.name} App
                           </span>
                         </button>
@@ -289,7 +289,7 @@ export function AppManagerBlock() {
           </div>
 
           {/* Frosted Bottom Action Bar */}
-          <div className="flex items-center justify-between border-t border-border-subtle bg-subtle/65 px-6 py-4 sm:px-8 lg:px-10 2xl:px-14 backdrop-blur-md">
+          <div className="flex items-center justify-between border-t border-border-subtle bg-subtle/65 px-4 py-3 sm:px-8 lg:px-10 2xl:px-14 backdrop-blur-md">
             <span className={cn(
               "text-xs transition-colors",
               saved ? "text-status-success font-medium" : "text-fg-muted"

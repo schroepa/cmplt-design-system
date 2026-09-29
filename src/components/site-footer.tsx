@@ -84,7 +84,7 @@ export function SiteFooter() {
             <p className="text-xs sm:text-[13px] text-fg-muted leading-relaxed">
               Install any primitive or block directly into your repository:
             </p>
-            <div className="rounded-cmplt-md border border-border-default bg-subtle px-4 py-3 font-mono text-xs text-fg-primary overflow-x-auto">
+            <div className="rounded-cmplt-md border border-border-default bg-subtle px-4 py-3 font-mono text-xs text-fg-primary overflow-x-auto whitespace-nowrap">
               <span className="select-none text-fg-muted mr-2">$</span>
               npx shadcn@latest add @cmplt/button
             </div>

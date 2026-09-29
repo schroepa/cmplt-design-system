@@ -40,7 +40,7 @@ export function CliInstallTabs({
             value={pm}
             onValueChange={(val) => setPm(val as typeof pm)}
           >
-            <TabsList className="h-7 bg-canvas/70 p-0.5">
+            <TabsList className="h-7 bg-canvas/70 p-0.5 overflow-x-auto max-w-full">
               <TabsTrigger value="npx" className="px-2 py-0.5 text-[11px]">
                 npm
               </TabsTrigger>
@@ -51,8 +51,8 @@ export function CliInstallTabs({
                 bun
               </TabsTrigger>
               {showUrlFallback && (
-                <TabsTrigger value="url" className="px-2 py-0.5 text-[11px]">
-                  Direct URL
+                <TabsTrigger value="url" className="px-2 py-0.5 text-[11px] whitespace-nowrap">
+                  <span className="hidden sm:inline">Direct </span>URL
                 </TabsTrigger>
               )}
             </TabsList>

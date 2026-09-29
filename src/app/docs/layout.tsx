@@ -36,7 +36,7 @@ export default function DocsLayout({
             type="button"
             onClick={() => setMobileSidebarOpen((prev) => !prev)}
             aria-expanded={mobileSidebarOpen}
-            className="flex md:hidden w-full items-center justify-between rounded-cmplt-md border border-border-default bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary shadow-cmplt-xs cursor-pointer"
+            className="flex md:hidden w-full min-h-[44px] items-center justify-between rounded-cmplt-md border border-border-default bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary shadow-cmplt-xs cursor-pointer"
           >
             <span className="flex items-center gap-2">
               <BookOpen className="h-3.5 w-3.5 text-fg-accent" />

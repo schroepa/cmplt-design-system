@@ -142,7 +142,7 @@
   --cmplt-step-3: clamp(1.5rem, 1.25rem + 1.0185vw, 2.1875rem);      /* 24px -> 35px — Heading MD / H2 */
   --cmplt-step-4: clamp(1.875rem, 1.4886rem + 1.5741vw, 2.9375rem);  /* 30px -> 47px — Heading LG / H1 */
   --cmplt-step-5: clamp(2.25rem, 1.7045rem + 2.2222vw, 3.75rem);     /* 36px -> 60px — Display LG */
-  --cmplt-step-6: clamp(2.625rem, 1.8523rem + 3.1481vw, 4.75rem);    /* 42px -> 76px — Display XL / Hero */
+  --cmplt-step-6: clamp(2rem, 1.0833rem + 4.0741vw, 4.75rem);       /* 32px -> 76px — Display XL / Hero */
 
   /* Static App UI Control Scale (Pixel-aligned precision for buttons, inputs, tables) */
   --cmplt-ui-2xs: 0.6875rem;                                         /* 11px — Badges, Kbd, Micro-tags */

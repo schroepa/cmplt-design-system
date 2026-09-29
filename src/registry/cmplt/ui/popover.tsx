@@ -42,7 +42,7 @@ const PopoverContent = React.forwardRef<
         <BasePopover.Popup
           ref={ref}
           className={cn(
-            "cmplt-overlay-popup w-72 rounded-cmplt-lg border border-border-subtle bg-elevated p-5 text-fg-primary shadow-cmplt-lg outline-none",
+            "cmplt-overlay-popup w-72 max-w-[calc(100vw-1.5rem)] rounded-cmplt-lg border border-border-subtle bg-elevated p-5 text-fg-primary shadow-cmplt-lg outline-none",
             className
           )}
           {...props}

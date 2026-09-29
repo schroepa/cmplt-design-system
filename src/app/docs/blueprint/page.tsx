@@ -90,7 +90,7 @@ export default function LivingBlueprintPage() {
 
         <p className="cmplt-lead">{LIVING_DOC_META.mandate}</p>
 
-        <div className="flex flex-wrap items-center gap-2.5 pt-2">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 pt-2">
           {SYSTEM_PILLARS.map((p) => (
             <Button
               key={p.slug}
@@ -100,11 +100,13 @@ export default function LivingBlueprintPage() {
                 setSelectedPillar(p.slug);
                 document.getElementById("decisions")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="cursor-pointer"
+              className="cursor-pointer w-full sm:w-auto justify-between sm:justify-center min-h-[40px] sm:min-h-0"
             >
-              {pillarIcons[p.slug]}
-              <span>
-                {p.number}. {p.shortTitle}
+              <span className="flex items-center gap-2">
+                {pillarIcons[p.slug]}
+                <span>
+                  {p.number}. {p.shortTitle}
+                </span>
               </span>
               <Badge variant="mono" size="sm" dot={false}>
                 {p.legacyAcronym}
@@ -309,12 +311,12 @@ export default function LivingBlueprintPage() {
                 <code className="font-mono text-fg-primary">AD-02</code>).
               </p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               <Button
                 variant="outline"
                 size="xs"
                 onClick={() => setAllExpanded((prev) => (prev ? false : true))}
-                className="cursor-pointer font-mono text-xs"
+                className="cursor-pointer font-mono text-xs w-full sm:w-auto justify-center min-h-[36px] sm:min-h-0"
               >
                 {allExpanded ? "Collapse All Records" : "Expand All Records"}
               </Button>

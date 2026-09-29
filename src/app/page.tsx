@@ -161,7 +161,7 @@ export default function HomePage() {
          ===================================================================== */}
       <section
         ref={heroRef}
-        className="relative border-b border-border-subtle py-20 sm:py-24 md:py-32 lg:py-36 2xl:py-44 overflow-hidden"
+        className="relative border-b border-border-subtle py-12 sm:py-20 md:py-28 lg:py-36 2xl:py-44 overflow-hidden"
       >
         {/* Three.js WebGL Interactive Dot Matrix Field */}
         <InteractiveDotField />
@@ -176,12 +176,9 @@ export default function HomePage() {
           }}
         />
 
-
-
-
         <div className="cmplt-container relative z-10">
           {/* Hero Central Editorial Stack with Generous Vertical Rhythm */}
-          <div className="mx-auto max-w-4xl 2xl:max-w-5xl text-center space-y-8 md:space-y-10 2xl:space-y-12">
+          <div className="mx-auto max-w-4xl 2xl:max-w-5xl text-center space-y-6 sm:space-y-8 md:space-y-10 2xl:space-y-12">
             <div
               data-hero-badge
               className="inline-flex items-center gap-2 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 py-1.5 shadow-cmplt-xs"
@@ -237,16 +234,16 @@ export default function HomePage() {
             {/* 2 Primary CTAs */}
             <div
               data-hero-ctas
-              className="flex flex-col sm:flex-row items-center justify-center gap-3.5 md:gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2 w-full max-w-sm sm:max-w-none mx-auto"
             >
               <Link href="/docs" className="w-full sm:w-auto">
-                <AnimatedCtaButton variant="accent-beam" size="lg" className="w-full sm:w-auto">
+                <AnimatedCtaButton variant="accent-beam" size="lg" className="w-full sm:w-auto min-h-[44px]">
                   Explore Documentation
                   <ArrowRight className="h-4 w-4" />
                 </AnimatedCtaButton>
               </Link>
               <Link href="/blocks" className="w-full sm:w-auto">
-                <Button variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto">
+                <Button variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto min-h-[44px]">
                   <Sparkles className="h-4 w-4 text-fg-accent" />
                   Browse Pro Blocks
                 </Button>
@@ -254,15 +251,15 @@ export default function HomePage() {
             </div>
 
             {/* CLI Quick-Copy Bar */}
-            <div data-hero-search className="mx-auto max-w-md 2xl:max-w-lg pt-2">
+            <div data-hero-search className="mx-auto max-w-md 2xl:max-w-lg pt-2 w-full">
               <button
                 type="button"
                 onClick={handleCliCopy}
-                className="group flex w-full items-center gap-3 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-4 py-2.5 shadow-cmplt-xs transition-colors hover:border-border-accent hover:bg-surface cursor-pointer"
+                className="group flex w-full items-center gap-2.5 sm:gap-3 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 sm:px-4 py-2.5 shadow-cmplt-xs transition-colors hover:border-border-accent hover:bg-surface cursor-pointer min-h-[42px]"
                 aria-label="Copy CLI install command"
               >
                 <span className="text-fg-muted font-mono text-xs select-none">$</span>
-                <span className="flex-1 text-left font-mono text-xs text-fg-primary">
+                <span className="flex-1 text-left font-mono text-[11px] sm:text-xs text-fg-primary truncate min-w-0">
                   npx shadcn@latest add @cmplt/button
                 </span>
                 <span className={cn(
@@ -283,7 +280,7 @@ export default function HomePage() {
                 type="button"
                 onClick={() => setMode("light")}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer",
+                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
                   mode === "light"
                     ? "bg-surface text-fg-primary shadow-cmplt-xs"
                     : "text-fg-muted hover:text-fg-primary"
@@ -296,7 +293,7 @@ export default function HomePage() {
                 type="button"
                 onClick={() => setMode("dark")}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-4 py-1.5 text-xs font-medium transition-all cursor-pointer",
+                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
                   mode === "dark"
                     ? "bg-surface text-fg-primary shadow-cmplt-xs"
                     : "text-fg-muted hover:text-fg-primary"
@@ -315,10 +312,10 @@ export default function HomePage() {
           Dedicated full-width architectural showcase stage with generous breathing room
          ===================================================================== */}
       <section className="cmplt-section border-b border-border-subtle">
-        <div className="cmplt-container space-y-12 md:space-y-16 2xl:space-y-20">
-          <Tabs defaultValue="engagement" className="w-full space-y-10 md:space-y-12 2xl:space-y-16">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2 border-b border-border-subtle/80">
-              <div className="space-y-3 max-w-2xl">
+        <div className="cmplt-container space-y-8 sm:space-y-12 md:space-y-16 2xl:space-y-20">
+          <Tabs defaultValue="engagement" className="w-full space-y-6 sm:space-y-10 md:space-y-12 2xl:space-y-16">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6 pb-2 border-b border-border-subtle/80">
+              <div className="space-y-2 sm:space-y-3 max-w-2xl">
                 <Badge variant="brand">4-Step Surface Hierarchy</Badge>
                 <h2 className="cmplt-h2 text-fg-primary">
                   Calibrated Multi-Surface Reference Architecture
@@ -327,13 +324,18 @@ export default function HomePage() {
                   Inspect how our 4-step surface hierarchy (<strong className="text-fg-primary">Canvas → Shell → Elevated Panel → Inset Group</strong>) maintains tactile depth in both Matte Graphite and Warm Alabaster.
                 </p>
               </div>
-              <TabsList variant="segmented" className="self-start lg:self-auto">
-                <TabsTrigger value="both">Split Overview</TabsTrigger>
-                <TabsTrigger value="engagement">
-                  Engagement Shell (Dark Ref)
+              <TabsList variant="segmented" className="w-full sm:w-auto overflow-x-auto max-w-full justify-start self-start lg:self-auto">
+                <TabsTrigger value="both" className="whitespace-nowrap">
+                  <span className="sm:hidden">Overview</span>
+                  <span className="hidden sm:inline">Split Overview</span>
                 </TabsTrigger>
-                <TabsTrigger value="apps">
-                  App Manager (Light Ref)
+                <TabsTrigger value="engagement" className="whitespace-nowrap">
+                  <span>Engagement</span>
+                  <span className="hidden sm:inline"> Shell (Dark Ref)</span>
+                </TabsTrigger>
+                <TabsTrigger value="apps" className="whitespace-nowrap">
+                  <span>App Manager</span>
+                  <span className="hidden sm:inline"> (Light Ref)</span>
                 </TabsTrigger>
               </TabsList>
             </div>

@@ -167,7 +167,7 @@
   letter-spacing: var(--cmplt-tracking-display);
   font-weight: var(--cmplt-weight-semibold);
   font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: var(--cmplt-measure-display);
+  max-width: min(100%, var(--cmplt-measure-display));
   text-wrap: balance;
 }
 
@@ -177,7 +177,7 @@
   letter-spacing: var(--cmplt-tracking-display);
   font-weight: var(--cmplt-weight-semibold);
   font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: var(--cmplt-measure-display);
+  max-width: min(100%, var(--cmplt-measure-display));
   text-wrap: balance;
 }
 
@@ -478,10 +478,17 @@
 
 .cmplt-stage {
   container-type: inline-size;
-  border-radius: var(--cmplt-radius-xl);
+  border-radius: var(--cmplt-radius-lg);
   border: 1px solid var(--border-subtle);
   background-color: color-mix(in oklab, var(--bg-subtle) 45%, transparent);
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .cmplt-stage {
+    padding: 1rem;
+    border-radius: var(--cmplt-radius-xl);
+  }
 }
 
 @media (min-width: 640px) {

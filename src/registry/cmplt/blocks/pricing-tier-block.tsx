@@ -31,12 +31,13 @@ export function PricingTierBlock() {
         <Tabs
           value={billing}
           onValueChange={(v) => setBilling(v as "annual" | "lifetime")}
+          className="w-full sm:w-auto"
         >
-          <TabsList>
-            <TabsTrigger value="annual">Annual Pass</TabsTrigger>
-            <TabsTrigger value="lifetime">
-              Lifetime Access
-              <Badge variant="brand" size="sm" className="ml-1.5">
+          <TabsList className="w-full sm:w-auto grid grid-cols-2 sm:flex">
+            <TabsTrigger value="annual" className="justify-center">Annual Pass</TabsTrigger>
+            <TabsTrigger value="lifetime" className="justify-center">
+              <span>Lifetime</span>
+              <Badge variant="brand" size="sm" className="ml-1.5 hidden sm:inline-flex">
                 Popular
               </Badge>
             </TabsTrigger>
