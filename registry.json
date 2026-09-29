@@ -1,0 +1,432 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "cmplt",
+  "homepage": "https://ptrckschrdtr.de",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "owner": "Patrick Schrödter (ptrckschrdtr)",
+  "github": "https://github.com/schroepa",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cmplt Class Merge Utility",
+      "description": "Tailwind CSS v4 class merging utility powered by clsx and tailwind-merge.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "tokens",
+      "type": "registry:style",
+      "title": "cmplt 3-Tier OKLCH & Liquid Typography Tokens",
+      "description": "3-tier primitive & semantic OKLCH color tokens, Dual-Scale Liquid Utopia typography (Geist Variable & Geist Mono), and ch measure guardrails.",
+      "dependencies": ["geist"],
+      "files": [
+        {
+          "path": "src/styles/tokens.css",
+          "type": "registry:style",
+          "target": "styles/tokens.css"
+        },
+        {
+          "path": "src/registry/cmplt/tokens/tokens.json",
+          "type": "registry:file",
+          "target": "tokens/cmplt.tokens.json"
+        }
+      ]
+    },
+    {
+      "name": "typography",
+      "type": "registry:ui",
+      "title": "Typography & Liquid Scale",
+      "description": "Professional typography primitives (Heading, Text, Code, Prose) powered by Geist Variable, Geist Mono, Dual-Scale Utopia clamp() sizing, and Bringhurst ch measure guardrails.",
+      "dependencies": ["geist", "class-variance-authority"],
+      "registryDependencies": ["utils", "tokens"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/typography.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/typography.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Accessible headless button primitive built on @base-ui/react/button with 6 semantic CVA variants.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Semantic status, brand, and monospace badge indicator.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card & Domain Presets",
+      "description": "Concentric surface container with composable sub-primitives (CardMedia, CardEyebrow, CardMeta, CardPrice) and 7 domain presets (BlogCard, ProductCard, MetricCard, ProfileCard, FeatureCard, TestimonialCard, EventCard).",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["utils", "badge", "button"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Accessible form input built on @base-ui/react/input with data-[invalid] and data-[disabled] states.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Accessible form field wrapper (Label, Description, Error, Control) powered by @base-ui/react/field.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Tactile toggle switch built on @base-ui/react/switch with data-[checked] state styling.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/switch.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Accessible checkbox built on @base-ui/react/checkbox with indicator support.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Keyboard-navigable tabs component built on @base-ui/react/tabs.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/tabs.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tabs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Accessible collapsible accordion built on @base-ui/react/accordion.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/accordion.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/accordion.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialog built on @base-ui/react/dialog with top-layer discrete transitions and focus management.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/dialog.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Floating anchored popover built on @base-ui/react/popover.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/popover.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Accessible select menu built on @base-ui/react/select with anchor-width positioning.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Accessible hover & focus tooltip built on @base-ui/react/tooltip.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Accessible progress bar built on @base-ui/react/progress.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/progress.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Semantic divider built on @base-ui/react/separator.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/separator.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/separator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Keyboard shortcut indicator element.",
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/kbd.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/kbd.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-deployment-card",
+      "type": "registry:block",
+      "title": "AI Edge Deployment Control Block",
+      "description": "Interactive cloud/AI cluster control surface combining Card, Select, Switch, Progress, Badge, and Dialog.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["card", "badge", "button", "switch", "progress", "select", "dialog"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/ai-deployment-card.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/ai-deployment-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-tier-block",
+      "type": "registry:block",
+      "title": "SaaS & Design System Pricing Block",
+      "description": "3-tier pricing matrix with billing cycle Tabs, feature checklists, and highlighted Pro card.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["card", "badge", "button", "tabs"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/pricing-tier-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/pricing-tier-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "token-sync-inspector",
+      "type": "registry:block",
+      "title": "Code-to-Figma Token Parity Inspector",
+      "description": "Interactive semantic token inspector with Base UI Popover details and 1-click CSS variable copy.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["card", "badge", "button", "popover"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/token-sync-inspector.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/token-sync-inspector.tsx"
+        }
+      ]
+    },
+    {
+      "name": "engagement-panel-block",
+      "type": "registry:block",
+      "title": "Multi-Layer Engagement Offer Shell",
+      "description": "Matte graphite / warm alabaster split-shell block with nested elevated panel and grouped key-value tables.",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/engagement-panel-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/engagement-panel-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "app-manager-block",
+      "type": "registry:block",
+      "title": "Multi-Pane App Directory Window Shell",
+      "description": "Warm alabaster / matte graphite 3-pane window with GSAP HighlightInput pill search, squircle app icons, coral highlights, and GSAP AnimatedCtaButton footer.",
+      "dependencies": ["@base-ui/react", "gsap", "@gsap/react", "lucide-react"],
+      "registryDependencies": ["highlight-input", "animated-cta-button"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/app-manager-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/app-manager-block.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-cta-button",
+      "type": "registry:ui",
+      "title": "Animated CTA Button (GSAP)",
+      "description": "Hierarchy-elevating Call-to-Action button powered by GSAP (useGSAP + quickTo) with soft orbital border highlight, inertial cursor sheen, and magnetic proximity physics.",
+      "dependencies": ["@base-ui/react", "gsap", "@gsap/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/animated-cta-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-cta-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "highlight-input",
+      "type": "registry:ui",
+      "title": "Highlight Input (GSAP)",
+      "description": "GSAP border-highlighted input frame that visually lifts primary search bars, command palettes, and key form fields in the visual hierarchy.",
+      "dependencies": ["@base-ui/react", "gsap", "@gsap/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/highlight-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/highlight-input.tsx"
+        }
+      ]
+    },
+    {
+      "name": "motion-surface",
+      "type": "registry:ui",
+      "title": "Motion Surface & Stagger Group (GSAP)",
+      "description": "GSAP interactive surface wrapper with low-amplitude radial cursor spotlight, gentle -2px hover lift, and staggered entrance physics.",
+      "dependencies": ["gsap", "@gsap/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/motion-surface.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/motion-surface.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-dot-field",
+      "type": "registry:ui",
+      "title": "Interactive Dot Field (Three.js + GSAP)",
+      "description": "WebGL Three.js custom shader dot-matrix background field driven by GSAP quickTo pointer inertia, organic sine breathing, and theme-reactive OKLCH accent illumination.",
+      "dependencies": ["three", "gsap", "@gsap/react"],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "path": "src/registry/cmplt/ui/interactive-dot-field.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-dot-field.tsx"
+        }
+      ]
+    }
+  ]
+}

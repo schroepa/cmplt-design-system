@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "type": "registry:ui",
+  "title": "Dialog",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Modal dialog built on @base-ui/react/dialog with top-layer discrete transitions and focus management.",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/dialog.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Dialog as BaseDialog } from \"@base-ui/react/dialog\";\nimport { X } from \"lucide-react\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\n/**\n * cmplt Dialog — Style Guide v1.1 (Sections 2 & 5):\n * - Container Radius: pronounced 24px soft radius (rounded-cmplt-xl)\n * - Level 2 Elevation: diffuse ambient drop shadow (shadow-cmplt-lg) + 1px hairline border\n */\nconst Dialog = BaseDialog.Root;\nconst DialogTrigger = BaseDialog.Trigger;\nconst DialogClose = BaseDialog.Close;\n\nconst DialogContent = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseDialog.Popup> & {\n    showClose?: boolean;\n  }\n>(({ className, children, showClose = true, ...props }, ref) => (\n  <BaseDialog.Portal>\n    <BaseDialog.Backdrop className=\"cmplt-overlay-backdrop fixed inset-0 z-50 bg-black/45 backdrop-blur-[3px]\" />\n    <BaseDialog.Popup\n      ref={ref}\n      className={cn(\n        \"cmplt-overlay-popup fixed left-1/2 top-1/2 z-50 grid w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 rounded-cmplt-xl border border-border-subtle bg-elevated p-6 sm:p-7 text-fg-primary shadow-cmplt-lg focus:outline-none\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n      {showClose && (\n        <BaseDialog.Close\n          aria-label=\"Close dialog\"\n          className=\"absolute right-5 top-5 inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-cmplt-full text-fg-muted transition-colors hover:bg-subtle hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus\"\n        >\n          <X className=\"h-4 w-4 stroke-[1.75]\" />\n        </BaseDialog.Close>\n      )}\n    </BaseDialog.Popup>\n  </BaseDialog.Portal>\n));\nDialogContent.displayName = \"DialogContent\";\n\nconst DialogHeader = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => (\n  <div\n    className={cn(\"flex flex-col space-y-1.5 text-left\", className)}\n    {...props}\n  />\n);\nDialogHeader.displayName = \"DialogHeader\";\n\nconst DialogFooter = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => (\n  <div\n    className={cn(\n      \"flex flex-col-reverse gap-2.5 sm:flex-row sm:justify-end pt-2\",\n      className\n    )}\n    {...props}\n  />\n);\nDialogFooter.displayName = \"DialogFooter\";\n\nconst DialogTitle = React.forwardRef<\n  HTMLHeadingElement,\n  React.ComponentPropsWithoutRef<typeof BaseDialog.Title>\n>(({ className, ...props }, ref) => (\n  <BaseDialog.Title\n    ref={ref}\n    className={cn(\n      \"text-base font-semibold leading-none tracking-tight text-fg-primary\",\n      className\n    )}\n    {...props}\n  />\n));\nDialogTitle.displayName = \"DialogTitle\";\n\nconst DialogDescription = React.forwardRef<\n  HTMLParagraphElement,\n  React.ComponentPropsWithoutRef<typeof BaseDialog.Description>\n>(({ className, ...props }, ref) => (\n  <BaseDialog.Description\n    ref={ref}\n    className={cn(\"text-[12.5px] text-fg-muted leading-relaxed\", className)}\n    {...props}\n  />\n));\nDialogDescription.displayName = \"DialogDescription\";\n\nexport {\n  Dialog,\n  DialogTrigger,\n  DialogClose,\n  DialogContent,\n  DialogHeader,\n  DialogFooter,\n  DialogTitle,\n  DialogDescription,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/dialog.tsx"
+    }
+  ]
+}

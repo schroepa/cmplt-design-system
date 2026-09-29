@@ -1,0 +1,580 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme inline {
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-subtle: var(--bg-subtle);
+  --color-muted: var(--bg-muted);
+  --color-accent: var(--bg-accent);
+  --color-accent-hover: var(--bg-accent-hover);
+  --color-accent-subtle: var(--bg-accent-subtle);
+
+  --color-fg-primary: var(--fg-primary);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-on-accent: var(--fg-on-accent);
+  --color-fg-accent: var(--fg-accent);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-accent: var(--border-accent);
+
+  --color-ring-focus: var(--ring-focus);
+
+  --color-status-success: var(--status-success);
+  --color-status-success-bg: var(--status-success-bg);
+  --color-status-warning: var(--status-warning);
+  --color-status-warning-bg: var(--status-warning-bg);
+  --color-status-danger: var(--status-danger);
+  --color-status-danger-bg: var(--status-danger-bg);
+  --color-status-info: var(--status-info);
+  --color-status-info-bg: var(--status-info-bg);
+
+  --radius-cmplt-2xs: var(--cmplt-radius-2xs);
+  --radius-cmplt-xs: var(--cmplt-radius-xs);
+  --radius-cmplt-sm: var(--cmplt-radius-sm);
+  --radius-cmplt-md: var(--cmplt-radius-md);
+  --radius-cmplt-squircle: var(--cmplt-radius-squircle);
+  --radius-cmplt-panel: var(--cmplt-radius-panel);
+  --radius-cmplt-lg: var(--cmplt-radius-lg);
+  --radius-cmplt-xl: var(--cmplt-radius-xl);
+  --radius-cmplt-full: var(--cmplt-radius-full);
+
+  /* Concentric Inner Radius Utilities (R_inner = R_outer - padding) */
+  --radius-cmplt-xl-inner-sm: var(--cmplt-radius-xl-inner-sm);
+  --radius-cmplt-xl-inner: var(--cmplt-radius-xl-inner);
+  --radius-cmplt-xl-inner-lg: var(--cmplt-radius-xl-inner-lg);
+  --radius-cmplt-lg-inner-xs: var(--cmplt-radius-lg-inner-xs);
+  --radius-cmplt-lg-inner-sm: var(--cmplt-radius-lg-inner-sm);
+  --radius-cmplt-lg-inner: var(--cmplt-radius-lg-inner);
+
+  --shadow-cmplt-none: var(--cmplt-shadow-none);
+  --shadow-cmplt-xs: var(--cmplt-shadow-xs);
+  --shadow-cmplt-sm: var(--cmplt-shadow-sm);
+  --shadow-cmplt-md: var(--cmplt-shadow-md);
+  --shadow-cmplt-lg: var(--cmplt-shadow-lg);
+  --shadow-cmplt-glow: var(--cmplt-shadow-glow);
+
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, monospace;
+
+  /* Liquid Type Scale Utilities (Tailwind v4 text-* classes) */
+  --text-display-xl: var(--cmplt-step-6);
+  --text-display-xl--line-height: var(--cmplt-leading-display);
+  --text-display-xl--letter-spacing: var(--cmplt-tracking-display);
+  --text-display-xl--font-weight: var(--cmplt-weight-semibold);
+
+  --text-display-lg: var(--cmplt-step-5);
+  --text-display-lg--line-height: var(--cmplt-leading-display);
+  --text-display-lg--letter-spacing: var(--cmplt-tracking-display);
+  --text-display-lg--font-weight: var(--cmplt-weight-semibold);
+
+  --text-heading-xl: var(--cmplt-step-4);
+  --text-heading-xl--line-height: var(--cmplt-leading-tight);
+  --text-heading-xl--letter-spacing: var(--cmplt-tracking-tight);
+  --text-heading-xl--font-weight: var(--cmplt-weight-semibold);
+
+  --text-heading-lg: var(--cmplt-step-3);
+  --text-heading-lg--line-height: var(--cmplt-leading-tight);
+  --text-heading-lg--letter-spacing: var(--cmplt-tracking-tight);
+  --text-heading-lg--font-weight: var(--cmplt-weight-semibold);
+
+  --text-heading-md: var(--cmplt-step-2);
+  --text-heading-md--line-height: var(--cmplt-leading-snug);
+  --text-heading-md--letter-spacing: var(--cmplt-tracking-snug);
+  --text-heading-md--font-weight: var(--cmplt-weight-semibold);
+
+  --text-heading-sm: var(--cmplt-step-1);
+  --text-heading-sm--line-height: var(--cmplt-leading-snug);
+  --text-heading-sm--letter-spacing: var(--cmplt-tracking-snug);
+  --text-heading-sm--font-weight: var(--cmplt-weight-medium);
+
+  --text-lead: var(--cmplt-step-1);
+  --text-lead--line-height: var(--cmplt-leading-relaxed);
+  --text-lead--letter-spacing: var(--cmplt-tracking-normal);
+  --text-lead--font-weight: var(--cmplt-weight-body);
+
+  --text-body: var(--cmplt-step-0);
+  --text-body--line-height: var(--cmplt-leading-relaxed);
+  --text-body--letter-spacing: var(--cmplt-tracking-normal);
+  --text-body--font-weight: var(--cmplt-weight-body);
+
+  --text-body-sm: var(--cmplt-step--1);
+  --text-body-sm--line-height: var(--cmplt-leading-normal);
+  --text-body-sm--letter-spacing: var(--cmplt-tracking-ui);
+  --text-body-sm--font-weight: var(--cmplt-weight-body);
+
+  /* Static App UI Control Scale Utilities */
+  --text-ui-2xs: var(--cmplt-ui-2xs);
+  --text-ui-xs: var(--cmplt-ui-xs);
+  --text-ui-sm: var(--cmplt-ui-sm);
+  --text-ui-md: var(--cmplt-ui-md);
+  --text-ui-lg: var(--cmplt-ui-lg);
+
+  /* Optimal Line Length (Measure in ch) for max-w-measure-* */
+  --container-measure-display: var(--cmplt-measure-display);
+  --container-measure-heading: var(--cmplt-measure-heading);
+  --container-measure-compact: var(--cmplt-measure-compact);
+  --container-measure-lead: var(--cmplt-measure-lead);
+  --container-measure-body: var(--cmplt-measure-body);
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    background-color: var(--bg-canvas);
+    color: var(--fg-primary);
+    font-family: var(--font-sans);
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--fg-primary);
+    min-height: 100vh;
+    font-weight: var(--cmplt-weight-body);
+    font-variation-settings: "wght" var(--cmplt-weight-body);
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono);
+    font-feature-settings: "liga" 0, "calt" 1, "zero" 1;
+  }
+}
+
+/* ==========================================================================
+   Typography & Readability System (Geist Variable + Liquid Dual-Scale)
+   - Dual-Scale Utopia (360px @ 1.200 -> 1440px @ 1.333)
+   - Automatic Measure (ch) constraints for effortless eye-tracking
+   - Optical Dark-Mode Variable Weight compensation
+   ========================================================================== */
+.cmplt-display-xl {
+  font-size: var(--cmplt-step-6);
+  line-height: var(--cmplt-leading-display);
+  letter-spacing: var(--cmplt-tracking-display);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  max-width: var(--cmplt-measure-display);
+  text-wrap: balance;
+}
+
+.cmplt-display-lg {
+  font-size: var(--cmplt-step-5);
+  line-height: var(--cmplt-leading-display);
+  letter-spacing: var(--cmplt-tracking-display);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  max-width: var(--cmplt-measure-display);
+  text-wrap: balance;
+}
+
+.cmplt-h1 {
+  font-size: var(--cmplt-step-4);
+  line-height: var(--cmplt-leading-tight);
+  letter-spacing: var(--cmplt-tracking-tight);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  max-width: var(--cmplt-measure-heading);
+  text-wrap: balance;
+}
+
+.cmplt-h2 {
+  font-size: var(--cmplt-step-3);
+  line-height: var(--cmplt-leading-tight);
+  letter-spacing: var(--cmplt-tracking-tight);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  max-width: var(--cmplt-measure-heading);
+  text-wrap: balance;
+}
+
+.cmplt-h3 {
+  font-size: var(--cmplt-step-2);
+  line-height: var(--cmplt-leading-snug);
+  letter-spacing: var(--cmplt-tracking-snug);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  max-width: var(--cmplt-measure-heading);
+  text-wrap: balance;
+}
+
+.cmplt-h4 {
+  font-size: var(--cmplt-step-1);
+  line-height: var(--cmplt-leading-snug);
+  letter-spacing: var(--cmplt-tracking-snug);
+  font-weight: var(--cmplt-weight-medium);
+  font-variation-settings: "wght" var(--cmplt-weight-medium);
+  max-width: var(--cmplt-measure-compact);
+  text-wrap: balance;
+}
+
+.cmplt-lead {
+  font-size: var(--cmplt-step-1);
+  line-height: var(--cmplt-leading-relaxed);
+  letter-spacing: var(--cmplt-tracking-normal);
+  font-weight: var(--cmplt-weight-body);
+  font-variation-settings: "wght" var(--cmplt-weight-body);
+  max-width: var(--cmplt-measure-lead);
+  color: var(--fg-secondary);
+  text-wrap: pretty;
+}
+
+.cmplt-body {
+  font-size: var(--cmplt-step-0);
+  line-height: var(--cmplt-leading-relaxed);
+  letter-spacing: var(--cmplt-tracking-normal);
+  font-weight: var(--cmplt-weight-body);
+  font-variation-settings: "wght" var(--cmplt-weight-body);
+  max-width: var(--cmplt-measure-body);
+  text-wrap: pretty;
+}
+
+.cmplt-body-sm {
+  font-size: var(--cmplt-step--1);
+  line-height: var(--cmplt-leading-normal);
+  letter-spacing: var(--cmplt-tracking-ui);
+  font-weight: var(--cmplt-weight-body);
+  font-variation-settings: "wght" var(--cmplt-weight-body);
+  max-width: var(--cmplt-measure-body);
+  text-wrap: pretty;
+}
+
+.cmplt-eyebrow {
+  font-size: var(--cmplt-step--2);
+  line-height: 1.35;
+  letter-spacing: var(--cmplt-tracking-eyebrow);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.cmplt-code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  line-height: var(--cmplt-leading-code);
+  font-weight: var(--cmplt-weight-medium);
+  font-variation-settings: "wght" var(--cmplt-weight-medium);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--cmplt-radius-2xs);
+  padding: 0.125rem 0.375rem;
+  color: var(--fg-primary);
+}
+
+/* Editorial Prose Container — enforces vertical rhythm & 65ch optimal measure */
+.cmplt-prose {
+  font-size: var(--cmplt-step-0);
+  line-height: var(--cmplt-leading-relaxed);
+  letter-spacing: var(--cmplt-tracking-normal);
+  max-width: var(--cmplt-measure-body);
+  color: var(--fg-secondary);
+  text-wrap: pretty;
+}
+
+.cmplt-prose > * + * {
+  margin-top: 1.25em;
+}
+
+.cmplt-prose h1,
+.cmplt-prose h2,
+.cmplt-prose h3,
+.cmplt-prose h4 {
+  color: var(--fg-primary);
+  text-wrap: balance;
+  margin-top: 1.85em;
+  margin-bottom: 0.55em;
+}
+
+.cmplt-prose strong {
+  color: var(--fg-primary);
+  font-weight: var(--cmplt-weight-semibold);
+  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+}
+
+/* Container-Scoped Liquid Scaling (Modern Web Guidance: fluid-scaling cqi + vw fallback) */
+.cmplt-fluid-container {
+  container-type: inline-size;
+  container-name: cmplt-typography;
+}
+
+.cmplt-fluid-title {
+  font-size: clamp(1.25rem, 1rem + 2.2vw, 2.75rem);
+  line-height: var(--cmplt-leading-tight);
+  letter-spacing: var(--cmplt-tracking-tight);
+  text-wrap: balance;
+}
+
+@supports (font-size: 1cqi) {
+  .cmplt-fluid-title {
+    font-size: clamp(1.25rem, 0.9rem + 3.2cqi, 2.75rem);
+  }
+}
+
+.cmplt-metric {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+.cmplt-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.cmplt-meta {
+  font-size: 0.78125rem; /* 12.5px */
+  line-height: 1.45;
+  color: var(--fg-muted);
+}
+
+/* ==========================================================================
+   Content-Based & Size-Aware Card Layouts (Modern Web Guidance)
+   - Uses :has([data-slot="card-media"]) with @supports not selector(:has(*)) fallback
+   - Uses container-type: inline-size & @container with @media fallback
+   ========================================================================== */
+.cmplt-card-container {
+  container-type: inline-size;
+}
+
+.cmplt-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content-based styling: automatically tighten header top spacing when inset media precedes it */
+.cmplt-card:has([data-slot="card-media"]) > [data-slot="card-header"] {
+  padding-top: 0.75rem;
+}
+
+@supports not selector(:has(*)) {
+  .cmplt-card.has-media > [data-slot="card-header"] {
+    padding-top: 0.75rem;
+  }
+}
+
+/* Size-aware adaptive horizontal layout with @media fallback */
+.cmplt-card-adaptive {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .cmplt-card-adaptive {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+@supports (container-type: inline-size) {
+  @media (min-width: 640px) {
+    .cmplt-card-adaptive {
+      flex-direction: column;
+    }
+  }
+
+  @container (min-width: 480px) {
+    .cmplt-card-adaptive {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+}
+
+
+/* ==========================================================================
+   Analytical Focus Background Textures (Section 5 of Style Guide)
+   Subtle dot matrix / micro-cross pattern instead of heavy grid lines
+   ========================================================================== */
+.bg-cmplt-grid {
+  background-image: radial-gradient(
+    var(--border-default) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
+
+.bg-cmplt-dots {
+  background-image: radial-gradient(
+    var(--border-default) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+}
+
+/* ==========================================================================
+   4-Tier Responsive Layout Architecture (Mobile · Tablet · Desktop · Desktop+)
+   - Mobile (< 768px): Single-column flow, 20px–24px gutters, 72px section rhythm
+   - Tablet (768px–1023px): Balanced 2-col grids, 40px gutters, 104px section rhythm
+   - Desktop (1024px–1535px): 1440px max-width, 56px gutters, 136px section rhythm
+   - Desktop+ (>= 1536px): 1728px max-width, 80px gutters, 168px section rhythm
+   ========================================================================== */
+.cmplt-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--cmplt-gutter-mobile);
+}
+
+@media (min-width: 640px) {
+  .cmplt-container {
+    padding-inline: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cmplt-container {
+    padding-inline: var(--cmplt-gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cmplt-container {
+    max-width: var(--cmplt-container-desktop);
+    padding-inline: var(--cmplt-gutter-desktop);
+  }
+}
+
+@media (min-width: 1536px) {
+  .cmplt-container {
+    max-width: var(--cmplt-container-desktop-plus);
+    padding-inline: var(--cmplt-gutter-desktop-plus);
+  }
+}
+
+.cmplt-section {
+  padding-block: var(--cmplt-section-y-mobile);
+}
+
+@media (min-width: 768px) {
+  .cmplt-section {
+    padding-block: var(--cmplt-section-y-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cmplt-section {
+    padding-block: var(--cmplt-section-y-desktop);
+  }
+}
+
+@media (min-width: 1536px) {
+  .cmplt-section {
+    padding-block: var(--cmplt-section-y-desktop-plus);
+  }
+}
+
+.cmplt-stage {
+  container-type: inline-size;
+  border-radius: var(--cmplt-radius-xl);
+  border: 1px solid var(--border-subtle);
+  background-color: color-mix(in oklab, var(--bg-subtle) 45%, transparent);
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cmplt-stage {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cmplt-stage {
+    padding: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cmplt-stage {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .cmplt-stage {
+    padding: 4rem;
+  }
+}
+
+/* ==========================================================================
+   Modern Top-Layer & Base UI Overlay Animations (Level 2 Overlays)
+   Follows modern-web-guidance: @starting-style, allow-discrete, overlay
+   ========================================================================== */
+.cmplt-overlay-popup {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition-property: opacity, transform, display, overlay;
+  transition-duration: var(--cmplt-duration-normal);
+  transition-timing-function: var(--cmplt-ease-out);
+  transition-behavior: allow-discrete;
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.97) translateY(4px);
+  }
+}
+
+.cmplt-overlay-popup[data-starting-style],
+.cmplt-overlay-popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.97) translateY(4px);
+}
+
+.cmplt-overlay-backdrop {
+  opacity: 1;
+  transition-property: opacity, display, overlay;
+  transition-duration: var(--cmplt-duration-normal);
+  transition-timing-function: var(--cmplt-ease-out);
+  transition-behavior: allow-discrete;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.cmplt-overlay-backdrop[data-starting-style],
+.cmplt-overlay-backdrop[data-ending-style] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cmplt-overlay-popup,
+  .cmplt-overlay-backdrop {
+    transform: none !important;
+    transition-duration: 80ms !important;
+  }
+
+  @starting-style {
+    .cmplt-overlay-popup {
+      transform: none;
+    }
+  }
+}
+
+/* ==========================================================================
+   GSAP Natural Motion & Hierarchy Highlight Properties
+   ========================================================================== */
+@property --cmplt-beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --cmplt-input-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+

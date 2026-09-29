@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "title": "cmplt Class Merge Utility",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Tailwind CSS v4 class merging utility powered by clsx and tailwind-merge.",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/cmplt/lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\n/**\n * Merges Tailwind CSS classes cleanly with conflict resolution.\n * Part of @cmplt/utils registry item.\n */\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "type": "registry:lib",
+      "target": "lib/utils.ts"
+    }
+  ]
+}

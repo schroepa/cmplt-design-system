@@ -1,0 +1,46 @@
+{
+  "name": "cmplt-design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "cmplt design system — Accessible Base UI primitives, 3-tier W3C/OKLCH tokens, shadcn registry & Figma parity.",
+  "author": {
+    "name": "Patrick Schrödter (ptrckschrdtr)",
+    "url": "https://ptrckschrdtr.de"
+  },
+  "homepage": "https://ptrckschrdtr.de",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schroepa/cmplt-design-system.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/build-registry.mjs && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "registry:build": "node scripts/build-registry.mjs"
+  },
+  "dependencies": {
+    "@base-ui/react": "latest",
+    "@gsap/react": "^2.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "geist": "^1.7.2",
+    "gsap": "^3.12.7",
+    "lucide-react": "^0.487.0",
+    "next": "^15.2.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2",
+    "three": "^0.174.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.17",
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@types/three": "^0.174.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.17",
+    "typescript": "^5.8.2"
+  }
+}

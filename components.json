@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/registry/cmplt/ui",
+    "utils": "@/registry/cmplt/lib/utils",
+    "ui": "@/registry/cmplt/ui",
+    "lib": "@/registry/cmplt/lib",
+    "hooks": "@/registry/cmplt/hooks"
+  },
+  "registries": {
+    "@cmplt": "http://localhost:3000/r/{name}.json"
+  }
+}

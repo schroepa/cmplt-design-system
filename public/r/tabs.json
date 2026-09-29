@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "type": "registry:ui",
+  "title": "Tabs",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Keyboard-navigable tabs component built on @base-ui/react/tabs.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/tabs.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Tabs as BaseTabs } from \"@base-ui/react/tabs\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\n/**\n * cmplt Tabs — Style Guide v1.1 (Sections 2 & 4):\n * Supports both core segmentation patterns:\n * 1. \"segmented\" (Default): Pill-shaped container (9999px) with pill-shaped active background\n * 2. \"underline\": Clean horizontal tab bar with simple bottom underline on active tab\n */\nconst TabsVariantContext = React.createContext<\"segmented\" | \"underline\">(\n  \"segmented\"\n);\n\nconst Tabs = BaseTabs.Root;\n\nconst tabsListVariants = cva(\"relative inline-flex items-center text-fg-muted\", {\n  variants: {\n    variant: {\n      segmented:\n        \"h-9 justify-center rounded-cmplt-full bg-subtle p-1 border border-border-subtle\",\n      underline:\n        \"h-10 w-full justify-start gap-6 border-b border-border-subtle bg-transparent p-0 rounded-none\",\n    },\n  },\n  defaultVariants: {\n    variant: \"segmented\",\n  },\n});\n\nexport interface TabsListProps\n  extends React.ComponentPropsWithoutRef<typeof BaseTabs.List>,\n    VariantProps<typeof tabsListVariants> {}\n\nconst TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(\n  ({ className, variant = \"segmented\", ...props }, ref) => (\n    <TabsVariantContext.Provider value={variant ?? \"segmented\"}>\n      <BaseTabs.List\n        ref={ref}\n        className={cn(tabsListVariants({ variant, className }))}\n        {...props}\n      />\n    </TabsVariantContext.Provider>\n  )\n);\nTabsList.displayName = \"TabsList\";\n\nconst TabsTrigger = React.forwardRef<\n  HTMLElement,\n  React.ComponentPropsWithoutRef<typeof BaseTabs.Tab>\n>(({ className, ...props }, ref) => {\n  const variant = React.useContext(TabsVariantContext);\n  return (\n    <BaseTabs.Tab\n      ref={ref}\n      className={cn(\n        \"inline-flex items-center justify-center whitespace-nowrap text-xs font-medium text-fg-muted transition-all cursor-pointer select-none hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[disabled]:pointer-events-none data-[disabled]:opacity-45\",\n        variant === \"segmented\"\n          ? \"rounded-cmplt-full px-3.5 py-1 data-[active]:bg-surface data-[active]:text-fg-primary data-[active]:shadow-cmplt-xs\"\n          : \"relative h-10 rounded-none border-b-2 border-transparent px-1 pb-2.5 pt-2 data-[active]:border-fg-primary data-[active]:text-fg-primary\",\n        className\n      )}\n      {...props}\n    />\n  );\n});\nTabsTrigger.displayName = \"TabsTrigger\";\n\nconst TabsContent = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseTabs.Panel>\n>(({ className, ...props }, ref) => (\n  <BaseTabs.Panel\n    ref={ref}\n    className={cn(\n      \"mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-md\",\n      className\n    )}\n    {...props}\n  />\n));\nTabsContent.displayName = \"TabsContent\";\n\nexport { Tabs, TabsList, TabsTrigger, TabsContent };\n",
+      "type": "registry:ui",
+      "target": "components/ui/tabs.tsx"
+    }
+  ]
+}

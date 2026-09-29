@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Semantic status, brand, and monospace badge indicator.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/badge.tsx",
+      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\n/**\n * cmplt Badge — Style Guide v1.1 (Section 7):\n * Minimalist status indication using a small, solid color dot next to crisp text\n * instead of encapsulating text in heavy, fully-saturated colored blocks.\n */\nconst badgeVariants = cva(\n  \"inline-flex items-center gap-1.5 font-medium transition-colors select-none whitespace-nowrap cmplt-tabular\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"bg-subtle text-fg-secondary border border-border-subtle\",\n        brand:\n          \"bg-surface text-fg-primary border border-border-default\",\n        outline:\n          \"bg-transparent text-fg-secondary border border-border-default\",\n        success:\n          \"bg-surface text-fg-primary border border-border-subtle\",\n        warning:\n          \"bg-surface text-fg-primary border border-border-subtle\",\n        danger:\n          \"bg-surface text-fg-primary border border-border-subtle\",\n        info:\n          \"bg-surface text-fg-primary border border-border-subtle\",\n        mono:\n          \"bg-subtle/70 text-fg-secondary border border-border-subtle font-mono tracking-tight\",\n      },\n      size: {\n        sm: \"px-2.5 py-0.5 text-[11px] leading-4 rounded-cmplt-full\",\n        md: \"px-3 py-1 text-xs leading-4 rounded-cmplt-full\",\n        lg: \"px-3.5 py-1 text-xs leading-4 rounded-cmplt-full\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"md\",\n    },\n  }\n);\n\nconst DOT_COLOR_MAP: Partial<Record<NonNullable<BadgeProps[\"variant\"]>, string>> = {\n  brand: \"bg-fg-accent\",\n  success: \"bg-status-success\",\n  warning: \"bg-status-warning\",\n  danger: \"bg-status-danger\",\n  info: \"bg-status-info\",\n};\n\nexport interface BadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof badgeVariants> {\n  /**\n   * Controls whether the minimalist status dot is rendered.\n   * Defaults to true automatically for status & brand variants.\n   */\n  dot?: boolean;\n}\n\nfunction Badge({\n  className,\n  variant = \"default\",\n  size,\n  dot,\n  children,\n  ...props\n}: BadgeProps) {\n  const dotColor = variant ? DOT_COLOR_MAP[variant] : undefined;\n  const shouldShowDot = dot ?? Boolean(dotColor);\n\n  return (\n    <span\n      className={cn(badgeVariants({ variant, size }), className)}\n      {...props}\n    >\n      {shouldShowDot && (\n        <span\n          aria-hidden=\"true\"\n          className={cn(\n            \"h-1.5 w-1.5 shrink-0 rounded-full\",\n            dotColor ?? \"bg-fg-muted\"\n          )}\n        />\n      )}\n      {children}\n    </span>\n  );\n}\n\nexport { Badge, badgeVariants };\n",
+      "type": "registry:ui",
+      "target": "components/ui/badge.tsx"
+    }
+  ]
+}

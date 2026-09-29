@@ -1,0 +1,41 @@
+"use client";
+
+import * as React from "react";
+import { Progress as BaseProgress } from "@base-ui/react/progress";
+import { cn } from "@/registry/cmplt/lib/utils";
+
+export interface ProgressProps
+  extends React.ComponentPropsWithoutRef<typeof BaseProgress.Root> {
+  label?: string;
+  showValue?: boolean;
+}
+
+const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
+  ({ className, label, showValue = false, value, ...props }, ref) => (
+    <BaseProgress.Root
+      ref={ref}
+      value={value}
+      className={cn("flex w-full flex-col gap-1.5", className)}
+      {...props}
+    >
+      {(label || showValue) && (
+        <div className="flex items-center justify-between text-xs">
+          {label && (
+            <BaseProgress.Label className="font-medium text-fg-secondary">
+              {label}
+            </BaseProgress.Label>
+          )}
+          {showValue && (
+            <BaseProgress.Value className="font-mono text-fg-muted" />
+          )}
+        </div>
+      )}
+      <BaseProgress.Track className="h-2 w-full overflow-hidden rounded-cmplt-full bg-subtle border border-border-subtle">
+        <BaseProgress.Indicator className="h-full bg-accent transition-all duration-300 ease-out rounded-cmplt-full" />
+      </BaseProgress.Track>
+    </BaseProgress.Root>
+  )
+);
+Progress.displayName = "Progress";
+
+export { Progress };

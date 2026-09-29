@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Generated / cache
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+.turbo/
+
+# Package manager lockfiles (optional — keep if you want reproducible installs)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Environment variables
+.env
+.env*.local
+
+# IDE / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Vercel / deployment
+.vercel
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
