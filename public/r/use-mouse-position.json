@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-mouse-position",
+  "type": "registry:hook",
+  "title": "Use Mouse Position Hook",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Smooth mouse tracking hook for shader uniforms, canvas animations, and dynamic cursor highlights.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/cmplt/hooks/use-mouse-position.ts",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nexport interface MousePosition {\n  /** X coordinate relative to viewport */\n  x: number;\n  /** Y coordinate relative to viewport */\n  y: number;\n  /** Normalized X between 0 and 1 */\n  normalizedX: number;\n  /** Normalized Y between 0 and 1 */\n  normalizedY: number;\n}\n\n/**\n * cmplt React Hook to smoothly track mouse position across viewport or element.\n * Perfect for shader uniforms, liquid filter coordinates, and dynamic cursor highlights.\n */\nexport function useMousePosition(): MousePosition {\n  const [position, setPosition] = React.useState<MousePosition>({\n    x: 0,\n    y: 0,\n    normalizedX: 0.5,\n    normalizedY: 0.5,\n  });\n\n  React.useEffect(() => {\n    if (typeof window === \"undefined\") return;\n\n    const handleMouseMove = (event: MouseEvent) => {\n      const { clientX, clientY } = event;\n      const { innerWidth, innerHeight } = window;\n\n      setPosition({\n        x: clientX,\n        y: clientY,\n        normalizedX: innerWidth > 0 ? clientX / innerWidth : 0.5,\n        normalizedY: innerHeight > 0 ? clientY / innerHeight : 0.5,\n      });\n    };\n\n    window.addEventListener(\"mousemove\", handleMouseMove, { passive: true });\n    return () => window.removeEventListener(\"mousemove\", handleMouseMove);\n  }, []);\n\n  return position;\n}\n",
+      "type": "registry:hook",
+      "target": "@hooks/use-mouse-position.ts"
+    }
+  ]
+}

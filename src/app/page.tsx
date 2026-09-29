@@ -638,6 +638,9 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-2 pt-2">
                 {[
+                  "liquid-tabs",
+                  "liquid-switch",
+                  "liquid-button",
                   "interactive-dot-field",
                   "animated-cta-button",
                   "highlight-input",

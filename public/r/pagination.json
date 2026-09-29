@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Accessible page-number navigation control with active state pills, previous/next buttons, and ellipsis.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "utils",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/pagination.tsx",
+      "content": "import * as React from \"react\";\nimport { ChevronLeft, ChevronRight, MoreHorizontal } from \"lucide-react\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\nimport { buttonVariants } from \"@/registry/cmplt/ui/button\";\n\nconst Pagination = ({ className, ...props }: React.ComponentProps<\"nav\">) => (\n  <nav\n    role=\"navigation\"\n    aria-label=\"pagination\"\n    className={cn(\"mx-auto flex w-full justify-center\", className)}\n    {...props}\n  />\n);\nPagination.displayName = \"Pagination\";\n\nconst PaginationContent = React.forwardRef<\n  HTMLUListElement,\n  React.ComponentProps<\"ul\">\n>(({ className, ...props }, ref) => (\n  <ul\n    ref={ref}\n    className={cn(\"flex flex-row items-center gap-1\", className)}\n    {...props}\n  />\n));\nPaginationContent.displayName = \"PaginationContent\";\n\nconst PaginationItem = React.forwardRef<\n  HTMLLIElement,\n  React.ComponentProps<\"li\">\n>(({ className, ...props }, ref) => (\n  <li ref={ref} className={cn(\"\", className)} {...props} />\n));\nPaginationItem.displayName = \"PaginationItem\";\n\nexport type PaginationLinkProps = {\n  isActive?: boolean;\n} & React.ComponentProps<\"button\">;\n\nconst PaginationLink = ({\n  className,\n  isActive,\n  ...props\n}: PaginationLinkProps) => (\n  <button\n    aria-current={isActive ? \"page\" : undefined}\n    type=\"button\"\n    className={cn(\n      buttonVariants({\n        variant: isActive ? \"outline\" : \"ghost\",\n        size: \"sm\",\n      }),\n      \"h-8 min-w-8 px-2.5 font-mono text-xs cmplt-tabular cursor-pointer\",\n      isActive && \"bg-surface border-border-default text-fg-primary shadow-cmplt-xs\",\n      className\n    )}\n    {...props}\n  />\n);\nPaginationLink.displayName = \"PaginationLink\";\n\nconst PaginationPrevious = ({\n  className,\n  label = \"Previous\",\n  ...props\n}: React.ComponentProps<typeof PaginationLink> & { label?: string }) => (\n  <PaginationLink\n    aria-label=\"Go to previous page\"\n    className={cn(\"gap-1.5 pl-2 pr-3 font-sans font-medium\", className)}\n    {...props}\n  >\n    <ChevronLeft className=\"h-3.5 w-3.5\" />\n    <span>{label}</span>\n  </PaginationLink>\n);\nPaginationPrevious.displayName = \"PaginationPrevious\";\n\nconst PaginationNext = ({\n  className,\n  label = \"Next\",\n  ...props\n}: React.ComponentProps<typeof PaginationLink> & { label?: string }) => (\n  <PaginationLink\n    aria-label=\"Go to next page\"\n    className={cn(\"gap-1.5 pl-3 pr-2 font-sans font-medium\", className)}\n    {...props}\n  >\n    <span>{label}</span>\n    <ChevronRight className=\"h-3.5 w-3.5\" />\n  </PaginationLink>\n);\nPaginationNext.displayName = \"PaginationNext\";\n\nconst PaginationEllipsis = ({\n  className,\n  ...props\n}: React.ComponentProps<\"span\">) => (\n  <span\n    aria-hidden\n    className={cn(\n      \"flex h-8 w-8 items-center justify-center text-fg-muted\",\n      className\n    )}\n    {...props}\n  >\n    <MoreHorizontal className=\"h-3.5 w-3.5\" />\n    <span className=\"sr-only\">More pages</span>\n  </span>\n);\nPaginationEllipsis.displayName = \"PaginationEllipsis\";\n\nexport {\n  Pagination,\n  PaginationContent,\n  PaginationLink,\n  PaginationItem,\n  PaginationPrevious,\n  PaginationNext,\n  PaginationEllipsis,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/pagination.tsx"
+    }
+  ]
+}

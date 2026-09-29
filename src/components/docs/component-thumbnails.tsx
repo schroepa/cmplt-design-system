@@ -11,10 +11,105 @@ import {
   SlidersHorizontal,
   X,
   ArrowRight,
+  Droplets,
 } from "lucide-react";
 
 export function ComponentThumbnail({ slug }: { slug: string }) {
   switch (slug) {
+    case "liquid-tabs":
+      return (
+        <div className="relative inline-flex h-8 items-center rounded-cmplt-full bg-subtle p-1 border border-border-subtle">
+          <div className="relative z-10 flex items-center gap-1 px-1">
+            <span className="rounded-cmplt-full bg-surface px-2.5 py-0.5 text-[10px] font-semibold text-fg-primary shadow-cmplt-xs">
+              Fluid
+            </span>
+            <span className="px-2 py-0.5 text-[10px] font-medium text-fg-muted">
+              Elastic
+            </span>
+          </div>
+          <span className="absolute left-6 h-3 w-5 rounded-full bg-surface/70 blur-[1px]" />
+        </div>
+      );
+
+    case "liquid-switch":
+      return (
+        <div className="relative inline-flex h-5 w-10 items-center rounded-cmplt-full border border-accent bg-accent p-0.5 shadow-cmplt-xs">
+          <span className="absolute left-1.5 h-3 w-4 rounded-cmplt-full bg-fg-on-accent/60 blur-[0.5px]" />
+          <span className="block h-3.5 w-3.5 translate-x-5 rounded-cmplt-full bg-fg-on-accent shadow-cmplt-xs" />
+        </div>
+      );
+
+    case "liquid-button":
+      return (
+        <div className="relative inline-flex h-8 items-center gap-1.5 rounded-cmplt-full bg-accent px-3.5 text-[11px] font-medium text-fg-on-accent shadow-cmplt-xs overflow-hidden">
+          <span className="absolute -left-1 top-1 h-5 w-5 rounded-full bg-accent-hover blur-[1px]" />
+          <span className="absolute right-2 bottom-0 h-4 w-4 rounded-full bg-accent-hover blur-[1px]" />
+          <Droplets className="relative z-10 h-3 w-3" />
+          <span className="relative z-10 font-medium">Liquid Action</span>
+        </div>
+      );
+
+    case "liquid-filter":
+      return (
+        <div className="relative flex items-center justify-center gap-1">
+          <span className="h-4 w-4 rounded-full bg-accent" />
+          <span className="h-2 w-3 rounded-full bg-accent -ml-2 -mr-2" />
+          <span className="h-4 w-4 rounded-full bg-accent" />
+          <span className="ml-2 font-mono text-[9px] text-fg-muted">SVG Goo</span>
+        </div>
+      );
+
+    case "liquid-toggle-group":
+      return (
+        <div className="relative inline-flex h-8 items-center rounded-cmplt-full bg-subtle p-1 border border-border-subtle">
+          <span className="rounded-cmplt-full bg-surface px-2.5 py-0.5 text-[10px] font-semibold text-fg-primary shadow-cmplt-xs">
+            Align
+          </span>
+          <span className="px-2 py-0.5 text-[10px] text-fg-muted">Center</span>
+          <span className="absolute left-7 h-3 w-4 rounded-full bg-surface/60 blur-[1px]" />
+        </div>
+      );
+
+    case "liquid-pagination":
+      return (
+        <div className="relative inline-flex h-8 items-center gap-1 rounded-cmplt-full bg-subtle p-1 border border-border-subtle">
+          <span className="h-6 w-6 rounded-full text-[10px] flex items-center justify-center text-fg-muted">1</span>
+          <span className="h-6 w-6 rounded-full bg-surface text-[10px] font-bold flex items-center justify-center text-fg-primary shadow-cmplt-xs">2</span>
+          <span className="h-6 w-6 rounded-full text-[10px] flex items-center justify-center text-fg-muted">3</span>
+          <span className="absolute left-8 h-3.5 w-5 rounded-full bg-surface/60 blur-[1px]" />
+        </div>
+      );
+
+    case "liquid-radio-group":
+      return (
+        <div className="flex flex-col gap-1.5">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-4 w-4 items-center justify-center rounded-full border border-accent bg-surface">
+              <span className="h-2 w-2 rounded-full bg-accent" />
+            </span>
+            <span className="text-[10px] font-medium text-fg-primary">Liquid Select</span>
+          </div>
+        </div>
+      );
+
+    case "liquid-avatar-group":
+      return (
+        <div className="flex items-center -space-x-2">
+          <span className="h-7 w-7 rounded-full border-2 border-surface bg-accent text-[9px] font-bold text-fg-on-accent flex items-center justify-center shadow-cmplt-xs">A</span>
+          <span className="h-7 w-7 rounded-full border-2 border-surface bg-fg-primary text-[9px] font-bold text-surface flex items-center justify-center shadow-cmplt-xs">B</span>
+          <span className="h-7 w-7 rounded-full border-2 border-surface bg-subtle text-[9px] font-bold text-fg-secondary flex items-center justify-center shadow-cmplt-xs">+3</span>
+        </div>
+      );
+
+    case "liquid-dock":
+      return (
+        <div className="relative inline-flex h-9 items-center gap-1 rounded-cmplt-full border border-border-default bg-surface/90 px-2 shadow-cmplt-xs">
+          <span className="h-6 w-6 rounded-full bg-subtle flex items-center justify-center text-fg-primary text-[10px]">✦</span>
+          <span className="h-6 w-6 rounded-full flex items-center justify-center text-fg-muted text-[10px]">●</span>
+          <span className="h-6 w-6 rounded-full flex items-center justify-center text-fg-muted text-[10px]">▲</span>
+          <span className="absolute left-2 top-1.5 h-6 w-6 rounded-full bg-subtle/80 blur-[0.5px]" />
+        </div>
+      );
     case "typography":
       return (
         <div className="w-48 space-y-1.5 text-left pointer-events-none">

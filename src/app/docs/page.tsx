@@ -55,6 +55,12 @@ export default function DocsOverviewPage() {
               <ArrowRight className="h-3.5 w-3.5" />
             </Button>
           </Link>
+          <Link href="/docs/hooks">
+            <Button variant="secondary" size="md">
+              <Sparkles className="h-3.5 w-3.5" />
+              React Hooks
+            </Button>
+          </Link>
           <a href="/r/index.json" target="_blank" rel="noreferrer">
             <Button variant="ghost" size="md" className="font-mono text-xs">
               View /r/index.json
@@ -157,6 +163,69 @@ export default function DocsOverviewPage() {
             <CliInstallTabs itemName="tokens" />
             <CliInstallTabs itemName="button" />
           </div>
+        </div>
+      </section>
+
+      {/* Registry Capabilities & Types */}
+      <section className="space-y-6 md:space-y-8">
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Badge variant="brand">Multi-Tier Delivery</Badge>
+          </div>
+          <h2 className="cmplt-h3 text-fg-primary">
+            Diverse Registry Types in Action
+          </h2>
+          <p className="cmplt-body text-fg-muted">
+            The cmplt registry supports modern shadcn schemas across atomic primitives, hooks, themes, blocks, and project bootstrapping.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Card className="p-5 space-y-3">
+            <Badge variant="mono" size="sm">registry:ui</Badge>
+            <h3 className="text-sm font-semibold text-fg-primary">Atomic Primitives</h3>
+            <p className="cmplt-body-xs text-fg-muted">
+              WAI-ARIA accessible Base UI components (Button, Dialog, Select, Tabs) with 3-tier tokens.
+            </p>
+            <div className="pt-2 text-xs font-mono text-fg-accent">
+              npx shadcn add @cmplt/button
+            </div>
+          </Card>
+
+          <Card className="p-5 space-y-3">
+            <Badge variant="mono" size="sm">registry:hook</Badge>
+            <h3 className="text-sm font-semibold text-fg-primary">Reusable Hooks</h3>
+            <p className="cmplt-body-xs text-fg-muted">
+              Hardware-accelerated tracking, reduced motion a11y, and reactive media query subscriptions.
+            </p>
+            <div className="pt-2">
+              <Link href="/docs/hooks" className="text-xs font-semibold text-fg-accent hover:underline flex items-center gap-1">
+                Explore Hooks <ArrowRight className="h-3 w-3" />
+              </Link>
+            </div>
+          </Card>
+
+          <Card className="p-5 space-y-3">
+            <Badge variant="mono" size="sm">registry:theme</Badge>
+            <h3 className="text-sm font-semibold text-fg-primary">OKLCH Theme</h3>
+            <p className="cmplt-body-xs text-fg-muted">
+              Pre-calibrated semantic OKLCH CSS variables for Tailwind v4 @theme integration.
+            </p>
+            <div className="pt-2 text-xs font-mono text-fg-accent">
+              npx shadcn add @cmplt/theme
+            </div>
+          </Card>
+
+          <Card className="p-5 space-y-3">
+            <Badge variant="mono" size="sm">registry:base</Badge>
+            <h3 className="text-sm font-semibold text-fg-primary">Project Bootstrap</h3>
+            <p className="cmplt-body-xs text-fg-muted">
+              Initialize a complete cmplt workspace with base configs, fonts, and icons in 1 step.
+            </p>
+            <div className="pt-2 text-xs font-mono text-fg-accent">
+              npx shadcn init @cmplt/base
+            </div>
+          </Card>
         </div>
       </section>
 

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "theme",
+  "type": "registry:theme",
+  "title": "cmplt OKLCH & Liquid Typography Theme",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "3-tier semantic OKLCH color system and Tailwind CSS v4 @theme variable mappings.",
+  "dependencies": [
+    "geist"
+  ],
+  "registryDependencies": [
+    "tokens"
+  ],
+  "cssVars": {
+    "light": {
+      "background": "oklch(0.950 0.003 85)",
+      "foreground": "oklch(0.242 0.003 85)",
+      "card": "oklch(0.985 0.002 85)",
+      "card-foreground": "oklch(0.242 0.003 85)",
+      "popover": "oklch(0.992 0.001 85)",
+      "popover-foreground": "oklch(0.242 0.003 85)",
+      "primary": "oklch(0.645 0.175 34)",
+      "primary-foreground": "oklch(0.992 0.001 85)",
+      "secondary": "oklch(0.968 0.002 85)",
+      "secondary-foreground": "oklch(0.242 0.003 85)",
+      "muted": "oklch(0.950 0.003 85)",
+      "muted-foreground": "oklch(0.635 0.004 85)",
+      "accent": "oklch(0.968 0.002 85)",
+      "accent-foreground": "oklch(0.242 0.003 85)",
+      "destructive": "oklch(0.635 0.19 28)",
+      "destructive-foreground": "oklch(0.992 0.001 85)",
+      "border": "oklch(0.882 0.004 85)",
+      "input": "oklch(0.882 0.004 85)",
+      "ring": "oklch(0.645 0.175 34)"
+    },
+    "dark": {
+      "background": "oklch(0.242 0.003 85)",
+      "foreground": "oklch(0.915 0.003 85)",
+      "card": "oklch(0.270 0.003 85)",
+      "card-foreground": "oklch(0.915 0.003 85)",
+      "popover": "oklch(0.286 0.003 85)",
+      "popover-foreground": "oklch(0.915 0.003 85)",
+      "primary": "oklch(0.645 0.175 34)",
+      "primary-foreground": "oklch(0.992 0.001 85)",
+      "secondary": "oklch(0.304 0.003 85)",
+      "secondary-foreground": "oklch(0.915 0.003 85)",
+      "muted": "oklch(0.286 0.003 85)",
+      "muted-foreground": "oklch(0.635 0.004 85)",
+      "accent": "oklch(0.304 0.003 85)",
+      "accent-foreground": "oklch(0.915 0.003 85)",
+      "destructive": "oklch(0.55 0.18 28)",
+      "destructive-foreground": "oklch(0.992 0.001 85)",
+      "border": "oklch(0.332 0.003 85)",
+      "input": "oklch(0.332 0.003 85)",
+      "ring": "oklch(0.645 0.175 34)"
+    }
+  }
+}

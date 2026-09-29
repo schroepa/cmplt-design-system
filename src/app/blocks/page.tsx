@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { HeroMotionBlock } from "@/registry/cmplt/blocks/hero-motion-block";
 import { EngagementPanelBlock } from "@/registry/cmplt/blocks/engagement-panel-block";
 import { AppManagerBlock } from "@/registry/cmplt/blocks/app-manager-block";
 import { AiDeploymentCard } from "@/registry/cmplt/blocks/ai-deployment-card";
@@ -10,7 +11,7 @@ import { PricingTierBlock } from "@/registry/cmplt/blocks/pricing-tier-block";
 import { CliInstallTabs } from "@/components/docs/cli-install-tabs";
 import { Badge } from "@/registry/cmplt/ui/badge";
 import { Card } from "@/registry/cmplt/ui/card";
-import { Sparkles, ExternalLink } from "lucide-react";
+import { Sparkles, ExternalLink, ArrowRight } from "lucide-react";
 
 export default function BlocksLandingPage() {
   return (
@@ -34,6 +35,45 @@ export default function BlocksLandingPage() {
           to install the block and all required primitives into your repository.
         </p>
       </div>
+
+      {/* Featured: Interactive Hero Motion Block */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge variant="brand">Featured Block</Badge>
+              <h2 className="cmplt-h3 text-fg-primary">
+                Interactive Hero Motion Section
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/hero-motion-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Composite section pairing Three.js dynamic dot canvas, dual GSAP action triggers, and Liquid Utopia typography.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/showcase"
+              className="inline-flex items-center gap-1.5 font-medium text-xs text-fg-accent hover:underline"
+            >
+              Full Page Showcase <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <a
+              href="/r/hero-motion-block.json"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-muted hover:text-fg-primary hover:underline"
+            >
+              /r/hero-motion-block.json <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </div>
+
+        <CliInstallTabs itemName="hero-motion-block" />
+        <HeroMotionBlock />
+      </section>
 
       {/* Block 01: Multi-Layer Engagement Offer Shell */}
       <section className="space-y-8 md:space-y-10 2xl:space-y-12">

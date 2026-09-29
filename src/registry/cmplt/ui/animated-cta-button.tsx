@@ -5,6 +5,7 @@ import { Button as BaseButton } from "@base-ui/react/button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/registry/cmplt/lib/utils";
+import { useReducedMotion } from "@/registry/cmplt/hooks/use-reduced-motion";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
@@ -54,6 +55,7 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
     const sheenRef = React.useRef<HTMLSpanElement | null>(null);
     const beamRef = React.useRef<HTMLSpanElement | null>(null);
     const auraRef = React.useRef<HTMLSpanElement | null>(null);
+    const prefersReduced = useReducedMotion();
 
     const setMergedRef = React.useCallback(
       (node: HTMLElement | null) => {
@@ -77,9 +79,6 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
         const aura = auraRef.current;
         if (!el || !content || !sheen || !beam || !aura) return;
 
-        const prefersReduced = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
         if (prefersReduced) return;
 
         // 1. Continuous, super-natural orbital border light + gentle breathing aura

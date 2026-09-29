@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "base",
+  "type": "registry:base",
+  "title": "cmplt Base Project Configuration",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Base design system configuration for bootstrapping cmplt with Base UI primitives, OKLCH tokens, and Geist typography.",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react",
+    "clsx",
+    "tailwind-merge",
+    "class-variance-authority",
+    "geist"
+  ],
+  "registryDependencies": [
+    "utils",
+    "tokens",
+    "theme",
+    "typography"
+  ],
+  "style": "cmplt",
+  "iconLibrary": "lucide",
+  "baseColor": "neutral"
+}

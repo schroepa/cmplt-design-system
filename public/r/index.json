@@ -5,7 +5,7 @@
   "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
   "owner": "Patrick Schrödter (ptrckschrdtr)",
   "github": "https://github.com/schroepa",
-  "totalItems": 28,
+  "totalItems": 68,
   "items": [
     {
       "name": "utils",
@@ -380,7 +380,8 @@
         "@gsap/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "use-reduced-motion"
       ],
       "endpoint": "/r/animated-cta-button.json"
     },
@@ -427,9 +428,607 @@
         "@gsap/react"
       ],
       "registryDependencies": [
-        "utils"
+        "utils",
+        "use-reduced-motion"
       ],
       "endpoint": "/r/interactive-dot-field.json"
+    },
+    {
+      "name": "liquid-filter",
+      "type": "registry:ui",
+      "title": "Liquid Gooey Filter Primitive",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Self-contained SVG gooey filter primitive with calibrated Gaussian blur & alpha color matrix for soft, organic fluid cohesion and zero-setup delivery.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/liquid-filter.json"
+    },
+    {
+      "name": "liquid-tabs",
+      "type": "registry:ui",
+      "title": "Liquid Tabs (GSAP + Base UI)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Segmented tab control with an organic liquid pill indicator that stretches, forms a fluid bridge, and softly detaches across tab switches.",
+      "dependencies": [
+        "@base-ui/react",
+        "gsap",
+        "@gsap/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter"
+      ],
+      "endpoint": "/r/liquid-tabs.json"
+    },
+    {
+      "name": "liquid-switch",
+      "type": "registry:ui",
+      "title": "Liquid Switch (Base UI)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Tactile toggle switch featuring an elastic mercury thumb with fluid trail absorption and self-contained SVG gooey physics.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter"
+      ],
+      "endpoint": "/r/liquid-switch.json"
+    },
+    {
+      "name": "liquid-button",
+      "type": "registry:ui",
+      "title": "Liquid Button (GSAP + Base UI)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Organic fluid action button with cursor-reactive liquid droplets, soft press deformation, and razor-sharp foreground typography.",
+      "dependencies": [
+        "@base-ui/react",
+        "gsap",
+        "@gsap/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter",
+        "use-reduced-motion"
+      ],
+      "endpoint": "/r/liquid-button.json"
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "User profile picture and initials fallback powered by Base UI Avatar with status badges and stacked group support.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/avatar.json"
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible multi-line input primitive with OKLCH token styling, auto-resize capabilities, and Field integration.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/textarea.json"
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible single-selection form controls powered by Base UI Radio Group with animated spring indicators and selectable RadioCards.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/radio-group.json"
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle & Toggle Group",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Two-state press buttons and segmented button groups powered by Base UI Toggle and Toggle Group.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/toggle.json"
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Shimmer loading placeholder components with pulse animations for cards, typography lines, and avatars.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/skeleton.json"
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "Drawer & Sheet",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Slide-out overlay drawer panel powered by Base UI Drawer supporting 4 edge directions, drag handles, and mobile modal sheets.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/drawer.json"
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible floating action menu powered by Base UI Menu with submenus, checkboxes, radio items, and keyboard shortcuts.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/dropdown-menu.json"
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible modal confirmation dialog powered by Base UI Alert Dialog for destructive, critical, or irreversible actions.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "endpoint": "/r/alert-dialog.json"
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible wayfinding breadcrumb navigation with chevron separators and collapsed ellipsis items.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/breadcrumb.json"
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible page-number navigation control with active state pills, previous/next buttons, and ellipsis.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "button"
+      ],
+      "endpoint": "/r/pagination.json"
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Inline status callout banner supporting 5 semantic color variants with automatic icon slotting.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/alert.json"
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Floating notification toast queue powered by Base UI Toast with auto-dismiss timers, swipe-to-dismiss, and imperactive toast() triggers.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/toast.json"
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Responsive data table primitives with hover states, row selection indicators, and tabular monospace alignment.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/table.json"
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible custom scroll container powered by Base UI Scroll Area with sleek styled scrollbars.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/scroll-area.json"
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "Collapsible",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Lightweight expanding section toggle powered by Base UI Collapsible for smooth height transitions.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/collapsible.json"
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Centered placeholder container for blank dashboards, empty search results, and fresh workspace states.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/empty-state.json"
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible range slider powered by Base UI Slider with single & dual-thumb range support, smooth spring motion, and OKLCH color tokens.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/slider.json"
+    },
+    {
+      "name": "number-field",
+      "type": "registry:ui",
+      "title": "Number Field",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible numeric stepper and scrub input powered by Base UI Number Field with stacked and inline stepper controls.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/number-field.json"
+    },
+    {
+      "name": "otp-field",
+      "type": "registry:ui",
+      "title": "OTP Field",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible one-time password and verification PIN input slots powered by Base UI OTP Field with automatic focus advancement and separator splits.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/otp-field.json"
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible searchable dropdown and auto-completing selector powered by Base UI Combobox with multi-selection chips and popup positioning.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/combobox.json"
+    },
+    {
+      "name": "meter",
+      "type": "registry:ui",
+      "title": "Meter",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible scalar measurement and capacity indicator powered by Base UI Meter with semantic status color variants.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/meter.json"
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Chronological activity log and audit stream with connected line nodes, status badges, and timestamp formatting.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "endpoint": "/r/timeline.json"
+    },
+    {
+      "name": "use-mouse-position",
+      "type": "registry:hook",
+      "title": "Use Mouse Position Hook",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Smooth mouse tracking hook for shader uniforms, canvas animations, and dynamic cursor highlights.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "endpoint": "/r/use-mouse-position.json"
+    },
+    {
+      "name": "use-reduced-motion",
+      "type": "registry:hook",
+      "title": "Use Reduced Motion Hook",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible hook to detect prefers-reduced-motion media query for animation fallbacks.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "endpoint": "/r/use-reduced-motion.json"
+    },
+    {
+      "name": "use-media-query",
+      "type": "registry:hook",
+      "title": "Use Media Query Hook",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Reactive CSS media query subscription hook for responsive layouts and breakpoints.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "endpoint": "/r/use-media-query.json"
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "cmplt OKLCH & Liquid Typography Theme",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "3-tier semantic OKLCH color system and Tailwind CSS v4 @theme variable mappings.",
+      "dependencies": [
+        "geist"
+      ],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "endpoint": "/r/theme.json"
+    },
+    {
+      "name": "base",
+      "type": "registry:base",
+      "title": "cmplt Base Project Configuration",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Base design system configuration for bootstrapping cmplt with Base UI primitives, OKLCH tokens, and Geist typography.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge",
+        "class-variance-authority",
+        "geist"
+      ],
+      "registryDependencies": [
+        "utils",
+        "tokens",
+        "theme",
+        "typography"
+      ],
+      "endpoint": "/r/base.json"
+    },
+    {
+      "name": "font-geist",
+      "type": "registry:font",
+      "title": "Geist Typography",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Geist Sans and Geist Mono typography configuration for Next.js and Tailwind projects.",
+      "dependencies": [
+        "geist"
+      ],
+      "registryDependencies": [],
+      "endpoint": "/r/font-geist.json"
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "Toggle Group",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "A set of two-state buttons that can be toggled on or off.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "toggle"
+      ],
+      "endpoint": "/r/toggle-group.json"
+    },
+    {
+      "name": "liquid-toggle-group",
+      "type": "registry:ui",
+      "title": "Liquid Toggle Group (GSAP + Base UI)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Segmented toggle group with an organic liquid mercury pill indicator that dynamically stretches, forms a fluid bridge, and softly detaches across item toggles.",
+      "dependencies": [
+        "@base-ui/react",
+        "gsap",
+        "@gsap/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter"
+      ],
+      "endpoint": "/r/liquid-toggle-group.json"
+    },
+    {
+      "name": "liquid-pagination",
+      "type": "registry:ui",
+      "title": "Liquid Pagination (GSAP)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible pagination bar where the active page pill indicator flows seamlessly across page numbers with organic liquid stretch and snap physics.",
+      "dependencies": [
+        "gsap",
+        "@gsap/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter"
+      ],
+      "endpoint": "/r/liquid-pagination.json"
+    },
+    {
+      "name": "liquid-radio-group",
+      "type": "registry:ui",
+      "title": "Liquid Radio Group (Base UI)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Accessible radio group with organic fluid surface-tension swelling on selection and self-contained SVG gooey physics.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter"
+      ],
+      "endpoint": "/r/liquid-radio-group.json"
+    },
+    {
+      "name": "liquid-avatar-group",
+      "type": "registry:ui",
+      "title": "Liquid Avatar Group (Base UI)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Overlapping team avatars that merge into an organic visual cluster with fluid surface tension and elastic detachment on hover.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter",
+        "avatar"
+      ],
+      "endpoint": "/r/liquid-avatar-group.json"
+    },
+    {
+      "name": "liquid-dock",
+      "type": "registry:ui",
+      "title": "Liquid Dock (GSAP)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Floating navigation ribbon with a cursor-following fluid beam that organically connects and flows across dock items with smooth surface tension.",
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ],
+      "registryDependencies": [
+        "utils",
+        "liquid-filter"
+      ],
+      "endpoint": "/r/liquid-dock.json"
+    },
+    {
+      "name": "hero-motion-block",
+      "type": "registry:block",
+      "title": "Interactive Hero Motion Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Composite hero section pairing Three.js dynamic dot canvas, dual GSAP action triggers, and Liquid Utopia typography.",
+      "dependencies": [
+        "three",
+        "gsap",
+        "@gsap/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "interactive-dot-field",
+        "animated-cta-button",
+        "liquid-button",
+        "typography",
+        "badge"
+      ],
+      "endpoint": "/r/hero-motion-block.json"
+    },
+    {
+      "name": "showcase-page",
+      "type": "registry:page",
+      "title": "Showcase Landing Page Template",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Full-page showcase template combining HeroMotionBlock, TokenSyncInspectorBlock, and PricingTierBlock.",
+      "dependencies": [
+        "three",
+        "gsap",
+        "@gsap/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hero-motion-block",
+        "token-sync-inspector",
+        "pricing-tier-block",
+        "badge",
+        "card",
+        "typography"
+      ],
+      "endpoint": "/r/showcase-page.json"
     }
   ]
 }

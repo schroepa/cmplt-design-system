@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-media-query",
+  "type": "registry:hook",
+  "title": "Use Media Query Hook",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Reactive CSS media query subscription hook for responsive layouts and breakpoints.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/cmplt/hooks/use-media-query.ts",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\n/**\n * cmplt React Hook to subscribe to any CSS media query (e.g., \"(min-width: 768px)\", \"(orientation: landscape)\").\n */\nexport function useMediaQuery(query: string): boolean {\n  const [matches, setMatches] = React.useState<boolean>(false);\n\n  React.useEffect(() => {\n    if (typeof window === \"undefined\" || !window.matchMedia) return;\n\n    const mediaQueryList = window.matchMedia(query);\n    setMatches(mediaQueryList.matches);\n\n    const listener = (event: MediaQueryListEvent) => {\n      setMatches(event.matches);\n    };\n\n    if (mediaQueryList.addEventListener) {\n      mediaQueryList.addEventListener(\"change\", listener);\n      return () => mediaQueryList.removeEventListener(\"change\", listener);\n    } else {\n      mediaQueryList.addListener(listener);\n      return () => mediaQueryList.removeListener(listener);\n    }\n  }, [query]);\n\n  return matches;\n}\n",
+      "type": "registry:hook",
+      "target": "@hooks/use-media-query.ts"
+    }
+  ]
+}

@@ -113,6 +113,23 @@ export default function DocsLayout({
                     </Badge>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/docs/hooks"
+                    aria-current={pathname === "/docs/hooks" ? "page" : undefined}
+                    className={cn(
+                      "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                      pathname === "/docs/hooks"
+                        ? "bg-accent-subtle text-fg-accent font-semibold"
+                        : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
+                    )}
+                  >
+                    <span>React Hooks</span>
+                    <Badge variant="mono" size="sm" className="px-1.5 py-0 text-[10px]">
+                      Hooks
+                    </Badge>
+                  </Link>
+                </li>
               </ul>
             </div>
 

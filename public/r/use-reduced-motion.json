@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-reduced-motion",
+  "type": "registry:hook",
+  "title": "Use Reduced Motion Hook",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Accessible hook to detect prefers-reduced-motion media query for animation fallbacks.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "src/registry/cmplt/hooks/use-reduced-motion.ts",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\n/**\n * cmplt React Hook to detect OS-level reduced motion preferences (`prefers-reduced-motion: reduce`).\n * Use this to gracefully disable Three.js WebGL rendering, continuous GSAP loops, and liquid distortions for a11y compliance.\n */\nexport function useReducedMotion(): boolean {\n  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(false);\n\n  React.useEffect(() => {\n    if (typeof window === \"undefined\" || !window.matchMedia) return;\n\n    const mediaQueryList = window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n    setPrefersReducedMotion(mediaQueryList.matches);\n\n    const listener = (event: MediaQueryListEvent) => {\n      setPrefersReducedMotion(event.matches);\n    };\n\n    if (mediaQueryList.addEventListener) {\n      mediaQueryList.addEventListener(\"change\", listener);\n      return () => mediaQueryList.removeEventListener(\"change\", listener);\n    } else {\n      // Deprecated fallback for older browsers\n      mediaQueryList.addListener(listener);\n      return () => mediaQueryList.removeListener(listener);\n    }\n  }, []);\n\n  return prefersReducedMotion;\n}\n",
+      "type": "registry:hook",
+      "target": "@hooks/use-reduced-motion.ts"
+    }
+  ]
+}

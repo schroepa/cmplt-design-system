@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "type": "registry:ui",
+  "title": "Collapsible",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Lightweight expanding section toggle powered by Base UI Collapsible for smooth height transitions.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/collapsible.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Collapsible as BaseCollapsible } from \"@base-ui/react/collapsible\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\nconst Collapsible = BaseCollapsible.Root;\nconst CollapsibleTrigger = BaseCollapsible.Trigger;\n\nconst CollapsibleContent = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseCollapsible.Panel>\n>(({ className, ...props }, ref) => (\n  <BaseCollapsible.Panel\n    ref={ref}\n    className={cn(\n      \"overflow-hidden transition-all duration-200 ease-cmplt-out data-[ending-style]:h-0 data-[starting-style]:h-0\",\n      className\n    )}\n    {...props}\n  />\n));\nCollapsibleContent.displayName = \"CollapsibleContent\";\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent };\n",
+      "type": "registry:ui",
+      "target": "components/ui/collapsible.tsx"
+    }
+  ]
+}

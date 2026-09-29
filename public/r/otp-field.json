@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "otp-field",
+  "type": "registry:ui",
+  "title": "OTP Field",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Accessible one-time password and verification PIN input slots powered by Base UI OTP Field with automatic focus advancement and separator splits.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/otp-field.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { OTPField as BaseOTPField } from \"@base-ui/react/otp-field\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\nexport interface OTPFieldProps\n  extends React.ComponentPropsWithoutRef<typeof BaseOTPField.Root> {\n  separatorIndex?: number;\n}\n\nconst OTPFieldRoot = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseOTPField.Root>\n>(({ className, ...props }, ref) => (\n  <BaseOTPField.Root\n    ref={ref}\n    className={cn(\"flex items-center gap-2 select-none\", className)}\n    {...props}\n  />\n));\nOTPFieldRoot.displayName = \"OTPFieldRoot\";\n\nconst OTPFieldInput = React.forwardRef<\n  HTMLInputElement,\n  React.ComponentPropsWithoutRef<typeof BaseOTPField.Input>\n>(({ className, ...props }, ref) => (\n  <BaseOTPField.Input\n    ref={ref}\n    className={cn(\n      \"relative flex size-10 sm:size-11 items-center justify-center rounded-cmplt-md border border-border bg-surface text-center font-mono text-base font-semibold text-fg shadow-cmplt-xs transition-all\",\n      \"hover:border-border-strong focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 focus:scale-[1.03]\",\n      \"data-[filled]:border-border-strong data-[filled]:bg-subtle/30\",\n      \"disabled:cursor-not-allowed disabled:opacity-50\",\n      className\n    )}\n    {...props}\n  />\n));\nOTPFieldInput.displayName = \"OTPFieldInput\";\n\nconst OTPFieldSeparator = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, children, ...props }, ref) => (\n  <div\n    ref={ref}\n    role=\"separator\"\n    className={cn(\"text-fg-muted font-bold select-none px-1\", className)}\n    {...props}\n  >\n    {children || \"–\"}\n  </div>\n));\nOTPFieldSeparator.displayName = \"OTPFieldSeparator\";\n\n/**\n * High-level ready-to-use OTP Field with configurable length and optional split separator.\n */\nconst OTPField = React.forwardRef<HTMLDivElement, OTPFieldProps>(\n  ({ className, length = 6, separatorIndex = 3, children, ...props }, ref) => {\n    return (\n      <OTPFieldRoot ref={ref} length={length} className={className} {...props}>\n        {children || (\n          <>\n            {Array.from({ length }).map((_, i) => (\n              <React.Fragment key={i}>\n                {separatorIndex && i === separatorIndex && (\n                  <OTPFieldSeparator />\n                )}\n                <OTPFieldInput />\n              </React.Fragment>\n            ))}\n          </>\n        )}\n      </OTPFieldRoot>\n    );\n  }\n);\nOTPField.displayName = \"OTPField\";\n\nexport {\n  OTPField,\n  OTPFieldRoot,\n  OTPFieldInput,\n  OTPFieldSeparator,\n};\n",
+      "type": "registry:ui",
+      "target": "components/ui/otp-field.tsx"
+    }
+  ]
+}

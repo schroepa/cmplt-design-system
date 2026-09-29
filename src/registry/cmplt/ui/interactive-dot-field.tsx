@@ -4,6 +4,7 @@ import * as React from "react";
 import * as THREE from "three";
 import gsap from "gsap";
 import { cn } from "@/registry/cmplt/lib/utils";
+import { useReducedMotion } from "@/registry/cmplt/hooks/use-reduced-motion";
 
 export interface InteractiveDotFieldProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -173,6 +174,7 @@ export const InteractiveDotField = React.forwardRef<
     forwardedRef
   ) => {
     const containerRef = React.useRef<HTMLDivElement | null>(null);
+    const prefersReduced = useReducedMotion();
 
     const setMergedRef = React.useCallback(
       (node: HTMLDivElement | null) => {
@@ -191,10 +193,6 @@ export const InteractiveDotField = React.forwardRef<
     React.useEffect(() => {
       const container = containerRef.current;
       if (!container) return;
-
-      const prefersReduced = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
 
       let width = Math.max(container.clientWidth, 1);
       let height = Math.max(container.clientHeight, 1);
@@ -429,11 +427,31 @@ export const InteractiveDotField = React.forwardRef<
       });
       resizeObserver.observe(container);
 
-      // 8. Sync render loop with GSAP ticker for unified frame timing
+      // 8. Render loop: calm static single-frame for reduced motion, continuous GSAP ticker otherwise
+      if (prefersReduced) {
+        uniforms.uTime.value = 0;
+        uniforms.uMouse.value.set(0, 0);
+        uniforms.uWake.value.set(0, 0);
+        uniforms.uHover.value = 0;
+        renderer.render(scene, camera);
+
+        return () => {
+          observer.disconnect();
+          resizeObserver.disconnect();
+          window.removeEventListener("pointermove", handleWindowPointerMove);
+          window.removeEventListener("pointerleave", handleWindowPointerLeave);
+          if (pointsMesh) {
+            pointsMesh.geometry.dispose();
+          }
+          material.dispose();
+          renderer.dispose();
+        };
+      }
+
       const startTime = performance.now();
       const tick = () => {
         const elapsed = (performance.now() - startTime) * 0.001;
-        uniforms.uTime.value = prefersReduced ? 0 : elapsed;
+        uniforms.uTime.value = elapsed;
         uniforms.uMouse.value.set(mouseProxy.x, mouseProxy.y);
         uniforms.uWake.value.set(mouseProxy.wakeX, mouseProxy.wakeY);
         uniforms.uHover.value = mouseProxy.hover;
@@ -454,7 +472,7 @@ export const InteractiveDotField = React.forwardRef<
         material.dispose();
         renderer.dispose();
       };
-    }, [spacing, interactionRadius, maxDisplacement, dotSize]);
+    }, [spacing, interactionRadius, maxDisplacement, dotSize, prefersReduced]);
 
     return (
       <div

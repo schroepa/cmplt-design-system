@@ -10,7 +10,6 @@ import {
   type ThemePreset,
   type RadiusPreset,
 } from "@/components/theme-provider";
-import { Badge } from "@/registry/cmplt/ui/badge";
 import { Kbd } from "@/registry/cmplt/ui/kbd";
 import { Input } from "@/registry/cmplt/ui/input";
 import {
@@ -39,7 +38,6 @@ import {
   ArrowUpRight,
   Layers,
   Figma,
-  Compass,
   Github,
 } from "lucide-react";
 import { cn } from "@/registry/cmplt/lib/utils";
@@ -49,54 +47,42 @@ if (typeof window !== "undefined") {
 }
 
 interface NavItem {
-  index: string;
   href: string;
   label: string;
   description: string;
-  meta: string;
   isActive: (pathname: string) => boolean;
 }
 
 const NAV_ITEMS: NavItem[] = [
   {
-    index: "01",
     href: "/docs",
     label: "Documentation",
-    description: "Architecture, CLI setup & headless @base-ui/react primitives",
-    meta: "v1.4 Core",
+    description: "Getting started, CLI setup, and core architecture",
     isActive: (pathname) =>
       pathname === "/docs" || pathname.startsWith("/docs/blueprint"),
   },
   {
-    index: "02",
     href: "/docs/components/button",
     label: "Components",
-    description: "17 accessible UI primitives, GSAP surfaces & 7 card presets",
-    meta: "17 Items",
+    description: "Accessible Base UI primitives and interactive surfaces",
     isActive: (pathname) => pathname.startsWith("/docs/components"),
   },
   {
-    index: "03",
     href: "/docs/tokens",
     label: "Design Tokens",
-    description: "3-tier perceptual OKLCH color ramps & W3C DTCG JSON schema",
-    meta: "W3C OKLCH",
+    description: "Three-tier OKLCH color system and W3C token definitions",
     isActive: (pathname) => pathname.startsWith("/docs/tokens"),
   },
   {
-    index: "04",
     href: "/blocks",
-    label: "UI Blocks",
-    description: "Production multi-surface shells, AI telemetry & app directories",
-    meta: "Pro Library",
+    label: "Blocks",
+    description: "Multi-surface application shells and composed patterns",
     isActive: (pathname) => pathname.startsWith("/blocks"),
   },
   {
-    index: "05",
     href: "/pricing",
     label: "Pricing",
-    description: "Open-source MIT primitives & team-wide Pro registry licensing",
-    meta: "MIT & Pro",
+    description: "Open-source primitives and team licensing",
     isActive: (pathname) => pathname.startsWith("/pricing"),
   },
 ];
@@ -309,7 +295,6 @@ export function SiteHeader() {
   const middleBarRef = React.useRef<HTMLSpanElement | null>(null);
   const bottomBarRef = React.useRef<HTMLSpanElement | null>(null);
   const overlayRef = React.useRef<HTMLDivElement | null>(null);
-  const backdropGlowRef = React.useRef<HTMLDivElement | null>(null);
   const hasMountedRef = React.useRef(false);
 
   React.useEffect(() => {
@@ -349,7 +334,6 @@ export function SiteHeader() {
       const middleBar = middleBarRef.current;
       const bottomBar = bottomBarRef.current;
       const overlay = overlayRef.current;
-      const glow = backdropGlowRef.current;
 
       if (!topBar || !middleBar || !bottomBar || !overlay) return;
 
@@ -366,7 +350,6 @@ export function SiteHeader() {
         middleBar,
         bottomBar,
         overlay,
-        glow,
         primaryItems,
         secondaryItems,
         footerBar,
@@ -379,9 +362,27 @@ export function SiteHeader() {
           visibility: "hidden",
           clipPath: "inset(0% 0% 100% 0%)",
         });
-        gsap.set(topBar, { y: -4.5, rotate: 0 });
-        gsap.set(middleBar, { scaleX: 1, opacity: 1 });
-        gsap.set(bottomBar, { y: 4.5, rotate: 0, scaleX: 0.72 });
+        gsap.set(topBar, {
+          x: 0,
+          y: -4.5,
+          rotate: 0,
+          scaleX: 1,
+          transformOrigin: "50% 50%",
+        });
+        gsap.set(middleBar, {
+          x: 0,
+          y: 0,
+          scaleX: 1,
+          opacity: 1,
+          transformOrigin: "50% 50%",
+        });
+        gsap.set(bottomBar, {
+          x: 2.2,
+          y: 4.5,
+          rotate: 0,
+          scaleX: 0.72,
+          transformOrigin: "50% 50%",
+        });
         return;
       }
 
@@ -391,23 +392,31 @@ export function SiteHeader() {
           clipPath: "inset(0% 0% 0% 0%)",
         });
         gsap.set(topBar, {
+          x: 0,
           y: menuOpen ? 0 : -4.5,
           rotate: menuOpen ? 45 : 0,
+          scaleX: 1,
+          transformOrigin: "50% 50%",
         });
         gsap.set(middleBar, {
+          x: 0,
+          y: 0,
           scaleX: menuOpen ? 0 : 1,
           opacity: menuOpen ? 0 : 1,
+          transformOrigin: "50% 50%",
         });
         gsap.set(bottomBar, {
+          x: menuOpen ? 0 : 2.2,
           y: menuOpen ? 0 : 4.5,
           rotate: menuOpen ? -45 : 0,
           scaleX: menuOpen ? 1 : 0.72,
+          transformOrigin: "50% 50%",
         });
         return;
       }
 
       if (menuOpen) {
-        // 1. Two-stage natural morph of the 3-line icon into a crisp X
+        // 1. Two-stage natural morph of the 3-line icon into a crisp centered X
         const iconTl = gsap.timeline();
         iconTl
           .to(
@@ -415,27 +424,33 @@ export function SiteHeader() {
             {
               scaleX: 0,
               opacity: 0,
-              duration: 0.2,
+              duration: 0.18,
               ease: "power2.in",
+              transformOrigin: "50% 50%",
             },
             0
           )
           .to(
             topBar,
             {
+              x: 0,
               y: 0,
+              scaleX: 1,
               duration: 0.22,
               ease: "power3.inOut",
+              transformOrigin: "50% 50%",
             },
             0
           )
           .to(
             bottomBar,
             {
+              x: 0,
               y: 0,
               scaleX: 1,
               duration: 0.22,
               ease: "power3.inOut",
+              transformOrigin: "50% 50%",
             },
             0
           )
@@ -445,6 +460,7 @@ export function SiteHeader() {
               rotate: 45,
               duration: 0.36,
               ease: "back.out(1.7)",
+              transformOrigin: "50% 50%",
             },
             0.18
           )
@@ -454,6 +470,7 @@ export function SiteHeader() {
               rotate: -45,
               duration: 0.36,
               ease: "back.out(1.7)",
+              transformOrigin: "50% 50%",
             },
             0.18
           );
@@ -471,56 +488,45 @@ export function SiteHeader() {
             {
               opacity: 1,
               clipPath: "inset(0% 0% 0% 0%)",
-              duration: 0.58,
+              duration: 0.55,
               ease: "expo.out",
             },
             0
           )
           .fromTo(
-            glow,
-            { scale: 0.8, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 0.85,
-              ease: "power3.out",
-            },
-            0.1
-          )
-          .fromTo(
             primaryItems,
-            { y: 36, opacity: 0 },
+            { y: 28, opacity: 0 },
             {
               y: 0,
               opacity: 1,
-              duration: 0.56,
-              stagger: 0.055,
+              duration: 0.52,
+              stagger: 0.05,
               ease: "power3.out",
             },
-            0.14
+            0.12
           )
           .fromTo(
             secondaryItems,
-            { y: 22, opacity: 0 },
+            { y: 18, opacity: 0 },
             {
               y: 0,
               opacity: 1,
-              duration: 0.5,
-              stagger: 0.045,
+              duration: 0.48,
+              stagger: 0.04,
               ease: "power3.out",
             },
-            0.22
+            0.2
           )
           .fromTo(
             footerBar,
-            { y: 14, opacity: 0 },
+            { y: 10, opacity: 0 },
             {
               y: 0,
               opacity: 1,
-              duration: 0.45,
+              duration: 0.4,
               ease: "power2.out",
             },
-            0.3
+            0.28
           );
       } else {
         // 1. Two-stage natural uncross of the icon back into architectural bars
@@ -532,25 +538,31 @@ export function SiteHeader() {
               rotate: 0,
               duration: 0.22,
               ease: "power3.inOut",
+              transformOrigin: "50% 50%",
             },
             0
           )
           .to(
             topBar,
             {
+              x: 0,
               y: -4.5,
+              scaleX: 1,
               duration: 0.28,
               ease: "back.out(1.5)",
+              transformOrigin: "50% 50%",
             },
             0.16
           )
           .to(
             bottomBar,
             {
+              x: 2.2,
               y: 4.5,
               scaleX: 0.72,
               duration: 0.28,
               ease: "back.out(1.5)",
+              transformOrigin: "50% 50%",
             },
             0.16
           )
@@ -561,6 +573,7 @@ export function SiteHeader() {
               opacity: 1,
               duration: 0.26,
               ease: "power3.out",
+              transformOrigin: "50% 50%",
             },
             0.18
           );
@@ -575,9 +588,9 @@ export function SiteHeader() {
           .to(
             [primaryItems, secondaryItems, footerBar],
             {
-              y: -16,
+              y: -14,
               opacity: 0,
-              duration: 0.22,
+              duration: 0.2,
               stagger: 0.015,
               ease: "power2.in",
             },
@@ -588,10 +601,10 @@ export function SiteHeader() {
             {
               opacity: 0,
               clipPath: "inset(0% 0% 100% 0%)",
-              duration: 0.42,
+              duration: 0.4,
               ease: "power3.inOut",
             },
-            0.08
+            0.06
           );
       }
     },
@@ -601,6 +614,7 @@ export function SiteHeader() {
   const handleMenuButtonEnter = () => {
     if (menuOpen || !bottomBarRef.current) return;
     gsap.to(bottomBarRef.current, {
+      x: 0,
       scaleX: 1,
       duration: 0.25,
       ease: "power2.out",
@@ -610,6 +624,7 @@ export function SiteHeader() {
   const handleMenuButtonLeave = () => {
     if (menuOpen || !bottomBarRef.current) return;
     gsap.to(bottomBarRef.current, {
+      x: 2.2,
       scaleX: 0.72,
       duration: 0.25,
       ease: "power2.out",
@@ -756,7 +771,7 @@ export function SiteHeader() {
                     return (
                       <React.Fragment key={item.href + item.title}>
                         {showCategoryHeader && (
-                          <div className="px-3 pt-2.5 pb-1 text-[10px] font-semibold uppercase tracking-wider text-fg-muted first:pt-1">
+                          <div className="px-3 pt-2.5 pb-1 text-xs font-medium text-fg-muted first:pt-1">
                             {item.category}
                           </div>
                         )}
@@ -792,9 +807,6 @@ export function SiteHeader() {
                             </div>
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
-                            <Badge variant="outline" size="sm">
-                              {item.category.split(" ")[0]}
-                            </Badge>
                             {isSelected && (
                               <CornerDownLeft className="h-3.5 w-3.5 text-fg-accent shrink-0" />
                             )}
@@ -817,7 +829,7 @@ export function SiteHeader() {
                     <span>Open</span>
                   </span>
                 </div>
-                <span className="font-mono text-[10px]">ESC to close</span>
+                <span className="text-[11px]">Esc to close</span>
               </div>
             </DialogContent>
           </Dialog>
@@ -846,8 +858,8 @@ export function SiteHeader() {
 
               {/* Color Scheme Segmented Control */}
               <div className="space-y-1.5">
-                <div className="text-[11px] font-medium uppercase tracking-wider text-fg-muted">
-                  Color Scheme
+                <div className="text-xs font-medium text-fg-muted">
+                  Color scheme
                 </div>
                 <div className="grid grid-cols-2 gap-1.5 rounded-cmplt-md bg-subtle/60 p-1">
                   <button
@@ -885,8 +897,8 @@ export function SiteHeader() {
 
               {/* Aesthetic Preset */}
               <div className="space-y-1.5">
-                <div className="text-[11px] font-medium uppercase tracking-wider text-fg-muted">
-                  Aesthetic Preset
+                <div className="text-xs font-medium text-fg-muted">
+                  Preset
                 </div>
                 <div className="grid grid-cols-3 gap-1.5">
                   {PRESET_META.map((p) => (
@@ -910,8 +922,8 @@ export function SiteHeader() {
 
               {/* Geometry Scale */}
               <div className="space-y-1.5">
-                <div className="text-[11px] font-medium uppercase tracking-wider text-fg-muted">
-                  Geometry Scale (--cmplt-radius-base)
+                <div className="text-xs font-medium text-fg-muted">
+                  Corner radius
                 </div>
                 <div className="grid grid-cols-5 gap-1">
                   {(["none", "sm", "md", "lg", "xl"] as RadiusPreset[]).map(
@@ -980,7 +992,6 @@ export function SiteHeader() {
               <span
                 ref={topBarRef}
                 className="absolute h-[1.5px] w-4 rounded-full bg-current origin-center"
-                style={{ transform: "translateY(-4.5px)" }}
               />
               <span
                 ref={middleBarRef}
@@ -988,8 +999,7 @@ export function SiteHeader() {
               />
               <span
                 ref={bottomBarRef}
-                className="absolute h-[1.5px] w-4 rounded-full bg-current origin-right"
-                style={{ transform: "translateY(4.5px) scaleX(0.72)" }}
+                className="absolute h-[1.5px] w-4 rounded-full bg-current origin-center"
               />
             </span>
           </button>
@@ -997,7 +1007,7 @@ export function SiteHeader() {
       </div>
 
       {/* =====================================================================
-          FULL-SCREEN OFF-CANVAS NAVIGATION OVERLAY (GSAP CHOREOGRAPHY)
+          FULL-SCREEN OFF-CANVAS NAVIGATION OVERLAY
          ===================================================================== */}
       <div
         id="cmplt-fullscreen-menu"
@@ -1011,23 +1021,10 @@ export function SiteHeader() {
           menuOpen ? "pointer-events-auto" : "pointer-events-none invisible"
         )}
       >
-        {/* Subtle Ambient Accent Glow */}
-        <div
-          ref={backdropGlowRef}
-          aria-hidden="true"
-          className="pointer-events-none fixed -top-32 right-1/4 h-96 w-96 rounded-full bg-accent/10 blur-3xl"
-        />
-
         <div className="cmplt-container relative z-10 my-auto w-full py-4 sm:py-8">
-          <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:gap-16 xl:gap-24 items-start">
-            {/* Left Column: Primary Editorial Destinations (01 – 05) */}
-            <nav aria-label="Full-screen primary navigation" className="space-y-2">
-              <div
-                data-menu-primary
-                className="pb-2 text-[11px] font-mono uppercase tracking-widest text-fg-muted"
-              >
-                Navigation Directory
-              </div>
+          <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-16 xl:gap-24 items-start">
+            {/* Left Column: Primary Navigation Links */}
+            <nav aria-label="Primary navigation">
               <div className="divide-y divide-border-subtle/60 border-y border-border-subtle/60">
                 {NAV_ITEMS.map((item) => {
                   const active = item.isActive(pathname);
@@ -1040,139 +1037,53 @@ export function SiteHeader() {
                       aria-current={active ? "page" : undefined}
                       className="group flex items-center justify-between gap-4 py-4 sm:py-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-sm"
                     >
-                      <div className="flex items-baseline gap-4 sm:gap-6 min-w-0">
-                        <span
+                      <div className="min-w-0 space-y-1">
+                        <div
                           className={cn(
-                            "font-mono text-xs sm:text-sm cmplt-tabular transition-colors shrink-0",
+                            "text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight transition-colors",
                             active
-                              ? "text-fg-accent font-semibold"
-                              : "text-fg-muted group-hover:text-fg-accent"
+                              ? "text-fg-accent"
+                              : "text-fg-primary group-hover:text-fg-accent"
                           )}
                         >
-                          {item.index}
-                        </span>
-                        <div className="min-w-0 space-y-1">
-                          <div className="flex items-center gap-3">
-                            <span
-                              className={cn(
-                                "text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight transition-transform duration-200 group-hover:translate-x-1",
-                                active
-                                  ? "text-fg-accent"
-                                  : "text-fg-primary group-hover:text-fg-primary"
-                              )}
-                            >
-                              {item.label}
-                            </span>
-                            {active && (
-                              <Badge variant="brand" size="sm">
-                                Current
-                              </Badge>
-                            )}
-                          </div>
-                          <p className="text-xs sm:text-sm text-fg-secondary line-clamp-1">
-                            {item.description}
-                          </p>
+                          {item.label}
                         </div>
+                        <p className="text-xs sm:text-sm text-fg-secondary">
+                          {item.description}
+                        </p>
                       </div>
 
-                      <div className="flex items-center gap-3 shrink-0">
-                        <span className="hidden sm:inline-block font-mono text-[11px] text-fg-muted">
-                          {item.meta}
-                        </span>
-                        <span
-                          className={cn(
-                            "flex h-9 w-9 items-center justify-center rounded-cmplt-full border transition-all duration-200",
-                            active
-                              ? "border-border-accent bg-accent-subtle text-fg-accent"
-                              : "border-border-subtle bg-surface text-fg-secondary group-hover:border-border-strong group-hover:bg-elevated group-hover:text-fg-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                          )}
-                        >
-                          <ArrowUpRight className="h-4 w-4" />
-                        </span>
-                      </div>
+                      <ArrowUpRight
+                        className={cn(
+                          "h-5 w-5 shrink-0 transition-all duration-200",
+                          active
+                            ? "text-fg-accent opacity-100"
+                            : "text-fg-muted opacity-40 group-hover:opacity-100 group-hover:text-fg-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        )}
+                      />
                     </Link>
                   );
                 })}
               </div>
             </nav>
 
-            {/* Right Column: Architecture Deep-Links, Component Quick-Jump & Live Theme */}
-            <div className="space-y-8">
-              {/* System Architecture & Ecosystem Cards */}
-              <div data-menu-secondary className="space-y-3">
-                <div className="text-[11px] font-mono uppercase tracking-widest text-fg-muted">
-                  Architecture &amp; Ecosystem
-                </div>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <Link
-                    href="/docs/blueprint"
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "group flex flex-col justify-between gap-3 rounded-cmplt-md border p-4 transition-all",
-                      pathname.startsWith("/docs/blueprint")
-                        ? "border-border-accent bg-accent-subtle/60"
-                        : "border-border-subtle bg-surface/75 hover:border-border-default hover:bg-surface"
-                    )}
-                  >
-                    <div className="flex items-center justify-between">
-                      <Compass className="h-4 w-4 text-fg-accent" />
-                      <Badge variant="outline" size="sm">
-                        24 ADRs
-                      </Badge>
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-fg-primary group-hover:text-fg-accent transition-colors">
-                        Living System Blueprint
-                      </div>
-                      <p className="mt-0.5 text-xs text-fg-secondary">
-                        Granular architecture decisions &amp; UI-writing taxonomy.
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/figma"
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "group flex flex-col justify-between gap-3 rounded-cmplt-md border p-4 transition-all",
-                      pathname.startsWith("/figma")
-                        ? "border-border-accent bg-accent-subtle/60"
-                        : "border-border-subtle bg-surface/75 hover:border-border-default hover:bg-surface"
-                    )}
-                  >
-                    <div className="flex items-center justify-between">
-                      <Figma className="h-4 w-4 text-fg-accent" />
-                      <Badge variant="outline" size="sm">
-                        W3C Sync
-                      </Badge>
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-fg-primary group-hover:text-fg-accent transition-colors">
-                        Figma UI Kit
-                      </div>
-                      <p className="mt-0.5 text-xs text-fg-secondary">
-                        1:1 variable modes, auto-layout &amp; Code Connect parity.
-                      </p>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Direct Component Primitives Quick-Jump */}
+            {/* Right Column: Components & Resources */}
+            <div className="space-y-10 lg:pt-2">
+              {/* Direct Component Links */}
               <div data-menu-secondary className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-fg-muted">
-                    Popular Primitives
+                  <span className="text-xs font-medium text-fg-muted">
+                    Components
                   </span>
                   <Link
                     href="/docs/components/button"
                     onClick={() => setMenuOpen(false)}
-                    className="text-xs font-medium text-fg-accent hover:underline"
+                    className="text-xs font-medium text-fg-secondary hover:text-fg-primary transition-colors"
                   >
-                    View all 17 →
+                    All components →
                   </Link>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-2 border-t border-border-subtle/60 pt-3">
                   {FEATURED_COMPONENTS.map((comp) => {
                     const active = pathname === comp.href;
                     return (
@@ -1181,10 +1092,10 @@ export function SiteHeader() {
                         href={comp.href}
                         onClick={() => setMenuOpen(false)}
                         className={cn(
-                          "inline-flex items-center rounded-cmplt-full border px-3 py-1.5 text-xs font-medium transition-colors",
+                          "py-1 text-sm transition-colors",
                           active
-                            ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
-                            : "border-border-subtle bg-surface/70 text-fg-secondary hover:border-border-default hover:bg-surface hover:text-fg-primary"
+                            ? "text-fg-accent font-medium"
+                            : "text-fg-secondary hover:text-fg-primary"
                         )}
                       >
                         {comp.label}
@@ -1194,48 +1105,39 @@ export function SiteHeader() {
                 </div>
               </div>
 
-              {/* Quick Theme Preset Switcher inside Off-Canvas */}
-              <div
-                data-menu-secondary
-                className="rounded-cmplt-md border border-border-subtle bg-surface/60 p-4 space-y-3"
-              >
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-fg-muted">
-                    Live Aesthetic Preset
-                  </span>
-                  <button
-                    type="button"
-                    onClick={toggleMode}
-                    className="inline-flex items-center gap-1.5 rounded-cmplt-full border border-border-subtle bg-canvas px-2.5 py-1 text-[11px] font-medium text-fg-secondary hover:text-fg-primary cursor-pointer"
-                  >
-                    {mode === "dark" ? (
-                      <>
-                        <Sun className="h-3 w-3 text-fg-accent" /> Light Mode
-                      </>
-                    ) : (
-                      <>
-                        <Moon className="h-3 w-3 text-fg-accent" /> Dark Mode
-                      </>
-                    )}
-                  </button>
+              {/* System Resources */}
+              <div data-menu-secondary className="space-y-3">
+                <div className="text-xs font-medium text-fg-muted">
+                  Resources
                 </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {PRESET_META.map((p) => (
-                    <button
-                      key={p.id}
-                      type="button"
-                      onClick={() => setPreset(p.id)}
-                      className={cn(
-                        "flex items-center justify-center gap-1.5 rounded-cmplt-sm border py-1.5 text-xs font-medium transition-colors cursor-pointer",
-                        preset === p.id
-                          ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
-                          : "border-border-subtle bg-canvas/70 text-fg-secondary hover:text-fg-primary"
-                      )}
-                    >
-                      <span className={cn("h-2 w-2 rounded-full", p.dot)} />
-                      {p.label}
-                    </button>
-                  ))}
+                <div className="grid sm:grid-cols-2 gap-4 border-t border-border-subtle/60 pt-3">
+                  <Link
+                    href="/docs/blueprint"
+                    onClick={() => setMenuOpen(false)}
+                    className="group space-y-1 rounded-cmplt-sm py-1 transition-colors"
+                  >
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-fg-primary group-hover:text-fg-accent transition-colors">
+                      <span>Living System Blueprint</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 text-fg-muted group-hover:text-fg-accent transition-colors" />
+                    </div>
+                    <p className="text-xs text-fg-secondary">
+                      Architecture decisions and UI-writing taxonomy.
+                    </p>
+                  </Link>
+
+                  <Link
+                    href="/figma"
+                    onClick={() => setMenuOpen(false)}
+                    className="group space-y-1 rounded-cmplt-sm py-1 transition-colors"
+                  >
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-fg-primary group-hover:text-fg-accent transition-colors">
+                      <span>Figma UI Kit</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 text-fg-muted group-hover:text-fg-accent transition-colors" />
+                    </div>
+                    <p className="text-xs text-fg-secondary">
+                      Variable modes, auto-layout, and Code Connect parity.
+                    </p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1245,28 +1147,18 @@ export function SiteHeader() {
         {/* Bottom Footer Bar inside Full-Screen Canvas */}
         <div
           data-menu-footer
-          className="cmplt-container relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-border-subtle/70 pt-5 text-xs text-fg-muted"
+          className="cmplt-container relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-border-subtle/60 pt-5 text-xs text-fg-muted"
         >
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-[11px]">
-              cmplt design system v1.4
-            </span>
-            <span className="hidden sm:inline text-border-strong">·</span>
-            <span className="hidden sm:inline">
-              Press <Kbd>ESC</Kbd> to close or <Kbd>⌘K</Kbd> to search
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/schroepa"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 font-medium text-fg-secondary hover:text-fg-primary transition-colors"
-            >
-              <Github className="h-3.5 w-3.5" />
-              GitHub (@schroepa)
-            </a>
-          </div>
+          <span>cmplt design system</span>
+          <a
+            href="https://github.com/schroepa"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 font-medium text-fg-secondary hover:text-fg-primary transition-colors"
+          >
+            <Github className="h-3.5 w-3.5" />
+            GitHub
+          </a>
         </div>
       </div>
     </header>

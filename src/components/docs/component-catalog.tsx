@@ -78,7 +78,1506 @@ import { Progress } from "@/registry/cmplt/ui/progress";
 import { Separator } from "@/registry/cmplt/ui/separator";
 import { Kbd } from "@/registry/cmplt/ui/kbd";
 import { Heading, Text, Code, Prose } from "@/registry/cmplt/ui/typography";
-import { Sparkles, Layers, Shield, Bell, Code2, Send, ArrowRight, Search } from "lucide-react";
+import {
+  LiquidTabs,
+  LiquidTabsList,
+  LiquidTabsTrigger,
+  LiquidTabsContent,
+} from "@/registry/cmplt/ui/liquid-tabs";
+import { LiquidSwitch } from "@/registry/cmplt/ui/liquid-switch";
+import { LiquidButton } from "@/registry/cmplt/ui/liquid-button";
+import { LiquidFilter, GooeyContainer } from "@/registry/cmplt/ui/liquid-filter";
+import {
+  LiquidToggleGroup,
+  LiquidToggleGroupItem,
+} from "@/registry/cmplt/ui/liquid-toggle-group";
+import {
+  LiquidPagination,
+  LiquidPaginationItem,
+  LiquidPaginationLink,
+  LiquidPaginationPrevious,
+  LiquidPaginationNext,
+  LiquidPaginationEllipsis,
+} from "@/registry/cmplt/ui/liquid-pagination";
+import {
+  LiquidRadioGroup,
+  LiquidRadio,
+  LiquidRadioItem,
+} from "@/registry/cmplt/ui/liquid-radio-group";
+import {
+  LiquidAvatarGroup,
+  LiquidAvatar,
+  LiquidAvatarImage,
+  LiquidAvatarFallback,
+} from "@/registry/cmplt/ui/liquid-avatar-group";
+import {
+  LiquidDock,
+  LiquidDockItem,
+  LiquidDockSeparator,
+} from "@/registry/cmplt/ui/liquid-dock";
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  AvatarBadge,
+  AvatarGroup,
+} from "@/registry/cmplt/ui/avatar";
+import { Textarea } from "@/registry/cmplt/ui/textarea";
+import {
+  RadioGroup,
+  Radio,
+  RadioItem,
+  RadioCard,
+} from "@/registry/cmplt/ui/radio-group";
+import { Toggle } from "@/registry/cmplt/ui/toggle";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/registry/cmplt/ui/toggle-group";
+import {
+  Skeleton,
+  SkeletonText,
+  SkeletonAvatar,
+} from "@/registry/cmplt/ui/skeleton";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
+} from "@/registry/cmplt/ui/drawer";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuCheckboxItem,
+} from "@/registry/cmplt/ui/dropdown-menu";
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@/registry/cmplt/ui/alert-dialog";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbEllipsis,
+} from "@/registry/cmplt/ui/breadcrumb";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationEllipsis,
+} from "@/registry/cmplt/ui/pagination";
+import { cn } from "@/registry/cmplt/lib/utils";
+import {
+  Sparkles,
+  Layers,
+  Shield,
+  Bell,
+  Code2,
+  Send,
+  ArrowRight,
+  Search,
+  Droplets,
+  Bold,
+  Italic,
+  Underline,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  CheckCircle2,
+  Zap,
+  Settings,
+  LogOut,
+  User,
+  SlidersHorizontal,
+  Trash2,
+  AlertTriangle,
+  Home,
+  Sliders,
+  ChevronRight,
+  FileX,
+  Plus,
+  ChevronsUpDown,
+  Database,
+  FolderOpen,
+} from "lucide-react";
+import {
+  Alert,
+  AlertTitle,
+  AlertDescription,
+} from "@/registry/cmplt/ui/alert";
+import {
+  ToastProvider,
+  Toaster,
+  toast,
+} from "@/registry/cmplt/ui/toast";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+} from "@/registry/cmplt/ui/table";
+import { ScrollArea } from "@/registry/cmplt/ui/scroll-area";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/registry/cmplt/ui/collapsible";
+import {
+  EmptyState,
+  EmptyStateIcon,
+  EmptyStateTitle,
+  EmptyStateDescription,
+  EmptyStateActions,
+} from "@/registry/cmplt/ui/empty-state";
+import { Slider } from "@/registry/cmplt/ui/slider";
+import { NumberField } from "@/registry/cmplt/ui/number-field";
+import { OTPField } from "@/registry/cmplt/ui/otp-field";
+import {
+  Combobox,
+  ComboboxInputGroup,
+  ComboboxInput,
+  ComboboxTrigger,
+  ComboboxClear,
+  ComboboxContent,
+  ComboboxItem,
+  ComboboxEmpty,
+} from "@/registry/cmplt/ui/combobox";
+import { Meter } from "@/registry/cmplt/ui/meter";
+import {
+  Timeline,
+  TimelineItem,
+  TimelineDot,
+  TimelineContent,
+  TimelineHeader,
+  TimelineTitle,
+  TimelineTime,
+  TimelineDescription,
+} from "@/registry/cmplt/ui/timeline";
+import {
+  GitCommit,
+  CheckCircle,
+  Clock,
+  HardDrive,
+} from "lucide-react";
+
+function LiquidTabsDemo() {
+  const [viscosity, setViscosity] = React.useState<"subtle" | "medium" | "fluid">("medium");
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full">
+      <LiquidTabs defaultValue="overview" className="w-full max-w-md flex flex-col items-center">
+        <LiquidTabsList viscosity={viscosity}>
+          <LiquidTabsTrigger value="overview">Overview</LiquidTabsTrigger>
+          <LiquidTabsTrigger value="analytics">Analytics</LiquidTabsTrigger>
+          <LiquidTabsTrigger value="reports">Reports</LiquidTabsTrigger>
+          <LiquidTabsTrigger value="settings">Settings</LiquidTabsTrigger>
+        </LiquidTabsList>
+        <div className="w-full mt-4 p-4 rounded-cmplt-panel bg-subtle/60 border border-border-subtle text-center text-xs text-fg-secondary">
+          <LiquidTabsContent value="overview">
+            <span className="font-semibold text-fg-primary">Overview Dashboard:</span> Fluid pill stretching dynamically with {viscosity} viscosity.
+          </LiquidTabsContent>
+          <LiquidTabsContent value="analytics">
+            <span className="font-semibold text-fg-primary">Real-time Telemetry:</span> Liquid bridge detaches and merges with smooth spring physics.
+          </LiquidTabsContent>
+          <LiquidTabsContent value="reports">
+            <span className="font-semibold text-fg-primary">Compliance Reports:</span> 100% accessible via Base UI Tabs standard keyboard navigation.
+          </LiquidTabsContent>
+          <LiquidTabsContent value="settings">
+            <span className="font-semibold text-fg-primary">System Preferences:</span> Typography and icons remain crisp on the foreground layer.
+          </LiquidTabsContent>
+        </div>
+      </LiquidTabs>
+      <div className="flex items-center gap-2 text-xs text-fg-muted">
+        <span>Viscosity:</span>
+        {(["subtle", "medium", "fluid"] as const).map((v) => (
+          <button
+            key={v}
+            type="button"
+            onClick={() => setViscosity(v)}
+            className={cn(
+              "px-2.5 py-1 rounded-cmplt-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
+              viscosity === v
+                ? "bg-accent text-fg-on-accent border-accent"
+                : "bg-surface border-border-default text-fg-secondary hover:text-fg-primary"
+            )}
+          >
+            {v}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LiquidSwitchDemo() {
+  const [checked, setChecked] = React.useState(true);
+  const [viscosity, setViscosity] = React.useState<"subtle" | "medium" | "fluid">("medium");
+
+  return (
+    <div className="flex flex-col items-center gap-6 py-6">
+      <div className="flex items-center gap-4 p-4 rounded-cmplt-panel bg-subtle/50 border border-border-subtle">
+        <div className="space-y-0.5 text-left">
+          <p className="text-xs font-medium text-fg-primary">Mercury Flow Mode</p>
+          <p className="text-[11px] text-fg-muted">Elastic liquid stretching with self-contained SVG filter</p>
+        </div>
+        <LiquidSwitch
+          checked={checked}
+          onCheckedChange={setChecked}
+          viscosity={viscosity}
+        />
+      </div>
+      <div className="flex items-center gap-2 text-xs text-fg-muted">
+        <span>Viscosity:</span>
+        {(["subtle", "medium", "fluid"] as const).map((v) => (
+          <button
+            key={v}
+            type="button"
+            onClick={() => setViscosity(v)}
+            className={cn(
+              "px-2.5 py-1 rounded-cmplt-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
+              viscosity === v
+                ? "bg-accent text-fg-on-accent border-accent"
+                : "bg-surface border-border-default text-fg-secondary hover:text-fg-primary"
+            )}
+          >
+            {v}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LiquidButtonDemo() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4 py-6">
+      <LiquidButton variant="primary" size="lg">
+        <Droplets className="h-4 w-4" />
+        Primary Fluid
+      </LiquidButton>
+      <LiquidButton variant="subtle" size="lg">
+        <Sparkles className="h-4 w-4" />
+        Subtle Mercury
+      </LiquidButton>
+      <LiquidButton variant="surface" size="lg">
+        Surface Gel
+        <ArrowRight className="h-4 w-4" />
+      </LiquidButton>
+    </div>
+  );
+}
+
+function LiquidFilterDemo() {
+  const [offset, setOffset] = React.useState(32);
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full max-w-sm">
+      <GooeyContainer className="flex items-center justify-center h-28 w-full">
+        <div
+          className="h-12 w-12 rounded-cmplt-full bg-accent transition-transform duration-100 ease-out"
+          style={{ transform: `translateX(-${offset}px)` }}
+        />
+        <div
+          className="h-12 w-12 rounded-cmplt-full bg-accent transition-transform duration-100 ease-out"
+          style={{ transform: `translateX(${offset}px)` }}
+        />
+      </GooeyContainer>
+      <div className="flex flex-col items-center gap-1.5 w-full max-w-xs">
+        <div className="flex justify-between w-full text-xs text-fg-muted">
+          <span>Fusion Proximity:</span>
+          <span className="font-mono">{offset}px</span>
+        </div>
+        <input
+          type="range"
+          min="10"
+          max="55"
+          value={offset}
+          onChange={(e) => setOffset(Number(e.target.value))}
+          className="w-full accent-accent cursor-pointer"
+        />
+      </div>
+    </div>
+  );
+}
+
+function LiquidToggleGroupDemo() {
+  const [value, setValue] = React.useState<string | undefined>("center");
+  const [viscosity, setViscosity] = React.useState<"subtle" | "medium" | "fluid">("medium");
+
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full">
+      <LiquidToggleGroup
+        value={value}
+        onValueChange={setValue}
+        viscosity={viscosity}
+      >
+        <LiquidToggleGroupItem value="left" aria-label="Align Left">
+          <AlignLeft className="h-3.5 w-3.5" />
+          <span className="ml-1 text-[11px]">Left</span>
+        </LiquidToggleGroupItem>
+        <LiquidToggleGroupItem value="center" aria-label="Align Center">
+          <AlignCenter className="h-3.5 w-3.5" />
+          <span className="ml-1 text-[11px]">Center</span>
+        </LiquidToggleGroupItem>
+        <LiquidToggleGroupItem value="right" aria-label="Align Right">
+          <AlignRight className="h-3.5 w-3.5" />
+          <span className="ml-1 text-[11px]">Right</span>
+        </LiquidToggleGroupItem>
+      </LiquidToggleGroup>
+
+      <div className="flex items-center gap-2 text-xs text-fg-muted">
+        <span>Viscosity:</span>
+        {(["subtle", "medium", "fluid"] as const).map((v) => (
+          <button
+            key={v}
+            type="button"
+            onClick={() => setViscosity(v)}
+            className={cn(
+              "px-2.5 py-1 rounded-cmplt-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
+              viscosity === v
+                ? "bg-accent text-fg-on-accent border-accent"
+                : "bg-surface border-border-default text-fg-secondary hover:text-fg-primary"
+            )}
+          >
+            {v}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LiquidPaginationDemo() {
+  const [page, setPage] = React.useState(3);
+
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full">
+      <LiquidPagination currentPage={page} onPageChange={setPage} viscosity="medium">
+        <LiquidPaginationPrevious onClick={() => setPage((p) => Math.max(1, p - 1))} />
+        <LiquidPaginationItem>
+          <LiquidPaginationLink page={1} />
+        </LiquidPaginationItem>
+        <LiquidPaginationItem>
+          <LiquidPaginationLink page={2} />
+        </LiquidPaginationItem>
+        <LiquidPaginationItem>
+          <LiquidPaginationLink page={3} />
+        </LiquidPaginationItem>
+        <LiquidPaginationItem>
+          <LiquidPaginationLink page={4} />
+        </LiquidPaginationItem>
+        <LiquidPaginationItem>
+          <LiquidPaginationLink page={5} />
+        </LiquidPaginationItem>
+        <LiquidPaginationNext onClick={() => setPage((p) => Math.min(5, p + 1))} />
+      </LiquidPagination>
+      <span className="text-xs text-fg-muted font-mono">
+        Active Page: <strong className="text-fg-primary">{page}</strong> / 5
+      </span>
+    </div>
+  );
+}
+
+function LiquidRadioGroupDemo() {
+  const [plan, setPlan] = React.useState("pro");
+
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full max-w-sm">
+      <LiquidRadioGroup value={plan} onValueChange={(val) => setPlan(val as string)} className="w-full">
+        <LiquidRadioItem
+          value="starter"
+          label="Starter Edge"
+          description="10k requests/mo · Edge functions · Free"
+        />
+        <LiquidRadioItem
+          value="pro"
+          label="Pro Fluid Cluster"
+          description="Unlimited requests · Zero-latency memory · $29/mo"
+        />
+        <LiquidRadioItem
+          value="enterprise"
+          label="Enterprise Dedicated"
+          description="Custom SLA · Dedicated VPC isolation · Tailored"
+        />
+      </LiquidRadioGroup>
+    </div>
+  );
+}
+
+function LiquidAvatarGroupDemo() {
+  return (
+    <div className="flex flex-col items-center gap-6 py-6">
+      <LiquidAvatarGroup max={4} spacing="tight" viscosity="subtle">
+        <LiquidAvatar size="md" status="online">
+          <LiquidAvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Sarah" />
+          <LiquidAvatarFallback>SC</LiquidAvatarFallback>
+        </LiquidAvatar>
+        <LiquidAvatar size="md" status="online">
+          <LiquidAvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Marcus" />
+          <LiquidAvatarFallback>MV</LiquidAvatarFallback>
+        </LiquidAvatar>
+        <LiquidAvatar size="md" status="busy">
+          <LiquidAvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="Elena" />
+          <LiquidAvatarFallback>ER</LiquidAvatarFallback>
+        </LiquidAvatar>
+        <LiquidAvatar size="md" status="away">
+          <LiquidAvatarImage src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80" alt="Alex" />
+          <LiquidAvatarFallback>AJ</LiquidAvatarFallback>
+        </LiquidAvatar>
+        <LiquidAvatar size="md">
+          <LiquidAvatarFallback>+3</LiquidAvatarFallback>
+        </LiquidAvatar>
+      </LiquidAvatarGroup>
+      <p className="text-xs text-fg-muted max-w-xs text-center">
+        Avatars merge into an organic visual cluster. Hover individual avatars to watch them detach elastically.
+      </p>
+    </div>
+  );
+}
+
+function LiquidDockDemo() {
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full">
+      <LiquidDock>
+        <LiquidDockItem label="Home">
+          <Home />
+        </LiquidDockItem>
+        <LiquidDockItem label="Explore">
+          <Search />
+        </LiquidDockItem>
+        <LiquidDockItem label="Activity" active>
+          <Bell />
+        </LiquidDockItem>
+        <LiquidDockSeparator />
+        <LiquidDockItem label="Settings">
+          <Settings />
+        </LiquidDockItem>
+        <LiquidDockItem label="Profile">
+          <User />
+        </LiquidDockItem>
+      </LiquidDock>
+      <p className="text-xs text-fg-muted">
+        Move your pointer across the dock to guide the liquid light beam.
+      </p>
+    </div>
+  );
+}
+
+function AvatarCatalogDemo() {
+  return (
+    <div className="flex flex-col items-center gap-8 py-4 w-full">
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="relative">
+          <Avatar size="sm">
+            <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Sarah Connor" />
+            <AvatarFallback>SC</AvatarFallback>
+          </Avatar>
+          <AvatarBadge status="online" />
+        </div>
+        <div className="relative">
+          <Avatar size="md">
+            <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="Marcus Vance" />
+            <AvatarFallback>MV</AvatarFallback>
+          </Avatar>
+          <AvatarBadge status="busy" />
+        </div>
+        <div className="relative">
+          <Avatar size="lg">
+            <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="Elena Rostova" />
+            <AvatarFallback>ER</AvatarFallback>
+          </Avatar>
+          <AvatarBadge status="away" />
+        </div>
+        <div className="relative">
+          <Avatar size="xl">
+            <AvatarFallback>PS</AvatarFallback>
+          </Avatar>
+          <AvatarBadge status="online" />
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-xs text-fg-muted">Stacked Team Group</span>
+        <AvatarGroup max={4} spacing="md">
+          <Avatar size="md">
+            <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="User 1" />
+            <AvatarFallback>U1</AvatarFallback>
+          </Avatar>
+          <Avatar size="md">
+            <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80" alt="User 2" />
+            <AvatarFallback>U2</AvatarFallback>
+          </Avatar>
+          <Avatar size="md">
+            <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80" alt="User 3" />
+            <AvatarFallback>U3</AvatarFallback>
+          </Avatar>
+          <Avatar size="md">
+            <AvatarImage src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=80" alt="User 4" />
+            <AvatarFallback>U4</AvatarFallback>
+          </Avatar>
+          <Avatar size="md">
+            <AvatarFallback>+5</AvatarFallback>
+          </Avatar>
+          <Avatar size="md">
+            <AvatarFallback>+6</AvatarFallback>
+          </Avatar>
+        </AvatarGroup>
+      </div>
+    </div>
+  );
+}
+
+function TextareaCatalogDemo() {
+  const [value, setValue] = React.useState("Dual-Scale Utopia fluid typography scale with Bringhurst measure rules.");
+  const [autoResize, setAutoResize] = React.useState(true);
+
+  return (
+    <div className="w-full max-w-md mx-auto space-y-3 py-2">
+      <div className="flex items-center justify-between text-xs">
+        <span className="font-medium text-fg-primary">Release Notes Description</span>
+        <button
+          type="button"
+          onClick={() => setAutoResize((p) => !p)}
+          className="text-fg-accent hover:underline text-[11px] font-mono cursor-pointer"
+        >
+          {autoResize ? "Auto-Resize: ON" : "Auto-Resize: OFF"}
+        </button>
+      </div>
+      <Textarea
+        autoResize={autoResize}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Enter release notes or system summary..."
+        rows={3}
+      />
+      <div className="flex items-center justify-between text-[11px] text-fg-muted font-mono cmplt-tabular">
+        <span>Press Shift+Enter for new line</span>
+        <span>{value.length} / 500 chars</span>
+      </div>
+    </div>
+  );
+}
+
+function RadioGroupCatalogDemo() {
+  const [plan, setPlan] = React.useState("pro");
+
+  return (
+    <div className="w-full max-w-md mx-auto space-y-4 py-2">
+      <RadioGroup value={plan} onValueChange={(val) => setPlan(val as string)}>
+        <RadioCard
+          value="starter"
+          title="Starter Tier"
+          description="Basic token sync and headless components for personal projects."
+          price="Free"
+        />
+        <RadioCard
+          value="pro"
+          title="Pro License"
+          description="All UI primitives, Figma token parity, and production blocks."
+          badge={<Badge variant="brand" size="sm">Popular</Badge>}
+          price="€79"
+        />
+        <RadioCard
+          value="enterprise"
+          title="Enterprise Suite"
+          description="Custom theme generator, multi-brand tokens, and priority support."
+          badge={<Badge variant="mono" size="sm">Dedicated</Badge>}
+          price="€299"
+        />
+      </RadioGroup>
+    </div>
+  );
+}
+
+function ToggleCatalogDemo() {
+  const [alignment, setAlignment] = React.useState<string[]>(["left"]);
+  const [formatting, setFormatting] = React.useState<string[]>(["bold"]);
+
+  return (
+    <div className="flex flex-col items-center gap-6 py-4 w-full max-w-sm mx-auto">
+      <div className="flex items-center gap-2">
+        <ToggleGroup
+          value={formatting}
+          onValueChange={setFormatting}
+          multiple
+          variant="outline"
+          aria-label="Text formatting"
+        >
+          <ToggleGroupItem value="bold" aria-label="Toggle bold">
+            <Bold className="h-3.5 w-3.5" />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="italic" aria-label="Toggle italic">
+            <Italic className="h-3.5 w-3.5" />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="underline" aria-label="Toggle underline">
+            <Underline className="h-3.5 w-3.5" />
+          </ToggleGroupItem>
+        </ToggleGroup>
+
+        <ToggleGroup
+          value={alignment}
+          onValueChange={(val) => val.length && setAlignment(val)}
+          variant="default"
+          aria-label="Text alignment"
+        >
+          <ToggleGroupItem value="left" aria-label="Align left">
+            <AlignLeft className="h-3.5 w-3.5" />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="center" aria-label="Align center">
+            <AlignCenter className="h-3.5 w-3.5" />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="right" aria-label="Align right">
+            <AlignRight className="h-3.5 w-3.5" />
+          </ToggleGroupItem>
+        </ToggleGroup>
+      </div>
+
+      <div
+        className={cn(
+          "w-full p-4 rounded-cmplt-panel bg-subtle/50 border border-border-subtle text-xs text-fg-primary transition-all",
+          alignment.includes("center") && "text-center",
+          alignment.includes("right") && "text-right",
+          formatting.includes("bold") && "font-bold",
+          formatting.includes("italic") && "italic",
+          formatting.includes("underline") && "underline"
+        )}
+      >
+        Dynamic typography preview reflecting live toggle state.
+      </div>
+    </div>
+  );
+}
+
+function SkeletonCatalogDemo() {
+  const [loading, setLoading] = React.useState(true);
+
+  return (
+    <div className="w-full max-w-sm mx-auto space-y-4 py-2">
+      <div className="flex justify-between items-center">
+        <span className="text-xs text-fg-muted font-mono">State: {loading ? "Loading (Skeleton)" : "Loaded (Content)"}</span>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setLoading((p) => !p)}
+        >
+          Toggle State
+        </Button>
+      </div>
+
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 space-y-4 shadow-cmplt-xs">
+        {loading ? (
+          <>
+            <div className="flex items-center gap-3">
+              <SkeletonAvatar size="lg" />
+              <div className="space-y-1.5 flex-1">
+                <Skeleton className="h-4 w-3/4" />
+                <Skeleton className="h-3 w-1/2" />
+              </div>
+            </div>
+            <SkeletonText lines={3} gap="sm" />
+            <div className="flex gap-2 pt-2">
+              <Skeleton className="h-8 w-24 rounded-cmplt-md" />
+              <Skeleton className="h-8 w-20 rounded-cmplt-md" />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center gap-3">
+              <Avatar size="lg">
+                <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80" alt="Sarah Connor" />
+                <AvatarFallback>SC</AvatarFallback>
+              </Avatar>
+              <div>
+                <h4 className="text-sm font-semibold text-fg-primary">Sarah Connor</h4>
+                <p className="text-xs text-fg-secondary">Lead Design Engineer</p>
+              </div>
+            </div>
+            <p className="text-xs text-fg-secondary leading-relaxed">
+              Architecting fluid OKLCH design systems, accessible UI components, and Figma variable pipelines.
+            </p>
+            <div className="flex gap-2 pt-1">
+              <Button size="sm">Connect</Button>
+              <Button variant="outline" size="sm">View Profile</Button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DrawerCatalogDemo() {
+  const [openRight, setOpenRight] = React.useState(false);
+  const [openBottom, setOpenBottom] = React.useState(false);
+
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4 py-6">
+      {/* Right Drawer (Panel) */}
+      <Drawer open={openRight} onOpenChange={setOpenRight}>
+        <DrawerTrigger render={<Button variant="outline"><SlidersHorizontal className="h-3.5 w-3.5" /> Open Side Panel (Right)</Button>} />
+        <DrawerContent side="right">
+          <DrawerHeader>
+            <DrawerTitle>Design Token Inspector</DrawerTitle>
+            <DrawerDescription>
+              Configure live OKLCH lightness curves and Bringhurst typography measure constraints.
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="flex-1 space-y-4 py-4 text-xs text-fg-secondary">
+            <div className="rounded-cmplt-md bg-subtle/60 p-3 border border-border-subtle space-y-2">
+              <span className="font-semibold text-fg-primary">Chroma Gamut:</span>
+              <p className="text-[11px] text-fg-muted">Clamped to P3 display gamut with sRGB fallbacks for legacy displays.</p>
+            </div>
+            <div className="space-y-1.5">
+              <label className="font-medium text-fg-primary">Filter Tag</label>
+              <Input placeholder="Search tokens..." />
+            </div>
+            <div className="space-y-1.5">
+              <label className="font-medium text-fg-primary">Theme Notes</label>
+              <Textarea placeholder="Add engineering notes..." autoResize rows={3} />
+            </div>
+          </div>
+          <DrawerFooter>
+            <Button onClick={() => setOpenRight(false)}>Save Changes</Button>
+            <DrawerClose render={<Button variant="outline">Cancel</Button>} />
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+
+      {/* Bottom Sheet */}
+      <Drawer open={openBottom} onOpenChange={setOpenBottom}>
+        <DrawerTrigger render={<Button variant="outline"><Layers className="h-3.5 w-3.5" /> Open Mobile Sheet (Bottom)</Button>} />
+        <DrawerContent side="bottom" className="max-w-xl mx-auto">
+          <DrawerHeader>
+            <DrawerTitle>Quick Actions</DrawerTitle>
+            <DrawerDescription>
+              Swipe down or tap outside to dismiss this sheet.
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="grid grid-cols-2 gap-3 py-4">
+            <Button variant="outline" className="justify-start gap-2 h-11"><User className="h-4 w-4" /> Manage Team</Button>
+            <Button variant="outline" className="justify-start gap-2 h-11"><Settings className="h-4 w-4" /> System Settings</Button>
+            <Button variant="outline" className="justify-start gap-2 h-11"><Sparkles className="h-4 w-4" /> Export Tokens</Button>
+            <Button variant="outline" className="justify-start gap-2 h-11"><Shield className="h-4 w-4" /> Audit Compliance</Button>
+          </div>
+          <DrawerFooter>
+            <Button onClick={() => setOpenBottom(false)} className="w-full">Done</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </div>
+  );
+}
+
+function DropdownMenuCatalogDemo() {
+  return (
+    <div className="flex justify-center py-6">
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          render={
+            <Button variant="outline" className="gap-2">
+              <User className="h-4 w-4" />
+              <span>Options &amp; Actions</span>
+              <ChevronRight className="h-3.5 w-3.5 rotate-90 text-fg-muted" />
+            </Button>
+          }
+        />
+        <DropdownMenuContent className="w-56" align="center">
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuItem>
+            <User className="h-3.5 w-3.5 text-fg-muted" />
+            <span>Profile Overview</span>
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Settings className="h-3.5 w-3.5 text-fg-muted" />
+            <span>Preferences</span>
+            <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <Sparkles className="h-3.5 w-3.5 text-fg-muted" />
+              <span>Theme Mode</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuSubContent className="w-36">
+              <DropdownMenuItem>Light OKLCH</DropdownMenuItem>
+              <DropdownMenuItem>Dark Graphite</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>System Auto</DropdownMenuItem>
+            </DropdownMenuSubContent>
+          </DropdownMenuSub>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="destructive">
+            <LogOut className="h-3.5 w-3.5" />
+            <span>Log out</span>
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+}
+
+function AlertDialogCatalogDemo() {
+  const [deleted, setDeleted] = React.useState(false);
+
+  return (
+    <div className="flex flex-col items-center gap-3 py-6">
+      <AlertDialog>
+        <AlertDialogTrigger
+          render={
+            <Button variant="danger" className="gap-2">
+              <Trash2 className="h-3.5 w-3.5" />
+              Delete Deployment
+            </Button>
+          }
+        />
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <div className="flex items-center gap-2 text-status-danger font-semibold">
+              <AlertTriangle className="h-4 w-4" />
+              <span>Confirm Irreversible Deletion</span>
+            </div>
+            <AlertDialogTitle>Are you absolutely certain?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently revoke the production token endpoint, unmount API clusters, and remove associated server logs.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              variant="danger"
+              onClick={() => {
+                setDeleted(true);
+                setTimeout(() => setDeleted(false), 2500);
+              }}
+            >
+              Yes, Delete Permanently
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {deleted && (
+        <span className="text-xs text-status-danger font-mono animate-fade-in">
+          ✓ Deployment deleted. Action confirmed via AlertDialog.
+        </span>
+      )}
+    </div>
+  );
+}
+
+function BreadcrumbCatalogDemo() {
+  return (
+    <div className="flex flex-col items-center gap-6 py-6 w-full max-w-lg mx-auto">
+      <div className="w-full p-4 rounded-cmplt-panel bg-subtle/50 border border-border-subtle">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#" className="flex items-center gap-1">
+                <Home className="h-3 w-3" />
+                <span>Home</span>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Workspaces</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbEllipsis />
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Tokens</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Typography</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <p className="text-xs text-fg-muted">
+        Accessible wayfinding with WAI-ARIA aria-current=&quot;page&quot; and collapsed ellipsis.
+      </p>
+    </div>
+  );
+}
+
+function PaginationCatalogDemo() {
+  const [currentPage, setCurrentPage] = React.useState(2);
+  const totalPages = 8;
+
+  return (
+    <div className="flex flex-col items-center gap-4 py-6 w-full">
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            />
+          </PaginationItem>
+          {Array.from({ length: totalPages }).map((_, i) => {
+            const page = i + 1;
+            if (page === 1 || page === totalPages || (page >= currentPage - 1 && page <= currentPage + 1)) {
+              return (
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    isActive={currentPage === page}
+                    onClick={() => setCurrentPage(page)}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              );
+            }
+            if (page === 2 && currentPage > 3) {
+              return <PaginationItem key={page}><PaginationEllipsis /></PaginationItem>;
+            }
+            if (page === totalPages - 1 && currentPage < totalPages - 2) {
+              return <PaginationItem key={page}><PaginationEllipsis /></PaginationItem>;
+            }
+            return null;
+          })}
+          <PaginationItem>
+            <PaginationNext
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
+      <span className="text-xs text-fg-muted font-mono cmplt-tabular">
+        Viewing page {currentPage} of {totalPages}
+      </span>
+    </div>
+  );
+}
+
+function AlertCatalogDemo() {
+  return (
+    <div className="flex flex-col gap-3 py-4 w-full max-w-lg mx-auto">
+      <Alert variant="default">
+        <AlertTitle>System Maintenance Scheduled</AlertTitle>
+        <AlertDescription>
+          Registry endpoints will undergo routine database indexing tonight at 02:00 UTC.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="info">
+        <AlertTitle>Figma Parity Updated</AlertTitle>
+        <AlertDescription>
+          Version 1.8 token sync now maps 3-tier variables directly to W3C Design Token specifications.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="success">
+        <AlertTitle>Audit Verified (WCAG AAA)</AlertTitle>
+        <AlertDescription>
+          All 3-tier OKLCH color token combinations pass 7:1 contrast ratio guardrails.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="warning">
+        <AlertTitle>Legacy P3 Color Fallback Active</AlertTitle>
+        <AlertDescription>
+          Display does not support wide gamut color(display-p3); sRGB fallback active.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="danger">
+        <AlertTitle>Token Compilation Failed</AlertTitle>
+        <AlertDescription>
+          Cyclic reference detected in semantic alias token: --fg-accent points to --accent-hover.
+        </AlertDescription>
+      </Alert>
+    </div>
+  );
+}
+
+function ToastCatalogDemo() {
+  return (
+    <ToastProvider>
+      <div className="flex flex-col items-center gap-4 py-6 w-full">
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Button
+            size="sm"
+            onClick={() =>
+              toast({
+                title: "Deployment Successful",
+                description: "Registry v1.8 published to production CDN edge.",
+                variant: "success",
+              })
+            }
+          >
+            Trigger Success
+          </Button>
+
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              toast({
+                title: "Rate Limit Approaching",
+                description: "You have used 85% of your hourly API quota.",
+                variant: "warning",
+              })
+            }
+          >
+            Trigger Warning
+          </Button>
+
+          <Button
+            variant="danger"
+            size="sm"
+            onClick={() =>
+              toast({
+                title: "API Connection Severed",
+                description: "Unable to establish WebSocket connection to cluster.",
+                variant: "danger",
+              })
+            }
+          >
+            Trigger Danger
+          </Button>
+
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() =>
+              toast({
+                title: "New Token Available",
+                description: "Utopia fluid typography scale loaded into memory.",
+                variant: "info",
+              })
+            }
+          >
+            Trigger Info
+          </Button>
+        </div>
+        <p className="text-xs text-fg-muted font-mono">
+          Click any button to push animated toasts to the global viewport stack.
+        </p>
+        <Toaster position="bottom-right" />
+      </div>
+    </ToastProvider>
+  );
+}
+
+function TableCatalogDemo() {
+  const deployments = [
+    { id: "dep-091", env: "Production", commit: "feat(tokens): oklch gamut", status: "Active", time: "2m ago" },
+    { id: "dep-090", env: "Staging", commit: "fix(dialog): focus trap", status: "Active", time: "18m ago" },
+    { id: "dep-089", env: "Preview", commit: "docs: add living blueprint", status: "Building", time: "42m ago" },
+    { id: "dep-088", env: "Production", commit: "chore: bump base-ui to v1.8", status: "Superseded", time: "3h ago" },
+  ];
+
+  return (
+    <div className="w-full max-w-2xl mx-auto py-2">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Deployment ID</TableHead>
+            <TableHead>Environment</TableHead>
+            <TableHead>Git Commit</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="text-right">Age</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {deployments.map((d) => (
+            <TableRow key={d.id}>
+              <TableCell className="font-mono text-fg-primary font-medium">{d.id}</TableCell>
+              <TableCell>{d.env}</TableCell>
+              <TableCell className="font-mono text-[11px] max-w-[180px] truncate">{d.commit}</TableCell>
+              <TableCell>
+                <Badge
+                  variant={d.status === "Active" ? "success" : d.status === "Building" ? "warning" : "default"}
+                  size="sm"
+                >
+                  {d.status}
+                </Badge>
+              </TableCell>
+              <TableCell className="text-right font-mono text-fg-muted">{d.time}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
+
+function ScrollAreaCatalogDemo() {
+  const tokens = [
+    { name: "--color-brand-oklch", value: "oklch(0.68 0.22 284)" },
+    { name: "--bg-canvas", value: "oklch(0.99 0.005 85)" },
+    { name: "--bg-surface", value: "oklch(1 0 0)" },
+    { name: "--bg-elevated", value: "oklch(1 0 0)" },
+    { name: "--bg-subtle", value: "oklch(0.96 0.005 85)" },
+    { name: "--fg-primary", value: "oklch(0.18 0.02 280)" },
+    { name: "--fg-secondary", value: "oklch(0.42 0.02 280)" },
+    { name: "--fg-muted", value: "oklch(0.58 0.015 280)" },
+    { name: "--border-default", value: "oklch(0.88 0.01 280)" },
+    { name: "--border-subtle", value: "oklch(0.93 0.008 280)" },
+    { name: "--border-accent", value: "oklch(0.68 0.22 284)" },
+    { name: "--radius-panel", value: "16px (concentric outer)" },
+    { name: "--radius-element", value: "8px (concentric inner)" },
+  ];
+
+  return (
+    <div className="w-full max-w-md mx-auto py-2">
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-4">
+        <div className="mb-2 flex items-center justify-between pb-2 border-b border-border-subtle text-xs font-semibold text-fg-primary">
+          <span>Design Tokens Palette</span>
+          <span className="font-mono text-fg-muted text-[10px] cmplt-tabular">{tokens.length} variables</span>
+        </div>
+        <ScrollArea className="h-44 w-full pr-3">
+          <div className="space-y-1.5 py-1">
+            {tokens.map((t) => (
+              <div
+                key={t.name}
+                className="flex items-center justify-between rounded-cmplt-sm bg-subtle/50 px-2.5 py-1.5 text-xs"
+              >
+                <span className="font-mono font-medium text-fg-primary text-[11px]">{t.name}</span>
+                <span className="font-mono text-fg-muted text-[11px]">{t.value}</span>
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+      </div>
+    </div>
+  );
+}
+
+function CollapsibleCatalogDemo() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <div className="w-full max-w-md mx-auto py-2">
+      <Collapsible
+        open={open}
+        onOpenChange={setOpen}
+        className="w-full rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs space-y-3"
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <Database className="h-4 w-4 text-fg-accent" />
+            <h4 className="text-xs font-semibold text-fg-primary">
+              PostgreSQL Telemetry Metrics
+            </h4>
+          </div>
+          <CollapsibleTrigger
+            render={
+              <Button variant="ghost" size="sm" className="h-7 w-7 p-0">
+                <ChevronsUpDown className="h-3.5 w-3.5" />
+                <span className="sr-only">Toggle details</span>
+              </Button>
+            }
+          />
+        </div>
+
+        <div className="rounded-cmplt-sm bg-subtle/60 p-2.5 text-xs text-fg-secondary">
+          <span className="font-mono text-fg-primary font-semibold">Active Connections:</span> 14 / 100 pool instances
+        </div>
+
+        <CollapsibleContent className="space-y-2 pt-1 border-t border-border-subtle">
+          <div className="grid grid-cols-2 gap-2 text-[11px] text-fg-muted font-mono pt-2">
+            <div>Avg Latency: <span className="text-fg-primary font-semibold">1.4ms</span></div>
+            <div>Cache Hit Ratio: <span className="text-fg-primary font-semibold">99.2%</span></div>
+            <div>Replication Lag: <span className="text-fg-primary font-semibold">0.0s</span></div>
+            <div>Max Disk I/O: <span className="text-fg-primary font-semibold">450 MB/s</span></div>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+    </div>
+  );
+}
+
+function EmptyStateCatalogDemo() {
+  return (
+    <div className="w-full max-w-lg mx-auto py-2">
+      <EmptyState dashed>
+        <EmptyStateIcon>
+          <FolderOpen className="h-6 w-6" />
+        </EmptyStateIcon>
+        <EmptyStateTitle>No Project Workspaces Yet</EmptyStateTitle>
+        <EmptyStateDescription>
+          Get started by creating your first design system workspace or clone a pre-configured template from GitHub.
+        </EmptyStateDescription>
+        <EmptyStateActions>
+          <Button size="sm" className="gap-1.5">
+            <Plus className="h-3.5 w-3.5" />
+            New Workspace
+          </Button>
+          <Button variant="outline" size="sm">
+            Import Config
+          </Button>
+        </EmptyStateActions>
+      </EmptyState>
+    </div>
+  );
+}
+
+function SliderCatalogDemo() {
+  const [singleVal, setSingleVal] = React.useState(65);
+  const [rangeVal, setRangeVal] = React.useState<number[]>([25, 75]);
+
+  return (
+    <div className="w-full max-w-md mx-auto space-y-6 py-2">
+      <div className="space-y-2 rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs">
+        <Slider
+          label="Display Brightness"
+          showValue
+          value={singleVal}
+          onValueChange={(val) => setSingleVal(val as number)}
+          min={0}
+          max={100}
+        />
+        <div className="flex justify-between text-[11px] text-fg-muted font-mono pt-1">
+          <span>0%</span>
+          <span>Current: {singleVal}%</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <div className="space-y-2 rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs">
+        <Slider
+          label="Budget Range ($ / mo)"
+          showValue
+          value={rangeVal}
+          onValueChange={(val) => setRangeVal(val as number[])}
+          min={0}
+          max={200}
+        />
+        <div className="flex justify-between text-[11px] text-fg-muted font-mono pt-1">
+          <span>Min: ${rangeVal[0]}</span>
+          <span>Max: ${rangeVal[1]}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function NumberFieldCatalogDemo() {
+  const [quantity, setQuantity] = React.useState<number | null>(4);
+  const [seats, setSeats] = React.useState<number | null>(12);
+
+  return (
+    <div className="w-full max-w-md mx-auto space-y-5 py-2">
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs space-y-4">
+        <NumberField
+          label="Quantity (Stacked Stepper)"
+          description="Bounded between 1 and 20 items."
+          value={quantity}
+          onValueChange={setQuantity}
+          min={1}
+          max={20}
+          stepperStyle="stacked"
+        />
+
+        <NumberField
+          label="Team Seats (Inline Stepper)"
+          description="Use minus/plus buttons on edges."
+          value={seats}
+          onValueChange={setSeats}
+          min={1}
+          max={50}
+          stepperStyle="inline"
+        />
+      </div>
+    </div>
+  );
+}
+
+function OTPFieldCatalogDemo() {
+  const [code, setCode] = React.useState("");
+
+  return (
+    <div className="w-full max-w-md mx-auto py-2 flex flex-col items-center gap-4">
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-6 shadow-cmplt-xs flex flex-col items-center gap-4 w-full">
+        <div className="text-center space-y-1">
+          <h4 className="text-sm font-semibold text-fg-primary">Two-Factor Authentication</h4>
+          <p className="text-xs text-fg-muted">Enter the 6-digit code sent to your authenticator app.</p>
+        </div>
+
+        <OTPField
+          length={6}
+          separatorIndex={3}
+          value={code}
+          onValueChange={setCode}
+        />
+
+        <div className="text-xs font-mono text-fg-muted">
+          Value: <span className="font-semibold text-fg-primary">{code || "------"}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ComboboxCatalogDemo() {
+  const frameworks = [
+    { value: "next", label: "Next.js" },
+    { value: "react", label: "React" },
+    { value: "vue", label: "Vue.js" },
+    { value: "svelte", label: "SvelteKit" },
+    { value: "solid", label: "SolidJS" },
+    { value: "astro", label: "Astro" },
+  ];
+  const [selected, setSelected] = React.useState<string | null>("next");
+
+  return (
+    <div className="w-full max-w-md mx-auto py-2">
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 shadow-cmplt-xs space-y-3">
+        <label className="text-xs font-medium text-fg-secondary">
+          Target Framework Architecture
+        </label>
+        <Combobox value={selected} onValueChange={(val) => setSelected(val as string)}>
+          <ComboboxInputGroup>
+            <ComboboxInput placeholder="Search framework..." />
+            <ComboboxTrigger />
+          </ComboboxInputGroup>
+          <ComboboxContent>
+            <ComboboxEmpty>No framework found.</ComboboxEmpty>
+            {frameworks.map((f) => (
+              <ComboboxItem key={f.value} value={f.value}>
+                {f.label}
+              </ComboboxItem>
+            ))}
+          </ComboboxContent>
+        </Combobox>
+        <div className="text-[11px] font-mono text-fg-muted">
+          Selected: <span className="text-fg-primary font-semibold">{selected || "none"}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MeterCatalogDemo() {
+  return (
+    <div className="w-full max-w-md mx-auto space-y-4 py-2">
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 shadow-cmplt-xs space-y-4">
+        <div className="flex items-center gap-2 pb-1 border-b border-border-subtle">
+          <HardDrive className="size-4 text-fg-accent" />
+          <h4 className="text-xs font-semibold text-fg-primary">Resource Utilization Quotas</h4>
+        </div>
+        
+        <Meter
+          label="Disk Storage (SSD)"
+          showValue
+          value={42}
+          variant="default"
+        />
+
+        <Meter
+          label="API Monthly Quota"
+          showValue
+          value={76}
+          variant="warning"
+        />
+
+        <Meter
+          label="Cluster Memory Pressure"
+          showValue
+          value={91}
+          variant="danger"
+        />
+
+        <Meter
+          label="Health Check Score"
+          showValue
+          value={99}
+          variant="success"
+        />
+      </div>
+    </div>
+  );
+}
+
+function TimelineCatalogDemo() {
+  return (
+    <div className="w-full max-w-lg mx-auto py-2">
+      <div className="rounded-cmplt-panel border border-border-default bg-surface p-6 shadow-cmplt-xs">
+        <Timeline>
+          <TimelineItem>
+            <TimelineDot variant="accent">
+              <GitCommit className="size-4" />
+            </TimelineDot>
+            <TimelineContent>
+              <TimelineHeader>
+                <TimelineTitle>Production Release v2.4.0</TimelineTitle>
+                <TimelineTime>Just now</TimelineTime>
+              </TimelineHeader>
+              <TimelineDescription>
+                Shipped Base UI primitives with OKLCH token sync and 68 registry endpoints.
+              </TimelineDescription>
+            </TimelineContent>
+          </TimelineItem>
+
+          <TimelineItem>
+            <TimelineDot variant="success">
+              <CheckCircle className="size-4" />
+            </TimelineDot>
+            <TimelineContent>
+              <TimelineHeader>
+                <TimelineTitle>E2E Verification Tests Passed</TimelineTitle>
+                <TimelineTime>12m ago</TimelineTime>
+              </TimelineHeader>
+              <TimelineDescription>
+                All 68 automated headless component integration tests passed in 4.2s.
+              </TimelineDescription>
+            </TimelineContent>
+          </TimelineItem>
+
+          <TimelineItem isLast>
+            <TimelineDot variant="neutral">
+              <Clock className="size-4" />
+            </TimelineDot>
+            <TimelineContent>
+              <TimelineHeader>
+                <TimelineTitle>Build Pipeline Queued</TimelineTitle>
+                <TimelineTime>25m ago</TimelineTime>
+              </TimelineHeader>
+              <TimelineDescription>
+                Triggered by commit <span className="font-mono text-fg-primary">3f721a9</span> on branch <span className="font-mono text-fg-primary">main</span>.
+              </TimelineDescription>
+            </TimelineContent>
+          </TimelineItem>
+        </Timeline>
+      </div>
+    </div>
+  );
+}
 
 export interface ComponentDocEntry {
   slug: string;
@@ -201,6 +1700,334 @@ export function HeroBackgroundDemo() {
         </div>
       </div>
     ),
+  },
+  {
+    slug: "liquid-tabs",
+    title: "Liquid Tabs (GSAP + Base UI)",
+    category: "Overlays & Navigation",
+    baseUiPackage: "@base-ui/react/tabs + gsap",
+    summary:
+      "Accessible segmented control featuring an organic liquid mercury pill indicator that dynamically stretches, forms a fluid bridge, and softly detaches across tab switches. Self-contained SVG filter with 100% crisp foreground typography.",
+    dataAttributes: [
+      { attr: "data-tab-value", description: "Identifies the tab for GSAP fluid bounding box calculation." },
+      { attr: "data-[active]", description: "Present on the currently selected tab trigger." },
+      { attr: "data-[disabled]", description: "Present when tab is disabled." },
+    ],
+    propsTable: [
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Controls surface tension and bridge detachment distance of the liquid indicator." },
+      { prop: "defaultValue", type: "string | number", defaultVal: "undefined", description: "Default selected tab value." },
+      { prop: "value", type: "string | number", defaultVal: "undefined", description: "Controlled selected tab value." },
+      { prop: "onValueChange", type: "(val: string | number) => void", defaultVal: "undefined", description: "Callback fired when selected tab changes." },
+    ],
+    usageCode: `import {
+  LiquidTabs,
+  LiquidTabsList,
+  LiquidTabsTrigger,
+  LiquidTabsContent,
+} from "@/components/ui/liquid-tabs"
+
+export function LiquidTabsExample() {
+  return (
+    <LiquidTabs defaultValue="design">
+      <LiquidTabsList viscosity="medium">
+        <LiquidTabsTrigger value="design">Design</LiquidTabsTrigger>
+        <LiquidTabsTrigger value="tokens">Tokens</LiquidTabsTrigger>
+        <LiquidTabsTrigger value="components">Components</LiquidTabsTrigger>
+      </LiquidTabsList>
+      <LiquidTabsContent value="design">Design content...</LiquidTabsContent>
+      <LiquidTabsContent value="tokens">Tokens content...</LiquidTabsContent>
+      <LiquidTabsContent value="components">Components content...</LiquidTabsContent>
+    </LiquidTabs>
+  )
+}`,
+    renderDemo: () => <LiquidTabsDemo />,
+  },
+  {
+    slug: "liquid-switch",
+    title: "Liquid Switch (Base UI)",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/switch",
+    summary:
+      "Tactile toggle switch featuring an elastic mercury thumb with fluid trail absorption and self-contained SVG gooey physics. Stretches elastically under active drag/click before settling into place.",
+    dataAttributes: [
+      { attr: "data-[checked]", description: "Present on the root when the switch is in the active/checked state." },
+      { attr: "data-[disabled]", description: "Present when the switch is disabled." },
+    ],
+    propsTable: [
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Controls the surface tension of the fluid thumb." },
+      { prop: "checked", type: "boolean", defaultVal: "undefined", description: "Controlled toggle state." },
+      { prop: "defaultChecked", type: "boolean", defaultVal: "false", description: "Initial uncontrolled toggle state." },
+      { prop: "onCheckedChange", type: "(checked: boolean) => void", defaultVal: "undefined", description: "Callback fired on state toggle." },
+    ],
+    usageCode: `import { LiquidSwitch } from "@/components/ui/liquid-switch"
+
+export function LiquidSwitchExample() {
+  const [enabled, setEnabled] = React.useState(true)
+
+  return (
+    <div className="flex items-center gap-3">
+      <LiquidSwitch
+        checked={enabled}
+        onCheckedChange={setEnabled}
+        viscosity="medium"
+      />
+      <span className="text-xs font-medium text-fg-primary">
+        Fluid Toggle: {enabled ? "Active" : "Inactive"}
+      </span>
+    </div>
+  )
+}`,
+    renderDemo: () => <LiquidSwitchDemo />,
+  },
+  {
+    slug: "liquid-button",
+    title: "Liquid Button (GSAP + Base UI)",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/button + gsap",
+    summary:
+      "Organic fluid action button with cursor-reactive liquid droplets, soft press deformation, and razor-sharp foreground typography. Contains self-contained SVG gooey filtering for out-of-the-box delivery.",
+    dataAttributes: [
+      { attr: "data-[disabled]", description: "Present when the button is disabled." },
+    ],
+    propsTable: [
+      { prop: "variant", type: "'primary' | 'subtle' | 'surface'", defaultVal: "'primary'", description: "Color hierarchy theme for the liquid body and merging blobs." },
+      { prop: "size", type: "'sm' | 'md' | 'lg' | 'icon'", defaultVal: "'md'", description: "Pill button sizing and ergonomic touch padding." },
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Fluid meniscus surface tension." },
+      { prop: "interactiveBlobs", type: "boolean", defaultVal: "true", description: "Enables cursor-tracking GSAP quickTo fluid droplets." },
+    ],
+    usageCode: `import { LiquidButton } from "@/components/ui/liquid-button"
+import { Droplets } from "lucide-react"
+
+export function LiquidButtonExample() {
+  return (
+    <LiquidButton variant="primary" size="lg">
+      <Droplets className="h-4 w-4" />
+      Fluid Action
+    </LiquidButton>
+  )
+}`,
+    renderDemo: () => <LiquidButtonDemo />,
+  },
+  {
+    slug: "liquid-filter",
+    title: "Liquid Gooey Filter Primitive",
+    category: "Primitives & Actions",
+    baseUiPackage: "Self-Contained SVG Filter Primitive",
+    summary:
+      "Foundational SVG gooey filter primitive with calibrated Gaussian blur & alpha color matrix for soft, organic fluid cohesion. Includes GooeyContainer for effortless multi-element liquid merging.",
+    dataAttributes: [
+      { attr: "aria-hidden='true'", description: "The SVG filter definition is hidden from assistive tech." },
+    ],
+    propsTable: [
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Blur radius (4px, 6px, 8px) and matching alpha cutoff matrix." },
+      { prop: "id", type: "string", defaultVal: "auto-generated via useId()", description: "Unique filter identifier for CSS url(#id) referencing." },
+      { prop: "children", type: "ReactNode", defaultVal: "undefined", description: "Elements to be liquid-fused inside GooeyContainer." },
+    ],
+    usageCode: `import { GooeyContainer, LiquidFilter } from "@/components/ui/liquid-filter"
+
+export function LiquidGooeyExample() {
+  return (
+    <GooeyContainer viscosity="medium" className="flex items-center gap-2">
+      <div className="h-10 w-10 rounded-full bg-accent" />
+      <div className="h-8 w-8 rounded-full bg-accent" />
+    </GooeyContainer>
+  )
+}`,
+    renderDemo: () => <LiquidFilterDemo />,
+  },
+  {
+    slug: "liquid-toggle-group",
+    title: "Liquid Toggle Group (GSAP + Base UI)",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/toggle-group + gsap",
+    summary:
+      "Segmented toggle group with an organic liquid mercury pill indicator that dynamically stretches, forms a fluid bridge, and softly detaches across item toggles.",
+    dataAttributes: [
+      { attr: "data-toggle-value", description: "Identifies the toggle item for GSAP fluid bounding box calculation." },
+      { attr: "data-[pressed]", description: "Present when the toggle item is currently active." },
+      { attr: "data-[disabled]", description: "Present when item is disabled." },
+    ],
+    propsTable: [
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Controls surface tension and bridge detachment distance." },
+      { prop: "value", type: "string", defaultVal: "undefined", description: "Controlled active value." },
+      { prop: "defaultValue", type: "string", defaultVal: "undefined", description: "Default initial value." },
+      { prop: "onValueChange", type: "(val: string | undefined) => void", defaultVal: "undefined", description: "Callback when active selection changes." },
+      { prop: "size", type: "'sm' | 'md' | 'lg'", defaultVal: "'md'", description: "Pill height and padding scale." },
+    ],
+    usageCode: `import {
+  LiquidToggleGroup,
+  LiquidToggleGroupItem,
+} from "@/components/ui/liquid-toggle-group"
+import { AlignLeft, AlignCenter, AlignRight } from "lucide-react"
+
+export function LiquidToggleGroupExample() {
+  const [align, setAlign] = React.useState("center")
+
+  return (
+    <LiquidToggleGroup value={align} onValueChange={setAlign} viscosity="medium">
+      <LiquidToggleGroupItem value="left" aria-label="Align Left">
+        <AlignLeft className="h-4 w-4" />
+      </LiquidToggleGroupItem>
+      <LiquidToggleGroupItem value="center" aria-label="Align Center">
+        <AlignCenter className="h-4 w-4" />
+      </LiquidToggleGroupItem>
+      <LiquidToggleGroupItem value="right" aria-label="Align Right">
+        <AlignRight className="h-4 w-4" />
+      </LiquidToggleGroupItem>
+    </LiquidToggleGroup>
+  )
+}`,
+    renderDemo: () => <LiquidToggleGroupDemo />,
+  },
+  {
+    slug: "liquid-pagination",
+    title: "Liquid Pagination (GSAP)",
+    category: "Overlays & Navigation",
+    baseUiPackage: "Accessible Pagination + gsap",
+    summary:
+      "Accessible pagination bar where the active page pill indicator flows seamlessly across page numbers with organic liquid stretch and snap physics.",
+    dataAttributes: [
+      { attr: "data-page-index", description: "Identifies the page number for fluid indicator tracking." },
+      { attr: "aria-current='page'", description: "Present on the active page number button." },
+    ],
+    propsTable: [
+      { prop: "currentPage", type: "number", defaultVal: "1", description: "Current active page index." },
+      { prop: "onPageChange", type: "(page: number) => void", defaultVal: "undefined", description: "Callback fired when a page is selected." },
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Surface tension of the flowing page pill." },
+    ],
+    usageCode: `import {
+  LiquidPagination,
+  LiquidPaginationItem,
+  LiquidPaginationLink,
+  LiquidPaginationPrevious,
+  LiquidPaginationNext,
+} from "@/components/ui/liquid-pagination"
+
+export function LiquidPaginationExample() {
+  const [page, setPage] = React.useState(1)
+
+  return (
+    <LiquidPagination currentPage={page} onPageChange={setPage}>
+      <LiquidPaginationPrevious onClick={() => setPage(p => Math.max(1, p - 1))} />
+      <LiquidPaginationItem>
+        <LiquidPaginationLink page={1} />
+      </LiquidPaginationItem>
+      <LiquidPaginationItem>
+        <LiquidPaginationLink page={2} />
+      </LiquidPaginationItem>
+      <LiquidPaginationItem>
+        <LiquidPaginationLink page={3} />
+      </LiquidPaginationItem>
+      <LiquidPaginationNext onClick={() => setPage(p => Math.min(3, p + 1))} />
+    </LiquidPagination>
+  )
+}`,
+    renderDemo: () => <LiquidPaginationDemo />,
+  },
+  {
+    slug: "liquid-radio-group",
+    title: "Liquid Radio Group (Base UI)",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/radio-group",
+    summary:
+      "Accessible radio group with organic fluid surface-tension swelling on selection and self-contained SVG gooey physics.",
+    dataAttributes: [
+      { attr: "data-[checked]", description: "Present when the radio button is selected." },
+      { attr: "data-[disabled]", description: "Present when the radio item is disabled." },
+    ],
+    propsTable: [
+      { prop: "value", type: "string", defaultVal: "undefined", description: "Controlled value of selected radio." },
+      { prop: "onValueChange", type: "(val: string) => void", defaultVal: "undefined", description: "Callback when radio selection changes." },
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Surface tension of fluid swell." },
+    ],
+    usageCode: `import {
+  LiquidRadioGroup,
+  LiquidRadioItem,
+} from "@/components/ui/liquid-radio-group"
+
+export function LiquidRadioExample() {
+  const [plan, setPlan] = React.useState("pro")
+
+  return (
+    <LiquidRadioGroup value={plan} onValueChange={setPlan}>
+      <LiquidRadioItem value="starter" label="Starter" description="Basic access" />
+      <LiquidRadioItem value="pro" label="Pro" description="Unlimited features" />
+    </LiquidRadioGroup>
+  )
+}`,
+    renderDemo: () => <LiquidRadioGroupDemo />,
+  },
+  {
+    slug: "liquid-avatar-group",
+    title: "Liquid Avatar Group (Base UI)",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/avatar",
+    summary:
+      "Overlapping team avatars that merge into an organic visual cluster with fluid surface tension and elastic detachment on hover.",
+    dataAttributes: [
+      { attr: "aria-hidden='true'", description: "Hidden SVG gooey filter wrapper." },
+    ],
+    propsTable: [
+      { prop: "max", type: "number", defaultVal: "5", description: "Maximum visible avatars before surplus count pill." },
+      { prop: "spacing", type: "'tight' | 'normal' | 'relaxed'", defaultVal: "'tight'", description: "Overlap distance for cluster cohesion." },
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'subtle'", description: "Meniscus tension parameter." },
+    ],
+    usageCode: `import {
+  LiquidAvatarGroup,
+  LiquidAvatar,
+  LiquidAvatarImage,
+  LiquidAvatarFallback,
+} from "@/components/ui/liquid-avatar-group"
+
+export function LiquidAvatarGroupExample() {
+  return (
+    <LiquidAvatarGroup max={3}>
+      <LiquidAvatar status="online">
+        <LiquidAvatarImage src="/avatar1.png" alt="Dev 1" />
+        <LiquidAvatarFallback>D1</LiquidAvatarFallback>
+      </LiquidAvatar>
+      <LiquidAvatar status="online">
+        <LiquidAvatarImage src="/avatar2.png" alt="Dev 2" />
+        <LiquidAvatarFallback>D2</LiquidAvatarFallback>
+      </LiquidAvatar>
+    </LiquidAvatarGroup>
+  )
+}`,
+    renderDemo: () => <LiquidAvatarGroupDemo />,
+  },
+  {
+    slug: "liquid-dock",
+    title: "Liquid Dock (GSAP)",
+    category: "Overlays & Navigation",
+    baseUiPackage: "Interactive Ribbon + gsap",
+    summary:
+      "Floating navigation ribbon with a cursor-following fluid beam that organically connects and flows across dock items with smooth surface tension.",
+    dataAttributes: [
+      { attr: "data-dock-item", description: "Identifies dock interactive buttons for cursor beam tracking." },
+    ],
+    propsTable: [
+      { prop: "viscosity", type: "'subtle' | 'medium' | 'fluid'", defaultVal: "'medium'", description: "Fluid beam surface tension." },
+      { prop: "magnification", type: "boolean", defaultVal: "true", description: "Enables proximity hover scaling." },
+    ],
+    usageCode: `import {
+  LiquidDock,
+  LiquidDockItem,
+  LiquidDockSeparator,
+} from "@/components/ui/liquid-dock"
+import { Home, Search, Bell, Settings } from "lucide-react"
+
+export function LiquidDockExample() {
+  return (
+    <LiquidDock>
+      <LiquidDockItem label="Home"><Home /></LiquidDockItem>
+      <LiquidDockItem label="Search"><Search /></LiquidDockItem>
+      <LiquidDockSeparator />
+      <LiquidDockItem label="Notifications"><Bell /></LiquidDockItem>
+      <LiquidDockItem label="Settings"><Settings /></LiquidDockItem>
+    </LiquidDock>
+  )
+}`,
+    renderDemo: () => <LiquidDockDemo />,
   },
   {
     slug: "animated-cta-button",
@@ -1364,6 +3191,1013 @@ export function ProgressDemo() {
         <Progress value={100} label="WCAG AA Contrast Audit" showValue />
       </div>
     ),
+  },
+  {
+    slug: "avatar",
+    title: "Avatar",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/avatar",
+    summary:
+      "User profile picture and initials fallback built on @base-ui/react/avatar with online/offline status badges and stacked team groups.",
+    dataAttributes: [
+      {
+        attr: "data-loading-status",
+        description:
+          "Current image loading state: 'idle' | 'loading' | 'loaded' | 'error'.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "size",
+        type: "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+        defaultVal: "'md'",
+        description: "Pixel diameter and typographic scale.",
+      },
+      {
+        prop: "shape",
+        type: "'circle' | 'square'",
+        defaultVal: "'circle'",
+        description: "Corner geometry (full circle or rounded-md).",
+      },
+      {
+        prop: "status",
+        type: "'online' | 'offline' | 'busy' | 'away'",
+        defaultVal: "undefined",
+        description: "Status indicator dot rendered on the avatar edge.",
+      },
+    ],
+    usageCode: `import { Avatar, AvatarImage, AvatarFallback, AvatarBadge, AvatarGroup } from "@/components/ui/avatar"
+
+export function AvatarDemo() {
+  return (
+    <div className="flex items-center gap-4">
+      <div className="relative">
+        <Avatar size="lg">
+          <AvatarImage src="/avatars/sarah.jpg" alt="Sarah Connor" />
+          <AvatarFallback>SC</AvatarFallback>
+        </Avatar>
+        <AvatarBadge status="online" />
+      </div>
+
+      <AvatarGroup max={3}>
+        <Avatar><AvatarFallback>AB</AvatarFallback></Avatar>
+        <Avatar><AvatarFallback>CD</AvatarFallback></Avatar>
+        <Avatar><AvatarFallback>EF</AvatarFallback></Avatar>
+        <Avatar><AvatarFallback>GH</AvatarFallback></Avatar>
+      </AvatarGroup>
+    </div>
+  )
+}`,
+    renderDemo: () => <AvatarCatalogDemo />,
+  },
+  {
+    slug: "textarea",
+    title: "Textarea",
+    category: "Forms & Inputs",
+    baseUiPackage: "cmplt form primitive",
+    summary:
+      "Accessible multi-line text input with automatic height resizing, character count limits, and Field container compatibility.",
+    dataAttributes: [
+      {
+        attr: "data-disabled",
+        description: "Applied when textarea interaction is disabled.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "autoResize",
+        type: "boolean",
+        defaultVal: "false",
+        description:
+          "Automatically adjusts height to match scrollHeight content.",
+      },
+      {
+        prop: "variant",
+        type: "'default' | 'subtle'",
+        defaultVal: "'default'",
+        description: "Visual container styling and background tint.",
+      },
+      {
+        prop: "rows",
+        type: "number",
+        defaultVal: "3",
+        description: "Minimum starting row count.",
+      },
+    ],
+    usageCode: `import { Textarea } from "@/components/ui/textarea"
+
+export function TextareaDemo() {
+  return (
+    <Textarea
+      autoResize
+      placeholder="Type release notes or feedback..."
+      rows={3}
+    />
+  )
+}`,
+    renderDemo: () => <TextareaCatalogDemo />,
+  },
+  {
+    slug: "radio-group",
+    title: "Radio Group",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/radio-group & @base-ui/react/radio",
+    summary:
+      "WAI-ARIA accessible single-select form primitive with animated spring indicators and selectable RadioCards for pricing or plan tiers.",
+    dataAttributes: [
+      {
+        attr: "data-[checked]",
+        description: "Present when the radio item is selected.",
+      },
+      {
+        attr: "data-[disabled]",
+        description: "Present when radio item is disabled.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "string",
+        defaultVal: "undefined",
+        description: "Controlled value of the active radio item.",
+      },
+      {
+        prop: "defaultValue",
+        type: "string",
+        defaultVal: "undefined",
+        description: "Initial uncontrolled selected value.",
+      },
+      {
+        prop: "onValueChange",
+        type: "(value: string) => void",
+        defaultVal: "undefined",
+        description: "Callback fired when selected radio option changes.",
+      },
+    ],
+    usageCode: `import { RadioGroup, RadioItem, RadioCard } from "@/components/ui/radio-group"
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="pro">
+      <RadioCard
+        value="starter"
+        title="Starter"
+        description="For personal exploration."
+        price="Free"
+      />
+      <RadioCard
+        value="pro"
+        title="Pro"
+        description="For production apps and teams."
+        price="€79"
+      />
+    </RadioGroup>
+  )
+}`,
+    renderDemo: () => <RadioGroupCatalogDemo />,
+  },
+  {
+    slug: "toggle",
+    title: "Toggle & Toggle Group",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/toggle & @base-ui/react/toggle-group",
+    summary:
+      "Two-state action buttons and segmented control groups powered by @base-ui/react with single or multi-select modes.",
+    dataAttributes: [
+      {
+        attr: "data-[pressed]",
+        description: "Applied when the toggle button is in pressed state.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "pressed",
+        type: "boolean",
+        defaultVal: "undefined",
+        description: "Controlled pressed state for single toggle.",
+      },
+      {
+        prop: "multiple",
+        type: "boolean",
+        defaultVal: "false",
+        description:
+          "Allows multiple items to be pressed simultaneously in ToggleGroup.",
+      },
+      {
+        prop: "variant",
+        type: "'default' | 'outline' | 'accent'",
+        defaultVal: "'default'",
+        description: "Visual appearance and surface background.",
+      },
+    ],
+    usageCode: `import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Bold, Italic, Underline } from "lucide-react"
+
+export function FormattingToolbar() {
+  return (
+    <ToggleGroup multiple variant="outline">
+      <ToggleGroupItem value="bold"><Bold className="h-4 w-4" /></ToggleGroupItem>
+      <ToggleGroupItem value="italic"><Italic className="h-4 w-4" /></ToggleGroupItem>
+      <ToggleGroupItem value="underline"><Underline className="h-4 w-4" /></ToggleGroupItem>
+    </ToggleGroup>
+  )
+}`,
+    renderDemo: () => <ToggleCatalogDemo />,
+  },
+  {
+    slug: "skeleton",
+    title: "Skeleton",
+    category: "Primitives & Actions",
+    baseUiPackage: "cmplt feedback primitive",
+    summary:
+      "Shimmer pulse loading placeholders with composable helpers for multi-line typography, circular avatars, and card layouts.",
+    dataAttributes: [],
+    propsTable: [
+      {
+        prop: "shimmer",
+        type: "boolean",
+        defaultVal: "true",
+        description: "Enables CSS pulse animation.",
+      },
+      {
+        prop: "lines",
+        type: "number",
+        defaultVal: "3",
+        description: "Number of rows rendered by SkeletonText.",
+      },
+      {
+        prop: "size",
+        type: "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+        defaultVal: "'md'",
+        description: "Diameter scale for SkeletonAvatar.",
+      },
+    ],
+    usageCode: `import { Skeleton, SkeletonText, SkeletonAvatar } from "@/components/ui/skeleton"
+
+export function ProfileCardSkeleton() {
+  return (
+    <div className="flex items-center gap-3">
+      <SkeletonAvatar size="lg" />
+      <div className="space-y-2 flex-1">
+        <Skeleton className="h-4 w-1/2" />
+        <Skeleton className="h-3 w-1/3" />
+      </div>
+    </div>
+  )
+}`,
+    renderDemo: () => <SkeletonCatalogDemo />,
+  },
+  {
+    slug: "drawer",
+    title: "Drawer & Sheet",
+    category: "Overlays & Navigation",
+    baseUiPackage: "@base-ui/react/drawer",
+    summary:
+      "Slide-out panel and mobile sheet overlay built on @base-ui/react/drawer supporting 4 edge directions (right, left, bottom, top) and swipe dismiss.",
+    dataAttributes: [
+      {
+        attr: "data-[open]",
+        description: "Applied when drawer popup is visible.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "side",
+        type: "'right' | 'left' | 'bottom' | 'top'",
+        defaultVal: "'right'",
+        description: "Edge from which the drawer slides into viewport.",
+      },
+      {
+        prop: "showClose",
+        type: "boolean",
+        defaultVal: "true",
+        description: "Renders top-right close icon button.",
+      },
+    ],
+    usageCode: `import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter } from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button"
+
+export function DrawerDemo() {
+  return (
+    <Drawer>
+      <DrawerTrigger render={<Button>Open Drawer</Button>} />
+      <DrawerContent side="right">
+        <DrawerHeader>
+          <DrawerTitle>Edit Settings</DrawerTitle>
+          <DrawerDescription>Adjust your preferences below.</DrawerDescription>
+        </DrawerHeader>
+        <div className="py-4">Content here</div>
+        <DrawerFooter>
+          <Button>Save</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  )
+}`,
+    renderDemo: () => <DrawerCatalogDemo />,
+  },
+  {
+    slug: "dropdown-menu",
+    title: "Dropdown Menu",
+    category: "Overlays & Navigation",
+    baseUiPackage: "@base-ui/react/menu",
+    summary:
+      "Accessible action menu and nested submenu system built on @base-ui/react/menu with keyboard shortcuts, checkboxes, and radio options.",
+    dataAttributes: [
+      {
+        attr: "data-[highlighted]",
+        description: "Active hovered or keyboard-navigated item.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "align",
+        type: "'start' | 'center' | 'end'",
+        defaultVal: "'start'",
+        description: "Popup alignment relative to trigger.",
+      },
+      {
+        prop: "side",
+        type: "'top' | 'bottom' | 'left' | 'right'",
+        defaultVal: "'bottom'",
+        description: "Placement side for popup.",
+      },
+    ],
+    usageCode: `import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+
+export function DropdownMenuDemo() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger render={<Button variant="outline">Options</Button>} />
+      <DropdownMenuContent>
+        <DropdownMenuItem>
+          Profile
+          <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem variant="destructive">Delete Account</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}`,
+    renderDemo: () => <DropdownMenuCatalogDemo />,
+  },
+  {
+    slug: "alert-dialog",
+    title: "Alert Dialog",
+    category: "Overlays & Navigation",
+    baseUiPackage: "@base-ui/react/alert-dialog",
+    summary:
+      "Confirmation modal interrupting user flow for critical, destructive, or irreversible actions using WAI-ARIA alertdialog.",
+    dataAttributes: [
+      {
+        attr: "data-[open]",
+        description: "Applied when alert dialog popup is open.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: "'danger' | 'primary' | 'secondary'",
+        defaultVal: "'danger'",
+        description: "Confirmation button visual accent.",
+      },
+    ],
+    usageCode: `import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction, AlertDialogCancel } from "@/components/ui/alert-dialog"
+import { Button } from "@/components/ui/button"
+
+export function AlertDialogDemo() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger render={<Button variant="danger">Delete</Button>} />
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction variant="danger">Confirm Deletion</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}`,
+    renderDemo: () => <AlertDialogCatalogDemo />,
+  },
+  {
+    slug: "breadcrumb",
+    title: "Breadcrumb",
+    category: "Overlays & Navigation",
+    baseUiPackage: "cmplt navigation primitive",
+    summary:
+      "Hierarchical wayfinding breadcrumb trail supporting custom chevron separators, current page markers, and collapsed ellipsis segments.",
+    dataAttributes: [
+      {
+        attr: "aria-current='page'",
+        description: "Applied to the active end destination.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "separator",
+        type: "ReactNode",
+        defaultVal: "<ChevronRight />",
+        description: "Custom delimiter between breadcrumb links.",
+      },
+    ],
+    usageCode: `import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+
+export function BreadcrumbDemo() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem><BreadcrumbLink href="/">Home</BreadcrumbLink></BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem><BreadcrumbLink href="/docs">Docs</BreadcrumbLink></BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem><BreadcrumbPage>Components</BreadcrumbPage></BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}`,
+    renderDemo: () => <BreadcrumbCatalogDemo />,
+  },
+  {
+    slug: "pagination",
+    title: "Pagination",
+    category: "Overlays & Navigation",
+    baseUiPackage: "cmplt navigation primitive",
+    summary:
+      "Accessible pagination controls with active page indicators, chevron previous/next triggers, and ellipsis markers for multi-page data.",
+    dataAttributes: [
+      {
+        attr: "aria-current='page'",
+        description: "Applied to the active page button.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "isActive",
+        type: "boolean",
+        defaultVal: "false",
+        description: "Highlights current active page number.",
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultVal: "false",
+        description: "Disables previous/next buttons at boundaries.",
+      },
+    ],
+    usageCode: `import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext } from "@/components/ui/pagination"
+
+export function PaginationDemo() {
+  return (
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
+        <PaginationItem><PaginationLink isActive>1</PaginationLink></PaginationItem>
+        <PaginationItem><PaginationLink href="#">2</PaginationLink></PaginationItem>
+        <PaginationItem><PaginationNext href="#" /></PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  )
+}`,
+    renderDemo: () => <PaginationCatalogDemo />,
+  },
+  {
+    slug: "alert",
+    title: "Alert",
+    category: "Primitives & Actions",
+    baseUiPackage: "cmplt status primitive",
+    summary:
+      "Inline semantic status callout banner supporting 5 color variants (default, info, success, warning, danger) with automatic icon slotting.",
+    dataAttributes: [
+      {
+        attr: "role='alert'",
+        description: "Screen reader landmark for critical notifications.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: "'default' | 'info' | 'success' | 'warning' | 'danger'",
+        defaultVal: "'default'",
+        description: "Semantic color style and border accent.",
+      },
+      {
+        prop: "hideIcon",
+        type: "boolean",
+        defaultVal: "false",
+        description: "Suppresses rendering of the automatic status icon.",
+      },
+    ],
+    usageCode: `import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
+
+export function AlertDemo() {
+  return (
+    <Alert variant="success">
+      <AlertTitle>Audit Verified</AlertTitle>
+      <AlertDescription>All 3-tier OKLCH tokens pass contrast guardrails.</AlertDescription>
+    </Alert>
+  )
+}`,
+    renderDemo: () => <AlertCatalogDemo />,
+  },
+  {
+    slug: "toast",
+    title: "Toast",
+    category: "Overlays & Navigation",
+    baseUiPackage: "@base-ui/react/toast",
+    summary:
+      "Floating notification toast queue powered by @base-ui/react/toast with auto-dismiss timers, swipe-to-dismiss, and imperactive toast() triggers.",
+    dataAttributes: [
+      {
+        attr: "data-[swiping]",
+        description: "Applied when user gestures to dismiss toast.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "title",
+        type: "ReactNode",
+        defaultVal: "undefined",
+        description: "Main toast header text.",
+      },
+      {
+        prop: "variant",
+        type: "'default' | 'success' | 'warning' | 'danger' | 'info'",
+        defaultVal: "'default'",
+        description: "Semantic status color theme.",
+      },
+      {
+        prop: "timeout",
+        type: "number",
+        defaultVal: "5000",
+        description: "Auto-dismiss duration in milliseconds.",
+      },
+    ],
+    usageCode: `import { toast, Toaster, ToastProvider } from "@/components/ui/toast"
+import { Button } from "@/components/ui/button"
+
+export function ToastDemo() {
+  return (
+    <ToastProvider>
+      <Button onClick={() => toast({ title: "Updated", variant: "success" })}>
+        Show Toast
+      </Button>
+      <Toaster position="bottom-right" />
+    </ToastProvider>
+  )
+}`,
+    renderDemo: () => <ToastCatalogDemo />,
+  },
+  {
+    slug: "table",
+    title: "Table",
+    category: "Forms & Inputs",
+    baseUiPackage: "cmplt data primitive",
+    summary:
+      "Responsive data table with zebra row borders, hover highlights, selection states, and tabular monospace alignment.",
+    dataAttributes: [
+      {
+        attr: "data-[state='selected']",
+        description: "Applied to active selected table rows.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "className",
+        type: "string",
+        defaultVal: "undefined",
+        description: "Custom classes applied to the table container.",
+      },
+    ],
+    usageCode: `import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "@/components/ui/table"
+
+export function TableDemo() {
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Service</TableHead>
+          <TableHead>Status</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>API Edge</TableCell>
+          <TableCell>Operational</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  )
+}`,
+    renderDemo: () => <TableCatalogDemo />,
+  },
+  {
+    slug: "scroll-area",
+    title: "Scroll Area",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/scroll-area",
+    summary:
+      "Cross-browser accessible custom scroll container built on @base-ui/react/scroll-area with sleek thumb indicators.",
+    dataAttributes: [
+      {
+        attr: "data-[orientation]",
+        description: "'vertical' | 'horizontal' scrollbar track orientation.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "orientation",
+        type: "'vertical' | 'horizontal'",
+        defaultVal: "'vertical'",
+        description: "Active scrollbar axis.",
+      },
+    ],
+    usageCode: `import { ScrollArea } from "@/components/ui/scroll-area"
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-48 w-full rounded-cmplt-md border p-4">
+      Long list of items...
+    </ScrollArea>
+  )
+}`,
+    renderDemo: () => <ScrollAreaCatalogDemo />,
+  },
+  {
+    slug: "collapsible",
+    title: "Collapsible",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/collapsible",
+    summary:
+      "Lightweight expanding section toggle built on @base-ui/react/collapsible for smooth height transitions and accessible disclosure.",
+    dataAttributes: [
+      {
+        attr: "data-[open]",
+        description: "Applied when disclosure panel is visible.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "open",
+        type: "boolean",
+        defaultVal: "undefined",
+        description: "Controlled open state.",
+      },
+      {
+        prop: "onOpenChange",
+        type: "(open: boolean) => void",
+        defaultVal: "undefined",
+        description: "Callback fired when open state changes.",
+      },
+    ],
+    usageCode: `import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
+import { Button } from "@/components/ui/button"
+
+export function CollapsibleDemo() {
+  return (
+    <Collapsible>
+      <CollapsibleTrigger render={<Button>Toggle Details</Button>} />
+      <CollapsibleContent>Secret telemetry details here.</CollapsibleContent>
+    </Collapsible>
+  )
+}`,
+    renderDemo: () => <CollapsibleCatalogDemo />,
+  },
+  {
+    slug: "empty-state",
+    title: "Empty State",
+    category: "Primitives & Actions",
+    baseUiPackage: "cmplt placeholder primitive",
+    summary:
+      "Centered placeholder container for blank dashboards, empty search results, and fresh workspace onboarding states.",
+    dataAttributes: [],
+    propsTable: [
+      {
+        prop: "dashed",
+        type: "boolean",
+        defaultVal: "true",
+        description: "Renders a subtle 2px dashed container border.",
+      },
+    ],
+    usageCode: `import { EmptyState, EmptyStateIcon, EmptyStateTitle, EmptyStateDescription, EmptyStateActions } from "@/components/ui/empty-state"
+import { Button } from "@/components/ui/button"
+import { FolderOpen } from "lucide-react"
+
+export function EmptyStateDemo() {
+  return (
+    <EmptyState>
+      <EmptyStateIcon><FolderOpen className="h-6 w-6" /></EmptyStateIcon>
+      <EmptyStateTitle>No Workspaces Found</EmptyStateTitle>
+      <EmptyStateDescription>Create a new workspace to start designing.</EmptyStateDescription>
+      <EmptyStateActions><Button size="sm">Create Workspace</Button></EmptyStateActions>
+    </EmptyState>
+  )
+}`,
+    renderDemo: () => <EmptyStateCatalogDemo />,
+  },
+  {
+    slug: "slider",
+    title: "Slider",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/slider",
+    summary:
+      "Accessible range slider built on @base-ui/react/slider with single and dual-thumb range support, smooth spring physics, and OKLCH color tokens.",
+    dataAttributes: [
+      {
+        attr: "data-[disabled]",
+        description: "Applied when the slider is disabled.",
+      },
+      {
+        attr: "data-[orientation]",
+        description: "'horizontal' or 'vertical' orientation.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "number | number[]",
+        defaultVal: "undefined",
+        description: "Controlled value or dual range values.",
+      },
+      {
+        prop: "min",
+        type: "number",
+        defaultVal: "0",
+        description: "Minimum value.",
+      },
+      {
+        prop: "max",
+        type: "number",
+        defaultVal: "100",
+        description: "Maximum value.",
+      },
+      {
+        prop: "step",
+        type: "number",
+        defaultVal: "1",
+        description: "Granular step size.",
+      },
+    ],
+    usageCode: `import { Slider } from "@/components/ui/slider"
+
+export function SliderDemo() {
+  return (
+    <Slider
+      label="Brightness"
+      showValue
+      defaultValue={50}
+      min={0}
+      max={100}
+    />
+  )
+}`,
+    renderDemo: () => <SliderCatalogDemo />,
+  },
+  {
+    slug: "number-field",
+    title: "Number Field",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/number-field",
+    summary:
+      "Accessible numeric stepper and scrub input powered by @base-ui/react/number-field with stacked and inline stepper controls.",
+    dataAttributes: [
+      {
+        attr: "data-[disabled]",
+        description: "Applied when the number field is disabled.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "number | null",
+        defaultVal: "undefined",
+        description: "Controlled numeric value.",
+      },
+      {
+        prop: "min",
+        type: "number",
+        defaultVal: "undefined",
+        description: "Minimum allowable value.",
+      },
+      {
+        prop: "max",
+        type: "number",
+        defaultVal: "undefined",
+        description: "Maximum allowable value.",
+      },
+      {
+        prop: "stepperStyle",
+        type: "'stacked' | 'inline'",
+        defaultVal: "'stacked'",
+        description: "Layout style of increment/decrement buttons.",
+      },
+    ],
+    usageCode: `import { NumberField } from "@/components/ui/number-field"
+
+export function NumberFieldDemo() {
+  return (
+    <NumberField
+      label="Quantity"
+      defaultValue={1}
+      min={1}
+      max={10}
+      stepperStyle="stacked"
+    />
+  )
+}`,
+    renderDemo: () => <NumberFieldCatalogDemo />,
+  },
+  {
+    slug: "otp-field",
+    title: "OTP Field",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/otp-field",
+    summary:
+      "Accessible one-time password and verification PIN input slots powered by @base-ui/react/otp-field with automatic focus advancement and separator splits.",
+    dataAttributes: [
+      {
+        attr: "data-[filled]",
+        description: "Applied to slots containing a character.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "length",
+        type: "number",
+        defaultVal: "6",
+        description: "Total number of PIN slots.",
+      },
+      {
+        prop: "separatorIndex",
+        type: "number",
+        defaultVal: "3",
+        description: "Slot index after which to place visual separator.",
+      },
+    ],
+    usageCode: `import { OTPField } from "@/components/ui/otp-field"
+
+export function OTPFieldDemo() {
+  return (
+    <OTPField
+      length={6}
+      separatorIndex={3}
+      onValueChange={(code) => console.log(code)}
+    />
+  )
+}`,
+    renderDemo: () => <OTPFieldCatalogDemo />,
+  },
+  {
+    slug: "combobox",
+    title: "Combobox",
+    category: "Forms & Inputs",
+    baseUiPackage: "@base-ui/react/combobox",
+    summary:
+      "Accessible searchable dropdown and auto-completing selector built on @base-ui/react/combobox with popup positioning and tag chips.",
+    dataAttributes: [
+      {
+        attr: "data-[highlighted]",
+        description: "Applied when an item is active via keyboard.",
+      },
+      {
+        attr: "data-[selected]",
+        description: "Applied when an item is chosen.",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "any",
+        defaultVal: "undefined",
+        description: "Controlled selected value.",
+      },
+      {
+        prop: "onValueChange",
+        type: "(value: any) => void",
+        defaultVal: "undefined",
+        description: "Callback fired when selection changes.",
+      },
+    ],
+    usageCode: `import {
+  Combobox,
+  ComboboxInputGroup,
+  ComboboxInput,
+  ComboboxTrigger,
+  ComboboxContent,
+  ComboboxItem,
+  ComboboxEmpty,
+} from "@/components/ui/combobox"
+
+export function ComboboxDemo() {
+  return (
+    <Combobox defaultValue="next">
+      <ComboboxInputGroup>
+        <ComboboxInput placeholder="Search..." />
+        <ComboboxTrigger />
+      </ComboboxInputGroup>
+      <ComboboxContent>
+        <ComboboxEmpty>No results.</ComboboxEmpty>
+        <ComboboxItem value="next">Next.js</ComboboxItem>
+        <ComboboxItem value="react">React</ComboboxItem>
+      </ComboboxContent>
+    </Combobox>
+  )
+}`,
+    renderDemo: () => <ComboboxCatalogDemo />,
+  },
+  {
+    slug: "meter",
+    title: "Meter",
+    category: "Primitives & Actions",
+    baseUiPackage: "@base-ui/react/meter",
+    summary:
+      "Accessible scalar measurement and capacity indicator powered by @base-ui/react/meter with semantic status color variants.",
+    dataAttributes: [],
+    propsTable: [
+      {
+        prop: "value",
+        type: "number",
+        defaultVal: "0",
+        description: "Current value along the range.",
+      },
+      {
+        prop: "variant",
+        type: "'default' | 'success' | 'warning' | 'danger' | 'info'",
+        defaultVal: "'default'",
+        description: "Semantic color theme for the meter bar.",
+      },
+      {
+        prop: "showValue",
+        type: "boolean",
+        defaultVal: "false",
+        description: "Displays formatted numeric value alongside label.",
+      },
+    ],
+    usageCode: `import { Meter } from "@/components/ui/meter"
+
+export function MeterDemo() {
+  return (
+    <Meter
+      label="Disk Usage"
+      value={75}
+      showValue
+      variant="warning"
+    />
+  )
+}`,
+    renderDemo: () => <MeterCatalogDemo />,
+  },
+  {
+    slug: "timeline",
+    title: "Timeline",
+    category: "Primitives & Actions",
+    baseUiPackage: "cmplt timeline compound primitive",
+    summary:
+      "Chronological activity log and audit stream with connected line nodes, status badges, and timestamp formatting.",
+    dataAttributes: [],
+    propsTable: [
+      {
+        prop: "variant",
+        type: "'default' | 'accent' | 'success' | 'warning' | 'danger' | 'neutral'",
+        defaultVal: "'default'",
+        description: "Visual node badge style.",
+      },
+    ],
+    usageCode: `import {
+  Timeline,
+  TimelineItem,
+  TimelineDot,
+  TimelineContent,
+  TimelineHeader,
+  TimelineTitle,
+  TimelineTime,
+  TimelineDescription,
+} from "@/components/ui/timeline"
+import { GitCommit } from "lucide-react"
+
+export function TimelineDemo() {
+  return (
+    <Timeline>
+      <TimelineItem>
+        <TimelineDot variant="accent"><GitCommit className="size-4" /></TimelineDot>
+        <TimelineContent>
+          <TimelineHeader>
+            <TimelineTitle>Deployed v1.0.0</TimelineTitle>
+            <TimelineTime>2m ago</TimelineTime>
+          </TimelineHeader>
+          <TimelineDescription>Base system operational.</TimelineDescription>
+        </TimelineContent>
+      </TimelineItem>
+    </Timeline>
+  )
+}`,
+    renderDemo: () => <TimelineCatalogDemo />,
   },
 ];
 

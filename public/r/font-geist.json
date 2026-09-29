@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "font-geist",
+  "type": "registry:font",
+  "title": "Geist Typography",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Geist Sans and Geist Mono typography configuration for Next.js and Tailwind projects.",
+  "dependencies": [
+    "geist"
+  ],
+  "registryDependencies": [],
+  "font": {
+    "family": "Geist",
+    "provider": "google",
+    "import": "Geist",
+    "variable": "--font-sans",
+    "weight": [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900"
+    ],
+    "subsets": [
+      "latin"
+    ]
+  }
+}

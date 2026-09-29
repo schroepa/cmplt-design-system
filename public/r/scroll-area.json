@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area",
+  "type": "registry:ui",
+  "title": "Scroll Area",
+  "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+  "description": "Accessible custom scroll container powered by Base UI Scroll Area with sleek styled scrollbars.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "src/registry/cmplt/ui/scroll-area.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { ScrollArea as BaseScrollArea } from \"@base-ui/react/scroll-area\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\nconst ScrollArea = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseScrollArea.Root>\n>(({ className, children, ...props }, ref) => (\n  <BaseScrollArea.Root\n    ref={ref}\n    className={cn(\"relative overflow-hidden\", className)}\n    {...props}\n  >\n    <BaseScrollArea.Viewport className=\"h-full w-full rounded-[inherit] outline-none\">\n      {children}\n    </BaseScrollArea.Viewport>\n    <ScrollBar />\n    <BaseScrollArea.Corner />\n  </BaseScrollArea.Root>\n));\nScrollArea.displayName = \"ScrollArea\";\n\nconst ScrollBar = React.forwardRef<\n  HTMLDivElement,\n  React.ComponentPropsWithoutRef<typeof BaseScrollArea.Scrollbar>\n>(({ className, orientation = \"vertical\", ...props }, ref) => (\n  <BaseScrollArea.Scrollbar\n    ref={ref}\n    orientation={orientation}\n    className={cn(\n      \"flex touch-none select-none transition-colors\",\n      orientation === \"vertical\" &&\n        \"h-full w-2.5 border-l border-l-transparent p-[1px]\",\n      orientation === \"horizontal\" &&\n        \"h-2.5 flex-col border-t border-t-transparent p-[1px]\",\n      className\n    )}\n    {...props}\n  >\n    <BaseScrollArea.Thumb className=\"relative flex-1 rounded-full bg-border-default transition-colors hover:bg-border-strong\" />\n  </BaseScrollArea.Scrollbar>\n));\nScrollBar.displayName = \"ScrollBar\";\n\nexport { ScrollArea, ScrollBar };\n",
+      "type": "registry:ui",
+      "target": "components/ui/scroll-area.tsx"
+    }
+  ]
+}
