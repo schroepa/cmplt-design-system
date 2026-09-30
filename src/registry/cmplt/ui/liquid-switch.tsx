@@ -50,21 +50,21 @@ export const LiquidSwitch = React.forwardRef<HTMLElement, LiquidSwitchProps>(
               filter: `url(#${filterId})`,
             }}
           >
-            {/* Trailing Fluid Bridge Droplet (appears during toggle transition) */}
+            {/* Trailing Fluid Bridge Droplet (lags and stretches organically across the track) */}
             <span
               className={cn(
-                "absolute top-1 block h-4 w-4 rounded-cmplt-full bg-surface transition-all duration-300 ease-cmplt-out",
-                "left-1 group-data-[checked]:left-6 group-data-[checked]:bg-fg-on-accent",
-                "group-active:scale-x-125 group-active:scale-y-80"
+                "absolute top-0.5 block h-5 w-5 rounded-cmplt-full bg-surface transition-all duration-380 ease-cmplt-out",
+                "left-0.5 group-data-[checked]:left-5.5 group-data-[checked]:bg-fg-on-accent",
+                "group-active:scale-x-140 group-active:scale-y-75"
               )}
             />
 
-            {/* Leading Fluid Droplet */}
+            {/* Leading Fluid Droplet (snaps into destination with spring) */}
             <span
               className={cn(
-                "absolute top-1 block h-4 w-4 rounded-cmplt-full bg-surface shadow-cmplt-xs transition-all duration-300 ease-cmplt-spring",
-                "left-1 group-data-[checked]:left-6 group-data-[checked]:bg-fg-on-accent",
-                "group-active:w-5 group-active:scale-95"
+                "absolute top-0.5 block h-5 w-5 rounded-cmplt-full bg-surface shadow-cmplt-xs transition-all duration-280 ease-cmplt-spring",
+                "left-0.5 group-data-[checked]:left-5.5 group-data-[checked]:bg-fg-on-accent",
+                "group-active:w-6 group-active:scale-95"
               )}
             />
           </div>

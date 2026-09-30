@@ -14,10 +14,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-registry.mjs && next build",
+    "build": "node scripts/build-tokens-studio.mjs && node scripts/build-registry.mjs && next build",
     "start": "next start",
     "lint": "next lint",
-    "registry:build": "node scripts/build-registry.mjs"
+    "registry:build": "node scripts/build-tokens-studio.mjs && node scripts/build-registry.mjs"
   },
   "dependencies": {
     "@base-ui/react": "latest",

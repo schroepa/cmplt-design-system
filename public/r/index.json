@@ -5,7 +5,7 @@
   "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
   "owner": "Patrick Schrödter (ptrckschrdtr)",
   "github": "https://github.com/schroepa",
-  "totalItems": 78,
+  "totalItems": 80,
   "items": [
     {
       "name": "utils",
@@ -1206,6 +1206,26 @@
         "typography"
       ],
       "endpoint": "/r/showcase-page.json"
+    },
+    {
+      "name": "design-tokens",
+      "type": "registry:file",
+      "title": "cmplt W3C Design Tokens (DTCG)",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Standard W3C DTCG design tokens JSON for Style Dictionary, Figma Variables sync, and design engineering toolchains.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "endpoint": "/r/design-tokens.json"
+    },
+    {
+      "name": "tokens-studio",
+      "type": "registry:file",
+      "title": "cmplt Tokens Studio for Figma",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Pre-configured multi-theme token schema for the Tokens Studio Figma plugin with Light and Dark mode sets.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "endpoint": "/r/tokens-studio.json"
     }
   ]
 }

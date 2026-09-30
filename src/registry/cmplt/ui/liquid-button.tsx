@@ -108,10 +108,10 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
           const relX = e.clientX - rect.left - rect.width / 2;
           const relY = e.clientY - rect.top - rect.height / 2;
 
-          xTo1(relX * 0.4);
-          yTo1(relY * 0.4);
-          xTo2(-relX * 0.25);
-          yTo2(-relY * 0.25);
+          xTo1(relX * 0.55);
+          yTo1(relY * 0.55);
+          xTo2(-relX * 0.35);
+          yTo2(-relY * 0.35);
         };
 
         const handleMouseLeave = () => {
@@ -135,13 +135,13 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
               top: clickY,
               xPercent: -50,
               yPercent: -50,
-              scale: 0.2,
-              opacity: 0.85,
+              scale: 0.25,
+              opacity: 0.9,
             },
             {
-              scale: 2.8,
+              scale: 3.4,
               opacity: 0,
-              duration: 0.55,
+              duration: 0.6,
               ease: "cubic-bezier(0.16, 1, 0.3, 1)",
             }
           );
@@ -199,7 +199,7 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
             <span
               ref={blob1Ref}
               className={cn(
-                "absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 h-8 w-8 rounded-cmplt-full blur-[1px]",
+                "absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 h-9 w-9 rounded-cmplt-full blur-[1px]",
                 blobColorClass
               )}
             />
@@ -208,7 +208,7 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
             <span
               ref={blob2Ref}
               className={cn(
-                "absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 h-6 w-6 rounded-cmplt-full blur-[1px]",
+                "absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 h-7 w-7 rounded-cmplt-full blur-[1px]",
                 blobColorClass
               )}
             />

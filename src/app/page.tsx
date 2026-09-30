@@ -12,11 +12,19 @@ import { TokenSyncInspectorBlock } from "@/registry/cmplt/blocks/token-sync-insp
 import { PricingTierBlock } from "@/registry/cmplt/blocks/pricing-tier-block";
 import { CliInstallTabs } from "@/components/docs/cli-install-tabs";
 import { Button } from "@/registry/cmplt/ui/button";
+import dynamic from "next/dynamic";
 import { AnimatedCtaButton } from "@/registry/cmplt/ui/animated-cta-button";
 import { HighlightInput } from "@/registry/cmplt/ui/highlight-input";
 import { MotionSurface } from "@/registry/cmplt/ui/motion-surface";
-import { InteractiveDotField } from "@/registry/cmplt/ui/interactive-dot-field";
 import { Badge } from "@/registry/cmplt/ui/badge";
+
+const InteractiveDotField = dynamic(
+  () =>
+    import("@/registry/cmplt/ui/interactive-dot-field").then(
+      (m) => m.InteractiveDotField
+    ),
+  { ssr: false }
+);
 import {
   Card,
   CardHeader,

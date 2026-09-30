@@ -7,7 +7,7 @@ import { cn } from "@/registry/cmplt/lib/utils";
 import { LiquidFilter, formatFilterId, type LiquidViscosity } from "@/registry/cmplt/ui/liquid-filter";
 
 const liquidAvatarVariants = cva(
-  "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden font-medium align-middle bg-surface text-fg-secondary border-2 border-surface transition-all duration-300 ease-cmplt-spring hover:z-20 hover:-translate-y-1 hover:scale-110",
+  "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden font-medium align-middle bg-surface text-fg-secondary border-2 border-surface transition-all duration-300 ease-cmplt-spring hover:z-20 hover:-translate-y-1.5 hover:scale-115",
   {
     variants: {
       size: {
@@ -102,7 +102,7 @@ export const LiquidAvatarGroup = React.forwardRef<HTMLDivElement, LiquidAvatarGr
     {
       className,
       max = 5,
-      viscosity = "subtle",
+      viscosity = "medium",
       spacing = "tight",
       children,
       ...props
@@ -117,9 +117,9 @@ export const LiquidAvatarGroup = React.forwardRef<HTMLDivElement, LiquidAvatarGr
     const excessCount = childrenArray.length - max;
 
     const spacingClasses = {
-      tight: "-space-x-3",
-      normal: "-space-x-2",
-      relaxed: "-space-x-1",
+      tight: "-space-x-3.5",
+      normal: "-space-x-2.5",
+      relaxed: "-space-x-1.5",
     }[spacing];
 
     return (

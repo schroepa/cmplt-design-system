@@ -187,8 +187,8 @@ export const LiquidTabsList = React.forwardRef<HTMLDivElement, LiquidTabsListPro
             y: targetY,
             width: prev.width,
             height: targetH,
-            scaleX: 1.08,
-            scaleY: 0.94,
+            scaleX: 1.15,
+            scaleY: 0.88,
           },
           {
             x: targetX,
@@ -197,19 +197,19 @@ export const LiquidTabsList = React.forwardRef<HTMLDivElement, LiquidTabsListPro
             height: targetH,
             scaleX: 1,
             scaleY: 1,
-            duration: 0.38,
+            duration: 0.4,
             ease: "cubic-bezier(0.16, 1, 0.3, 1)",
           }
         );
 
         // Trailing droplet pulls towards destination, creating a stretched liquid neck before detaching
         gsap.to(trailPillRef.current, {
-          x: movingRight ? prev.left + distance * 0.45 : prev.left - distance * 0.45,
-          scaleX: 0.55,
-          scaleY: 0.7,
+          x: movingRight ? prev.left + distance * 0.48 : prev.left - distance * 0.48,
+          scaleX: 0.62,
+          scaleY: 0.72,
           opacity: 0,
-          duration: 0.26,
-          ease: "power2.inOut",
+          duration: 0.32,
+          ease: "power2.out",
           onComplete: () => {
             if (trailPillRef.current) {
               gsap.set(trailPillRef.current, { opacity: 0 });

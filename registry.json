@@ -1644,6 +1644,34 @@
           "target": "app/showcase/page.tsx"
         }
       ]
+    },
+    {
+      "name": "design-tokens",
+      "type": "registry:file",
+      "title": "cmplt W3C Design Tokens (DTCG)",
+      "description": "Standard W3C DTCG design tokens JSON for Style Dictionary, Figma Variables sync, and design engineering toolchains.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/registry/cmplt/tokens/tokens.json",
+          "type": "registry:file",
+          "target": "tokens/cmplt.tokens.json"
+        }
+      ]
+    },
+    {
+      "name": "tokens-studio",
+      "type": "registry:file",
+      "title": "cmplt Tokens Studio for Figma",
+      "description": "Pre-configured multi-theme token schema for the Tokens Studio Figma plugin with Light and Dark mode sets.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "src/registry/cmplt/tokens/tokens-studio.json",
+          "type": "registry:file",
+          "target": "tokens/cmplt.tokens-studio.json"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,311 @@
+{
+  "$schema": "https://tokens.studio/schema.json",
+  "global": {
+    "neutral": {
+      "0": {
+        "$type": "color",
+        "$value": "#fdfdfc",
+        "$description": "OKLCH Neutral Step 0: oklch(0.992 0.001 85)"
+      },
+      "25": {
+        "$type": "color",
+        "$value": "#fbfbf9",
+        "$description": "OKLCH Neutral Step 25: oklch(0.985 0.002 85)"
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#f5f5f3",
+        "$description": "OKLCH Neutral Step 50: oklch(0.968 0.002 85)"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#eeeeec",
+        "$description": "OKLCH Neutral Step 100: oklch(0.950 0.003 85)"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#e5e5e3",
+        "$description": "OKLCH Neutral Step 200: oklch(0.922 0.003 85)"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#dadad7",
+        "$description": "OKLCH Neutral Step 300: oklch(0.882 0.004 85)"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#adadaa",
+        "$description": "OKLCH Neutral Step 400: oklch(0.745 0.004 85)"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#8b8b88",
+        "$description": "OKLCH Neutral Step 500: oklch(0.635 0.004 85)"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#666663",
+        "$description": "OKLCH Neutral Step 600: oklch(0.510 0.004 85)"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#3d3d3b",
+        "$description": "OKLCH Neutral Step 700: oklch(0.360 0.004 85)"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#353534",
+        "$description": "OKLCH Neutral Step 750: oklch(0.332 0.003 85)"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#2e2e2d",
+        "$description": "OKLCH Neutral Step 800: oklch(0.304 0.003 85)"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#2a2a29",
+        "$description": "OKLCH Neutral Step 850: oklch(0.286 0.003 85)"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#262625",
+        "$description": "OKLCH Neutral Step 900: oklch(0.270 0.003 85)"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#1f1f1e",
+        "$description": "OKLCH Neutral Step 950: oklch(0.242 0.003 85)"
+      }
+    },
+    "brand": {
+      "50": {
+        "$type": "color",
+        "$value": "#fdf0ed",
+        "$description": "OKLCH Brand Step 50: oklch(0.962 0.02 35)"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#fbe0d9",
+        "$description": "OKLCH Brand Step 100: oklch(0.93 0.04 35)"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#f6c2b4",
+        "$description": "OKLCH Brand Step 200: oklch(0.87 0.075 35)"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#f09982",
+        "$description": "OKLCH Brand Step 300: oklch(0.78 0.12 35)"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#ec7657",
+        "$description": "OKLCH Brand Step 400: oklch(0.69 0.165 35)"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#ea623f",
+        "$description": "OKLCH Brand Step 500: oklch(0.645 0.175 34)"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#d44f2d",
+        "$description": "OKLCH Brand Step 600: oklch(0.585 0.17 34)"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#007a5a",
+        "$description": "OKLCH Brand Step 700: oklch(0.515 0.115 162)"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#5e5ce6",
+        "$description": "OKLCH Brand Step 800: oklch(0.57 0.19 275)"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#5c2516",
+        "$description": "OKLCH Brand Step 900: oklch(0.35 0.09 34)"
+      }
+    },
+    "radius": {
+      "xs": {
+        "$type": "borderRadius",
+        "$value": "6px",
+        "$description": "Corner radius xs: 6px (undefined)"
+      },
+      "sm": {
+        "$type": "borderRadius",
+        "$value": "8px",
+        "$description": "Corner radius sm: 8px (undefined)"
+      },
+      "md": {
+        "$type": "borderRadius",
+        "$value": "10px",
+        "$description": "Corner radius md: 10px (undefined)"
+      },
+      "lg": {
+        "$type": "borderRadius",
+        "$value": "20px",
+        "$description": "Corner radius lg: 20px (undefined)"
+      },
+      "xl": {
+        "$type": "borderRadius",
+        "$value": "24px",
+        "$description": "Corner radius xl: 24px (undefined)"
+      },
+      "full": {
+        "$type": "borderRadius",
+        "$value": "9999px",
+        "$description": "Corner radius full: 9999px (undefined)"
+      }
+    }
+  },
+  "light": {
+    "bg": {
+      "canvas": {
+        "$type": "color",
+        "$value": "#eeeeec",
+        "$description": "Soft warm stone (Light) / Matte graphite (Dark) canvas — never pure white or black (Light: #eeeeec (oklch 0.950))"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#fbfbf9",
+        "$description": "Primary card shell surface (Light: #fbfbf9 (oklch 0.985))"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "#fdfdfc",
+        "$description": "Nested inner panel ('Product Design' pane) & floating overlays (Light: #fdfdfc (oklch 0.992))"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "#f5f5f3",
+        "$description": "Left sidebar pane (Light) & inset grouped key-value boxes (Dark) (Light: #f5f5f3 (oklch 0.968))"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "#ea623f",
+        "$description": "Primary action surface ('Done' Coral pill in Light, 'Accept' Jade button in Dark) (Light: #ea623f (Warm Coral))"
+      }
+    },
+    "fg": {
+      "primary": {
+        "$type": "color",
+        "$value": "#1f1f1e",
+        "$description": "Soft charcoal (Light) & warm off-white (Dark) primary text (Light: #1f1f1e (oklch 0.242))"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "#666663",
+        "$description": "Supporting descriptions and secondary values (Light: #666663 (oklch 0.510))"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "#8b8b88",
+        "$description": "Key-value labels ('Hourly Rate', 'Location') and section headers (Light: #8b8b88 (oklch 0.635))"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "#e5e5e3",
+        "$description": "Delicate 1px row dividers inside grouped lists and cards (Light: #e5e5e3 (oklch 0.922))"
+      },
+      "default": {
+        "$type": "color",
+        "$value": "#dadad7",
+        "$description": "Card contours, search fields, and grouped table borders (Light: #dadad7 (oklch 0.882))"
+      }
+    }
+  },
+  "dark": {
+    "bg": {
+      "canvas": {
+        "$type": "color",
+        "$value": "#1f1f1e",
+        "$description": "Soft warm stone (Light) / Matte graphite (Dark) canvas — never pure white or black (Dark: #1f1f1e (oklch 0.242))"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "#262625",
+        "$description": "Primary card shell surface (Dark: #262625 (oklch 0.270))"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "#2e2e2d",
+        "$description": "Nested inner panel ('Product Design' pane) & floating overlays (Dark: #2e2e2d (oklch 0.304))"
+      },
+      "subtle": {
+        "$type": "color",
+        "$value": "#2a2a29",
+        "$description": "Left sidebar pane (Light) & inset grouped key-value boxes (Dark) (Dark: #2a2a29 (oklch 0.286))"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "#007a5a",
+        "$description": "Primary action surface ('Done' Coral pill in Light, 'Accept' Jade button in Dark) (Dark: #007a5a (Forest Jade))"
+      }
+    },
+    "fg": {
+      "primary": {
+        "$type": "color",
+        "$value": "#e4e4e2",
+        "$description": "Soft charcoal (Light) & warm off-white (Dark) primary text (Dark: #e4e4e2 (oklch 0.915))"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "#a9a9a6",
+        "$description": "Supporting descriptions and secondary values (Dark: #a9a9a6 (oklch 0.735))"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "#858582",
+        "$description": "Key-value labels ('Hourly Rate', 'Location') and section headers (Dark: #858582 (oklch 0.615))"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "#353534",
+        "$description": "Delicate 1px row dividers inside grouped lists and cards (Dark: #353534 (oklch 0.332))"
+      },
+      "default": {
+        "$type": "color",
+        "$value": "#3d3d3b",
+        "$description": "Card contours, search fields, and grouped table borders (Dark: #3d3d3b (oklch 0.360))"
+      }
+    }
+  },
+  "$themes": [
+    {
+      "id": "cmplt-light",
+      "name": "Light Mode (Warm Alabaster)",
+      "selectedTokenSets": {
+        "global": "enabled",
+        "light": "enabled",
+        "dark": "disabled"
+      }
+    },
+    {
+      "id": "cmplt-dark",
+      "name": "Dark Mode (Matte Graphite)",
+      "selectedTokenSets": {
+        "global": "enabled",
+        "light": "disabled",
+        "dark": "enabled"
+      }
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "global",
+      "light",
+      "dark"
+    ],
+    "version": "1.2.0",
+    "engine": "cmplt DTCG to Tokens Studio Converter"
+  }
+}

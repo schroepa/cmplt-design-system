@@ -3,6 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import tokensData from "@/registry/cmplt/tokens/tokens.json";
+import tokensStudioData from "@/registry/cmplt/tokens/tokens-studio.json";
+import { CliInstallTabs } from "@/components/docs/cli-install-tabs";
 import { TokenSyncInspectorBlock } from "@/registry/cmplt/blocks/token-sync-inspector";
 import { Badge } from "@/registry/cmplt/ui/badge";
 import { Button } from "@/registry/cmplt/ui/button";
@@ -48,6 +50,18 @@ export default function FigmaLandingPage() {
     URL.revokeObjectURL(url);
   };
 
+  const handleDownloadTokensStudio = () => {
+    const blob = new Blob([JSON.stringify(tokensStudioData, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "cmplt.tokens-studio.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="cmplt-container py-16 md:py-24 lg:py-32 2xl:py-40 space-y-24 md:space-y-32 2xl:space-y-40">
       {/* Hero */}
@@ -82,12 +96,17 @@ export default function FigmaLandingPage() {
               Download W3C tokens.json
             </Button>
 
+            <Button variant="secondary" size="lg" onClick={handleDownloadTokensStudio}>
+              <Download className="h-4 w-4" />
+              Tokens Studio Schema
+            </Button>
+
             <Dialog>
               <DialogTrigger
                 render={
-                  <Button variant="secondary" size="lg">
+                  <Button variant="ghost" size="lg">
                     <Sparkles className="h-4 w-4 text-fg-accent" />
-                    Reserve Figma UI Kit Access
+                    Reserve UI Kit Access
                   </Button>
                 }
               />
@@ -126,6 +145,45 @@ export default function FigmaLandingPage() {
           </div>
         </div>
       </div>
+
+      {/* CLI Token Delivery for Figma & Toolchains */}
+      <section className="space-y-8">
+        <div className="max-w-3xl space-y-3">
+          <Badge variant="brand">Automated CLI Token Distribution</Badge>
+          <h2 className="cmplt-h2 text-fg-primary">
+            Install Design Tokens directly via shadcn CLI
+          </h2>
+          <p className="cmplt-body text-fg-secondary">
+            Pull pure W3C DTCG JSON or Tokens Studio for Figma multi-mode schemas straight into your repository without copying files manually.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <Card className="p-6 md:p-8 space-y-4">
+            <div className="flex items-center justify-between">
+              <Badge variant="mono" size="sm">registry:file</Badge>
+              <span className="text-xs font-mono text-fg-accent">@cmplt/tokens-studio</span>
+            </div>
+            <h3 className="cmplt-h4 text-fg-primary">Tokens Studio for Figma</h3>
+            <p className="cmplt-body-xs text-fg-muted">
+              Pre-configured multi-theme schema with Light and Dark mode sets. Directly importable into the Tokens Studio Figma plugin.
+            </p>
+            <CliInstallTabs itemName="tokens-studio" />
+          </Card>
+
+          <Card className="p-6 md:p-8 space-y-4">
+            <div className="flex items-center justify-between">
+              <Badge variant="mono" size="sm">registry:file</Badge>
+              <span className="text-xs font-mono text-fg-accent">@cmplt/design-tokens</span>
+            </div>
+            <h3 className="cmplt-h4 text-fg-primary">Raw W3C DTCG Format</h3>
+            <p className="cmplt-body-xs text-fg-muted">
+              Standard W3C design tokens JSON formatted for Style Dictionary, Amazon DTCG tools, and custom token pipelines.
+            </p>
+            <CliInstallTabs itemName="design-tokens" />
+          </Card>
+        </div>
+      </section>
 
       {/* How Code Maps to Figma (3-Step Bridge) */}
       <section className="space-y-12 md:space-y-16">

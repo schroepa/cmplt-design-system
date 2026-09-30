@@ -156,8 +156,8 @@ export const LiquidToggleGroup = React.forwardRef<HTMLDivElement, LiquidToggleGr
             y: targetY,
             width: prev.width,
             height: targetH,
-            scaleX: 1.08,
-            scaleY: 0.94,
+            scaleX: 1.15,
+            scaleY: 0.88,
           },
           {
             x: targetX,
@@ -166,18 +166,18 @@ export const LiquidToggleGroup = React.forwardRef<HTMLDivElement, LiquidToggleGr
             height: targetH,
             scaleX: 1,
             scaleY: 1,
-            duration: 0.36,
+            duration: 0.38,
             ease: "cubic-bezier(0.16, 1, 0.3, 1)",
           }
         );
 
         gsap.to(trailPillRef.current, {
-          x: movingRight ? prev.left + distance * 0.42 : prev.left - distance * 0.42,
-          scaleX: 0.55,
-          scaleY: 0.7,
+          x: movingRight ? prev.left + distance * 0.48 : prev.left - distance * 0.48,
+          scaleX: 0.62,
+          scaleY: 0.72,
           opacity: 0,
-          duration: 0.25,
-          ease: "power2.inOut",
+          duration: 0.32,
+          ease: "power2.out",
           onComplete: () => {
             if (trailPillRef.current) {
               gsap.set(trailPillRef.current, { opacity: 0 });

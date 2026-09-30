@@ -1,11 +1,19 @@
 "use client";
 
 import * as React from "react";
+import dynamic from "next/dynamic";
 import { Button } from "@/registry/cmplt/ui/button";
 import { AnimatedCtaButton } from "@/registry/cmplt/ui/animated-cta-button";
 import { HighlightInput } from "@/registry/cmplt/ui/highlight-input";
-import { InteractiveDotField } from "@/registry/cmplt/ui/interactive-dot-field";
 import { Badge } from "@/registry/cmplt/ui/badge";
+
+const InteractiveDotField = dynamic(
+  () =>
+    import("@/registry/cmplt/ui/interactive-dot-field").then(
+      (m) => m.InteractiveDotField
+    ),
+  { ssr: false }
+);
 import {
   Card,
   CardMedia,

@@ -1,10 +1,18 @@
 "use client";
 
 import * as React from "react";
-import { InteractiveDotField } from "@/registry/cmplt/ui/interactive-dot-field";
+import dynamic from "next/dynamic";
 import { AnimatedCtaButton } from "@/registry/cmplt/ui/animated-cta-button";
 import { LiquidButton } from "@/registry/cmplt/ui/liquid-button";
 import { Badge } from "@/registry/cmplt/ui/badge";
+
+const InteractiveDotField = dynamic(
+  () =>
+    import("@/registry/cmplt/ui/interactive-dot-field").then(
+      (m) => m.InteractiveDotField
+    ),
+  { ssr: false }
+);
 import { Heading, Text } from "@/registry/cmplt/ui/typography";
 import { ArrowRight, Terminal, Sparkles, ShieldCheck, Zap } from "lucide-react";
 

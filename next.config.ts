@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  transpilePackages: ["three"],
   outputFileTracingRoot: path.join(__dirname),
 };
 

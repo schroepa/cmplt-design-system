@@ -118,8 +118,8 @@ export const LiquidPagination = React.forwardRef<HTMLElement, LiquidPaginationPr
             y: targetY,
             width: prev.width,
             height: targetH,
-            scaleX: 1.1,
-            scaleY: 0.92,
+            scaleX: 1.16,
+            scaleY: 0.88,
           },
           {
             x: targetX,
@@ -128,18 +128,18 @@ export const LiquidPagination = React.forwardRef<HTMLElement, LiquidPaginationPr
             height: targetH,
             scaleX: 1,
             scaleY: 1,
-            duration: 0.38,
+            duration: 0.4,
             ease: "cubic-bezier(0.16, 1, 0.3, 1)",
           }
         );
 
         gsap.to(trailPillRef.current, {
-          x: movingRight ? prev.left + distance * 0.45 : prev.left - distance * 0.45,
-          scaleX: 0.5,
-          scaleY: 0.65,
+          x: movingRight ? prev.left + distance * 0.48 : prev.left - distance * 0.48,
+          scaleX: 0.62,
+          scaleY: 0.72,
           opacity: 0,
-          duration: 0.28,
-          ease: "power2.inOut",
+          duration: 0.32,
+          ease: "power2.out",
           onComplete: () => {
             if (trailPillRef.current) {
               gsap.set(trailPillRef.current, { opacity: 0 });

@@ -19,25 +19,25 @@ const VISCOSITY_CONFIGS: Record<
   { stdDeviation: number; matrixValues: string }
 > = {
   subtle: {
-    stdDeviation: 4,
+    stdDeviation: 5.5,
     matrixValues: `1 0 0 0 0
 0 1 0 0 0
 0 0 1 0 0
-0 0 0 16 -6`,
+0 0 0 18 -7`,
   },
   medium: {
-    stdDeviation: 6,
-    matrixValues: `1 0 0 0 0
-0 1 0 0 0
-0 0 1 0 0
-0 0 0 19 -8`,
-  },
-  fluid: {
     stdDeviation: 8,
     matrixValues: `1 0 0 0 0
 0 1 0 0 0
 0 0 1 0 0
-0 0 0 22 -9`,
+0 0 0 20 -8.5`,
+  },
+  fluid: {
+    stdDeviation: 10.5,
+    matrixValues: `1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 23 -9.5`,
   },
 };
 
