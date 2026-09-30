@@ -9,7 +9,7 @@ import { cn } from "@/registry/cmplt/lib/utils";
  * cmplt Select — Style Guide v1.1 (Sections 2, 4, 5, 6):
  * - Trigger: Level 0 flat input appearance (no shadow, 1px border, 8px radius, stretched horizontal padding)
  * - Popup: Level 2 floating overlay with soft container radius and diffuse ambient shadow
- * - Items: 6px radius (rounded-cmplt-sm) with subtle hover highlight
+ * - Items: 6px radius (rounded-sm) with subtle hover highlight
  */
 const Select = BaseSelect.Root;
 const SelectValue = BaseSelect.Value;
@@ -23,13 +23,13 @@ const SelectTrigger = React.forwardRef<
   <BaseSelect.Trigger
     ref={ref}
     className={cn(
-      "group flex h-9 w-full cursor-pointer items-center justify-between gap-2 rounded-cmplt-md border border-border-default bg-surface px-3.5 py-1.5 text-[13px] text-fg-primary shadow-cmplt-none transition-all duration-200 ease-cmplt-out hover:border-border-strong active:scale-[0.985] active:duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+      "group flex h-9 w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-border-default bg-surface px-3.5 py-1.5 text-[13px] text-fg-primary shadow-none transition-all duration-200 ease-out hover:border-border-strong active:scale-[0.985] active:duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
       className
     )}
     {...props}
   >
     {children}
-    <BaseSelect.Icon className="flex items-center text-fg-muted transition-transform duration-200 ease-cmplt-out group-data-[popup-open]:rotate-180">
+    <BaseSelect.Icon className="flex items-center text-fg-muted transition-transform duration-200 ease-out group-data-[popup-open]:rotate-180">
       <ChevronDown className="h-4 w-4 stroke-[1.75] opacity-75" />
     </BaseSelect.Icon>
   </BaseSelect.Trigger>
@@ -51,7 +51,7 @@ const SelectContent = React.forwardRef<
       <BaseSelect.Popup
         ref={ref}
         className={cn(
-          "cmplt-overlay-popup min-w-[var(--anchor-width)] max-h-72 overflow-y-auto rounded-cmplt-panel border border-border-subtle bg-elevated p-1.5 text-fg-primary shadow-cmplt-lg outline-none",
+          "cmplt-overlay-popup min-w-[var(--anchor-width)] max-h-72 overflow-y-auto rounded-panel border border-border-subtle bg-elevated p-1.5 text-fg-primary shadow-lg outline-none",
           className
         )}
         {...props}
@@ -70,13 +70,13 @@ const SelectItem = React.forwardRef<
   <BaseSelect.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center justify-between rounded-cmplt-sm py-1.5 pl-3 pr-8 text-[13px] text-fg-secondary outline-none transition-colors duration-150 ease-cmplt-out data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary data-[selected]:font-medium data-[selected]:text-fg-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
+      "relative flex w-full cursor-pointer select-none items-center justify-between rounded-sm py-1.5 pl-3 pr-8 text-[13px] text-fg-secondary outline-none transition-colors duration-150 ease-out data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary data-[selected]:font-medium data-[selected]:text-fg-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
       className
     )}
     {...props}
   >
     <BaseSelect.ItemText>{children}</BaseSelect.ItemText>
-    <BaseSelect.ItemIndicator className="absolute right-2.5 flex h-3.5 w-3.5 items-center justify-center text-fg-accent transition-transform duration-150 ease-cmplt-spring">
+    <BaseSelect.ItemIndicator className="absolute right-2.5 flex h-3.5 w-3.5 items-center justify-center text-fg-brand transition-transform duration-150 ease-spring">
       <Check className="h-3.5 w-3.5 stroke-[2]" />
     </BaseSelect.ItemIndicator>
   </BaseSelect.Item>

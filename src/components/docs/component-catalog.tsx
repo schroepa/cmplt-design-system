@@ -309,7 +309,7 @@ function LiquidTabsDemo() {
           <LiquidTabsTrigger value="reports">Reports</LiquidTabsTrigger>
           <LiquidTabsTrigger value="settings">Settings</LiquidTabsTrigger>
         </LiquidTabsList>
-        <div className="w-full mt-4 p-4 rounded-cmplt-panel bg-subtle/60 border border-border-subtle text-center text-xs text-fg-secondary">
+        <div className="w-full mt-4 p-4 rounded-panel bg-subtle/60 border border-border-subtle text-center text-xs text-fg-secondary">
           <LiquidTabsContent value="overview">
             <span className="font-semibold text-fg-primary">Overview Dashboard:</span> Fluid pill stretching dynamically with {viscosity} viscosity.
           </LiquidTabsContent>
@@ -332,9 +332,9 @@ function LiquidTabsDemo() {
             type="button"
             onClick={() => setViscosity(v)}
             className={cn(
-              "px-2.5 py-1 rounded-cmplt-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
+              "px-2.5 py-1 rounded-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
               viscosity === v
-                ? "bg-accent text-fg-on-accent border-accent"
+                ? "bg-brand text-fg-on-brand border-brand"
                 : "bg-surface border-border-default text-fg-secondary hover:text-fg-primary"
             )}
           >
@@ -352,7 +352,7 @@ function LiquidSwitchDemo() {
 
   return (
     <div className="flex flex-col items-center gap-6 py-6">
-      <div className="flex items-center gap-4 p-4 rounded-cmplt-panel bg-subtle/50 border border-border-subtle">
+      <div className="flex items-center gap-4 p-4 rounded-panel bg-subtle/50 border border-border-subtle">
         <div className="space-y-0.5 text-left">
           <p className="text-xs font-medium text-fg-primary">Mercury Flow Mode</p>
           <p className="text-[11px] text-fg-muted">Elastic liquid stretching with self-contained SVG filter</p>
@@ -371,9 +371,9 @@ function LiquidSwitchDemo() {
             type="button"
             onClick={() => setViscosity(v)}
             className={cn(
-              "px-2.5 py-1 rounded-cmplt-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
+              "px-2.5 py-1 rounded-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
               viscosity === v
-                ? "bg-accent text-fg-on-accent border-accent"
+                ? "bg-brand text-fg-on-brand border-brand"
                 : "bg-surface border-border-default text-fg-secondary hover:text-fg-primary"
             )}
           >
@@ -410,11 +410,11 @@ function LiquidFilterDemo() {
     <div className="flex flex-col items-center gap-6 py-6 w-full max-w-sm">
       <GooeyContainer className="flex items-center justify-center h-28 w-full">
         <div
-          className="h-12 w-12 rounded-cmplt-full bg-accent transition-transform duration-100 ease-out"
+          className="h-12 w-12 rounded-full bg-brand transition-transform duration-100 ease-out"
           style={{ transform: `translateX(-${offset}px)` }}
         />
         <div
-          className="h-12 w-12 rounded-cmplt-full bg-accent transition-transform duration-100 ease-out"
+          className="h-12 w-12 rounded-full bg-brand transition-transform duration-100 ease-out"
           style={{ transform: `translateX(${offset}px)` }}
         />
       </GooeyContainer>
@@ -469,9 +469,9 @@ function LiquidToggleGroupDemo() {
             type="button"
             onClick={() => setViscosity(v)}
             className={cn(
-              "px-2.5 py-1 rounded-cmplt-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
+              "px-2.5 py-1 rounded-full border text-[11px] font-mono capitalize transition-colors cursor-pointer",
               viscosity === v
-                ? "bg-accent text-fg-on-accent border-accent"
+                ? "bg-brand text-fg-on-brand border-brand"
                 : "bg-surface border-border-default text-fg-secondary hover:text-fg-primary"
             )}
           >
@@ -674,7 +674,7 @@ function TextareaCatalogDemo() {
         <button
           type="button"
           onClick={() => setAutoResize((p) => !p)}
-          className="text-fg-accent hover:underline text-[11px] font-mono cursor-pointer"
+          className="text-fg-brand hover:underline text-[11px] font-mono cursor-pointer"
         >
           {autoResize ? "Auto-Resize: ON" : "Auto-Resize: OFF"}
         </button>
@@ -770,7 +770,7 @@ function ToggleCatalogDemo() {
 
       <div
         className={cn(
-          "w-full p-4 rounded-cmplt-panel bg-subtle/50 border border-border-subtle text-xs text-fg-primary transition-all",
+          "w-full p-4 rounded-panel bg-subtle/50 border border-border-subtle text-xs text-fg-primary transition-all",
           alignment.includes("center") && "text-center",
           alignment.includes("right") && "text-right",
           formatting.includes("bold") && "font-bold",
@@ -800,7 +800,7 @@ function SkeletonCatalogDemo() {
         </Button>
       </div>
 
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 space-y-4 shadow-cmplt-xs">
+      <div className="rounded-panel border border-border-default bg-surface p-5 space-y-4 shadow-xs">
         {loading ? (
           <>
             <div className="flex items-center gap-3">
@@ -812,8 +812,8 @@ function SkeletonCatalogDemo() {
             </div>
             <SkeletonText lines={3} gap="sm" />
             <div className="flex gap-2 pt-2">
-              <Skeleton className="h-8 w-24 rounded-cmplt-md" />
-              <Skeleton className="h-8 w-20 rounded-cmplt-md" />
+              <Skeleton className="h-8 w-24 rounded-md" />
+              <Skeleton className="h-8 w-20 rounded-md" />
             </div>
           </>
         ) : (
@@ -859,7 +859,7 @@ function DrawerCatalogDemo() {
             </DrawerDescription>
           </DrawerHeader>
           <div className="flex-1 space-y-4 py-4 text-xs text-fg-secondary">
-            <div className="rounded-cmplt-md bg-subtle/60 p-3 border border-border-subtle space-y-2">
+            <div className="rounded-md bg-subtle/60 p-3 border border-border-subtle space-y-2">
               <span className="font-semibold text-fg-primary">Chroma Gamut:</span>
               <p className="text-[11px] text-fg-muted">Clamped to P3 display gamut with sRGB fallbacks for legacy displays.</p>
             </div>
@@ -1005,7 +1005,7 @@ function AlertDialogCatalogDemo() {
 function BreadcrumbCatalogDemo() {
   return (
     <div className="flex flex-col items-center gap-6 py-6 w-full max-w-lg mx-auto">
-      <div className="w-full p-4 rounded-cmplt-panel bg-subtle/50 border border-border-subtle">
+      <div className="w-full p-4 rounded-panel bg-subtle/50 border border-border-subtle">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -1125,7 +1125,7 @@ function AlertCatalogDemo() {
       <Alert variant="danger">
         <AlertTitle>Token Compilation Failed</AlertTitle>
         <AlertDescription>
-          Cyclic reference detected in semantic alias token: --fg-accent points to --accent-hover.
+          Cyclic reference detected in semantic alias token: --fg-brand points to --accent-hover.
         </AlertDescription>
       </Alert>
     </div>
@@ -1256,14 +1256,14 @@ function ScrollAreaCatalogDemo() {
     { name: "--fg-muted", value: "oklch(0.58 0.015 280)" },
     { name: "--border-default", value: "oklch(0.88 0.01 280)" },
     { name: "--border-subtle", value: "oklch(0.93 0.008 280)" },
-    { name: "--border-accent", value: "oklch(0.68 0.22 284)" },
+    { name: "--border-brand", value: "oklch(0.68 0.22 284)" },
     { name: "--radius-panel", value: "16px (concentric outer)" },
     { name: "--radius-element", value: "8px (concentric inner)" },
   ];
 
   return (
     <div className="w-full max-w-md mx-auto py-2">
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-4">
+      <div className="rounded-panel border border-border-default bg-surface p-4">
         <div className="mb-2 flex items-center justify-between pb-2 border-b border-border-subtle text-xs font-semibold text-fg-primary">
           <span>Design Tokens Palette</span>
           <span className="font-mono text-fg-muted text-[10px] cmplt-tabular">{tokens.length} variables</span>
@@ -1273,7 +1273,7 @@ function ScrollAreaCatalogDemo() {
             {tokens.map((t) => (
               <div
                 key={t.name}
-                className="flex items-center justify-between rounded-cmplt-sm bg-subtle/50 px-2.5 py-1.5 text-xs"
+                className="flex items-center justify-between rounded-sm bg-subtle/50 px-2.5 py-1.5 text-xs"
               >
                 <span className="font-mono font-medium text-fg-primary text-[11px]">{t.name}</span>
                 <span className="font-mono text-fg-muted text-[11px]">{t.value}</span>
@@ -1294,11 +1294,11 @@ function CollapsibleCatalogDemo() {
       <Collapsible
         open={open}
         onOpenChange={setOpen}
-        className="w-full rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs space-y-3"
+        className="w-full rounded-panel border border-border-default bg-surface p-4 shadow-xs space-y-3"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <Database className="h-4 w-4 text-fg-accent" />
+            <Database className="h-4 w-4 text-fg-brand" />
             <h4 className="text-xs font-semibold text-fg-primary">
               PostgreSQL Telemetry Metrics
             </h4>
@@ -1313,7 +1313,7 @@ function CollapsibleCatalogDemo() {
           />
         </div>
 
-        <div className="rounded-cmplt-sm bg-subtle/60 p-2.5 text-xs text-fg-secondary">
+        <div className="rounded-sm bg-subtle/60 p-2.5 text-xs text-fg-secondary">
           <span className="font-mono text-fg-primary font-semibold">Active Connections:</span> 14 / 100 pool instances
         </div>
 
@@ -1361,7 +1361,7 @@ function SliderCatalogDemo() {
 
   return (
     <div className="w-full max-w-md mx-auto space-y-6 py-2">
-      <div className="space-y-2 rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs">
+      <div className="space-y-2 rounded-panel border border-border-default bg-surface p-4 shadow-xs">
         <Slider
           label="Display Brightness"
           showValue
@@ -1377,7 +1377,7 @@ function SliderCatalogDemo() {
         </div>
       </div>
 
-      <div className="space-y-2 rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs">
+      <div className="space-y-2 rounded-panel border border-border-default bg-surface p-4 shadow-xs">
         <Slider
           label="Budget Range ($ / mo)"
           showValue
@@ -1401,7 +1401,7 @@ function NumberFieldCatalogDemo() {
 
   return (
     <div className="w-full max-w-md mx-auto space-y-5 py-2">
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-4 shadow-cmplt-xs space-y-4">
+      <div className="rounded-panel border border-border-default bg-surface p-4 shadow-xs space-y-4">
         <NumberField
           label="Quantity (Stacked Stepper)"
           description="Bounded between 1 and 20 items."
@@ -1431,7 +1431,7 @@ function OTPFieldCatalogDemo() {
 
   return (
     <div className="w-full max-w-md mx-auto py-2 flex flex-col items-center gap-4">
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-6 shadow-cmplt-xs flex flex-col items-center gap-4 w-full">
+      <div className="rounded-panel border border-border-default bg-surface p-6 shadow-xs flex flex-col items-center gap-4 w-full">
         <div className="text-center space-y-1">
           <h4 className="text-sm font-semibold text-fg-primary">Two-Factor Authentication</h4>
           <p className="text-xs text-fg-muted">Enter the 6-digit code sent to your authenticator app.</p>
@@ -1465,7 +1465,7 @@ function ComboboxCatalogDemo() {
 
   return (
     <div className="w-full max-w-md mx-auto py-2">
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 shadow-cmplt-xs space-y-3">
+      <div className="rounded-panel border border-border-default bg-surface p-5 shadow-xs space-y-3">
         <label className="text-xs font-medium text-fg-secondary">
           Target Framework Architecture
         </label>
@@ -1494,9 +1494,9 @@ function ComboboxCatalogDemo() {
 function MeterCatalogDemo() {
   return (
     <div className="w-full max-w-md mx-auto space-y-4 py-2">
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 shadow-cmplt-xs space-y-4">
+      <div className="rounded-panel border border-border-default bg-surface p-5 shadow-xs space-y-4">
         <div className="flex items-center gap-2 pb-1 border-b border-border-subtle">
-          <HardDrive className="size-4 text-fg-accent" />
+          <HardDrive className="size-4 text-fg-brand" />
           <h4 className="text-xs font-semibold text-fg-primary">Resource Utilization Quotas</h4>
         </div>
         
@@ -1535,7 +1535,7 @@ function MeterCatalogDemo() {
 function TimelineCatalogDemo() {
   return (
     <div className="w-full max-w-lg mx-auto py-2">
-      <div className="rounded-cmplt-panel border border-border-default bg-surface p-6 shadow-cmplt-xs">
+      <div className="rounded-panel border border-border-default bg-surface p-6 shadow-xs">
         <Timeline>
           <TimelineItem>
             <TimelineDot variant="accent">
@@ -1613,7 +1613,7 @@ export const COMPONENT_DOCS: ComponentDocEntry[] = [
       { attr: "data-slot='code-inline'", description: "Geist Mono inline or block code primitive with tabular figures." },
     ],
     propsTable: [
-      { prop: "size (Heading)", type: "'display-xl' | 'display-lg' | 'h1' | 'h2' | 'h3' | 'h4'", defaultVal: "'h2'", description: "Maps to fluid Utopia clamp() step (--cmplt-step-1 through --cmplt-step-6)." },
+      { prop: "size (Heading)", type: "'display-xl' | 'display-lg' | 'h1' | 'h2' | 'h3' | 'h4'", defaultVal: "'h2'", description: "Maps to fluid Utopia clamp() step (--type-step-1 through --type-step-6)." },
       { prop: "variant (Text)", type: "'lead' | 'body' | 'body-sm' | 'eyebrow' | 'ui-lg' | 'ui-md' | 'ui-sm' | 'ui-xs'", defaultVal: "'body'", description: "Selects between fluid editorial prose steps or static pixel-aligned UI control tokens." },
       { prop: "measure", type: "'auto' | 'display' | 'heading' | 'compact' | 'lead' | 'body' | 'none'", defaultVal: "'auto'", description: "Constrains maximum line width in ch units (18ch, 28ch, 42ch, 54ch, 65ch) for effortless eye-tracking." },
       { prop: "tone", type: "'primary' | 'secondary' | 'muted' | 'accent'", defaultVal: "'primary'", description: "Calibrated OKLCH foreground hierarchy token." },
@@ -1668,7 +1668,7 @@ export function TypographyDemo() {
     category: "Primitives & Actions",
     baseUiPackage: "three + gsap",
     summary:
-      "WebGL Three.js custom shader dot-matrix background field driven by GSAP quickTo pointer inertia, organic sine breathing, and theme-reactive OKLCH accent illumination (Warm Coral in Light Mode, Forest Jade in Dark Mode).",
+      "WebGL Three.js custom shader dot-matrix background field driven by GSAP quickTo pointer inertia, organic sine breathing, and theme-reactive OKLCH brand illumination from --bg-brand / --fg-brand.",
     dataAttributes: [
       { attr: "data-slot='interactive-dot-field'", description: "WebGL canvas wrapper synced with GSAP ticker and theme attributes." },
     ],
@@ -1682,10 +1682,10 @@ export function TypographyDemo() {
 
 export function HeroBackgroundDemo() {
   return (
-    <section className="relative h-72 overflow-hidden rounded-cmplt-xl border border-border-default bg-canvas">
+    <section className="relative h-72 overflow-hidden rounded-xl border border-border-default bg-canvas">
       <InteractiveDotField spacing={22} interactionRadius={160} maxDisplacement={8} />
       <div className="relative z-10 flex h-full items-center justify-center">
-        <span className="rounded-cmplt-full border border-border-default bg-surface/90 px-4 py-1.5 text-xs font-medium text-fg-primary shadow-cmplt-sm backdrop-blur-sm">
+        <span className="rounded-full border border-border-default bg-surface/90 px-4 py-1.5 text-xs font-medium text-fg-primary shadow-sm backdrop-blur-sm">
           Move your cursor across the WebGL dot field
         </span>
       </div>
@@ -1693,7 +1693,7 @@ export function HeroBackgroundDemo() {
   )
 }`,
     renderDemo: () => (
-      <div className="relative h-64 w-full overflow-hidden rounded-cmplt-xl border border-border-default bg-canvas">
+      <div className="relative h-64 w-full overflow-hidden rounded-xl border border-border-default bg-canvas">
         <InteractiveDotField spacing={20} interactionRadius={150} maxDisplacement={8} />
         <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-center gap-2 text-center px-4">
           <Badge variant="brand" size="sm">
@@ -1836,8 +1836,8 @@ export function LiquidButtonExample() {
 export function LiquidGooeyExample() {
   return (
     <GooeyContainer viscosity="medium" className="flex items-center gap-2">
-      <div className="h-10 w-10 rounded-full bg-accent" />
-      <div className="h-8 w-8 rounded-full bg-accent" />
+      <div className="h-10 w-10 rounded-full bg-brand" />
+      <div className="h-8 w-8 rounded-full bg-brand" />
     </GooeyContainer>
   )
 }`,
@@ -2064,7 +2064,7 @@ export function AnimatedCtaDemo() {
         <ArrowRight className="h-4 w-4" />
       </AnimatedCtaButton>
       <AnimatedCtaButton variant="surface-halo" size="lg">
-        <Sparkles className="h-4 w-4 text-fg-accent" />
+        <Sparkles className="h-4 w-4 text-fg-brand" />
         Explore Pro Blocks
       </AnimatedCtaButton>
     </div>
@@ -2077,7 +2077,7 @@ export function AnimatedCtaDemo() {
           <ArrowRight className="h-4 w-4" />
         </AnimatedCtaButton>
         <AnimatedCtaButton variant="surface-halo" size="lg">
-          <Sparkles className="h-4 w-4 text-fg-accent" />
+          <Sparkles className="h-4 w-4 text-fg-brand" />
           Explore Pro Blocks
         </AnimatedCtaButton>
         <AnimatedCtaButton variant="accent-beam" size="sm">
@@ -2331,9 +2331,9 @@ export function SelectDemo() {
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="precision">Precision Indigo (Default)</SelectItem>
-        <SelectItem value="editorial">Warm Editorial</SelectItem>
-        <SelectItem value="emerald">Cyber Emerald</SelectItem>
+        <SelectItem value="precision">Precision (Default)</SelectItem>
+        <SelectItem value="editorial">Editorial</SelectItem>
+        <SelectItem value="emerald">Emerald</SelectItem>
       </SelectContent>
     </Select>
   )
@@ -2348,9 +2348,9 @@ export function SelectDemo() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="precision">Precision Indigo (Default)</SelectItem>
-            <SelectItem value="editorial">Warm Tactile Editorial</SelectItem>
-            <SelectItem value="emerald">High-Contrast Emerald</SelectItem>
+            <SelectItem value="precision">Precision (Default)</SelectItem>
+            <SelectItem value="editorial">Editorial</SelectItem>
+            <SelectItem value="emerald">Emerald</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -2409,7 +2409,7 @@ export function TabsDemo() {
             </TabsList>
             <TabsContent value="tokens">
               <Card className="p-4 text-xs text-fg-secondary">
-                Segmented control uses a pill-shaped container (<code className="font-mono text-fg-accent">9999px</code>) and pill active indicator.
+                Segmented control uses a pill-shaped container (<code className="font-mono text-fg-brand">9999px</code>) and pill active indicator.
               </Card>
             </TabsContent>
             <TabsContent value="registry">
@@ -2552,14 +2552,14 @@ export function PopoverDemo() {
           <PopoverTrigger
             render={
               <Button variant="secondary">
-                <Code2 className="h-4 w-4 text-fg-accent" /> Open Token Popover
+                <Code2 className="h-4 w-4 text-fg-brand" /> Open Token Popover
               </Button>
             }
           />
           <PopoverContent>
             <PopoverTitle>Surface Elevation Token</PopoverTitle>
             <PopoverDescription>
-              This popover uses <code className="font-mono text-fg-accent">bg-elevated</code> and <code className="font-mono text-fg-accent">shadow-cmplt-lg</code> with top-layer transitions.
+              This popover uses <code className="font-mono text-fg-brand">bg-elevated</code> and <code className="font-mono text-fg-brand">shadow-lg</code> with top-layer transitions.
             </PopoverDescription>
           </PopoverContent>
         </Popover>
@@ -2594,13 +2594,13 @@ export function SwitchDemo() {
 }`,
     renderDemo: () => (
       <div className="flex flex-col gap-3 max-w-xs mx-auto">
-        <label className="flex items-center justify-between rounded-cmplt-md border border-border-subtle bg-surface p-3 cursor-pointer">
+        <label className="flex items-center justify-between rounded-md border border-border-subtle bg-surface p-3 cursor-pointer">
           <span className="text-xs font-medium text-fg-primary">
             Automatic Figma Variable Sync
           </span>
           <Switch defaultChecked />
         </label>
-        <label className="flex items-center justify-between rounded-cmplt-md border border-border-subtle bg-surface p-3 cursor-pointer">
+        <label className="flex items-center justify-between rounded-md border border-border-subtle bg-surface p-3 cursor-pointer">
           <span className="text-xs font-medium text-fg-primary">
             Strict WCAG AAA Contrast Check
           </span>
@@ -2746,7 +2746,7 @@ export function CardPresetsDemo() {
         swatches={[
           { name: "Alabaster", color: "oklch(0.95 0.003 85)" },
           { name: "Graphite", color: "oklch(0.28 0.003 85)" },
-          { name: "Warm Coral", color: "oklch(0.645 0.175 34)" },
+          { name: "Brand", color: "oklch(0.645 0.175 34)" },
         ]}
       />
 
@@ -2797,7 +2797,7 @@ export function CardPresetsDemo() {
                 swatches={[
                   { name: "Alabaster", color: "oklch(0.95 0.003 85)" },
                   { name: "Graphite", color: "oklch(0.28 0.003 85)" },
-                  { name: "Coral", color: "oklch(0.645 0.175 34)" },
+                  { name: "Brand", color: "oklch(0.645 0.175 34)" },
                 ]}
                 specs={[
                   { label: "Frequency", value: "38Hz – 24kHz" },
@@ -2805,9 +2805,9 @@ export function CardPresetsDemo() {
                 ]}
                 media={
                   <div className="relative flex flex-col items-center justify-center gap-2 p-6 transition-transform duration-300 group-hover:scale-105">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-cmplt-xl border border-border-default bg-elevated shadow-cmplt-md">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-border-default bg-elevated shadow-md">
                       <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-border-strong bg-subtle">
-                        <div className="h-3.5 w-3.5 rounded-full bg-accent" />
+                        <div className="h-3.5 w-3.5 rounded-full bg-brand" />
                       </div>
                     </div>
                     <span className="font-mono text-[10px] text-fg-muted">
@@ -2828,9 +2828,9 @@ export function CardPresetsDemo() {
                 reviewCount={89}
                 defaultWishlisted
                 swatches={[
-                  { name: "Coral", color: "oklch(0.645 0.175 34)" },
-                  { name: "Jade", color: "oklch(0.515 0.115 162)" },
-                  { name: "Indigo", color: "oklch(0.57 0.19 275)" },
+                  { name: "Brand", color: "oklch(0.645 0.175 34)" },
+                  { name: "Success", color: "oklch(0.515 0.115 162)" },
+                  { name: "Info", color: "oklch(0.57 0.19 275)" },
                 ]}
                 specs={[
                   { label: "License", value: "Unlimited Teams" },
@@ -2839,8 +2839,8 @@ export function CardPresetsDemo() {
                 ctaLabel="Buy License"
                 media={
                   <div className="flex flex-col items-center justify-center gap-2.5 p-6 transition-transform duration-300 group-hover:scale-105">
-                    <div className="flex items-center gap-2 rounded-cmplt-lg border border-border-default bg-elevated px-3.5 py-2.5 shadow-cmplt-sm">
-                      <Layers className="h-5 w-5 text-fg-accent" />
+                    <div className="flex items-center gap-2 rounded-lg border border-border-default bg-elevated px-3.5 py-2.5 shadow-sm">
+                      <Layers className="h-5 w-5 text-fg-brand" />
                       <div className="text-left">
                         <div className="font-mono text-[11px] font-semibold text-fg-primary">
                           @cmplt/pro-kit
@@ -2876,10 +2876,10 @@ export function CardPresetsDemo() {
               media={
                 <div className="flex flex-col items-center justify-center gap-2.5 p-6">
                   <div className="flex items-center gap-1.5">
-                    <span className="h-8 w-8 rounded-cmplt-sm border border-border-default bg-[#FBFBF9] shadow-cmplt-xs" />
-                    <span className="h-8 w-8 rounded-cmplt-sm border border-border-default bg-[#262625] shadow-cmplt-xs" />
-                    <span className="h-8 w-8 rounded-cmplt-sm border border-border-default bg-[var(--cmplt-coral-500)] shadow-cmplt-xs" />
-                    <span className="h-8 w-8 rounded-cmplt-sm border border-border-default bg-[var(--cmplt-jade-500)] shadow-cmplt-xs" />
+                    <span className="h-8 w-8 rounded-sm border border-border-default bg-[#FBFBF9] shadow-xs" />
+                    <span className="h-8 w-8 rounded-sm border border-border-default bg-[#262625] shadow-xs" />
+                    <span className="h-8 w-8 rounded-sm border border-border-default bg-[var(--brand-500)] shadow-xs" />
+                    <span className="h-8 w-8 rounded-sm border border-border-default bg-[var(--success-500)] shadow-xs" />
                   </div>
                   <span className="font-mono text-[10px] text-fg-muted">
                     L = 0.242 → 0.992 · Hue 85
@@ -2932,7 +2932,7 @@ export function CardPresetsDemo() {
                 sparkline={[38, 52, 46, 64, 58, 76, 72, 90, 85, 100]}
                 targetLabel="Q3 Goal Progress"
                 targetValue="94.2%"
-                icon={<Sparkles className="h-3.5 w-3.5 text-fg-accent" />}
+                icon={<Sparkles className="h-3.5 w-3.5 text-fg-brand" />}
               />
 
               <MetricCard
@@ -2944,7 +2944,7 @@ export function CardPresetsDemo() {
                 sparkline={[25, 35, 42, 40, 55, 62, 70, 68, 84, 96]}
                 targetLabel="Top Endpoint"
                 targetValue="@cmplt/card"
-                icon={<Code2 className="h-3.5 w-3.5 text-fg-accent" />}
+                icon={<Code2 className="h-3.5 w-3.5 text-fg-brand" />}
               />
 
               <MetricCard
@@ -2956,7 +2956,7 @@ export function CardPresetsDemo() {
                 sparkline={[80, 75, 68, 72, 60, 54, 48, 45, 38, 32]}
                 targetLabel="SLA Threshold"
                 targetValue="< 25.0ms"
-                icon={<Layers className="h-3.5 w-3.5 text-fg-accent" />}
+                icon={<Layers className="h-3.5 w-3.5 text-fg-brand" />}
               />
             </div>
           </TabsContent>
@@ -3017,7 +3017,7 @@ export function CardPresetsDemo() {
                 visual={
                   <div className="flex items-center gap-3">
                     <Badge variant="mono" size="sm">tokens.css</Badge>
-                    <ArrowRight className="h-3.5 w-3.5 text-fg-accent" />
+                    <ArrowRight className="h-3.5 w-3.5 text-fg-brand" />
                     <Badge variant="brand" size="sm">Figma Variables</Badge>
                   </div>
                 }
@@ -3085,7 +3085,7 @@ export function CardPresetsDemo() {
                 <CardHeader className="p-4">
                   <CardTitle className="text-sm">Featured Highlight</CardTitle>
                   <CardDescription className="text-xs">
-                    Accent border contour (--border-accent)
+                    Accent border contour (--border-brand)
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -3830,7 +3830,7 @@ export function TableDemo() {
 
 export function ScrollAreaDemo() {
   return (
-    <ScrollArea className="h-48 w-full rounded-cmplt-md border p-4">
+    <ScrollArea className="h-48 w-full rounded-md border p-4">
       Long list of items...
     </ScrollArea>
   )

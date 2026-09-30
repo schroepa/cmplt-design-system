@@ -18,8 +18,8 @@ const ComboboxInputGroup = React.forwardRef<
   <BaseCombobox.InputGroup
     ref={ref}
     className={cn(
-      "group relative flex min-h-9 w-full items-center gap-1.5 rounded-cmplt-md border border-border bg-surface px-3 py-1 text-sm text-fg shadow-cmplt-none transition-colors",
-      "focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/30",
+      "group relative flex min-h-9 w-full items-center gap-1.5 rounded-md border border-border bg-surface px-3 py-1 text-sm text-fg shadow-none transition-colors",
+      "focus-within:border-brand focus-within:ring-2 focus-within:ring-accent/30",
       "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
       className
     )}
@@ -92,7 +92,7 @@ const ComboboxContent = React.forwardRef<
       <BaseCombobox.Popup
         ref={ref}
         className={cn(
-          "cmplt-overlay-popup min-w-[var(--anchor-width)] max-h-72 overflow-y-auto rounded-cmplt-panel border border-border-subtle bg-elevated p-1 text-fg shadow-cmplt-lg outline-none",
+          "cmplt-overlay-popup min-w-[var(--anchor-width)] max-h-72 overflow-y-auto rounded-panel border border-border-subtle bg-elevated p-1 text-fg shadow-lg outline-none",
           className
         )}
         {...props}
@@ -111,7 +111,7 @@ const ComboboxItem = React.forwardRef<
   <BaseCombobox.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center justify-between rounded-cmplt-sm py-1.5 pl-3 pr-8 text-sm text-fg-secondary outline-none transition-colors duration-150",
+      "relative flex w-full cursor-pointer select-none items-center justify-between rounded-sm py-1.5 pl-3 pr-8 text-sm text-fg-secondary outline-none transition-colors duration-150",
       "data-[highlighted]:bg-subtle data-[highlighted]:text-fg",
       "data-[selected]:font-medium data-[selected]:text-fg",
       "data-[disabled]:pointer-events-none data-[disabled]:opacity-40",
@@ -120,7 +120,7 @@ const ComboboxItem = React.forwardRef<
     {...props}
   >
     <span className="truncate">{children}</span>
-    <BaseCombobox.ItemIndicator className="absolute right-2.5 flex size-3.5 items-center justify-center text-accent">
+    <BaseCombobox.ItemIndicator className="absolute right-2.5 flex size-3.5 items-center justify-center text-brand">
       <Check className="size-3.5 stroke-[2]" />
     </BaseCombobox.ItemIndicator>
   </BaseCombobox.Item>
@@ -148,7 +148,7 @@ const ComboboxChip = React.forwardRef<
   <BaseCombobox.Chip
     ref={ref}
     className={cn(
-      "inline-flex items-center gap-1 rounded-cmplt-sm bg-subtle px-2 py-0.5 text-xs font-medium text-fg",
+      "inline-flex items-center gap-1 rounded-sm bg-subtle px-2 py-0.5 text-xs font-medium text-fg",
       className
     )}
     {...props}

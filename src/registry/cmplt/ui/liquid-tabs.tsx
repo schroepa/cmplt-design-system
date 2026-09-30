@@ -229,7 +229,7 @@ export const LiquidTabsList = React.forwardRef<HTMLDivElement, LiquidTabsListPro
         <BaseTabs.List
           ref={setMergedRef}
           className={cn(
-            "relative inline-flex h-10 items-center justify-center rounded-cmplt-full bg-subtle p-1 border border-border-subtle select-none",
+            "relative inline-flex h-10 items-center justify-center rounded-full bg-subtle p-1 border border-border-subtle select-none",
             className
           )}
           {...props}
@@ -237,7 +237,7 @@ export const LiquidTabsList = React.forwardRef<HTMLDivElement, LiquidTabsListPro
           {/* Gooey Layer: strictly underneath tab trigger text & icons */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-cmplt-full overflow-hidden"
+            className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
             style={{
               filter: `url(#${filterId})`,
             }}
@@ -245,12 +245,12 @@ export const LiquidTabsList = React.forwardRef<HTMLDivElement, LiquidTabsListPro
             {/* Primary Fluid Pill */}
             <span
               ref={mainPillRef}
-              className="absolute left-0 top-0 rounded-cmplt-full bg-surface shadow-cmplt-xs opacity-0"
+              className="absolute left-0 top-0 rounded-full bg-surface shadow-xs opacity-0"
             />
             {/* Auxiliary Liquid Droplet for Bridge Detachment */}
             <span
               ref={trailPillRef}
-              className="absolute left-0 top-0 rounded-cmplt-full bg-surface opacity-0"
+              className="absolute left-0 top-0 rounded-full bg-surface opacity-0"
             />
           </div>
 
@@ -300,7 +300,7 @@ export const LiquidTabsTrigger = React.forwardRef<
       value={value}
       data-tab-value={value}
       className={cn(
-        "relative inline-flex items-center justify-center whitespace-nowrap rounded-cmplt-full px-4 py-1.5 text-xs font-medium text-fg-muted transition-colors duration-200 ease-cmplt-out cursor-pointer select-none active:scale-[0.98] hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[active]:text-fg-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
+        "relative inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-medium text-fg-muted transition-colors duration-200 ease-out cursor-pointer select-none active:scale-[0.98] hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[active]:text-fg-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
         className
       )}
       {...props}
@@ -322,7 +322,7 @@ export const LiquidTabsContent = React.forwardRef<
   <BaseTabs.Panel
     ref={ref}
     className={cn(
-      "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-md transition-opacity duration-240 ease-cmplt-out",
+      "mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-md transition-opacity duration-240 ease-out",
       className
     )}
     {...props}

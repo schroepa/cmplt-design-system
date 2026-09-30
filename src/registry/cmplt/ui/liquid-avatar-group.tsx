@@ -7,7 +7,7 @@ import { cn } from "@/registry/cmplt/lib/utils";
 import { LiquidFilter, formatFilterId, type LiquidViscosity } from "@/registry/cmplt/ui/liquid-filter";
 
 const liquidAvatarVariants = cva(
-  "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden font-medium align-middle bg-surface text-fg-secondary border-2 border-surface transition-all duration-300 ease-cmplt-spring hover:z-20 hover:-translate-y-1.5 hover:scale-115",
+  "relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden font-medium align-middle bg-surface text-fg-secondary border-2 border-surface transition-all duration-300 ease-spring hover:z-20 hover:-translate-y-1.5 hover:scale-115",
   {
     variants: {
       size: {
@@ -36,7 +36,7 @@ export const LiquidAvatar = React.forwardRef<HTMLElement, LiquidAvatarProps>(
       <div className="relative inline-flex">
         <BaseAvatar.Root
           ref={ref}
-          className={cn(liquidAvatarVariants({ size }), "rounded-cmplt-full shadow-cmplt-xs", className)}
+          className={cn(liquidAvatarVariants({ size }), "rounded-full shadow-xs", className)}
           {...props}
         >
           {children}
@@ -138,7 +138,7 @@ export const LiquidAvatarGroup = React.forwardRef<HTMLDivElement, LiquidAvatarGr
           {visibleChildren}
 
           {excessCount > 0 && (
-            <div className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-surface bg-subtle text-xs font-semibold text-fg-secondary shadow-cmplt-xs">
+            <div className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-surface bg-subtle text-xs font-semibold text-fg-secondary shadow-xs">
               +{excessCount}
             </div>
           )}

@@ -10,7 +10,7 @@ const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
     <div
       ref={ref}
       className={cn(
-        "flex min-h-[240px] flex-col items-center justify-center rounded-cmplt-panel p-8 text-center animate-fade-in",
+        "flex min-h-[240px] flex-col items-center justify-center rounded-panel p-8 text-center animate-fade-in",
         dashed
           ? "border-2 border-dashed border-border-default bg-subtle/25"
           : "border border-border-default bg-surface",
@@ -29,7 +29,7 @@ const EmptyStateIcon = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "mb-3 flex h-12 w-12 items-center justify-center rounded-cmplt-full bg-subtle text-fg-muted border border-border-subtle [&>svg]:size-6",
+      "mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-subtle text-fg-muted border border-border-subtle [&>svg]:size-6",
       className
     )}
     {...props}

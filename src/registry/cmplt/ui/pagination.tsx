@@ -51,7 +51,7 @@ const PaginationLink = ({
         size: "sm",
       }),
       "h-8 min-w-8 px-2.5 font-mono text-xs cmplt-tabular cursor-pointer",
-      isActive && "bg-surface border-border-default text-fg-primary shadow-cmplt-xs",
+      isActive && "bg-surface border-border-default text-fg-primary shadow-xs",
       className
     )}
     {...props}

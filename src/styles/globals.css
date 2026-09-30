@@ -7,20 +7,22 @@
   --color-elevated: var(--bg-elevated);
   --color-subtle: var(--bg-subtle);
   --color-muted: var(--bg-muted);
-  --color-accent: var(--bg-accent);
-  --color-accent-hover: var(--bg-accent-hover);
-  --color-accent-subtle: var(--bg-accent-subtle);
+  --color-brand: var(--bg-brand);
+  --color-brand-hover: var(--bg-brand-hover);
+  --color-brand-subtle: var(--bg-brand-subtle);
+  
+  
 
   --color-fg-primary: var(--fg-primary);
   --color-fg-secondary: var(--fg-secondary);
   --color-fg-muted: var(--fg-muted);
-  --color-fg-on-accent: var(--fg-on-accent);
-  --color-fg-accent: var(--fg-accent);
+  --color-fg-on-brand: var(--fg-on-brand);
+  --color-fg-brand: var(--fg-brand);
 
   --color-border-subtle: var(--border-subtle);
   --color-border-default: var(--border-default);
   --color-border-strong: var(--border-strong);
-  --color-border-accent: var(--border-accent);
+  --color-border-brand: var(--border-brand);
 
   --color-ring-focus: var(--ring-focus);
 
@@ -32,100 +34,137 @@
   --color-status-danger-bg: var(--status-danger-bg);
   --color-status-info: var(--status-info);
   --color-status-info-bg: var(--status-info-bg);
+  --color-data-1: var(--data-1);
+  --color-data-2: var(--data-2);
+  --color-data-3: var(--data-3);
+  --color-data-4: var(--data-4);
+  --color-data-5: var(--data-5);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
 
-  --radius-cmplt-2xs: var(--cmplt-radius-2xs);
-  --radius-cmplt-xs: var(--cmplt-radius-xs);
-  --radius-cmplt-sm: var(--cmplt-radius-sm);
-  --radius-cmplt-md: var(--cmplt-radius-md);
-  --radius-cmplt-squircle: var(--cmplt-radius-squircle);
-  --radius-cmplt-panel: var(--cmplt-radius-panel);
-  --radius-cmplt-lg: var(--cmplt-radius-lg);
-  --radius-cmplt-xl: var(--cmplt-radius-xl);
-  --radius-cmplt-full: var(--cmplt-radius-full);
+  /* Radius / shadow / ease: literals (not var(--self)) so @theme is not circular */
+  --radius-2xs: 0.28125rem;
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-squircle: 0.6875rem;
+  --radius-panel: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  --radius-xl-inner-sm: calc(var(--radius-xl) - 0.5rem);
+  --radius-xl-inner: calc(var(--radius-xl) - 0.625rem);
+  --radius-xl-inner-lg: calc(var(--radius-xl) - 0.75rem);
+  --radius-lg-inner-xs: calc(var(--radius-lg) - 0.375rem);
+  --radius-lg-inner-sm: calc(var(--radius-lg) - 0.5rem);
+  --radius-lg-inner: calc(var(--radius-lg) - 0.625rem);
 
-  /* Concentric Inner Radius Utilities (R_inner = R_outer - padding) */
-  --radius-cmplt-xl-inner-sm: var(--cmplt-radius-xl-inner-sm);
-  --radius-cmplt-xl-inner: var(--cmplt-radius-xl-inner);
-  --radius-cmplt-xl-inner-lg: var(--cmplt-radius-xl-inner-lg);
-  --radius-cmplt-lg-inner-xs: var(--cmplt-radius-lg-inner-xs);
-  --radius-cmplt-lg-inner-sm: var(--cmplt-radius-lg-inner-sm);
-  --radius-cmplt-lg-inner: var(--cmplt-radius-lg-inner);
-
-  --shadow-cmplt-none: var(--cmplt-shadow-none);
-  --shadow-cmplt-xs: var(--cmplt-shadow-xs);
-  --shadow-cmplt-sm: var(--cmplt-shadow-sm);
-  --shadow-cmplt-md: var(--cmplt-shadow-md);
-  --shadow-cmplt-lg: var(--cmplt-shadow-lg);
-  --shadow-cmplt-glow: var(--cmplt-shadow-glow);
+  --shadow-none: var(--elevation-none);
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-glow: var(--elevation-glow);
 
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, monospace;
 
-  /* Natural Motion Easing Utilities */
-  --ease-cmplt-out: var(--cmplt-ease-out);
-  --ease-cmplt-in-out: var(--cmplt-ease-in-out);
-  --ease-cmplt-spring: var(--cmplt-ease-spring);
-  --ease-cmplt-bounce: var(--cmplt-ease-bounce);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Primitive color utilities used by demos/blocks */
+  --color-brand-50: var(--brand-50);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-900: var(--brand-900);
+  --color-info-50: var(--info-50);
+  --color-info-500: var(--info-500);
+  --color-info-600: var(--info-600);
+  --color-success-400: var(--success-400);
+  --color-success-500: var(--success-500);
+  --color-success-600: var(--success-600);
 
   /* Liquid Type Scale Utilities (Tailwind v4 text-* classes) */
-  --text-display-xl: var(--cmplt-step-6);
-  --text-display-xl--line-height: var(--cmplt-leading-display);
-  --text-display-xl--letter-spacing: var(--cmplt-tracking-display);
-  --text-display-xl--font-weight: var(--cmplt-weight-semibold);
+  --text-display-xl: var(--type-step-6);
+  --text-display-xl--line-height: var(--leading-display);
+  --text-display-xl--letter-spacing: var(--tracking-display);
+  --text-display-xl--font-weight: var(--weight-semibold);
 
-  --text-display-lg: var(--cmplt-step-5);
-  --text-display-lg--line-height: var(--cmplt-leading-display);
-  --text-display-lg--letter-spacing: var(--cmplt-tracking-display);
-  --text-display-lg--font-weight: var(--cmplt-weight-semibold);
+  --text-display-lg: var(--type-step-5);
+  --text-display-lg--line-height: var(--leading-display);
+  --text-display-lg--letter-spacing: var(--tracking-display);
+  --text-display-lg--font-weight: var(--weight-semibold);
 
-  --text-heading-xl: var(--cmplt-step-4);
-  --text-heading-xl--line-height: var(--cmplt-leading-tight);
-  --text-heading-xl--letter-spacing: var(--cmplt-tracking-tight);
-  --text-heading-xl--font-weight: var(--cmplt-weight-semibold);
+  --text-heading-xl: var(--type-step-4);
+  --text-heading-xl--line-height: var(--leading-tight);
+  --text-heading-xl--letter-spacing: var(--tracking-tight);
+  --text-heading-xl--font-weight: var(--weight-semibold);
 
-  --text-heading-lg: var(--cmplt-step-3);
-  --text-heading-lg--line-height: var(--cmplt-leading-tight);
-  --text-heading-lg--letter-spacing: var(--cmplt-tracking-tight);
-  --text-heading-lg--font-weight: var(--cmplt-weight-semibold);
+  --text-heading-lg: var(--type-step-3);
+  --text-heading-lg--line-height: var(--leading-tight);
+  --text-heading-lg--letter-spacing: var(--tracking-tight);
+  --text-heading-lg--font-weight: var(--weight-semibold);
 
-  --text-heading-md: var(--cmplt-step-2);
-  --text-heading-md--line-height: var(--cmplt-leading-snug);
-  --text-heading-md--letter-spacing: var(--cmplt-tracking-snug);
-  --text-heading-md--font-weight: var(--cmplt-weight-semibold);
+  --text-heading-md: var(--type-step-2);
+  --text-heading-md--line-height: var(--leading-snug);
+  --text-heading-md--letter-spacing: var(--tracking-snug);
+  --text-heading-md--font-weight: var(--weight-semibold);
 
-  --text-heading-sm: var(--cmplt-step-1);
-  --text-heading-sm--line-height: var(--cmplt-leading-snug);
-  --text-heading-sm--letter-spacing: var(--cmplt-tracking-snug);
-  --text-heading-sm--font-weight: var(--cmplt-weight-medium);
+  --text-heading-sm: var(--type-step-1);
+  --text-heading-sm--line-height: var(--leading-snug);
+  --text-heading-sm--letter-spacing: var(--tracking-snug);
+  --text-heading-sm--font-weight: var(--weight-medium);
 
-  --text-lead: var(--cmplt-step-1);
-  --text-lead--line-height: var(--cmplt-leading-relaxed);
-  --text-lead--letter-spacing: var(--cmplt-tracking-normal);
-  --text-lead--font-weight: var(--cmplt-weight-body);
+  --text-lead: var(--type-step-1);
+  --text-lead--line-height: var(--leading-relaxed);
+  --text-lead--letter-spacing: var(--tracking-normal);
+  --text-lead--font-weight: var(--weight-body);
 
-  --text-body: var(--cmplt-step-0);
-  --text-body--line-height: var(--cmplt-leading-relaxed);
-  --text-body--letter-spacing: var(--cmplt-tracking-normal);
-  --text-body--font-weight: var(--cmplt-weight-body);
+  --text-body: var(--type-step-0);
+  --text-body--line-height: var(--leading-relaxed);
+  --text-body--letter-spacing: var(--tracking-normal);
+  --text-body--font-weight: var(--weight-body);
 
-  --text-body-sm: var(--cmplt-step--1);
-  --text-body-sm--line-height: var(--cmplt-leading-normal);
-  --text-body-sm--letter-spacing: var(--cmplt-tracking-ui);
-  --text-body-sm--font-weight: var(--cmplt-weight-body);
+  --text-body-sm: var(--type-step--1);
+  --text-body-sm--line-height: var(--leading-normal);
+  --text-body-sm--letter-spacing: var(--tracking-ui);
+  --text-body-sm--font-weight: var(--weight-body);
 
   /* Static App UI Control Scale Utilities */
-  --text-ui-2xs: var(--cmplt-ui-2xs);
-  --text-ui-xs: var(--cmplt-ui-xs);
-  --text-ui-sm: var(--cmplt-ui-sm);
-  --text-ui-md: var(--cmplt-ui-md);
-  --text-ui-lg: var(--cmplt-ui-lg);
+  --text-ui-2xs: var(--ui-2xs);
+  --text-ui-xs: var(--ui-xs);
+  --text-ui-sm: var(--ui-sm);
+  --text-ui-md: var(--ui-md);
+  --text-ui-lg: var(--ui-lg);
 
   /* Optimal Line Length (Measure in ch) for max-w-measure-* */
-  --container-measure-display: var(--cmplt-measure-display);
-  --container-measure-heading: var(--cmplt-measure-heading);
-  --container-measure-compact: var(--cmplt-measure-compact);
-  --container-measure-lead: var(--cmplt-measure-lead);
-  --container-measure-body: var(--cmplt-measure-body);
+  --container-measure-display: var(--measure-display);
+  --container-measure-heading: var(--measure-heading);
+  --container-measure-compact: var(--measure-compact);
+  --container-measure-lead: var(--measure-lead);
+  --container-measure-body: var(--measure-body);
 }
 
 @layer base {
@@ -148,8 +187,8 @@
     background-color: var(--bg-canvas);
     color: var(--fg-primary);
     min-height: 100vh;
-    font-weight: var(--cmplt-weight-body);
-    font-variation-settings: "wght" var(--cmplt-weight-body);
+    font-weight: var(--weight-body);
+    font-variation-settings: "wght" var(--weight-body);
   }
 
   code,
@@ -168,102 +207,102 @@
    - Optical Dark-Mode Variable Weight compensation
    ========================================================================== */
 .cmplt-display-xl {
-  font-size: var(--cmplt-step-6);
-  line-height: var(--cmplt-leading-display);
-  letter-spacing: var(--cmplt-tracking-display);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: min(100%, var(--cmplt-measure-display));
+  font-size: var(--type-step-6);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
+  max-width: min(100%, var(--measure-display));
   text-wrap: balance;
 }
 
 .cmplt-display-lg {
-  font-size: var(--cmplt-step-5);
-  line-height: var(--cmplt-leading-display);
-  letter-spacing: var(--cmplt-tracking-display);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: min(100%, var(--cmplt-measure-display));
+  font-size: var(--type-step-5);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
+  max-width: min(100%, var(--measure-display));
   text-wrap: balance;
 }
 
 .cmplt-h1 {
-  font-size: var(--cmplt-step-4);
-  line-height: var(--cmplt-leading-tight);
-  letter-spacing: var(--cmplt-tracking-tight);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: var(--cmplt-measure-heading);
+  font-size: var(--type-step-4);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
+  max-width: var(--measure-heading);
   text-wrap: balance;
 }
 
 .cmplt-h2 {
-  font-size: var(--cmplt-step-3);
-  line-height: var(--cmplt-leading-tight);
-  letter-spacing: var(--cmplt-tracking-tight);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: var(--cmplt-measure-heading);
+  font-size: var(--type-step-3);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
+  max-width: var(--measure-heading);
   text-wrap: balance;
 }
 
 .cmplt-h3 {
-  font-size: var(--cmplt-step-2);
-  line-height: var(--cmplt-leading-snug);
-  letter-spacing: var(--cmplt-tracking-snug);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
-  max-width: var(--cmplt-measure-heading);
+  font-size: var(--type-step-2);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
+  max-width: var(--measure-heading);
   text-wrap: balance;
 }
 
 .cmplt-h4 {
-  font-size: var(--cmplt-step-1);
-  line-height: var(--cmplt-leading-snug);
-  letter-spacing: var(--cmplt-tracking-snug);
-  font-weight: var(--cmplt-weight-medium);
-  font-variation-settings: "wght" var(--cmplt-weight-medium);
-  max-width: var(--cmplt-measure-compact);
+  font-size: var(--type-step-1);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  font-weight: var(--weight-medium);
+  font-variation-settings: "wght" var(--weight-medium);
+  max-width: var(--measure-compact);
   text-wrap: balance;
 }
 
 .cmplt-lead {
-  font-size: var(--cmplt-step-1);
-  line-height: var(--cmplt-leading-relaxed);
-  letter-spacing: var(--cmplt-tracking-normal);
-  font-weight: var(--cmplt-weight-body);
-  font-variation-settings: "wght" var(--cmplt-weight-body);
-  max-width: var(--cmplt-measure-lead);
+  font-size: var(--type-step-1);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+  font-weight: var(--weight-body);
+  font-variation-settings: "wght" var(--weight-body);
+  max-width: var(--measure-lead);
   color: var(--fg-secondary);
   text-wrap: pretty;
 }
 
 .cmplt-body {
-  font-size: var(--cmplt-step-0);
-  line-height: var(--cmplt-leading-relaxed);
-  letter-spacing: var(--cmplt-tracking-normal);
-  font-weight: var(--cmplt-weight-body);
-  font-variation-settings: "wght" var(--cmplt-weight-body);
-  max-width: var(--cmplt-measure-body);
+  font-size: var(--type-step-0);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+  font-weight: var(--weight-body);
+  font-variation-settings: "wght" var(--weight-body);
+  max-width: var(--measure-body);
   text-wrap: pretty;
 }
 
 .cmplt-body-sm {
-  font-size: var(--cmplt-step--1);
-  line-height: var(--cmplt-leading-normal);
-  letter-spacing: var(--cmplt-tracking-ui);
-  font-weight: var(--cmplt-weight-body);
-  font-variation-settings: "wght" var(--cmplt-weight-body);
-  max-width: var(--cmplt-measure-body);
+  font-size: var(--type-step--1);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-ui);
+  font-weight: var(--weight-body);
+  font-variation-settings: "wght" var(--weight-body);
+  max-width: var(--measure-body);
   text-wrap: pretty;
 }
 
 .cmplt-eyebrow {
-  font-size: var(--cmplt-step--2);
+  font-size: var(--type-step--2);
   line-height: 1.35;
-  letter-spacing: var(--cmplt-tracking-eyebrow);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  letter-spacing: var(--tracking-eyebrow);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
   text-transform: uppercase;
   color: var(--fg-muted);
 }
@@ -271,22 +310,22 @@
 .cmplt-code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  line-height: var(--cmplt-leading-code);
-  font-weight: var(--cmplt-weight-medium);
-  font-variation-settings: "wght" var(--cmplt-weight-medium);
+  line-height: var(--leading-code);
+  font-weight: var(--weight-medium);
+  font-variation-settings: "wght" var(--weight-medium);
   background-color: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--cmplt-radius-2xs);
+  border-radius: var(--radius-2xs);
   padding: 0.125rem 0.375rem;
   color: var(--fg-primary);
 }
 
 /* Editorial Prose Container — enforces vertical rhythm & 65ch optimal measure */
 .cmplt-prose {
-  font-size: var(--cmplt-step-0);
-  line-height: var(--cmplt-leading-relaxed);
-  letter-spacing: var(--cmplt-tracking-normal);
-  max-width: var(--cmplt-measure-body);
+  font-size: var(--type-step-0);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+  max-width: var(--measure-body);
   color: var(--fg-secondary);
   text-wrap: pretty;
 }
@@ -307,8 +346,8 @@
 
 .cmplt-prose strong {
   color: var(--fg-primary);
-  font-weight: var(--cmplt-weight-semibold);
-  font-variation-settings: "wght" var(--cmplt-weight-semibold);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "wght" var(--weight-semibold);
 }
 
 /* Container-Scoped Liquid Scaling (Modern Web Guidance: fluid-scaling cqi + vw fallback) */
@@ -319,8 +358,8 @@
 
 .cmplt-fluid-title {
   font-size: clamp(1.25rem, 1rem + 2.2vw, 2.75rem);
-  line-height: var(--cmplt-leading-tight);
-  letter-spacing: var(--cmplt-tracking-tight);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
   text-wrap: balance;
 }
 
@@ -400,7 +439,6 @@
   }
 }
 
-
 /* ==========================================================================
    Analytical Focus Background Textures (Section 5 of Style Guide)
    Subtle dot matrix / micro-cross pattern instead of heavy grid lines
@@ -431,7 +469,7 @@
 .cmplt-container {
   width: 100%;
   margin-inline: auto;
-  padding-inline: var(--cmplt-gutter-mobile);
+  padding-inline: var(--gutter-mobile);
 }
 
 @media (min-width: 640px) {
@@ -442,49 +480,49 @@
 
 @media (min-width: 768px) {
   .cmplt-container {
-    padding-inline: var(--cmplt-gutter-tablet);
+    padding-inline: var(--gutter-tablet);
   }
 }
 
 @media (min-width: 1024px) {
   .cmplt-container {
-    max-width: var(--cmplt-container-desktop);
-    padding-inline: var(--cmplt-gutter-desktop);
+    max-width: var(--container-desktop);
+    padding-inline: var(--gutter-desktop);
   }
 }
 
 @media (min-width: 1536px) {
   .cmplt-container {
-    max-width: var(--cmplt-container-desktop-plus);
-    padding-inline: var(--cmplt-gutter-desktop-plus);
+    max-width: var(--container-desktop-plus);
+    padding-inline: var(--gutter-desktop-plus);
   }
 }
 
 .cmplt-section {
-  padding-block: var(--cmplt-section-y-mobile);
+  padding-block: var(--section-y-mobile);
 }
 
 @media (min-width: 768px) {
   .cmplt-section {
-    padding-block: var(--cmplt-section-y-tablet);
+    padding-block: var(--section-y-tablet);
   }
 }
 
 @media (min-width: 1024px) {
   .cmplt-section {
-    padding-block: var(--cmplt-section-y-desktop);
+    padding-block: var(--section-y-desktop);
   }
 }
 
 @media (min-width: 1536px) {
   .cmplt-section {
-    padding-block: var(--cmplt-section-y-desktop-plus);
+    padding-block: var(--section-y-desktop-plus);
   }
 }
 
 .cmplt-stage {
   container-type: inline-size;
-  border-radius: var(--cmplt-radius-lg);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
   background-color: color-mix(in oklab, var(--bg-subtle) 45%, transparent);
   padding: 0.5rem;
@@ -493,7 +531,7 @@
 @media (min-width: 480px) {
   .cmplt-stage {
     padding: 1rem;
-    border-radius: var(--cmplt-radius-xl);
+    border-radius: var(--radius-xl);
   }
 }
 
@@ -529,8 +567,8 @@
   opacity: 1;
   transform: scale(1) translateY(0);
   transition-property: opacity, transform, display, overlay;
-  transition-duration: var(--cmplt-duration-normal);
-  transition-timing-function: var(--cmplt-ease-out);
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-out);
   transition-behavior: allow-discrete;
 
   @starting-style {
@@ -548,8 +586,8 @@
 .cmplt-overlay-backdrop {
   opacity: 1;
   transition-property: opacity, display, overlay;
-  transition-duration: var(--cmplt-duration-normal);
-  transition-timing-function: var(--cmplt-ease-out);
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-out);
   transition-behavior: allow-discrete;
 
   @starting-style {
@@ -566,7 +604,7 @@
 .cmplt-accordion-panel {
   height: var(--accordion-panel-height);
   overflow: hidden;
-  transition: height var(--cmplt-duration-normal) var(--cmplt-ease-out), opacity var(--cmplt-duration-normal) var(--cmplt-ease-out);
+  transition: height var(--duration-normal) var(--ease-out), opacity var(--duration-normal) var(--ease-out);
 }
 
 .cmplt-accordion-panel[data-starting-style],
@@ -594,13 +632,13 @@
 /* ==========================================================================
    GSAP Natural Motion & Hierarchy Highlight Properties
    ========================================================================== */
-@property --cmplt-beam-angle {
+@property --beam-angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
 
-@property --cmplt-input-angle {
+@property --input-angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;

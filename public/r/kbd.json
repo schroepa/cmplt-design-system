@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "src/registry/cmplt/ui/kbd.tsx",
-      "content": "import * as React from \"react\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\nexport type KbdProps = React.HTMLAttributes<HTMLElement>;\n\nfunction Kbd({ className, ...props }: KbdProps) {\n  return (\n    <kbd\n      className={cn(\n        \"pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded-cmplt-xs border border-border-default bg-subtle px-1.5 font-mono text-[11px] font-medium text-fg-muted shadow-[0_1px_0_0_var(--border-default)]\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Kbd };\n",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/registry/cmplt/lib/utils\";\n\nexport type KbdProps = React.HTMLAttributes<HTMLElement>;\n\nfunction Kbd({ className, ...props }: KbdProps) {\n  return (\n    <kbd\n      className={cn(\n        \"pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded-xs border border-border-default bg-subtle px-1.5 font-mono text-[11px] font-medium text-fg-muted shadow-[0_1px_0_0_var(--border-default)]\",\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Kbd };\n",
       "type": "registry:ui",
       "target": "components/ui/kbd.tsx"
     }

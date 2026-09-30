@@ -18,8 +18,8 @@ const avatarVariants = cva(
         "2xl": "h-18 w-18 text-xl",
       },
       shape: {
-        circle: "rounded-cmplt-full",
-        square: "rounded-cmplt-md",
+        circle: "rounded-full",
+        square: "rounded-md",
       },
     },
     defaultVariants: {
@@ -155,7 +155,7 @@ function AvatarGroup({
       ))}
       {overflow > 0 && (
         <div className="ring-2 ring-surface rounded-full">
-          <div className="inline-flex h-8 w-8 items-center justify-center rounded-cmplt-full bg-subtle text-xs font-mono font-medium text-fg-secondary">
+          <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-subtle text-xs font-mono font-medium text-fg-secondary">
             +{overflow}
           </div>
         </div>

@@ -6,15 +6,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/registry/cmplt/lib/utils";
 
 const meterIndicatorVariants = cva(
-  "h-full rounded-cmplt-full transition-all duration-500 ease-cmplt-out",
+  "h-full rounded-full transition-all duration-500 ease-out",
   {
     variants: {
       variant: {
-        default: "bg-accent",
-        success: "bg-emerald-500 dark:bg-emerald-400",
-        warning: "bg-amber-500 dark:bg-amber-400",
-        danger: "bg-rose-500 dark:bg-rose-400",
-        info: "bg-sky-500 dark:bg-sky-400",
+        default: "bg-brand",
+        success: "bg-status-success",
+        warning: "bg-status-warning",
+        danger: "bg-status-danger",
+        info: "bg-status-info",
       },
     },
     defaultVariants: {
@@ -73,7 +73,7 @@ const MeterTrack = React.forwardRef<
   <BaseMeter.Track
     ref={ref}
     className={cn(
-      "h-2 w-full overflow-hidden rounded-cmplt-full bg-subtle border border-border-subtle",
+      "h-2 w-full overflow-hidden rounded-full bg-subtle border border-border-subtle",
       className
     )}
     {...props}

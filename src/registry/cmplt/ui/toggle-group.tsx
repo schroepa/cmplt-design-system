@@ -25,7 +25,7 @@ const ToggleGroup = React.forwardRef<
     <BaseToggleGroup
       ref={ref}
       className={cn(
-        "inline-flex items-center gap-1 rounded-cmplt-md p-1",
+        "inline-flex items-center gap-1 rounded-md p-1",
         variant === "default" && "bg-subtle/70 border border-border-subtle",
         variant === "outline" && "border border-border-default bg-surface",
         className
@@ -54,7 +54,7 @@ const ToggleGroupItem = React.forwardRef<
       ref={ref}
       variant={variant ?? context.variant ?? "default"}
       size={size ?? context.size ?? "md"}
-      className={cn("data-[pressed]:shadow-cmplt-xs", className)}
+      className={cn("data-[pressed]:shadow-xs", className)}
       {...props}
     />
   );

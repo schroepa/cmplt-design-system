@@ -48,7 +48,7 @@ const SliderTrack = React.forwardRef<
   <BaseSlider.Track
     ref={ref}
     className={cn(
-      "relative h-1.5 w-full grow overflow-hidden rounded-cmplt-full bg-subtle border border-border-subtle",
+      "relative h-1.5 w-full grow overflow-hidden rounded-full bg-subtle border border-border-subtle",
       className
     )}
     {...props}
@@ -63,7 +63,7 @@ const SliderIndicator = React.forwardRef<
   <BaseSlider.Indicator
     ref={ref}
     className={cn(
-      "h-full rounded-cmplt-full bg-accent transition-colors",
+      "h-full rounded-full bg-brand transition-colors",
       className
     )}
     {...props}
@@ -78,7 +78,7 @@ const SliderThumb = React.forwardRef<
   <BaseSlider.Thumb
     ref={ref}
     className={cn(
-      "block size-4.5 rounded-full border border-border bg-surface shadow-cmplt-xs ring-offset-background transition-transform",
+      "block size-4.5 rounded-full border border-border bg-surface shadow-xs ring-offset-background transition-transform",
       "hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-1",
       "data-[disabled]:pointer-events-none",
       className

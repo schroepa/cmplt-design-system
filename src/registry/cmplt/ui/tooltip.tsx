@@ -24,7 +24,7 @@ const TooltipContent = React.forwardRef<
       <BaseTooltip.Popup
         ref={ref}
         className={cn(
-          "cmplt-overlay-popup rounded-cmplt-sm border border-border-default bg-elevated px-2.5 py-1 text-xs font-medium text-fg-primary shadow-cmplt-md",
+          "cmplt-overlay-popup rounded-sm border border-border-default bg-elevated px-2.5 py-1 text-xs font-medium text-fg-primary shadow-md",
           className
         )}
         {...props}

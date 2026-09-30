@@ -46,7 +46,7 @@ export const LiquidRadio = React.forwardRef<HTMLElement, LiquidRadioProps>(
         <BaseRadio.Root
           ref={ref}
           className={cn(
-            "group peer relative inline-flex h-4.5 w-4.5 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border-default bg-surface shadow-cmplt-xs transition-colors duration-200 ease-cmplt-out hover:border-border-strong active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[checked]:border-accent data-[disabled]:cursor-not-allowed data-[disabled]:opacity-45 select-none",
+            "group peer relative inline-flex h-4.5 w-4.5 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border-default bg-surface shadow-xs transition-colors duration-200 ease-out hover:border-border-strong active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[checked]:border-brand data-[disabled]:cursor-not-allowed data-[disabled]:opacity-45 select-none",
             className
           )}
           {...props}
@@ -58,14 +58,14 @@ export const LiquidRadio = React.forwardRef<HTMLElement, LiquidRadioProps>(
             style={{ filter: `url(#${filterId})` }}
           >
             {/* Droplet swell halo on hover */}
-            <span className="absolute h-3 w-3 rounded-full bg-accent/20 scale-0 group-hover:scale-100 transition-transform duration-240 ease-cmplt-out" />
+            <span className="absolute h-3 w-3 rounded-full bg-brand/20 scale-0 group-hover:scale-100 transition-transform duration-240 ease-out" />
 
             {/* Organic Fluid Droplet Center */}
             <BaseRadio.Indicator
               keepMounted
-              className="flex items-center justify-center transition-all duration-300 ease-cmplt-spring scale-100 opacity-100 data-[unchecked]:scale-0 data-[unchecked]:opacity-0"
+              className="flex items-center justify-center transition-all duration-300 ease-spring scale-100 opacity-100 data-[unchecked]:scale-0 data-[unchecked]:opacity-0"
             >
-              <span className="h-2.5 w-2.5 rounded-full bg-accent shadow-cmplt-xs group-active:scale-125 transition-transform duration-150" />
+              <span className="h-2.5 w-2.5 rounded-full bg-brand shadow-xs group-active:scale-125 transition-transform duration-150" />
             </BaseRadio.Indicator>
           </div>
         </BaseRadio.Root>
@@ -88,7 +88,7 @@ export const LiquidRadioItem = React.forwardRef<HTMLLabelElement, LiquidRadioIte
       <label
         ref={ref}
         className={cn(
-          "flex items-start gap-3 cursor-pointer select-none rounded-cmplt-md p-2 transition-colors hover:bg-subtle/50",
+          "flex items-start gap-3 cursor-pointer select-none rounded-md p-2 transition-colors hover:bg-subtle/50",
           disabled && "cursor-not-allowed opacity-50",
           className
         )}

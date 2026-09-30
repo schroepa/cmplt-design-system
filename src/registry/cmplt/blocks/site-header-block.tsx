@@ -42,11 +42,11 @@ export function SiteHeaderBlock() {
         {/* Left: Brand Identity */}
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex size-8 items-center justify-center rounded-cmplt-sm bg-accent text-accent-fg shadow-cmplt-xs transition-transform group-hover:scale-105">
+            <div className="flex size-8 items-center justify-center rounded-sm bg-brand text-brand-fg shadow-xs transition-transform group-hover:scale-105">
               <span className="font-mono text-sm font-bold tracking-tighter">c/</span>
             </div>
             <span className="font-semibold text-fg tracking-tight text-base">
-              cmplt<span className="text-accent">.</span>
+              cmplt<span className="text-brand">.</span>
             </span>
             <Badge variant="brand" size="sm" className="hidden sm:inline-flex">
               v1.2
@@ -57,20 +57,20 @@ export function SiteHeaderBlock() {
           <nav className="hidden md:flex items-center gap-1 text-sm font-medium">
             <Link
               href="/docs"
-              className="px-3 py-1.5 rounded-cmplt-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors"
+              className="px-3 py-1.5 rounded-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors"
             >
               Components
             </Link>
             <Link
               href="/blocks"
-              className="px-3 py-1.5 rounded-cmplt-sm text-fg font-semibold bg-subtle/60 hover:bg-subtle transition-colors"
+              className="px-3 py-1.5 rounded-sm text-fg font-semibold bg-subtle/60 hover:bg-subtle transition-colors"
             >
               Blocks
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger
                 render={
-                  <button className="flex items-center gap-1 px-3 py-1.5 rounded-cmplt-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors outline-none">
+                  <button className="flex items-center gap-1 px-3 py-1.5 rounded-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors outline-none">
                     Ecosystem <ChevronDown className="size-3.5 opacity-60" />
                   </button>
                 }
@@ -78,11 +78,11 @@ export function SiteHeaderBlock() {
               <DropdownMenuContent align="start" className="w-56">
                 <DropdownMenuLabel>Design Foundations</DropdownMenuLabel>
                 <DropdownMenuItem className="gap-2">
-                  <Palette className="size-4 text-accent" />
+                  <Palette className="size-4 text-brand" />
                   <span>OKLCH Tokens</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="gap-2">
-                  <Layers className="size-4 text-accent" />
+                  <Layers className="size-4 text-brand" />
                   <span>Base UI Primitives</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -95,7 +95,7 @@ export function SiteHeaderBlock() {
             </DropdownMenu>
             <Link
               href="/pricing"
-              className="px-3 py-1.5 rounded-cmplt-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors"
+              className="px-3 py-1.5 rounded-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors"
             >
               Pricing
             </Link>
@@ -107,7 +107,7 @@ export function SiteHeaderBlock() {
           {/* Quick Search Button */}
           <button
             type="button"
-            className="hidden sm:flex items-center gap-2 h-9 px-3 rounded-cmplt-md border border-border bg-subtle/50 text-xs text-fg-muted hover:border-border-strong hover:bg-subtle transition-colors"
+            className="hidden sm:flex items-center gap-2 h-9 px-3 rounded-md border border-border bg-subtle/50 text-xs text-fg-muted hover:border-border-strong hover:bg-subtle transition-colors"
           >
             <Search className="size-3.5" />
             <span>Search docs & blocks...</span>
@@ -119,14 +119,14 @@ export function SiteHeaderBlock() {
             href="https://github.com"
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:flex size-9 items-center justify-center rounded-cmplt-md border border-border bg-surface text-fg-muted hover:text-fg hover:border-border-strong transition-colors"
+            className="hidden sm:flex size-9 items-center justify-center rounded-md border border-border bg-surface text-fg-muted hover:text-fg hover:border-border-strong transition-colors"
             aria-label="GitHub Repository"
           >
             <Github className="size-4" />
           </a>
 
           {/* Action Button */}
-          <Button size="sm" className="hidden sm:inline-flex gap-1.5 shadow-cmplt-xs">
+          <Button size="sm" className="hidden sm:inline-flex gap-1.5 shadow-xs">
             <Sparkles className="size-3.5" />
             <span>Get Started</span>
           </Button>
@@ -148,7 +148,7 @@ export function SiteHeaderBlock() {
             <DrawerContent side="right" className="max-w-xs">
               <DrawerHeader>
                 <div className="flex items-center gap-2">
-                  <div className="flex size-7 items-center justify-center rounded-cmplt-sm bg-accent text-accent-fg">
+                  <div className="flex size-7 items-center justify-center rounded-sm bg-brand text-brand-fg">
                     <span className="font-mono text-xs font-bold">c/</span>
                   </div>
                   <DrawerTitle>cmplt Design System</DrawerTitle>
@@ -158,28 +158,28 @@ export function SiteHeaderBlock() {
                 <Link
                   href="/docs"
                   onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2 rounded-cmplt-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
+                  className="px-3 py-2 rounded-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
                 >
                   Components
                 </Link>
                 <Link
                   href="/blocks"
                   onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2 rounded-cmplt-md bg-subtle/60 text-fg transition-colors"
+                  className="px-3 py-2 rounded-md bg-subtle/60 text-fg transition-colors"
                 >
                   Blocks
                 </Link>
                 <Link
                   href="/pricing"
                   onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2 rounded-cmplt-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
+                  className="px-3 py-2 rounded-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
                 >
                   Pricing
                 </Link>
                 <Link
                   href="/showcase"
                   onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2 rounded-cmplt-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
+                  className="px-3 py-2 rounded-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
                 >
                   Showcase
                 </Link>

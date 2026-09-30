@@ -274,9 +274,9 @@ const QUICK_SEARCH_LINKS: SearchEntry[] = [
 ];
 
 const PRESET_META: { id: ThemePreset; label: string; dot: string }[] = [
-  { id: "precision", label: "Precision", dot: "bg-indigo-500" },
-  { id: "editorial", label: "Editorial", dot: "bg-orange-500" },
-  { id: "emerald", label: "Emerald", dot: "bg-emerald-500" },
+  { id: "precision", label: "Precision", dot: "bg-info-500" },
+  { id: "editorial", label: "Editorial", dot: "bg-brand" },
+  { id: "emerald", label: "Emerald", dot: "bg-status-success" },
 ];
 
 export function SiteHeader() {
@@ -694,9 +694,9 @@ export function SiteHeader() {
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="pointer-events-auto group inline-flex h-9 items-center gap-2 rounded-cmplt-full border border-border-subtle/90 bg-surface/85 pl-1.5 pr-3.5 font-semibold tracking-tight text-fg-primary shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
+            className="pointer-events-auto group inline-flex h-9 items-center gap-2 rounded-full border border-border-subtle/90 bg-surface/85 pl-1.5 pr-3.5 font-semibold tracking-tight text-fg-primary shadow-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
           >
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-cmplt-full bg-accent text-fg-on-accent font-mono text-[11px] font-bold transition-transform duration-150 group-hover:scale-[1.04]">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand text-fg-on-brand font-mono text-[11px] font-bold transition-transform duration-150 group-hover:scale-[1.04]">
               c/
             </span>
             <span className="text-sm font-semibold tracking-tight truncate">
@@ -714,7 +714,7 @@ export function SiteHeader() {
                 <button
                   type="button"
                   aria-label="Search documentation and components (Cmd+K)"
-                  className="inline-flex h-9 w-9 sm:w-auto sm:min-w-[132px] items-center justify-center sm:justify-between gap-2 rounded-cmplt-full border border-border-subtle/90 bg-surface/85 sm:px-3 text-xs text-fg-muted shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
+                  className="inline-flex h-9 w-9 sm:w-auto sm:min-w-[132px] items-center justify-center sm:justify-between gap-2 rounded-full border border-border-subtle/90 bg-surface/85 sm:px-3 text-xs text-fg-muted shadow-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
                 >
                   <span className="flex items-center gap-1.5">
                     <Search className="h-3.5 w-3.5 stroke-[1.75] shrink-0" />
@@ -728,7 +728,7 @@ export function SiteHeader() {
               <DialogHeader className="p-5 pb-4 border-b border-border-subtle">
                 <DialogTitle className="text-sm flex items-center justify-between gap-2">
                   <span className="flex items-center gap-2">
-                    <Terminal className="h-4 w-4 text-fg-accent stroke-[1.75]" />
+                    <Terminal className="h-4 w-4 text-fg-brand stroke-[1.75]" />
                     Search Documentation &amp; Registry
                   </span>
                   <span className="font-mono text-[11px] font-normal text-fg-muted cmplt-tabular">
@@ -785,9 +785,9 @@ export function SiteHeader() {
                           onMouseEnter={() => setActiveIndex(idx)}
                           onClick={() => handleSelectSearchResult(item.href)}
                           className={cn(
-                            "flex w-full items-center justify-between gap-3 rounded-cmplt-sm px-3 py-2 text-left text-xs transition-colors cursor-pointer",
+                            "flex w-full items-center justify-between gap-3 rounded-sm px-3 py-2 text-left text-xs transition-colors cursor-pointer",
                             isSelected
-                              ? "bg-accent-subtle text-fg-primary ring-1 ring-border-accent/40"
+                              ? "bg-brand-subtle text-fg-primary ring-1 ring-border-brand/40"
                               : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                           )}
                         >
@@ -796,7 +796,7 @@ export function SiteHeader() {
                               className={cn(
                                 "font-medium truncate",
                                 isSelected
-                                  ? "text-fg-accent font-semibold"
+                                  ? "text-fg-brand font-semibold"
                                   : "text-fg-primary"
                               )}
                             >
@@ -808,7 +808,7 @@ export function SiteHeader() {
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
                             {isSelected && (
-                              <CornerDownLeft className="h-3.5 w-3.5 text-fg-accent shrink-0" />
+                              <CornerDownLeft className="h-3.5 w-3.5 text-fg-brand shrink-0" />
                             )}
                           </div>
                         </button>
@@ -842,7 +842,7 @@ export function SiteHeader() {
                   type="button"
                   aria-label="Appearance and theme settings"
                   title="Appearance & Live Token Studio"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-cmplt-full border border-border-subtle/90 bg-surface/85 text-fg-secondary shadow-cmplt-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle/90 bg-surface/85 text-fg-secondary shadow-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
                 >
                   <SlidersHorizontal className="h-4 w-4" />
                 </button>
@@ -861,16 +861,16 @@ export function SiteHeader() {
                 <div className="text-xs font-medium text-fg-muted">
                   Color scheme
                 </div>
-                <div className="grid grid-cols-2 gap-1.5 rounded-cmplt-md bg-subtle/60 p-1">
+                <div className="grid grid-cols-2 gap-1.5 rounded-md bg-subtle/60 p-1">
                   <button
                     type="button"
                     onClick={() => {
                       if (mode !== "light") toggleMode();
                     }}
                     className={cn(
-                      "flex items-center justify-center gap-1.5 rounded-cmplt-sm py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                      "flex items-center justify-center gap-1.5 rounded-sm py-1.5 text-xs font-medium transition-colors cursor-pointer",
                       mode === "light"
-                        ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                        ? "bg-surface text-fg-primary shadow-xs"
                         : "text-fg-secondary hover:text-fg-primary"
                     )}
                   >
@@ -883,9 +883,9 @@ export function SiteHeader() {
                       if (mode !== "dark") toggleMode();
                     }}
                     className={cn(
-                      "flex items-center justify-center gap-1.5 rounded-cmplt-sm py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                      "flex items-center justify-center gap-1.5 rounded-sm py-1.5 text-xs font-medium transition-colors cursor-pointer",
                       mode === "dark"
-                        ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                        ? "bg-surface text-fg-primary shadow-xs"
                         : "text-fg-secondary hover:text-fg-primary"
                     )}
                   >
@@ -907,9 +907,9 @@ export function SiteHeader() {
                       type="button"
                       onClick={() => setPreset(p.id)}
                       className={cn(
-                        "flex items-center justify-center gap-1.5 rounded-cmplt-sm border px-2.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
+                        "flex items-center justify-center gap-1.5 rounded-sm border px-2.5 py-1.5 text-xs font-medium transition-colors cursor-pointer",
                         preset === p.id
-                          ? "border-border-accent bg-accent-subtle text-fg-accent"
+                          ? "border-border-brand bg-brand-subtle text-fg-brand"
                           : "border-border-subtle bg-surface text-fg-secondary hover:bg-subtle"
                       )}
                     >
@@ -933,9 +933,9 @@ export function SiteHeader() {
                         type="button"
                         onClick={() => setRadius(r)}
                         className={cn(
-                          "rounded-cmplt-sm border py-1 text-center font-mono text-xs transition-colors cursor-pointer",
+                          "rounded-sm border py-1 text-center font-mono text-xs transition-colors cursor-pointer",
                           radius === r
-                            ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
+                            ? "border-border-brand bg-brand-subtle text-fg-brand font-semibold"
                             : "border-border-subtle bg-surface text-fg-secondary hover:bg-subtle"
                         )}
                       >
@@ -950,16 +950,16 @@ export function SiteHeader() {
               <div className="grid grid-cols-2 gap-2 border-t border-border-subtle pt-3">
                 <Link
                   href="/docs/tokens"
-                  className="flex items-center justify-center gap-1.5 rounded-cmplt-sm border border-border-subtle bg-subtle/40 px-2.5 py-1.5 text-[11px] font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
+                  className="flex items-center justify-center gap-1.5 rounded-sm border border-border-subtle bg-subtle/40 px-2.5 py-1.5 text-[11px] font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
                 >
-                  <Layers className="h-3 w-3 text-fg-accent" />
+                  <Layers className="h-3 w-3 text-fg-brand" />
                   Token Spec
                 </Link>
                 <Link
                   href="/figma"
-                  className="flex items-center justify-center gap-1.5 rounded-cmplt-sm border border-border-subtle bg-subtle/40 px-2.5 py-1.5 text-[11px] font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
+                  className="flex items-center justify-center gap-1.5 rounded-sm border border-border-subtle bg-subtle/40 px-2.5 py-1.5 text-[11px] font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary transition-colors"
                 >
-                  <Figma className="h-3 w-3 text-fg-accent" />
+                  <Figma className="h-3 w-3 text-fg-brand" />
                   Figma Kit
                 </Link>
               </div>
@@ -976,7 +976,7 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="cmplt-fullscreen-menu"
             className={cn(
-              "group inline-flex h-9 items-center gap-2.5 rounded-cmplt-full border px-3.5 text-xs font-medium shadow-cmplt-sm backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer",
+              "group inline-flex h-9 items-center gap-2.5 rounded-full border px-3.5 text-xs font-medium shadow-sm backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer",
               menuOpen
                 ? "border-border-strong bg-elevated text-fg-primary"
                 : "border-border-subtle/90 bg-surface/85 text-fg-primary hover:border-border-default hover:bg-surface"
@@ -1035,15 +1035,15 @@ export function SiteHeader() {
                       data-menu-primary
                       onClick={() => setMenuOpen(false)}
                       aria-current={active ? "page" : undefined}
-                      className="group flex items-center justify-between gap-4 py-4 sm:py-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-sm"
+                      className="group flex items-center justify-between gap-4 py-4 sm:py-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-sm"
                     >
                       <div className="min-w-0 space-y-1">
                         <div
                           className={cn(
                             "text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight transition-colors",
                             active
-                              ? "text-fg-accent"
-                              : "text-fg-primary group-hover:text-fg-accent"
+                              ? "text-fg-brand"
+                              : "text-fg-primary group-hover:text-fg-brand"
                           )}
                         >
                           {item.label}
@@ -1057,7 +1057,7 @@ export function SiteHeader() {
                         className={cn(
                           "h-5 w-5 shrink-0 transition-all duration-200",
                           active
-                            ? "text-fg-accent opacity-100"
+                            ? "text-fg-brand opacity-100"
                             : "text-fg-muted opacity-40 group-hover:opacity-100 group-hover:text-fg-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                         )}
                       />
@@ -1094,7 +1094,7 @@ export function SiteHeader() {
                         className={cn(
                           "py-1 text-sm transition-colors",
                           active
-                            ? "text-fg-accent font-medium"
+                            ? "text-fg-brand font-medium"
                             : "text-fg-secondary hover:text-fg-primary"
                         )}
                       >
@@ -1114,11 +1114,11 @@ export function SiteHeader() {
                   <Link
                     href="/docs/blueprint"
                     onClick={() => setMenuOpen(false)}
-                    className="group space-y-1 rounded-cmplt-sm py-1 transition-colors"
+                    className="group space-y-1 rounded-sm py-1 transition-colors"
                   >
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-fg-primary group-hover:text-fg-accent transition-colors">
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-fg-primary group-hover:text-fg-brand transition-colors">
                       <span>Living System Blueprint</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 text-fg-muted group-hover:text-fg-accent transition-colors" />
+                      <ArrowUpRight className="h-3.5 w-3.5 text-fg-muted group-hover:text-fg-brand transition-colors" />
                     </div>
                     <p className="text-xs text-fg-secondary">
                       Architecture decisions and UI-writing taxonomy.
@@ -1128,11 +1128,11 @@ export function SiteHeader() {
                   <Link
                     href="/figma"
                     onClick={() => setMenuOpen(false)}
-                    className="group space-y-1 rounded-cmplt-sm py-1 transition-colors"
+                    className="group space-y-1 rounded-sm py-1 transition-colors"
                   >
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-fg-primary group-hover:text-fg-accent transition-colors">
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-fg-primary group-hover:text-fg-brand transition-colors">
                       <span>Figma UI Kit</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 text-fg-muted group-hover:text-fg-accent transition-colors" />
+                      <ArrowUpRight className="h-3.5 w-3.5 text-fg-muted group-hover:text-fg-brand transition-colors" />
                     </div>
                     <p className="text-xs text-fg-secondary">
                       Variable modes, auto-layout, and Code Connect parity.

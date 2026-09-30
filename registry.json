@@ -1672,6 +1672,32 @@
           "target": "tokens/cmplt.tokens-studio.json"
         }
       ]
+    },
+    {
+      "name": "app-dock-block",
+      "type": "registry:block",
+      "title": "Fluid Workspace Dock & Presence Block",
+      "description": "Fluid desktop dock centerpiece combining gooey surface tension physics, live collaborator avatar stack, and workspace module switcher.",
+      "dependencies": [
+        "lucide-react",
+        "gsap",
+        "@gsap/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "liquid-dock",
+        "liquid-avatar-group",
+        "badge",
+        "card",
+        "typography"
+      ],
+      "files": [
+        {
+          "path": "src/registry/cmplt/blocks/app-dock-block.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/app-dock-block.tsx"
+        }
+      ]
     }
   ]
 }

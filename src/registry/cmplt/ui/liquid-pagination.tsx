@@ -170,21 +170,21 @@ export const LiquidPagination = React.forwardRef<HTMLElement, LiquidPaginationPr
 
           <ul
             ref={containerRef}
-            className="relative flex flex-row items-center gap-1 rounded-cmplt-full bg-subtle p-1 border border-border-subtle"
+            className="relative flex flex-row items-center gap-1 rounded-full bg-subtle p-1 border border-border-subtle"
           >
             {/* Gooey Layer */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-cmplt-full overflow-hidden"
+              className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
               style={{ filter: `url(#${filterId})` }}
             >
               <span
                 ref={mainPillRef}
-                className="absolute left-0 top-0 rounded-cmplt-full bg-surface shadow-cmplt-xs opacity-0"
+                className="absolute left-0 top-0 rounded-full bg-surface shadow-xs opacity-0"
               />
               <span
                 ref={trailPillRef}
-                className="absolute left-0 top-0 rounded-cmplt-full bg-surface opacity-0"
+                className="absolute left-0 top-0 rounded-full bg-surface opacity-0"
               />
             </div>
 
@@ -246,7 +246,7 @@ export const LiquidPaginationLink = React.forwardRef<
         context?.onPageChange?.(page);
       }}
       className={cn(
-        "relative inline-flex h-8 min-w-8 items-center justify-center rounded-cmplt-full px-2.5 text-xs font-medium transition-colors duration-200 ease-cmplt-out cursor-pointer select-none active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus",
+        "relative inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2.5 text-xs font-medium transition-colors duration-200 ease-out cursor-pointer select-none active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus",
         isActive ? "text-fg-primary" : "text-fg-muted hover:text-fg-primary",
         className
       )}
@@ -267,7 +267,7 @@ export const LiquidPaginationPrevious = React.forwardRef<
     type="button"
     aria-label="Go to previous page"
     className={cn(
-      "inline-flex h-8 items-center gap-1 rounded-cmplt-full px-2.5 text-xs font-medium text-fg-muted hover:text-fg-primary transition-colors cursor-pointer select-none active:scale-95",
+      "inline-flex h-8 items-center gap-1 rounded-full px-2.5 text-xs font-medium text-fg-muted hover:text-fg-primary transition-colors cursor-pointer select-none active:scale-95",
       className
     )}
     {...props}
@@ -287,7 +287,7 @@ export const LiquidPaginationNext = React.forwardRef<
     type="button"
     aria-label="Go to next page"
     className={cn(
-      "inline-flex h-8 items-center gap-1 rounded-cmplt-full px-2.5 text-xs font-medium text-fg-muted hover:text-fg-primary transition-colors cursor-pointer select-none active:scale-95",
+      "inline-flex h-8 items-center gap-1 rounded-full px-2.5 text-xs font-medium text-fg-muted hover:text-fg-primary transition-colors cursor-pointer select-none active:scale-95",
       className
     )}
     {...props}

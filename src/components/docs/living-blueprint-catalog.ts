@@ -54,7 +54,19 @@ export interface UiWritingGuideline {
 
 export interface RegistryArtifactDoc {
   name: string;
-  type: "registry:lib" | "registry:style" | "registry:ui" | "registry:block";
+  type:
+    | "registry:ui"
+    | "registry:hook"
+    | "registry:block"
+    | "registry:component"
+    | "registry:lib"
+    | "registry:theme"
+    | "registry:base"
+    | "registry:font"
+    | "registry:page"
+    | "registry:file"
+    | "registry:item"
+    | "registry:style";
   pillar: PillarSlug;
   engine: string;
   sourcePath: string;
@@ -223,22 +235,22 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "Pure #FFFFFF backgrounds paired with #000000 text create 21:1 contrast glare, causing visual fatigue in long-form documentation and dashboards. Conversely, #000000 dark mode backgrounds cause astigmatic halation (white text bleeding into black pixels) and make it impossible to recess inset wells or elevate cards using lightness alone.",
         granularSpec: [
           {
-            parameter: "--cmplt-neutral-0 (Light Elevated)",
+            parameter: "--neutral-0 (Light Elevated)",
             value: "oklch(0.992 0.001 85) · #FDFDFC",
             detail: "Brightest surface in Light Mode; reserved for inner elevated panes and floating overlays.",
           },
           {
-            parameter: "--cmplt-neutral-25 (Light Surface)",
+            parameter: "--neutral-25 (Light Surface)",
             value: "oklch(0.985 0.002 85) · #FBFBF9",
             detail: "Primary card shell surface in Warm Alabaster.",
           },
           {
-            parameter: "--cmplt-neutral-100 (Light Canvas)",
+            parameter: "--neutral-100 (Light Canvas)",
             value: "oklch(0.950 0.003 85) · #EEEEEC",
             detail: "Soft stone page backdrop allowing #FBFBF9 cards to stand out cleanly.",
           },
           {
-            parameter: "--cmplt-neutral-950 (Dark Canvas & Light Primary Text)",
+            parameter: "--neutral-950 (Dark Canvas & Light Primary Text)",
             value: "oklch(0.242 0.003 85) · #1F1F1E",
             detail: "Deepest matte graphite floor in Dark Mode and primary charcoal typography in Light Mode.",
           },
@@ -310,49 +322,50 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
       },
       {
         id: "VF-03",
-        title: "Dual-Polarity Brand Accents & Live Theme Presets",
+        title: "Single Brand Ramp & Semantic Brand Roles",
         pillar: "visual-foundations",
         status: "Enforced",
         versionIntroduced: "v1.2.0",
-        lastUpdated: "2026-09-28",
+        lastUpdated: "2026-09-30",
         summary:
-          "Pairs Warm Coral (#EA623F) in Light Mode and Deep Forest Jade (#007A5A) in Dark Mode as default primary accents, with live runtime preset switching ('precision', 'editorial', 'emerald').",
+          "One brand ramp (--brand-*) maps to semantic roles (--bg-brand, --fg-brand, --border-brand, --ring-focus) in both Light and Dark. No dual-polarity preset that swaps brand for success/info hues.",
         contextAndProblem:
-          "A single static brand color often looks either overly neon in Dark Mode or washed out in Light Mode. Furthermore, teams evaluating a design system need to see how semantic accent tokens adapt to different brand identities in real time.",
+          "Swapping the brand identity between Coral (light) and Jade (dark) via theme presets made Marke and Feedback interchangeable and broke Handstyle parity (shadcn --accent = hover, not brand).",
         granularSpec: [
           {
-            parameter: "--cmplt-coral-500",
-            value: "oklch(0.645 0.175 34) · #EA623F",
-            detail: "Default Light Mode primary accent ('Done' / '+ ADD' pills) and 'editorial' preset accent.",
+            parameter: "--brand-500",
+            value: "oklch(0.645 0.175 34)",
+            detail: "Canonical brand mid-step; same ramp in Light and Dark (hover steps may differ).",
           },
           {
-            parameter: "--cmplt-jade-500",
-            value: "oklch(0.515 0.115 162) · #007A5A",
-            detail: "Default Dark Mode primary accent ('✓ Accept' CTA) and 'emerald' preset accent.",
+            parameter: "--bg-brand / --bg-brand-hover / --fg-on-brand",
+            value: "Semantic brand surface roles",
+            detail: "Primary CTAs, filled badges, and on-brand text. Utilities: bg-brand, text-fg-on-brand.",
           },
           {
-            parameter: "--cmplt-indigo-500",
-            value: "oklch(0.57 0.19 275) · #5E5CE6",
-            detail: "Informational status & app badge accent.",
+            parameter: "--success-* / --warning-* / --danger-* / --info-*",
+            value: "Feedback primitives → --status-*",
+            detail: "Status only — never remapped onto --bg-brand by a theme preset.",
           },
           {
-            parameter: "[data-theme-preset='precision' | 'editorial' | 'emerald']",
-            value: "DOM attribute selector on <html>",
-            detail: "Rebinds --bg-accent, --bg-accent-hover, --fg-accent, --border-accent, and --ring-focus.",
+            parameter: "shadcn aliases",
+            value: "--primary = brand · --accent = --bg-subtle",
+            detail: "Output aliases only; source of truth remains the Handstyle-aligned semantic layer.",
           },
         ],
         rationale:
-          "By decoupling component classes (bg-accent, text-fg-accent, border-border-accent) from primitive color names, the entire platform can shift between Warm Coral, Forest Jade, and Precision presets instantaneously.",
+          "Decoupling component classes (bg-brand, text-fg-brand, border-border-brand) from primitive names keeps Marke stable across modes while Feedback stays in --status-*.",
         rejectedAlternatives: [
-          "Hardcoding Tailwind color utilities like bg-orange-500 or bg-emerald-600 inside components (rejected as it breaks theming and Figma semantic variable parity).",
+          "Dual-polarity presets that rebound --bg-brand to success/info hues per mode (rejected — conflicts with Handstyle token contract).",
+          "Hardcoding Tailwind palette utilities like bg-emerald-600 inside components (rejected — breaks theming and Figma semantic parity).",
         ],
         sourceFiles: [
           "src/styles/tokens.css",
+          "src/styles/globals.css",
           "src/components/theme-provider.tsx",
-          "src/components/site-header.tsx",
         ],
         verificationRule:
-          "Verify that switching presets in Theme Studio updates all CTAs, active badges, focus rings, and WebGL dot highlights without page reload.",
+          "Light and Dark both resolve --bg-brand from --brand-*. Status CTAs use --status-success / --status-danger, not a swapped brand hue.",
       },
       {
         id: "VF-04",
@@ -367,12 +380,12 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "Applying fluid clamp() sizing to every element in an application causes buttons, inputs, and table rows to render at fractional pixel heights, blurring 1px borders and misaligning 16px icons. Conversely, static media-query jumps make editorial headlines feel rigid.",
         granularSpec: [
           {
-            parameter: "Liquid Editorial Scale (--cmplt-step-0 to --cmplt-step-6)",
+            parameter: "Liquid Editorial Scale (--type-step-0 to --type-step-6)",
             value: "360px (Ratio 1.200) → 1440px (Ratio 1.333)",
             detail: "Step 0 Body (15px→16px), Step 1 Lead/H4 (17px→20px), Step 2 H3 (20px→26px), Step 3 H2 (24px→35px), Step 4 H1 (30px→47px), Step 5 Display-LG (36px→60px), Step 6 Display-XL (42px→76px).",
           },
           {
-            parameter: "Static App UI Scale (--cmplt-ui-2xs to --cmplt-ui-lg)",
+            parameter: "Static App UI Scale (--ui-2xs to --ui-lg)",
             value: "11px · 12px · 13px · 14px · 15px (Fixed rem)",
             detail: "ui-2xs (0.6875rem/11px badges & kbd), ui-xs (0.75rem/12px labels), ui-sm (0.8125rem/13px default buttons/inputs), ui-md (0.875rem/14px nav), ui-lg (0.9375rem/15px hero pills).",
           },
@@ -410,22 +423,22 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "When light text is rendered on a dark surface, human vision perceives the strokes as thicker due to light irradiation on the retina. Standard discrete font weights (400 vs 300) are too coarse to correct this—300 is too thin, while 400 looks heavy.",
         granularSpec: [
           {
-            parameter: "--cmplt-weight-body",
+            parameter: "--weight-body",
             value: "Light: 400 · Dark: 380 (-20 wght)",
             detail: "Applied to <body>, .cmplt-body, .cmplt-lead, and .cmplt-prose.",
           },
           {
-            parameter: "--cmplt-weight-medium",
+            parameter: "--weight-medium",
             value: "Light: 500 · Dark: 485 (-15 wght)",
             detail: "Applied to .cmplt-h4, inline code, and active controls.",
           },
           {
-            parameter: "--cmplt-weight-semibold",
+            parameter: "--weight-semibold",
             value: "Light: 600 · Dark: 585 (-15 wght)",
             detail: "Applied to .cmplt-display-*, .cmplt-h1..h3, and strong prose emphasis.",
           },
           {
-            parameter: "--cmplt-weight-bold",
+            parameter: "--weight-bold",
             value: "Light: 700 · Dark: 685 (-15 wght)",
             detail: "Applied to high-emphasis KPI metrics and brand marks.",
           },
@@ -440,7 +453,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "src/styles/globals.css",
         ],
         verificationRule:
-          "Typography classes must bind both font-weight and font-variation-settings: 'wght' var(--cmplt-weight-*).",
+          "Typography classes must bind both font-weight and font-variation-settings: 'wght' var(--weight-*).",
       },
       {
         id: "VF-06",
@@ -455,22 +468,22 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "When a child box with a 20px border-radius is placed inside a parent card that also has a 20px border-radius and 8px padding, the corner gap appears thicker at the diagonal apex than along the straight edges, creating an amateurish visual pinch.",
         granularSpec: [
           {
-            parameter: "--cmplt-radius-xl (24px) → --cmplt-radius-xl-inner (14px)",
+            parameter: "--radius-xl (24px) → --radius-xl-inner (14px)",
             value: "calc(1.5rem - 0.625rem) [p-2.5 / 10px]",
             detail: "Used in EngagementPanelBlock outer shell (24px) → inner elevated 'Product Design' panel (14px).",
           },
           {
-            parameter: "--cmplt-radius-lg (20px) → --cmplt-radius-lg-inner-sm (12px)",
+            parameter: "--radius-lg (20px) → --radius-lg-inner-sm (12px)",
             value: "calc(1.25rem - 0.5rem) [p-2 / 8px]",
             detail: "Used in Card (20px) → inset CardMedia and Component Directory preview stages (12px).",
           },
           {
-            parameter: "--cmplt-radius-panel (14px) → --cmplt-radius-sm (8px)",
+            parameter: "--radius-panel (14px) → --radius-sm (8px)",
             value: "14px popup − 6px (p-1.5) = 8px item",
             detail: "Used in SelectContentpopup (14px) → SelectItem highlight row (8px).",
           },
           {
-            parameter: "--cmplt-radius-squircle (11px) & --cmplt-radius-full (9999px)",
+            parameter: "--radius-squircle (11px) & --radius-full (9999px)",
             value: "0.6875rem (Squircle) · 9999px (Pill)",
             detail: "11px squircle for app/brand icons; 9999px pill for primary CTAs, switches, segmented tabs, and search bars.",
           },
@@ -502,17 +515,17 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "Applying drop shadows to buttons, text inputs, and badges muddies dense interfaces and clashes with clean 1px architectural grids.",
         granularSpec: [
           {
-            parameter: "Level 0 · Flat Integration (--cmplt-shadow-none)",
+            parameter: "Level 0 · Flat Integration (--shadow-none)",
             value: "0 0 #0000 + 1px solid var(--border-default)",
             detail: "Buttons, Inputs, SelectTriggers, Switches, Checkboxes, and Badges.",
           },
           {
-            parameter: "Level 1 · Surface Containers (--cmplt-shadow-xs / sm)",
+            parameter: "Level 1 · Surface Containers (--shadow-xs / sm)",
             value: "0 1px 2px oklch(0.2 0.005 85 / 0.03) + 1px border",
             detail: "Resting Cards, Bento cells, and multi-pane window shells.",
           },
           {
-            parameter: "Level 2 · Floating Top-Layer (--cmplt-shadow-lg)",
+            parameter: "Level 2 · Floating Top-Layer (--shadow-lg)",
             value: "0 24px 60px -12px oklch(...) + bg-elevated",
             detail: "Modal Dialogs, Popovers, Select dropdowns, and Tooltips.",
           },
@@ -529,7 +542,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "src/registry/cmplt/ui/dialog.tsx",
         ],
         verificationRule:
-          "Form controls and buttons must never use shadow-md or shadow-lg; reserve shadow-cmplt-lg exclusively for portaled overlays.",
+          "Form controls and buttons must never use shadow-md or shadow-lg; reserve shadow-lg exclusively for portaled overlays.",
       },
       {
         id: "VF-08",
@@ -615,7 +628,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
       {
         label: "Long-Form Reading Measure",
         value: "65ch Max-Width",
-        detail: "Bringhurst optimal 60–70 character line length (--cmplt-measure-body)",
+        detail: "Bringhurst optimal 60–70 character line length (--measure-body)",
       },
       {
         label: "GSAP Magnetic Pull Cap",
@@ -691,22 +704,22 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           "On 1440px–1728px desktop containers, unconstrained paragraphs stretch to 120+ characters per line, causing readers to lose their vertical scan position when returning to the left margin.",
         granularSpec: [
           {
-            parameter: "--cmplt-measure-display (18ch)",
+            parameter: "--measure-display (18ch)",
             value: "max-w-measure-display + text-wrap: balance",
             detail: "Hero statements (.cmplt-display-xl, .cmplt-display-lg) break into balanced 2–4 word lines.",
           },
           {
-            parameter: "--cmplt-measure-heading (28ch)",
+            parameter: "--measure-heading (28ch)",
             value: "max-w-measure-heading + text-wrap: balance",
             detail: "Section headings (.cmplt-h1, .cmplt-h2, .cmplt-h3).",
           },
           {
-            parameter: "--cmplt-measure-compact (42ch) & --cmplt-measure-lead (54ch)",
+            parameter: "--measure-compact (42ch) & --measure-lead (54ch)",
             value: "42ch (Cards/Dialogs) · 54ch (Lead decks)",
             detail: "Keeps introductory decks and modal descriptions compact.",
           },
           {
-            parameter: "--cmplt-measure-body (65ch)",
+            parameter: "--measure-body (65ch)",
             value: "max-w-measure-body + text-wrap: pretty + line-height: 1.65",
             detail: "Enforces Robert Bringhurst's ideal 60–70 character reading line across .cmplt-body and .cmplt-prose.",
           },
@@ -779,7 +792,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
         granularSpec: [
           {
             parameter: "AnimatedCtaButton Orbital Conic Light",
-            value: "--cmplt-beam-angle: 0deg → 360deg (6.5s linear, 1.45x timeScale on hover)",
+            value: "--beam-angle: 0deg → 360deg (6.5s linear, 1.45x timeScale on hover)",
             detail: "1.5px conic-gradient border frame with soft breathing outer aura (2.8s sine.inOut).",
           },
           {
@@ -789,7 +802,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           },
           {
             parameter: "HighlightInput Orbital & Focus Physics",
-            value: "--cmplt-input-angle: 0deg → 360deg (7.5s) · Focus: scale 1.006, y -1px (expo.out)",
+            value: "--input-angle: 0deg → 360deg (7.5s) · Focus: scale 1.006, y -1px (expo.out)",
             detail: "Supports 'ambient' (continuous 0.72 opacity orbit) and 'focus-only' (0.15 resting opacity awakening on hover/focus) modes in 'rounded' (10px) or 'pill' (9999px) contours.",
           },
         ],
@@ -862,7 +875,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           {
             parameter: ".cmplt-overlay-popup",
             value: "opacity: 0 → 1 · transform: scale(0.97) translateY(4px) → scale(1) translateY(0)",
-            detail: "220ms (--cmplt-duration-normal) with cubic-bezier(0.16, 1, 0.3, 1) (--cmplt-ease-out) and transition-behavior: allow-discrete.",
+            detail: "220ms (--duration-normal) with cubic-bezier(0.16, 1, 0.3, 1) (--ease-out) and transition-behavior: allow-discrete.",
           },
           {
             parameter: ".cmplt-overlay-backdrop",
@@ -909,7 +922,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
           },
           {
             parameter: "Dual Input Contours",
-            value: "variant='default' (8px rounded-cmplt-md) · variant='search' (9999px rounded-cmplt-full)",
+            value: "variant='default' (8px rounded-md) · variant='search' (9999px rounded-full)",
             detail: "Distinguishes structured data entry fields from global filter/search bars.",
           },
         ],
@@ -1130,12 +1143,12 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
         granularSpec: [
           {
             parameter: "@theme inline Mapping",
-            value: "--color-*, --radius-cmplt-*, --shadow-cmplt-*, --text-*, --container-measure-*",
-            detail: "Exposes all semantic tokens as native Tailwind v4 utilities (e.g., bg-surface, text-fg-primary, rounded-cmplt-lg-inner-sm, max-w-measure-body).",
+            value: "--color-*, --radius-cmplt-*, --shadow-*, --text-*, --container-measure-*",
+            detail: "Exposes all semantic tokens as native Tailwind v4 utilities (e.g., bg-surface, text-fg-primary, rounded-lg-inner-sm, max-w-measure-body).",
           },
           {
             parameter: "CSS Houdini @property Registration",
-            value: "@property --cmplt-beam-angle & @property --cmplt-input-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }",
+            value: "@property --beam-angle & @property --input-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }",
             detail: "Enables smooth angle interpolation and isolated non-inheriting style recalculation on GSAP-animated border highlights.",
           },
         ],
@@ -1234,18 +1247,18 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
         versionIntroduced: "v1.0.0",
         lastUpdated: "2026-09-28",
         summary:
-          "Manages color mode ('dark' | 'light'), brand preset ('precision' | 'editorial' | 'emerald'), and geometry scale ('none' | 'sm' | 'md' | 'lg' | 'xl') via root <html> attributes.",
+          "Manages color mode ('dark' | 'light') and geometry scale ('none' | 'sm' | 'md' | 'lg' | 'xl') via root <html> attributes. Brand preset attribute remains for API continuity but no longer rebinds brand semantics.",
         contextAndProblem:
           "Passing theme objects through React Context into inline styles forces full-tree component re-renders and causes SSR hydration mismatches.",
         granularSpec: [
           {
             parameter: "Root <html> Attributes",
-            value: "class='dark' · data-theme-preset='precision' · data-radius='md'",
-            detail: "Server-rendered with default dark/precision/md attributes and suppressHydrationWarning on <html>.",
+            value: "class='dark' · data-radius='md'",
+            detail: "Server-rendered with default dark/md attributes and suppressHydrationWarning on <html>. data-theme-preset is retained but does not remap --bg-brand.",
           },
           {
             parameter: "Runtime Mutation Hook (useTheme)",
-            value: "mode, setMode, toggleMode, preset, setPreset, radius, setRadius",
+            value: "mode, setMode, toggleMode, radius, setRadius",
             detail: "Synchronizes React state with document.documentElement attributes inside lightweight useEffect hooks.",
           },
         ],
@@ -1338,6 +1351,54 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
         ],
         verificationRule:
           "Never create ad-hoc UI controls in src/components/** when a primitive in src/registry/cmplt/ui/** can fulfill the role.",
+      },
+      {
+        id: "AD-09",
+        title: "Multi-Tier shadcn Registry Architecture & Token Distribution",
+        pillar: "architecture-delivery",
+        status: "Enforced",
+        versionIntroduced: "v1.5.0",
+        lastUpdated: "2026-09-30",
+        summary:
+          "Expands the cmplt registry distribution across all 12 shadcn registry types (ui, hook, block, component, lib, theme, base, font, page, file, item) with automated Tokens Studio sync, CORS headers, and registry schema validation.",
+        contextAndProblem:
+          "Traditional component libraries distribute only primitives, leaving design tokens, ergonomic hooks, application pages, and Figma variable bridges disconnected or requiring manual multi-step configuration.",
+        granularSpec: [
+          {
+            parameter: "Full shadcn Registry Types Coverage",
+            value: "12 registry types (ui, hook, block, component, lib, theme, base, font, page, file, item, style)",
+            detail: "Supports npx shadcn@latest add for hooks, complete full-screen app pages, typography fonts, and DTCG token files.",
+          },
+          {
+            parameter: "Figma Tokens Studio Sync",
+            value: "src/registry/cmplt/tokens/tokens-studio.json & /tokens-studio.json",
+            detail: "Compiles W3C DTCG tokens.json directly into multi-theme Tokens Studio JSON with global, light, and dark mode sets.",
+          },
+          {
+            parameter: "Cross-Origin Registry Distribution (CORS)",
+            value: "Access-Control-Allow-Origin: * for /r/:path* and /tokens-studio.json",
+            detail: "Allows remote projects running shadcn CLI or design plugins to pull components and tokens without CORS blocking.",
+          },
+          {
+            parameter: "Automated Registry & Schema Validator",
+            value: "scripts/validate-registry.mjs (npm run registry:validate)",
+            detail: "Validates all 81+ manifest items, target paths, dependencies, and generated endpoint schemas before deployment.",
+          },
+        ],
+        rationale:
+          "Providing the complete spectrum of shadcn registry types turns cmplt from a component library into an end-to-end design engineering ecosystem with 1-command deployment.",
+        rejectedAlternatives: [
+          "Restricting the registry to registry:ui only (rejected because hooks, blocks, pages, and token definitions would need manual copy-pasting).",
+        ],
+        sourceFiles: [
+          "registry.json",
+          "scripts/build-registry.mjs",
+          "scripts/build-tokens-studio.mjs",
+          "scripts/validate-registry.mjs",
+          "next.config.ts",
+        ],
+        verificationRule:
+          "Every registry item must declare a valid registry:* type and pass npm run registry:validate with zero errors.",
       },
     ],
   },
@@ -1614,9 +1675,124 @@ export const REGISTRY_INVENTORY_MATRIX: RegistryArtifactDoc[] = [
     keyDecisions: ["VF-02", "IE-01", "IE-03"],
     summary: "3-tier SaaS and Design System licensing matrix with segmented billing cycle Tabs and highlighted Pro card.",
   },
+  {
+    name: "hero-motion-block",
+    type: "registry:block",
+    pillar: "interaction-ergonomics",
+    engine: "GSAP Ticker + Liquid Buttons + Three.js",
+    sourcePath: "src/registry/cmplt/blocks/hero-motion-block.tsx",
+    targetPath: "components/blocks/hero-motion-block.tsx",
+    keyDecisions: ["IE-04", "IE-05", "AD-07", "AD-09"],
+    summary: "Interactive hero banner block featuring concentric typography, liquid animated CTA buttons, and interactive WebGL dot field.",
+  },
+  {
+    name: "app-dock-block",
+    type: "registry:block",
+    pillar: "interaction-ergonomics",
+    engine: "LiquidDock + LiquidAvatarGroup + Base UI",
+    sourcePath: "src/registry/cmplt/blocks/app-dock-block.tsx",
+    targetPath: "components/blocks/app-dock-block.tsx",
+    keyDecisions: ["IE-04", "IE-05", "AD-08", "AD-09"],
+    summary: "Fluid workspace dock composite block combining gooey surface tension dock items, active collaborator presence, and module switcher.",
+  },
+  {
+    name: "use-mouse-position",
+    type: "registry:hook",
+    pillar: "interaction-ergonomics",
+    engine: "React Spring / Pointer Hook",
+    sourcePath: "src/registry/cmplt/hooks/use-mouse-position.ts",
+    targetPath: "hooks/use-mouse-position.ts",
+    keyDecisions: ["IE-04", "AD-09"],
+    summary: "Real-time reactive pointer tracking hook for interactive hover effects and fluid magnetic surfaces.",
+  },
+  {
+    name: "use-reduced-motion",
+    type: "registry:hook",
+    pillar: "interaction-ergonomics",
+    engine: "CSS Media Query Matcher",
+    sourcePath: "src/registry/cmplt/hooks/use-reduced-motion.ts",
+    targetPath: "hooks/use-reduced-motion.ts",
+    keyDecisions: ["IE-01", "AD-09"],
+    summary: "Accessible hook respecting user prefers-reduced-motion OS preferences with real-time change listeners.",
+  },
+  {
+    name: "use-media-query",
+    type: "registry:hook",
+    pillar: "architecture-delivery",
+    engine: "Window matchMedia Hook",
+    sourcePath: "src/registry/cmplt/hooks/use-media-query.ts",
+    targetPath: "hooks/use-media-query.ts",
+    keyDecisions: ["AD-09"],
+    summary: "Hydration-safe responsive breakpoint and media query detection hook.",
+  },
+  {
+    name: "theme",
+    type: "registry:theme",
+    pillar: "visual-foundations",
+    engine: "Tailwind CSS v4 @theme",
+    sourcePath: "src/registry/cmplt/theme/theme.css",
+    targetPath: "styles/theme.css",
+    keyDecisions: ["VF-01", "VF-02", "AD-01", "AD-09"],
+    summary: "Tailwind CSS v4 theme module defining inline semantic color, spacing, radius, and container utility variables.",
+  },
+  {
+    name: "base",
+    type: "registry:base",
+    pillar: "visual-foundations",
+    engine: "CSS Global Stylesheet",
+    sourcePath: "src/registry/cmplt/base/base.css",
+    targetPath: "styles/base.css",
+    keyDecisions: ["VF-04", "VF-06", "AD-09"],
+    summary: "Foundational CSS layer establishing smooth antialiasing, focus outlines, selection colors, and root variables.",
+  },
+  {
+    name: "showcase-page",
+    type: "registry:page",
+    pillar: "architecture-delivery",
+    engine: "Next.js App Router Page",
+    sourcePath: "src/registry/cmplt/page-templates/showcase-page.tsx",
+    targetPath: "app/showcase/page.tsx",
+    keyDecisions: ["AD-08", "AD-09"],
+    summary: "Complete ready-to-run interactive showcase template demonstrating cmplt components, blocks, and tokens.",
+  },
+  {
+    name: "tokens-studio",
+    type: "registry:file",
+    pillar: "visual-foundations",
+    engine: "Tokens Studio Schema",
+    sourcePath: "src/registry/cmplt/tokens/tokens-studio.json",
+    targetPath: "tokens/tokens-studio.json",
+    keyDecisions: ["VF-01", "VF-07", "AD-09"],
+    summary: "Multi-theme Tokens Studio JSON schema export with global, light, and dark token sets for 2-way Figma sync.",
+  },
+  {
+    name: "design-tokens",
+    type: "registry:item",
+    pillar: "visual-foundations",
+    engine: "W3C DTCG Format",
+    sourcePath: "src/registry/cmplt/tokens/tokens.json",
+    targetPath: "tokens/cmplt.tokens.json",
+    keyDecisions: ["VF-01", "VF-07", "AD-09"],
+    summary: "W3C Design Tokens Community Group specification bundle with calibrated OKLCH values and Figma scopes.",
+  },
 ];
 
 export const DECISION_CHANGELOG: ChangelogEntry[] = [
+  {
+    version: "v1.5.0",
+    date: "2026-09-30",
+    title: "12-Type shadcn Registry, Tokens Studio Figma Sync, CORS & Validation Architecture",
+    pillarImpact: [
+      "visual-foundations",
+      "interaction-ergonomics",
+      "architecture-delivery",
+    ],
+    decisionsAddedOrUpdated: [
+      "AD-09",
+    ],
+    summary:
+      "Expanded registry into a complete 12-type distribution network (ui, hook, block, component, lib, theme, base, font, page, file, item). Added automated Tokens Studio compiler, CORS access headers, schema validation test suite, and Figma Dev Mode token parity inspection.",
+  },
   {
     version: "v1.4.0",
     date: "2026-09-28",

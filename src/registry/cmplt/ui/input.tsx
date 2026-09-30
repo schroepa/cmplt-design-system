@@ -8,17 +8,17 @@ import { cn } from "@/registry/cmplt/lib/utils";
 /**
  * cmplt Input — Style Guide v1.1 (Sections 2, 4, 5, 6):
  * - Level 0 (Base): Flat, zero shadow, physically integrated into layout via 1px solid border
- * - Standard inputs use moderate 6px-8px radius (rounded-cmplt-md)
+ * - Standard inputs use moderate 6px-8px radius (rounded-md)
  * - Search inputs use full pill shape (9999px / variant="search")
  * - Proportionally wider horizontal padding (px-3.5 / px-4)
  */
 const inputVariants = cva(
-  "flex h-9 w-full border border-border-default bg-surface py-1.5 text-[13px] text-fg-primary shadow-cmplt-none transition-all duration-200 ease-cmplt-out hover:border-border-strong placeholder:text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:border-border-accent data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-status-danger data-[invalid]:focus-visible:ring-status-danger",
+  "flex h-9 w-full border border-border-default bg-surface py-1.5 text-[13px] text-fg-primary shadow-none transition-all duration-200 ease-out hover:border-border-strong placeholder:text-fg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:border-border-brand data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[invalid]:border-status-danger data-[invalid]:focus-visible:ring-status-danger",
   {
     variants: {
       variant: {
-        default: "rounded-cmplt-md px-3.5",
-        search: "rounded-cmplt-full px-4 bg-subtle/60 hover:bg-surface",
+        default: "rounded-md px-3.5",
+        search: "rounded-full px-4 bg-subtle/60 hover:bg-surface",
       },
     },
     defaultVariants: {

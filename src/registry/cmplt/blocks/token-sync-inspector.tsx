@@ -24,23 +24,23 @@ const TOKEN_PAIRS = [
     name: "bg.surface",
     cssVar: "--bg-surface",
     figmaVar: "color/bg/surface",
-    tier1: "--cmplt-neutral-0 / --cmplt-neutral-900",
+    tier1: "--neutral-0 / --neutral-900",
     swatchClass: "bg-surface border-border-default",
     scope: "FRAME_FILL",
   },
   {
     name: "bg.accent",
-    cssVar: "--bg-accent",
+    cssVar: "--bg-brand",
     figmaVar: "color/bg/accent",
-    tier1: "--cmplt-brand-600 / --cmplt-brand-500",
-    swatchClass: "bg-accent border-transparent",
+    tier1: "--brand-600 / --brand-500",
+    swatchClass: "bg-brand border-transparent",
     scope: "FRAME_FILL, SHAPE_FILL",
   },
   {
     name: "fg.primary",
     cssVar: "--fg-primary",
     figmaVar: "color/fg/primary",
-    tier1: "--cmplt-neutral-950 / --cmplt-neutral-50",
+    tier1: "--neutral-950 / --neutral-50",
     swatchClass: "bg-fg-primary border-transparent",
     scope: "TEXT_FILL",
   },
@@ -48,7 +48,7 @@ const TOKEN_PAIRS = [
     name: "border.subtle",
     cssVar: "--border-subtle",
     figmaVar: "color/border/subtle",
-    tier1: "--cmplt-neutral-200 / oklch(0.24 0.012 260)",
+    tier1: "--neutral-200 / oklch(0.24 0.012 260)",
     swatchClass: "bg-border-subtle border-border-strong",
     scope: "STROKE_COLOR",
   },
@@ -69,8 +69,8 @@ export function TokenSyncInspectorBlock() {
         <CardHeader className="border-b border-border-subtle pb-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-squircle bg-subtle text-fg-primary border border-border-subtle">
-                <Layers className="h-4 w-4 text-fg-accent" />
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-squircle bg-subtle text-fg-primary border border-border-subtle">
+                <Layers className="h-4 w-4 text-fg-brand" />
               </span>
               <div>
                 <CardTitle className="text-sm sm:text-[15px]">
@@ -90,12 +90,12 @@ export function TokenSyncInspectorBlock() {
           {TOKEN_PAIRS.map((token) => (
             <div
               key={token.name}
-              className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-cmplt-lg-inner-sm border border-border-subtle bg-subtle/40 p-3 sm:p-3.5 transition-colors hover:border-border-default"
+              className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-lg-inner-sm border border-border-subtle bg-subtle/40 p-3 sm:p-3.5 transition-colors hover:border-border-default"
             >
               <div className="flex items-center gap-3.5 min-w-0">
                 {/* Concentric Swatch: Row (12px) - Padding (6.5px) = 5.5px */}
                 <span
-                  className={`h-7 w-7 shrink-0 rounded-[5.5px] border ${token.swatchClass} shadow-cmplt-xs`}
+                  className={`h-7 w-7 shrink-0 rounded-[5.5px] border ${token.swatchClass} shadow-xs`}
                 />
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
@@ -103,7 +103,7 @@ export function TokenSyncInspectorBlock() {
                       {token.cssVar}
                     </span>
                     <ArrowRightLeft className="h-3 w-3 text-fg-muted shrink-0" />
-                    <span className="font-mono text-xs text-fg-accent truncate">
+                    <span className="font-mono text-xs text-fg-brand truncate">
                       {token.figmaVar}
                     </span>
                   </div>
@@ -120,7 +120,7 @@ export function TokenSyncInspectorBlock() {
                       <Button
                         variant="ghost"
                         size="xs"
-                        className="rounded-cmplt-xs px-2.5"
+                        className="rounded-xs px-2.5"
                       >
                         Inspect
                       </Button>
@@ -133,15 +133,15 @@ export function TokenSyncInspectorBlock() {
                     <PopoverDescription>
                       Mapped automatically between Tailwind CSS v4 (`@theme inline`) and Figma Variables REST API.
                     </PopoverDescription>
-                    {/* Concentric Inner Box: Popover (20px) - p-4 (12px effective corner inset) = 8px (rounded-cmplt-sm) */}
-                    <div className="mt-3 space-y-1.5 rounded-cmplt-sm bg-subtle p-2.5 font-mono text-[11px]">
+                    {/* Concentric Inner Box: Popover (20px) - p-4 (12px effective corner inset) = 8px (rounded-sm) */}
+                    <div className="mt-3 space-y-1.5 rounded-sm bg-subtle p-2.5 font-mono text-[11px]">
                       <div className="flex justify-between">
                         <span className="text-fg-muted">CSS Variable:</span>
                         <span className="text-fg-primary">{token.cssVar}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-fg-muted">Figma Path:</span>
-                        <span className="text-fg-accent">{token.figmaVar}</span>
+                        <span className="text-fg-brand">{token.figmaVar}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-fg-muted">Figma Scope:</span>
@@ -154,7 +154,7 @@ export function TokenSyncInspectorBlock() {
                 <Button
                   variant="secondary"
                   size="xs"
-                  className="rounded-cmplt-xs px-2.5"
+                  className="rounded-xs px-2.5"
                   onClick={() => handleCopy(`var(${token.cssVar})`)}
                   aria-label={`Copy ${token.cssVar}`}
                 >

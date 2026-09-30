@@ -44,11 +44,11 @@ export function SiteFooterBlock() {
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="flex size-7 items-center justify-center rounded-cmplt-sm bg-accent text-accent-fg">
+              <div className="flex size-7 items-center justify-center rounded-sm bg-brand text-brand-fg">
                 <span className="font-mono text-xs font-bold">c/</span>
               </div>
               <span className="font-semibold text-fg text-base tracking-tight">
-                cmplt<span className="text-accent">.</span>
+                cmplt<span className="text-brand">.</span>
               </span>
             </Link>
             <p className="text-fg-secondary leading-relaxed max-w-sm">
@@ -56,7 +56,7 @@ export function SiteFooterBlock() {
               3-tier OKLCH tokens, and fluid motion physics.
             </p>
             <div className="flex items-center gap-2 pt-2">
-              <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="flex size-2 rounded-full bg-status-success animate-pulse" />
               <span className="font-mono text-fg-muted text-[11px]">
                 Registry v1.2 · All systems operational
               </span>

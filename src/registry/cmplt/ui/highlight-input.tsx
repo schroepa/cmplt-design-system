@@ -78,7 +78,7 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
         if (prefersReduced) return;
 
         gsap.set(orbit, {
-          "--cmplt-input-angle": "0deg",
+          "--input-angle": "0deg",
           opacity: highlightMode === "ambient" ? 0.72 : 0.15,
         });
         gsap.set(aura, {
@@ -87,7 +87,7 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
 
         // 1. Continuous, calm orbital border highlight
         const orbitTween = gsap.to(orbit, {
-          "--cmplt-input-angle": "360deg",
+          "--input-angle": "360deg",
           duration: 7.5,
           ease: "none",
           repeat: -1,
@@ -241,14 +241,14 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
     // Concentric radius chain: Aura (+3px) -> Outer Frame (10px) -> Inner Surface (8.5px) -> Trailing Slot (4.5px or Pill)
     const auraRadiusClass =
       shape === "pill"
-        ? "rounded-cmplt-full"
-        : "rounded-[calc(var(--cmplt-radius-md)+3px)]";
+        ? "rounded-full"
+        : "rounded-[calc(var(--radius-md)+3px)]";
     const radiusClass =
-      shape === "pill" ? "rounded-cmplt-full" : "rounded-cmplt-md";
+      shape === "pill" ? "rounded-full" : "rounded-md";
     const innerRadiusClass =
       shape === "pill"
-        ? "rounded-cmplt-full"
-        : "rounded-[calc(var(--cmplt-radius-md)-1.5px)]";
+        ? "rounded-full"
+        : "rounded-[calc(var(--radius-md)-1.5px)]";
 
     return (
       <div
@@ -269,7 +269,7 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
           )}
           style={{
             background:
-              "radial-gradient(ellipse at 50% 50%, color-mix(in oklab, var(--bg-accent) 42%, transparent) 0%, transparent 72%)",
+              "radial-gradient(ellipse at 50% 50%, color-mix(in oklab, var(--bg-brand) 42%, transparent) 0%, transparent 72%)",
           }}
         />
 
@@ -288,9 +288,9 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
           aria-hidden="true"
           style={
             {
-              "--cmplt-input-angle": "0deg",
+              "--input-angle": "0deg",
               background:
-                "conic-gradient(from var(--cmplt-input-angle), transparent 0%, transparent 58%, color-mix(in oklab, var(--bg-accent) 45%, var(--border-default)) 76%, var(--bg-accent) 88%, color-mix(in oklab, var(--bg-accent) 65%, white 35%) 94%, transparent 100%)",
+                "conic-gradient(from var(--input-angle), transparent 0%, transparent 58%, color-mix(in oklab, var(--bg-brand) 45%, var(--border-default)) 76%, var(--bg-brand) 88%, color-mix(in oklab, var(--bg-brand) 65%, white 35%) 94%, transparent 100%)",
             } as React.CSSProperties
           }
           className={cn("pointer-events-none absolute inset-0", radiusClass)}
@@ -309,7 +309,7 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
             className="pointer-events-none absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0"
             style={{
               background:
-                "radial-gradient(circle, var(--bg-accent) 0%, transparent 70%)",
+                "radial-gradient(circle, var(--bg-brand) 0%, transparent 70%)",
             }}
           />
         </span>
@@ -329,7 +329,7 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
           )}
         >
           {leadingIcon && (
-            <span className="mr-2.5 flex shrink-0 items-center text-fg-accent transition-transform duration-300 group-focus-within/hl:scale-105 [&_svg]:h-3.5 [&_svg]:w-3.5 [&_svg]:stroke-[1.85]">
+            <span className="mr-2.5 flex shrink-0 items-center text-fg-brand transition-transform duration-300 group-focus-within/hl:scale-105 [&_svg]:h-3.5 [&_svg]:w-3.5 [&_svg]:stroke-[1.85]">
               {leadingIcon}
             </span>
           )}
@@ -350,8 +350,8 @@ const HighlightInput = React.forwardRef<HTMLInputElement, HighlightInputProps>(
               className={cn(
                 "ml-2 flex shrink-0 items-center",
                 shape === "pill"
-                  ? "[&_kbd]:rounded-cmplt-full [&_kbd]:px-2"
-                  : "[&_kbd]:rounded-cmplt-2xs"
+                  ? "[&_kbd]:rounded-full [&_kbd]:px-2"
+                  : "[&_kbd]:rounded-2xs"
               )}
             >
               {trailingSlot}

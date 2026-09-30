@@ -121,7 +121,7 @@ export function DataTableToolbarBlock() {
   };
 
   return (
-    <div className="rounded-cmplt-panel border border-border-default bg-surface shadow-cmplt-xs w-full overflow-hidden">
+    <div className="rounded-panel border border-border-default bg-surface shadow-xs w-full overflow-hidden">
       {/* Search & Actions Toolbar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border-b border-border-subtle bg-surface">
         <div className="flex items-center gap-2 flex-1 max-w-sm">
@@ -178,7 +178,7 @@ export function DataTableToolbarBlock() {
           {filtered.map((item) => {
             const isSelected = selectedIds.includes(item.id);
             return (
-              <TableRow key={item.id} className={isSelected ? "bg-accent/5" : undefined}>
+              <TableRow key={item.id} className={isSelected ? "bg-brand/5" : undefined}>
                 <TableCell>
                   <Checkbox
                     checked={isSelected}
@@ -192,7 +192,7 @@ export function DataTableToolbarBlock() {
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-mono text-xs text-accent">{item.branch}</span>
+                    <span className="font-mono text-xs text-brand">{item.branch}</span>
                   </div>
                   <div className="text-[11px] text-fg-muted truncate max-w-[200px]">
                     {item.commit}
@@ -232,7 +232,7 @@ export function DataTableToolbarBlock() {
                       <DropdownMenuItem>View Runtime Logs</DropdownMenuItem>
                       <DropdownMenuItem>Promote to Production</DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-rose-600 dark:text-rose-400">
+                      <DropdownMenuItem className="text-status-danger">
                         Cancel Build
                       </DropdownMenuItem>
                     </DropdownMenuContent>

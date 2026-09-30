@@ -31,8 +31,8 @@ const NumberFieldGroup = React.forwardRef<
   <BaseNumberField.Group
     ref={ref}
     className={cn(
-      "relative flex items-center rounded-cmplt-md border border-border bg-surface text-fg shadow-cmplt-xs transition-colors",
-      "focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/30",
+      "relative flex items-center rounded-md border border-border bg-surface text-fg shadow-xs transition-colors",
+      "focus-within:border-brand focus-within:ring-2 focus-within:ring-accent/30",
       "data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed",
       className
     )}
@@ -129,7 +129,7 @@ const NumberField = React.forwardRef<HTMLDivElement, NumberFieldProps>(
         )}
         <NumberFieldGroup>
           {stepperStyle === "inline" && (
-            <NumberFieldDecrement className="h-8 w-8 rounded-l-cmplt-md border-r border-border">
+            <NumberFieldDecrement className="h-8 w-8 rounded-l-md border-r border-border">
               <Minus className="size-3.5" />
             </NumberFieldDecrement>
           )}
@@ -137,7 +137,7 @@ const NumberField = React.forwardRef<HTMLDivElement, NumberFieldProps>(
           <NumberFieldInput />
 
           {stepperStyle === "inline" ? (
-            <NumberFieldIncrement className="h-8 w-8 rounded-r-cmplt-md border-l border-border">
+            <NumberFieldIncrement className="h-8 w-8 rounded-r-md border-l border-border">
               <Plus className="size-3.5" />
             </NumberFieldIncrement>
           ) : (

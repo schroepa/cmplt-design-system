@@ -36,10 +36,10 @@ export default function DocsLayout({
             type="button"
             onClick={() => setMobileSidebarOpen((prev) => !prev)}
             aria-expanded={mobileSidebarOpen}
-            className="flex md:hidden w-full min-h-[44px] items-center justify-between rounded-cmplt-md border border-border-default bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary shadow-cmplt-xs cursor-pointer"
+            className="flex md:hidden w-full min-h-[44px] items-center justify-between rounded-md border border-border-default bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary shadow-xs cursor-pointer"
           >
             <span className="flex items-center gap-2">
-              <BookOpen className="h-3.5 w-3.5 text-fg-accent" />
+              <BookOpen className="h-3.5 w-3.5 text-fg-brand" />
               Documentation &amp; Component Index
             </span>
             <ChevronDown
@@ -59,7 +59,7 @@ export default function DocsLayout({
             {/* Group 1: Architecture & Foundations */}
             <div>
               <div className="mb-3 flex items-center gap-2 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted">
-                <BookOpen className="h-3 w-3 text-fg-accent" />
+                <BookOpen className="h-3 w-3 text-fg-brand" />
                 Getting Started
               </div>
               <ul className="space-y-1">
@@ -68,9 +68,9 @@ export default function DocsLayout({
                     href="/docs"
                     aria-current={pathname === "/docs" ? "page" : undefined}
                     className={cn(
-                      "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs"
-                        ? "bg-accent-subtle text-fg-accent font-semibold"
+                        ? "bg-brand-subtle text-fg-brand font-semibold"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
@@ -84,9 +84,9 @@ export default function DocsLayout({
                       pathname?.startsWith("/docs/blueprint") ? "page" : undefined
                     }
                     className={cn(
-                      "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
                       pathname?.startsWith("/docs/blueprint")
-                        ? "bg-accent-subtle text-fg-accent font-semibold"
+                        ? "bg-brand-subtle text-fg-brand font-semibold"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
@@ -101,9 +101,9 @@ export default function DocsLayout({
                     href="/docs/tokens"
                     aria-current={pathname === "/docs/tokens" ? "page" : undefined}
                     className={cn(
-                      "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs/tokens"
-                        ? "bg-accent-subtle text-fg-accent font-semibold"
+                        ? "bg-brand-subtle text-fg-brand font-semibold"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
@@ -118,9 +118,9 @@ export default function DocsLayout({
                     href="/docs/hooks"
                     aria-current={pathname === "/docs/hooks" ? "page" : undefined}
                     className={cn(
-                      "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs/hooks"
-                        ? "bg-accent-subtle text-fg-accent font-semibold"
+                        ? "bg-brand-subtle text-fg-brand font-semibold"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
@@ -140,7 +140,7 @@ export default function DocsLayout({
                 <div key={cat}>
                   <div className="mb-3 flex items-center justify-between gap-2 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted">
                     <span className="flex items-center gap-2">
-                      <Box className="h-3 w-3 text-fg-accent" />
+                      <Box className="h-3 w-3 text-fg-brand" />
                       {cat}
                     </span>
                     <span className="font-mono text-[10px] font-normal text-fg-muted/80 cmplt-tabular">
@@ -157,9 +157,9 @@ export default function DocsLayout({
                             href={href}
                             aria-current={active ? "page" : undefined}
                             className={cn(
-                              "flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium transition-colors",
+                              "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
                               active
-                                ? "bg-accent-subtle text-fg-accent font-semibold"
+                                ? "bg-brand-subtle text-fg-brand font-semibold"
                                 : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                             )}
                           >
@@ -176,14 +176,14 @@ export default function DocsLayout({
             {/* Group 3: Pro Ecosystem */}
             <div>
               <div className="mb-3 flex items-center gap-2 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted">
-                <Sparkles className="h-3 w-3 text-fg-accent" />
+                <Sparkles className="h-3 w-3 text-fg-brand" />
                 Ecosystem &amp; Sales
               </div>
               <ul className="space-y-1">
                 <li>
                   <Link
                     href="/blocks"
-                    className="flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
+                    className="flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                   >
                     <span>Pro UI Blocks</span>
                     <Badge variant="brand" size="sm" className="px-1.5 py-0 text-[10px]">
@@ -194,7 +194,7 @@ export default function DocsLayout({
                 <li>
                   <Link
                     href="/figma"
-                    className="flex items-center justify-between rounded-cmplt-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
+                    className="flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                   >
                     <span className="flex items-center gap-1.5">
                       <Figma className="h-3 w-3" /> Figma UI Kit

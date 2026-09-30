@@ -94,7 +94,7 @@ export const LiquidDock = React.forwardRef<HTMLDivElement, LiquidDockProps>(
         <div
           ref={setMergedRef}
           className={cn(
-            "relative inline-flex h-12 items-center gap-1.5 rounded-cmplt-full border border-border-default bg-surface/90 px-2.5 shadow-cmplt-md backdrop-blur-md select-none",
+            "relative inline-flex h-12 items-center gap-1.5 rounded-full border border-border-default bg-surface/90 px-2.5 shadow-md backdrop-blur-md select-none",
             className
           )}
           {...props}
@@ -102,12 +102,12 @@ export const LiquidDock = React.forwardRef<HTMLDivElement, LiquidDockProps>(
           {/* Gooey Liquid Beam Layer */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-cmplt-full overflow-hidden"
+            className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
             style={{ filter: `url(#${filterId})` }}
           >
             <span
               ref={beamRef}
-              className="absolute top-1.5 h-9 rounded-cmplt-full bg-subtle opacity-0"
+              className="absolute top-1.5 h-9 rounded-full bg-subtle opacity-0"
             />
           </div>
 
@@ -135,7 +135,7 @@ export const LiquidDockItem = React.forwardRef<HTMLButtonElement, LiquidDockItem
         data-dock-item
         title={label}
         className={cn(
-          "group relative inline-flex h-9 min-w-9 items-center justify-center rounded-cmplt-full px-2 text-fg-muted transition-all duration-200 ease-cmplt-out cursor-pointer hover:text-fg-primary hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus [&_svg]:h-4 [&_svg]:w-4",
+          "group relative inline-flex h-9 min-w-9 items-center justify-center rounded-full px-2 text-fg-muted transition-all duration-200 ease-out cursor-pointer hover:text-fg-primary hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus [&_svg]:h-4 [&_svg]:w-4",
           active && "text-fg-primary font-semibold",
           className
         )}
@@ -143,7 +143,7 @@ export const LiquidDockItem = React.forwardRef<HTMLButtonElement, LiquidDockItem
       >
         {children}
         {label && (
-          <span className="pointer-events-none absolute -top-8 rounded-cmplt-xs border border-border-subtle bg-elevated px-2 py-0.5 text-[10px] font-medium text-fg-primary opacity-0 shadow-cmplt-sm transition-opacity group-hover:opacity-100 whitespace-nowrap">
+          <span className="pointer-events-none absolute -top-8 rounded-xs border border-border-subtle bg-elevated px-2 py-0.5 text-[10px] font-medium text-fg-primary opacity-0 shadow-sm transition-opacity group-hover:opacity-100 whitespace-nowrap">
             {label}
           </span>
         )}

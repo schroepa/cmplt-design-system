@@ -31,7 +31,7 @@ export function ActivityFeedBlock() {
   const [filter, setFilter] = React.useState<"all" | "security" | "releases">("all");
 
   return (
-    <div className="rounded-cmplt-panel border border-border-default bg-surface p-5 sm:p-7 shadow-cmplt-xs w-full max-w-2xl mx-auto space-y-6">
+    <div className="rounded-panel border border-border-default bg-surface p-5 sm:p-7 shadow-xs w-full max-w-2xl mx-auto space-y-6">
       {/* Header with Title and Filter Buttons */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-border-subtle">
         <div>

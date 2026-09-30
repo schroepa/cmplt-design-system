@@ -31,7 +31,17 @@ for (const [step, val] of Object.entries(tokensData.color.primitive.brand)) {
   };
 }
 
-for (const [radKey, val] of Object.entries(tokensData.radius)) {
+const defaultRadii = {
+  sm: { px: "4px", rem: "0.25rem" },
+  md: { px: "8px", rem: "0.5rem" },
+  lg: { px: "12px", rem: "0.75rem" },
+  xl: { px: "16px", rem: "1rem" },
+  "2xl": { px: "24px", rem: "1.5rem" },
+  full: { px: "9999px", rem: "9999px" },
+};
+
+const radiusSource = tokensData.radius || defaultRadii;
+for (const [radKey, val] of Object.entries(radiusSource)) {
   globalSet.radius[radKey] = {
     $type: "borderRadius",
     $value: val.px,

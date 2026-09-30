@@ -14,12 +14,12 @@ if (typeof window !== "undefined") {
 }
 
 const liquidButtonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-transform duration-200 ease-cmplt-out select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[disabled]:pointer-events-none data-[disabled]:opacity-45 active:scale-[0.97] rounded-cmplt-full overflow-hidden [&_svg]:stroke-[1.75]",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-transform duration-200 ease-out select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[disabled]:pointer-events-none data-[disabled]:opacity-45 active:scale-[0.97] rounded-full overflow-hidden [&_svg]:stroke-[1.75]",
   {
     variants: {
       variant: {
-        primary: "text-fg-on-accent",
-        subtle: "text-fg-accent",
+        primary: "text-fg-on-brand",
+        subtle: "text-fg-brand",
         surface: "text-fg-primary border border-border-default",
       },
       size: {
@@ -163,14 +163,14 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
 
     // Dynamic background styling according to variant
     const bgClasses = {
-      primary: "bg-accent",
-      subtle: "bg-accent-subtle",
+      primary: "bg-brand",
+      subtle: "bg-brand-subtle",
       surface: "bg-surface",
     }[variant || "primary"];
 
     const blobColorClass = {
-      primary: "bg-accent-hover",
-      subtle: "bg-accent/20",
+      primary: "bg-brand-hover",
+      subtle: "bg-brand/20",
       surface: "bg-subtle",
     }[variant || "primary"];
 
@@ -187,19 +187,19 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
           {/* Gooey Fluid Background Layer */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-cmplt-full overflow-hidden"
+            className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
             style={{
               filter: `url(#${filterId})`,
             }}
           >
             {/* Primary Base Fluid Layer */}
-            <span className={cn("absolute inset-0 rounded-cmplt-full", bgClasses)} />
+            <span className={cn("absolute inset-0 rounded-full", bgClasses)} />
 
             {/* Orbiting / Merging Fluid Droplet 1 */}
             <span
               ref={blob1Ref}
               className={cn(
-                "absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 h-9 w-9 rounded-cmplt-full blur-[1px]",
+                "absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 h-9 w-9 rounded-full blur-[1px]",
                 blobColorClass
               )}
             />
@@ -208,7 +208,7 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
             <span
               ref={blob2Ref}
               className={cn(
-                "absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 h-7 w-7 rounded-cmplt-full blur-[1px]",
+                "absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 h-7 w-7 rounded-full blur-[1px]",
                 blobColorClass
               )}
             />
@@ -217,7 +217,7 @@ export const LiquidButton = React.forwardRef<HTMLElement, LiquidButtonProps>(
             <span
               ref={rippleRef}
               className={cn(
-                "absolute h-10 w-10 rounded-cmplt-full opacity-0 pointer-events-none",
+                "absolute h-10 w-10 rounded-full opacity-0 pointer-events-none",
                 blobColorClass
               )}
             />

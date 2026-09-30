@@ -5,6 +5,26 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["three"],
   outputFileTracingRoot: path.join(__dirname),
+  async headers() {
+    return [
+      {
+        source: "/r/:path*",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET, OPTIONS" },
+          { key: "Access-Control-Allow-Headers", value: "Content-Type, Authorization" },
+        ],
+      },
+      {
+        source: "/tokens-studio.json",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET, OPTIONS" },
+          { key: "Access-Control-Allow-Headers", value: "Content-Type, Authorization" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

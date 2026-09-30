@@ -1,325 +1,308 @@
 /* ==========================================================================
-   cmplt design system — Calibrated Luminance & Warm Neutral Architecture v1.2
-   Inventor & Owner: Patrick Schrödter (ptrckschrdtr)
-   Website: https://ptrckschrdtr.de · GitHub: https://github.com/schroepa
+   cmplt design system — Token contract v2 (Handstyle-aligned)
    --------------------------------------------------------------------------
-   Philosophy: No harsh extremes (no #FFFFFF blinding white, no #000000 pitch black).
-   - Light Mode: Warm Alabaster & Soft Stone (L = 0.935 -> 0.990, Hue 85)
-     with deep charcoal typography (L = 0.235) and Coral/Indigo accents.
-   - Dark Mode: Matte Graphite & Warm Charcoal (L = 0.245 -> 0.335, Hue 85)
-     with soft off-white typography (L = 0.915), low-contrast 1px dividers,
-     and muted Forest Jade / Coral accents.
+   Philosophy: No harsh extremes (no #FFFFFF / #000000 poles).
+   Primitives: --{scale}-{step}  ·  Semantic: --bg-* / --fg-* / --border-*
+   Brand is the same ramp in Light and Dark (no Coral/Jade polarity).
    ========================================================================== */
 
 :root {
   /* ------------------------------------------------------------------------
-     TIER 1: PRIMITIVES — Warm Neutral Stone & Graphite Scale (Hue 85, Low Chroma)
+     TIER 1: PRIMITIVES — Neutral (Hue 85, low chroma)
      ------------------------------------------------------------------------ */
-  --cmplt-neutral-0: oklch(0.992 0.001 85);    /* #FDFDFC — Elevated inner surface */
-  --cmplt-neutral-25: oklch(0.985 0.002 85);   /* #FBFBF9 — Primary Light Card surface */
-  --cmplt-neutral-50: oklch(0.968 0.002 85);   /* #F5F5F3 — Sidebar / Subtle well */
-  --cmplt-neutral-100: oklch(0.950 0.003 85);  /* #EEEEEC — Light Page Canvas */
-  --cmplt-neutral-200: oklch(0.922 0.003 85);  /* #E5E5E3 — Hairline subtle border */
-  --cmplt-neutral-300: oklch(0.882 0.004 85);  /* #DADAD7 — Default control border */
-  --cmplt-neutral-400: oklch(0.745 0.004 85);  /* #ADADAA — Disabled / placeholder */
-  --cmplt-neutral-500: oklch(0.635 0.004 85);  /* #8B8B88 — Muted labels & section caps */
-  --cmplt-neutral-600: oklch(0.510 0.004 85);  /* #666663 — Secondary body copy */
-  --cmplt-neutral-700: oklch(0.360 0.004 85);  /* #3D3D3B — Dark border / strong */
-  --cmplt-neutral-750: oklch(0.332 0.003 85);  /* #353534 — Dark subtle divider */
-  --cmplt-neutral-800: oklch(0.304 0.003 85);  /* #2E2E2D — Dark elevated inner panel */
-  --cmplt-neutral-850: oklch(0.286 0.003 85);  /* #2A2A29 — Dark grouped inset box */
-  --cmplt-neutral-900: oklch(0.270 0.003 85);  /* #262625 — Dark primary card shell */
-  --cmplt-neutral-950: oklch(0.242 0.003 85);  /* #1F1F1E — Dark canvas & Light primary text */
+  --neutral-0: oklch(0.992 0.001 85);
+  --neutral-25: oklch(0.985 0.002 85);
+  --neutral-50: oklch(0.968 0.002 85);
+  --neutral-100: oklch(0.950 0.003 85);
+  --neutral-200: oklch(0.922 0.003 85);
+  --neutral-300: oklch(0.882 0.004 85);
+  --neutral-400: oklch(0.745 0.004 85);
+  --neutral-500: oklch(0.635 0.004 85);
+  --neutral-600: oklch(0.510 0.004 85);
+  --neutral-700: oklch(0.360 0.004 85);
+  --neutral-750: oklch(0.332 0.003 85);
+  --neutral-800: oklch(0.304 0.003 85);
+  --neutral-850: oklch(0.286 0.003 85);
+  --neutral-900: oklch(0.270 0.003 85);
+  --neutral-950: oklch(0.242 0.003 85);
 
-  /* Brand & Accent Primitives (Coral, Forest Jade, Soft Indigo) */
-  --cmplt-coral-400: oklch(0.69 0.165 35);
-  --cmplt-coral-500: oklch(0.645 0.175 34);    /* #EA623F — Warm Coral ("Done" / "+ ADD") */
-  --cmplt-coral-600: oklch(0.585 0.17 34);
+  /* Brand scale (canonical steps used by semantics) */
+  --brand-50: oklch(0.962 0.02 35);
+  --brand-100: oklch(0.93 0.04 35);
+  --brand-200: oklch(0.87 0.075 35);
+  --brand-300: oklch(0.78 0.12 35);
+  --brand-400: oklch(0.69 0.165 35);
+  --brand-500: oklch(0.645 0.175 34);
+  --brand-600: oklch(0.585 0.17 34);
+  --brand-700: oklch(0.51 0.15 34);
+  --brand-800: oklch(0.43 0.12 34);
+  --brand-900: oklch(0.35 0.09 34);
 
-  --cmplt-jade-400: oklch(0.58 0.12 162);
-  --cmplt-jade-500: oklch(0.515 0.115 162);    /* #007A5A — Deep Forest Jade ("✓ Accept") */
-  --cmplt-jade-600: oklch(0.465 0.11 162);
+  /* Feedback primitives */
+  --success-50: oklch(0.955 0.025 162);
+  --success-400: oklch(0.58 0.12 162);
+  --success-500: oklch(0.515 0.115 162);
+  --success-600: oklch(0.465 0.11 162);
+  --success-900: oklch(0.28 0.035 162);
 
-  --cmplt-indigo-400: oklch(0.65 0.17 275);
-  --cmplt-indigo-500: oklch(0.57 0.19 275);    /* #5E5CE6 — Soft App Badge Indigo */
-  --cmplt-indigo-600: oklch(0.50 0.185 275);
+  --warning-50: oklch(0.955 0.03 80);
+  --warning-400: oklch(0.78 0.15 82);
+  --warning-500: oklch(0.76 0.145 80);
+  --warning-600: oklch(0.66 0.14 75);
+  --warning-900: oklch(0.32 0.015 65);
 
-  /* Legacy Brand Scale Alias (mapped for Token Explorer compatibility) */
-  --cmplt-brand-50: oklch(0.962 0.02 35);
-  --cmplt-brand-100: oklch(0.93 0.04 35);
-  --cmplt-brand-200: oklch(0.87 0.075 35);
-  --cmplt-brand-300: oklch(0.78 0.12 35);
-  --cmplt-brand-400: var(--cmplt-coral-400);
-  --cmplt-brand-500: var(--cmplt-coral-500);
-  --cmplt-brand-600: var(--cmplt-coral-600);
-  --cmplt-brand-700: oklch(0.51 0.15 34);
-  --cmplt-brand-800: oklch(0.43 0.12 34);
-  --cmplt-brand-900: oklch(0.35 0.09 34);
+  --danger-50: oklch(0.955 0.025 22);
+  --danger-400: oklch(0.65 0.18 22);
+  --danger-500: oklch(0.63 0.18 22);
+  --danger-600: oklch(0.55 0.175 22);
+  --danger-900: oklch(0.29 0.04 22);
 
-  /* Status Primitives (Muted, balanced saturation) */
-  --cmplt-emerald-500: oklch(0.62 0.14 160);
-  --cmplt-emerald-600: oklch(0.52 0.12 162);
-  --cmplt-amber-500: oklch(0.76 0.145 80);
-  --cmplt-amber-600: oklch(0.66 0.14 75);
-  --cmplt-rose-500: oklch(0.63 0.18 22);
-  --cmplt-rose-600: oklch(0.55 0.175 22);
-  --cmplt-cyan-500: oklch(0.66 0.12 230);
+  --info-50: oklch(0.955 0.025 275);
+  --info-400: oklch(0.68 0.15 275);
+  --info-500: oklch(0.57 0.19 275);
+  --info-600: oklch(0.50 0.185 275);
+  --info-900: oklch(0.29 0.04 275);
 
   /* ------------------------------------------------------------------------
-     GEOMETRY HIERARCHY & CONCENTRIC RADIUS TOKENS
-     Formula: R_inner = max(4px, R_outer - padding) for optical concentricity
+     Geometry — radius
      ------------------------------------------------------------------------ */
-  --cmplt-radius-base: 0.5rem;                        /* 8px control baseline */
-  --cmplt-radius-2xs: 0.28125rem;                     /* 4.5px — deeply nested tags/swatches */
-  --cmplt-radius-xs: 0.375rem;                        /* 6px — inner items inside 10px rows (10px - 4px) */
-  --cmplt-radius-sm: 0.5rem;                          /* 8px — menu items inside 14px popups (14px - 6px) */
-  --cmplt-radius-md: 0.625rem;                        /* 10px — standard controls & grouped rows */
-  --cmplt-radius-squircle: 0.6875rem;                 /* 11px — standalone app icons */
-  --cmplt-radius-panel: 0.875rem;                     /* 14px — dropdown popups & nested panels (24px - 10px) */
-  --cmplt-radius-lg: 1.25rem;                         /* 20px — primary cards & popovers */
-  --cmplt-radius-xl: 1.5rem;                          /* 24px — outer modal & window shells */
-  --cmplt-radius-full: 9999px;                        /* Pill — search, switches, primary pills */
+  --radius-base: 0.5rem;
+  --radius-2xs: 0.28125rem;
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-squircle: 0.6875rem;
+  --radius-panel: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  --radius-xl-inner-sm: calc(var(--radius-xl) - 0.5rem);
+  --radius-xl-inner: calc(var(--radius-xl) - 0.625rem);
+  --radius-xl-inner-lg: calc(var(--radius-xl) - 0.75rem);
+  --radius-lg-inner-xs: calc(var(--radius-lg) - 0.375rem);
+  --radius-lg-inner-sm: calc(var(--radius-lg) - 0.5rem);
+  --radius-lg-inner: calc(var(--radius-lg) - 0.625rem);
 
-  /* Explicit Concentric Nesting Pairs (R_inner = R_outer - d) */
-  --cmplt-radius-xl-inner-sm: calc(var(--cmplt-radius-xl) - 0.5rem);    /* 24px - 8px (p-2)   = 16px */
-  --cmplt-radius-xl-inner: calc(var(--cmplt-radius-xl) - 0.625rem);     /* 24px - 10px (p-2.5)= 14px */
-  --cmplt-radius-xl-inner-lg: calc(var(--cmplt-radius-xl) - 0.75rem);   /* 24px - 12px (p-3)  = 12px */
-  --cmplt-radius-lg-inner-xs: calc(var(--cmplt-radius-lg) - 0.375rem);  /* 20px - 6px (p-1.5) = 14px */
-  --cmplt-radius-lg-inner-sm: calc(var(--cmplt-radius-lg) - 0.5rem);    /* 20px - 8px (p-2)   = 12px */
-  --cmplt-radius-lg-inner: calc(var(--cmplt-radius-lg) - 0.625rem);     /* 20px - 10px (p-2.5)= 10px */
+  /* Layout */
+  --container-desktop: 90rem;
+  --container-desktop-plus: 108rem;
+  --gutter-mobile: 1.25rem;
+  --gutter-tablet: 2.5rem;
+  --gutter-desktop: 3.5rem;
+  --gutter-desktop-plus: 5rem;
+  --section-y-mobile: 4.5rem;
+  --section-y-tablet: 6.5rem;
+  --section-y-desktop: 8.5rem;
+  --section-y-desktop-plus: 10.5rem;
+
+  /* Shadow */
+  --elevation-none: 0 0 #0000;
+  --elevation-xs: 0 1px 2px 0 oklch(0.2 0.005 85 / 0.03);
+  --elevation-sm: 0 4px 12px -2px oklch(0.2 0.005 85 / 0.05), 0 1px 3px -1px oklch(0.2 0.005 85 / 0.03);
+  --elevation-md: 0 14px 34px -8px oklch(0.18 0.005 85 / 0.08), 0 4px 12px -3px oklch(0.18 0.005 85 / 0.04);
+  --elevation-lg: 0 24px 60px -12px oklch(0.18 0.005 85 / 0.12), 0 8px 22px -6px oklch(0.18 0.005 85 / 0.05);
+  --elevation-glow: 0 16px 40px -10px oklch(0.645 0.175 34 / 0.18);
+  --shadow-none: var(--elevation-none);
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-glow: var(--elevation-glow);
+
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-instant: 90ms;
+  --duration-fast: 150ms;
+  --duration-normal: 240ms;
+  --duration-slow: 360ms;
+  --duration-liquid: 500ms;
+
+  /* Type */
+  --type-step--2: 0.75rem;
+  --type-step--1: 0.8125rem;
+  --type-step-0: clamp(0.9375rem, 0.9148rem + 0.0926vw, 1rem);
+  --type-step-1: clamp(1.0625rem, 0.9943rem + 0.2778vw, 1.25rem);
+  --type-step-2: clamp(1.25rem, 1.1136rem + 0.5556vw, 1.625rem);
+  --type-step-3: clamp(1.5rem, 1.25rem + 1.0185vw, 2.1875rem);
+  --type-step-4: clamp(1.875rem, 1.4886rem + 1.5741vw, 2.9375rem);
+  --type-step-5: clamp(2.25rem, 1.7045rem + 2.2222vw, 3.75rem);
+  --type-step-6: clamp(2rem, 1.0833rem + 4.0741vw, 4.75rem);
+
+  --ui-2xs: 0.6875rem;
+  --ui-xs: 0.75rem;
+  --ui-sm: 0.8125rem;
+  --ui-md: 0.875rem;
+  --ui-lg: 0.9375rem;
+
+  --measure-display: 18ch;
+  --measure-heading: 28ch;
+  --measure-compact: 42ch;
+  --measure-lead: 54ch;
+  --measure-body: 65ch;
+
+  --leading-display: 1.04;
+  --leading-tight: 1.14;
+  --leading-snug: 1.28;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --leading-code: 1.6;
+
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.024em;
+  --tracking-snug: -0.015em;
+  --tracking-normal: -0.005em;
+  --tracking-ui: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-eyebrow: 0.08em;
+
+  --weight-regular: 400;
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
 
   /* ------------------------------------------------------------------------
-     LAYOUT & ARCHITECTURAL WHITESPACE TOKENS
-     Viewports: Mobile (<768px) · Tablet (768px–1023px) · Desktop (1024px–1535px) · Desktop+ (>=1536px)
+     TIER 2: SEMANTIC — Light
      ------------------------------------------------------------------------ */
-  --cmplt-container-desktop: 90rem;        /* 1440px — Standard Desktop max-width */
-  --cmplt-container-desktop-plus: 108rem;  /* 1728px — Desktop+ panoramic max-width */
-  --cmplt-gutter-mobile: 1.25rem;          /* 20px */
-  --cmplt-gutter-tablet: 2.5rem;           /* 40px */
-  --cmplt-gutter-desktop: 3.5rem;          /* 56px */
-  --cmplt-gutter-desktop-plus: 5rem;       /* 80px */
-  --cmplt-section-y-mobile: 4.5rem;        /* 72px */
-  --cmplt-section-y-tablet: 6.5rem;        /* 104px */
-  --cmplt-section-y-desktop: 8.5rem;       /* 136px */
-  --cmplt-section-y-desktop-plus: 10.5rem; /* 168px */
+  --bg-canvas: var(--neutral-100);
+  --bg-surface: var(--neutral-25);
+  --bg-elevated: var(--neutral-0);
+  --bg-subtle: var(--neutral-50);
+  --bg-muted: var(--neutral-200);
 
-  /* ------------------------------------------------------------------------
-     Z-AXIS ELEVATION TOKENS (Soft Ambient Diffused Shadows)
-     ------------------------------------------------------------------------ */
-  --cmplt-shadow-none: 0 0 #0000;
-  --cmplt-shadow-xs: 0 1px 2px 0 oklch(0.2 0.005 85 / 0.03);
-  --cmplt-shadow-sm: 0 4px 12px -2px oklch(0.2 0.005 85 / 0.05), 0 1px 3px -1px oklch(0.2 0.005 85 / 0.03);
-  --cmplt-shadow-md: 0 14px 34px -8px oklch(0.18 0.005 85 / 0.08), 0 4px 12px -3px oklch(0.18 0.005 85 / 0.04);
-  --cmplt-shadow-lg: 0 24px 60px -12px oklch(0.18 0.005 85 / 0.12), 0 8px 22px -6px oklch(0.18 0.005 85 / 0.05);
-  --cmplt-shadow-glow: 0 16px 40px -10px oklch(0.645 0.175 34 / 0.18);
+  --bg-brand: var(--brand-500);
+  --bg-brand-hover: var(--brand-600);
+  --bg-brand-subtle: var(--brand-50);
 
-  /* Motion Primitives — Natural, Soft & Tactile Curves */
-  --cmplt-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --cmplt-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --cmplt-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  --cmplt-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --cmplt-duration-instant: 90ms;
-  --cmplt-duration-fast: 150ms;
-  --cmplt-duration-normal: 240ms;
-  --cmplt-duration-slow: 360ms;
-  --cmplt-duration-liquid: 500ms;
+  --fg-primary: var(--neutral-950);
+  --fg-secondary: var(--neutral-600);
+  --fg-muted: var(--neutral-500);
+  --fg-on-brand: var(--neutral-0);
+  --fg-brand: var(--brand-500);
 
-  /* ------------------------------------------------------------------------
-     TIER 1 & 2: TYPOGRAPHY — Geist Variable + Liquid Dual-Scale (Utopia)
-     - Mobile (360px): 1.200 Minor Third (Base 15px / 0.9375rem)
-     - Desktop (1440px): 1.333 Perfect Fourth (Base 16px / 1.000rem)
-     - Hybrid Architecture: Editorial/Headings/Body scale fluidly via clamp(),
-       while dense App UI controls stay crisp on static rem tokens.
-     - Accessibility: All clamp() steps strictly obey max <= 1.85x min (< 2.5x WCAG limit).
-     ------------------------------------------------------------------------ */
-  --cmplt-scale-ratio-min: 1.2;
-  --cmplt-scale-ratio-max: 1.333;
-  --cmplt-viewport-min: 360px;
-  --cmplt-viewport-max: 1440px;
+  --border-subtle: var(--neutral-200);
+  --border-default: var(--neutral-300);
+  --border-strong: var(--neutral-400);
+  --border-brand: var(--brand-400);
 
-  /* Liquid Type Scale Steps (360px -> 1440px) */
-  --cmplt-step--2: 0.75rem;                                          /* 12px — Eyebrow / Overline */
-  --cmplt-step--1: 0.8125rem;                                        /* 13px — Caption / Small Copy */
-  --cmplt-step-0: clamp(0.9375rem, 0.9148rem + 0.0926vw, 1rem);      /* 15px -> 16px — Body Base */
-  --cmplt-step-1: clamp(1.0625rem, 0.9943rem + 0.2778vw, 1.25rem);   /* 17px -> 20px — Lead / H4 */
-  --cmplt-step-2: clamp(1.25rem, 1.1136rem + 0.5556vw, 1.625rem);    /* 20px -> 26px — Heading SM / H3 */
-  --cmplt-step-3: clamp(1.5rem, 1.25rem + 1.0185vw, 2.1875rem);      /* 24px -> 35px — Heading MD / H2 */
-  --cmplt-step-4: clamp(1.875rem, 1.4886rem + 1.5741vw, 2.9375rem);  /* 30px -> 47px — Heading LG / H1 */
-  --cmplt-step-5: clamp(2.25rem, 1.7045rem + 2.2222vw, 3.75rem);     /* 36px -> 60px — Display LG */
-  --cmplt-step-6: clamp(2rem, 1.0833rem + 4.0741vw, 4.75rem);       /* 32px -> 76px — Display XL / Hero */
+  --ring-focus: var(--brand-500);
 
-  /* Static App UI Control Scale (Pixel-aligned precision for buttons, inputs, tables) */
-  --cmplt-ui-2xs: 0.6875rem;                                         /* 11px — Badges, Kbd, Micro-tags */
-  --cmplt-ui-xs: 0.75rem;                                            /* 12px — Table headers, Field hints */
-  --cmplt-ui-sm: 0.8125rem;                                          /* 13px — Default Buttons, Inputs, Menus */
-  --cmplt-ui-md: 0.875rem;                                           /* 14px — Prominent Controls, Nav items */
-  --cmplt-ui-lg: 0.9375rem;                                          /* 15px — Large CTA pills */
+  --status-success: var(--success-500);
+  --status-success-bg: var(--success-50);
+  --status-warning: var(--warning-600);
+  --status-warning-bg: var(--warning-50);
+  --status-danger: var(--danger-600);
+  --status-danger-bg: var(--danger-50);
+  --status-info: var(--info-500);
+  --status-info-bg: var(--info-50);
 
-  /* Readability Guardrails: Optimal Line Length (Measure in ch units) */
-  --cmplt-measure-display: 18ch;   /* High-impact hero statements */
-  --cmplt-measure-heading: 28ch;   /* Section titles & H1-H3 */
-  --cmplt-measure-compact: 42ch;   /* Cards, sidebars, callouts, dialogs */
-  --cmplt-measure-lead: 54ch;      /* Introductory deck / lead paragraphs */
-  --cmplt-measure-body: 65ch;      /* Bringhurst optimal 60-70ch long-form prose */
+  /* Data series */
+  --data-1: var(--brand-500);
+  --data-2: var(--success-500);
+  --data-3: var(--warning-500);
+  --data-4: var(--danger-500);
+  --data-5: var(--info-500);
 
-  /* Optical Line-Height (Leading — tightens as font size increases) */
-  --cmplt-leading-display: 1.04;
-  --cmplt-leading-tight: 1.14;
-  --cmplt-leading-snug: 1.28;
-  --cmplt-leading-normal: 1.5;
-  --cmplt-leading-relaxed: 1.65;
-  --cmplt-leading-code: 1.6;
-
-  /* Optical Letter-Spacing (Tracking — negative for display, positive for caps) */
-  --cmplt-tracking-display: -0.035em;
-  --cmplt-tracking-tight: -0.024em;
-  --cmplt-tracking-snug: -0.015em;
-  --cmplt-tracking-normal: -0.005em;
-  --cmplt-tracking-ui: 0em;
-  --cmplt-tracking-wide: 0.025em;
-  --cmplt-tracking-eyebrow: 0.08em;
-
-  /* Variable Font Weight Tokens (Calibrated for Light Mode) */
-  --cmplt-weight-regular: 400;
-  --cmplt-weight-body: 400;
-  --cmplt-weight-medium: 500;
-  --cmplt-weight-semibold: 600;
-  --cmplt-weight-bold: 700;
-
-  /* ------------------------------------------------------------------------
-     TIER 2: SEMANTIC TOKENS — Light Mode (Warm Alabaster & Soft Stone)
-     Matches Reference Image 1 ("Manage Apps")
-     ------------------------------------------------------------------------ */
-  --bg-canvas: var(--cmplt-neutral-100);       /* #EEEEEC — Soft stone backdrop */
-  --bg-surface: var(--cmplt-neutral-25);       /* #FBFBF9 — Warm alabaster card */
-  --bg-elevated: var(--cmplt-neutral-0);       /* #FDFDFC — Inner elevated pane */
-  --bg-subtle: var(--cmplt-neutral-50);        /* #F5F5F3 — Sidebar / Search well */
-  --bg-muted: var(--cmplt-neutral-200);        /* #E5E5E3 — Track / Muted badge */
-  --bg-accent: var(--cmplt-coral-500);         /* #EA623F — Warm Coral CTA ("Done") */
-  --bg-accent-hover: var(--cmplt-coral-600);
-  --bg-accent-subtle: oklch(0.96 0.022 35);
-
-  --fg-primary: var(--cmplt-neutral-950);      /* #1F1F1E — Soft Charcoal (Not #000) */
-  --fg-secondary: var(--cmplt-neutral-600);    /* #666663 — Warm medium grey */
-  --fg-muted: var(--cmplt-neutral-500);        /* #8B8B88 — Section headers & captions */
-  --fg-on-accent: oklch(0.99 0.002 85);
-  --fg-accent: var(--cmplt-coral-500);
-
-  --border-subtle: var(--cmplt-neutral-200);   /* #E5E5E3 — Hairline divider */
-  --border-default: var(--cmplt-neutral-300);  /* #DADAD7 — Control contour */
-  --border-strong: oklch(0.81 0.005 85);
-  --border-accent: var(--cmplt-coral-400);     /* Active card highlight border */
-
-  --ring-focus: var(--cmplt-coral-500);
-
-  --status-success: var(--cmplt-jade-500);
-  --status-success-bg: oklch(0.955 0.025 162);
-  --status-warning: var(--cmplt-amber-600);
-  --status-warning-bg: oklch(0.955 0.03 80);
-  --status-danger: var(--cmplt-rose-600);
-  --status-danger-bg: oklch(0.955 0.025 22);
-  --status-info: var(--cmplt-indigo-500);
-  --status-info-bg: oklch(0.955 0.025 275);
+  /* shadcn compatibility (output aliases, never source) */
+  --background: var(--bg-canvas);
+  --foreground: var(--fg-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--fg-primary);
+  --popover: var(--bg-elevated);
+  --popover-foreground: var(--fg-primary);
+  --primary: var(--bg-brand);
+  --primary-foreground: var(--fg-on-brand);
+  --secondary: var(--bg-muted);
+  --secondary-foreground: var(--fg-primary);
+  --muted: var(--bg-muted);
+  --muted-foreground: var(--fg-muted);
+  --accent: var(--bg-subtle);
+  --accent-foreground: var(--fg-primary);
+  --destructive: var(--status-danger);
+  --border: var(--border-default);
+  --input: var(--border-default);
+  --ring: var(--ring-focus);
+  --chart-1: var(--data-1);
+  --chart-2: var(--data-2);
+  --chart-3: var(--data-3);
+  --chart-4: var(--data-4);
+  --chart-5: var(--data-5);
+  --sidebar: var(--bg-subtle);
+  --sidebar-foreground: var(--fg-primary);
+  --sidebar-primary: var(--bg-brand);
+  --sidebar-primary-foreground: var(--fg-on-brand);
+  --sidebar-accent: var(--bg-muted);
+  --sidebar-accent-foreground: var(--fg-primary);
+  --sidebar-border: var(--border-subtle);
+  --sidebar-ring: var(--ring-focus);
+  --radius: var(--radius-md);
 }
 
-/* ------------------------------------------------------------------------
-   TIER 2: SEMANTIC TOKENS — Dark Mode (Matte Graphite & Forest Jade)
-   Matches Reference Image 2 ("View Engagement")
-   No pitch black! Lives in L = 0.242 -> 0.332 warm graphite range.
-   ------------------------------------------------------------------------ */
 .dark {
-  /* Optical Dark-Mode Anti-Halation Weight Compensation (Geist Variable wght) */
-  --cmplt-weight-body: 380;
-  --cmplt-weight-medium: 485;
-  --cmplt-weight-semibold: 585;
-  --cmplt-weight-bold: 685;
+  --weight-body: 380;
+  --weight-medium: 485;
+  --weight-semibold: 585;
+  --weight-bold: 685;
 
-  --bg-canvas: var(--cmplt-neutral-950);       /* #1F1F1E — Matte warm graphite canvas */
-  --bg-surface: var(--cmplt-neutral-900);      /* #262625 — Outer shell ("View Engagement") */
-  --bg-elevated: var(--cmplt-neutral-800);     /* #2E2E2D — Inner elevated card ("Product Design") */
-  --bg-subtle: var(--cmplt-neutral-850);       /* #2A2A29 — Grouped key-value table box */
-  --bg-muted: oklch(0.322 0.005 60);           /* #343231 — Subtle alert banner background */
-  --bg-accent: var(--cmplt-jade-500);          /* #007A5A — Deep Forest Jade ("✓ Accept") */
-  --bg-accent-hover: var(--cmplt-jade-400);
-  --bg-accent-subtle: oklch(0.28 0.035 162);
+  --bg-canvas: var(--neutral-950);
+  --bg-surface: var(--neutral-900);
+  --bg-elevated: var(--neutral-800);
+  --bg-subtle: var(--neutral-850);
+  --bg-muted: var(--neutral-750);
 
-  --fg-primary: oklch(0.915 0.003 85);         /* #E4E4E2 — Soft off-white (Not #FFF) */
-  --fg-secondary: oklch(0.735 0.004 85);       /* #A9A9A6 — Secondary values */
-  --fg-muted: oklch(0.615 0.004 85);           /* #858582 — Muted keys ("Hourly Rate", "Job") */
-  --fg-on-accent: oklch(0.965 0.002 85);
-  --fg-accent: oklch(0.68 0.13 162);
+  --bg-brand: var(--brand-500);
+  --bg-brand-hover: var(--brand-400);
+  --bg-brand-subtle: var(--brand-900);
 
-  /* Low-contrast graphite hairlines */
-  --border-subtle: var(--cmplt-neutral-750);   /* #353534 — 1px row dividers */
-  --border-default: var(--cmplt-neutral-700);  /* #3D3D3B — Grouped box & button border */
-  --border-strong: oklch(0.42 0.005 85);
-  --border-accent: var(--cmplt-jade-400);
+  --fg-primary: var(--neutral-100);
+  --fg-secondary: var(--neutral-400);
+  --fg-muted: var(--neutral-500);
+  --fg-on-brand: var(--neutral-0);
+  --fg-brand: var(--brand-400);
 
-  --ring-focus: var(--cmplt-jade-400);
+  --border-subtle: var(--neutral-750);
+  --border-default: var(--neutral-700);
+  --border-strong: var(--neutral-600);
+  --border-brand: var(--brand-400);
 
-  --status-success: oklch(0.64 0.135 162);
-  --status-success-bg: oklch(0.28 0.035 162);
-  --status-warning: oklch(0.78 0.15 82);
-  --status-warning-bg: oklch(0.32 0.015 65);
-  --status-danger: oklch(0.65 0.18 22);
-  --status-danger-bg: oklch(0.29 0.04 22);
-  --status-info: oklch(0.68 0.15 275);
-  --status-info-bg: oklch(0.29 0.04 275);
+  --ring-focus: var(--brand-400);
 
-  /* Soft ambient elevation in Dark Graphite */
-  --cmplt-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.18);
-  --cmplt-shadow-sm: 0 4px 12px -2px oklch(0 0 0 / 0.25);
-  --cmplt-shadow-md: 0 16px 36px -8px oklch(0 0 0 / 0.38), 0 4px 12px -4px oklch(0 0 0 / 0.24);
-  --cmplt-shadow-lg: 0 28px 64px -14px oklch(0 0 0 / 0.52), 0 10px 24px -6px oklch(0 0 0 / 0.32);
-  --cmplt-shadow-glow: 0 18px 44px -12px oklch(0.515 0.115 162 / 0.22);
-}
+  --status-success: var(--success-400);
+  --status-success-bg: var(--success-900);
+  --status-warning: var(--warning-400);
+  --status-warning-bg: var(--warning-900);
+  --status-danger: var(--danger-400);
+  --status-danger-bg: var(--danger-900);
+  --status-info: var(--info-400);
+  --status-info-bg: var(--info-900);
 
-/* ------------------------------------------------------------------------
-   LIVE THEME PRESETS (Allowing Coral, Jade, or Indigo in either mode)
-   ------------------------------------------------------------------------ */
-[data-theme-preset="editorial"] {
-  --bg-accent: var(--cmplt-coral-500);
-  --bg-accent-hover: var(--cmplt-coral-600);
-  --fg-accent: var(--cmplt-coral-500);
-  --border-accent: var(--cmplt-coral-400);
-  --ring-focus: var(--cmplt-coral-500);
-}
-.dark[data-theme-preset="editorial"],
-[data-theme-preset="editorial"] .dark {
-  --bg-accent: var(--cmplt-coral-500);
-  --bg-accent-hover: var(--cmplt-coral-400);
-  --fg-accent: var(--cmplt-coral-400);
-  --border-accent: var(--cmplt-coral-400);
+  --data-1: var(--brand-400);
+  --data-2: var(--success-400);
+  --data-3: var(--warning-400);
+  --data-4: var(--danger-400);
+  --data-5: var(--info-400);
+
+  --elevation-xs: 0 1px 2px 0 oklch(0 0 0 / 0.18);
+  --elevation-sm: 0 4px 12px -2px oklch(0 0 0 / 0.25);
+  --elevation-md: 0 16px 36px -8px oklch(0 0 0 / 0.38), 0 4px 12px -4px oklch(0 0 0 / 0.24);
+  --elevation-lg: 0 28px 64px -14px oklch(0 0 0 / 0.52), 0 10px 24px -6px oklch(0 0 0 / 0.32);
+  --elevation-glow: 0 18px 44px -12px oklch(0.645 0.175 34 / 0.22);
+  --shadow-none: var(--elevation-none);
+  --shadow-xs: var(--elevation-xs);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+  --shadow-glow: var(--elevation-glow);
+
 }
 
-[data-theme-preset="emerald"] {
-  --bg-accent: var(--cmplt-jade-500);
-  --bg-accent-hover: var(--cmplt-jade-600);
-  --fg-accent: var(--cmplt-jade-500);
-  --border-accent: var(--cmplt-jade-400);
-  --ring-focus: var(--cmplt-jade-500);
-}
-.dark[data-theme-preset="emerald"],
-[data-theme-preset="emerald"] .dark {
-  --bg-accent: var(--cmplt-jade-500);
-  --bg-accent-hover: var(--cmplt-jade-400);
-  --fg-accent: oklch(0.68 0.13 162);
-  --border-accent: var(--cmplt-jade-400);
-}
-
-/* Explicit Radius Overrides for Live Customizer */
-[data-radius="none"] {
-  --cmplt-radius-base: 0rem;
-}
-[data-radius="sm"] {
-  --cmplt-radius-base: 0.375rem;
-}
-[data-radius="md"] {
-  --cmplt-radius-base: 0.5rem;
-}
-[data-radius="lg"] {
-  --cmplt-radius-base: 0.625rem;
-}
-[data-radius="xl"] {
-  --cmplt-radius-base: 0.75rem;
-}
+/* Radius overrides for live customizer */
+[data-radius="none"] { --radius-base: 0rem; --radius: 0rem; }
+[data-radius="sm"] { --radius-base: 0.375rem; --radius: 0.375rem; }
+[data-radius="md"] { --radius-base: 0.5rem; --radius: 0.5rem; }
+[data-radius="lg"] { --radius-base: 0.625rem; --radius: 0.625rem; }
+[data-radius="xl"] { --radius-base: 0.75rem; --radius: 0.75rem; }

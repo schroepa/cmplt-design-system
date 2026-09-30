@@ -10,7 +10,7 @@ import { cn } from "@/registry/cmplt/lib/utils";
 const globalToastManager = BaseToast.createToastManager();
 
 const toastVariants = cva(
-  "cmplt-overlay-popup group pointer-events-auto relative flex w-full items-start gap-3 overflow-hidden rounded-cmplt-panel border p-4 shadow-cmplt-lg transition-all duration-200 ease-cmplt-out data-[swiping]:transition-none",
+  "cmplt-overlay-popup group pointer-events-auto relative flex w-full items-start gap-3 overflow-hidden rounded-panel border p-4 shadow-lg transition-all duration-200 ease-out data-[swiping]:transition-none",
   {
     variants: {
       variant: {
@@ -113,7 +113,7 @@ export function Toaster({
               </div>
               <BaseToast.Close
                 aria-label="Dismiss toast"
-                className="inline-flex h-5 w-5 shrink-0 cursor-pointer items-center justify-center rounded-cmplt-sm text-fg-muted transition-colors hover:bg-subtle hover:text-fg-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring-focus"
+                className="inline-flex h-5 w-5 shrink-0 cursor-pointer items-center justify-center rounded-sm text-fg-muted transition-colors hover:bg-subtle hover:text-fg-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring-focus"
               >
                 <X className="h-3 w-3" />
               </BaseToast.Close>

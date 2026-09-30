@@ -20,27 +20,27 @@ import {
 import { cn } from "@/registry/cmplt/lib/utils";
 
 const INITIAL_INSTALLED_APPS = [
-  { id: "links", name: "Links", icon: Link2, color: "bg-blue-600 text-white", count: 1 },
-  { id: "forums", name: "Forums", icon: MessageSquare, color: "bg-indigo-500 text-white", count: 1 },
-  { id: "courses", name: "Courses", icon: GraduationCap, color: "bg-violet-500 text-white", count: 1 },
-  { id: "suggestions", name: "Suggestions", icon: Lightbulb, color: "bg-amber-100 text-amber-800 border border-amber-300", count: 1 },
-  { id: "tickets", name: "Tickets", icon: Ticket, color: "bg-sky-100 text-sky-700 border border-sky-300", count: 1 },
+  { id: "links", name: "Links", icon: Link2, color: "bg-data-5 text-fg-on-brand", count: 1 },
+  { id: "forums", name: "Forums", icon: MessageSquare, color: "bg-info-500 text-fg-on-brand", count: 1 },
+  { id: "courses", name: "Courses", icon: GraduationCap, color: "bg-data-1 text-fg-on-brand", count: 1 },
+  { id: "suggestions", name: "Suggestions", icon: Lightbulb, color: "bg-status-warning-bg text-status-warning border border-status-warning/30", count: 1 },
+  { id: "tickets", name: "Tickets", icon: Ticket, color: "bg-status-info-bg text-status-info border border-status-info/30", count: 1 },
 ];
 
 const ALL_READY_APPS = [
-  { id: "community", name: "Community", icon: Users, color: "bg-rose-100 text-rose-600" },
-  { id: "chat", name: "Chat", icon: MessageSquare, color: "bg-[#EA623F] text-white" },
-  { id: "calendar", name: "Calendar Booking", icon: Calendar, color: "bg-orange-100 text-orange-600" },
-  { id: "blog", name: "Blog", icon: PenTool, color: "bg-indigo-100 text-indigo-600" },
+  { id: "community", name: "Community", icon: Users, color: "bg-status-danger-bg text-status-danger" },
+  { id: "chat", name: "Chat", icon: MessageSquare, color: "bg-brand text-fg-on-brand" },
+  { id: "calendar", name: "Calendar Booking", icon: Calendar, color: "bg-status-warning-bg text-status-warning" },
+  { id: "blog", name: "Blog", icon: PenTool, color: "bg-status-info-bg text-status-info" },
 ];
 
 /**
- * AppManagerBlock — Implements the exact multi-pane window architecture from the Light Mode reference:
- * - Soft Alabaster Shell (#FBFBF9 in Light / #262625 in Dark) with 24px radius & top grab handle
- * - Left Sidebar (#F5F5F3 in Light) with GSAP HighlightInput Pill Search, Squircle App Icons, Indigo Count Circles & Coral "+ ADD"
- * - Center Editorial Pane with generous whitespace and clear typographic hierarchy
- * - Right Nested Preview Card with active Coral border highlight ("Suggestions App")
- * - Frosted Bottom Action Bar with GSAP AnimatedCtaButton "Save Changes" Pill Button
+ * AppManagerBlock — Multi-pane window architecture:
+ * - Shell: bg-surface, rounded-xl, grab handle
+ * - Left Sidebar: HighlightInput search, squircle app icons, brand count badges & "+ ADD"
+ * - Center editorial pane with typographic hierarchy
+ * - Right nested preview with active border-brand highlight
+ * - Bottom action bar with AnimatedCtaButton "Save Changes"
  */
 export function AppManagerBlock() {
   const [search, setSearch] = React.useState("");
@@ -72,7 +72,7 @@ export function AppManagerBlock() {
   };
 
   return (
-    <div className="w-full overflow-hidden rounded-cmplt-xl border border-border-default bg-surface shadow-cmplt-lg">
+    <div className="w-full overflow-hidden rounded-xl border border-border-default bg-surface shadow-lg">
       <div className="grid lg:grid-cols-12">
         {/* Left Sidebar: GSAP Highlight Pill Search + Installed & Ready Apps */}
         <div className="lg:col-span-4 2xl:col-span-3 border-b lg:border-b-0 lg:border-r border-border-subtle bg-subtle/75 p-3.5 sm:p-6 lg:p-7 2xl:p-8 space-y-4 sm:space-y-6">
@@ -104,17 +104,17 @@ export function AppManagerBlock() {
                       type="button"
                       onClick={() => setSelectedApp(app.id)}
                       className={cn(
-                        "flex w-full items-center justify-between rounded-cmplt-lg-inner-sm p-1.5 pr-3 text-left text-xs transition-colors cursor-pointer",
+                        "flex w-full items-center justify-between rounded-lg-inner-sm p-1.5 pr-3 text-left text-xs transition-colors cursor-pointer",
                         isSelected
-                          ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                          ? "bg-surface text-fg-primary shadow-xs"
                           : "text-fg-secondary hover:bg-surface/60 hover:text-fg-primary"
                       )}
                     >
                       <span className="flex items-center gap-3">
-                        {/* Concentric Icon: Row (12px) - Padding (6px) = 6px (rounded-cmplt-xs) */}
+                        {/* Concentric Icon: Row (12px) - Padding (6px) = 6px (rounded-xs) */}
                         <span
                           className={cn(
-                            "flex h-7 w-7 items-center justify-center rounded-cmplt-xs shadow-cmplt-xs",
+                            "flex h-7 w-7 items-center justify-center rounded-xs shadow-xs",
                             app.color
                           )}
                         >
@@ -124,7 +124,7 @@ export function AppManagerBlock() {
                           {app.name}
                         </span>
                       </span>
-                      <span className="flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[var(--cmplt-indigo-500)] text-[10px] font-semibold text-white cmplt-tabular">
+                      <span className="flex h-4.5 w-4.5 items-center justify-center rounded-full bg-[var(--info-500)] text-[10px] font-semibold text-white cmplt-tabular">
                         {app.count}
                       </span>
                     </button>
@@ -146,12 +146,12 @@ export function AppManagerBlock() {
                     return (
                       <div
                         key={app.id}
-                        className="flex items-center justify-between rounded-cmplt-lg-inner-sm p-1.5 pr-2.5 text-xs"
+                        className="flex items-center justify-between rounded-lg-inner-sm p-1.5 pr-2.5 text-xs"
                       >
                         <span className="flex items-center gap-3">
                           <span
                             className={cn(
-                              "flex h-7 w-7 items-center justify-center rounded-cmplt-xs",
+                              "flex h-7 w-7 items-center justify-center rounded-xs",
                               app.color
                             )}
                           >
@@ -169,7 +169,7 @@ export function AppManagerBlock() {
                             "inline-flex items-center gap-0.5 text-[11px] font-semibold cursor-pointer transition-opacity",
                             isAdded
                               ? "text-status-success opacity-75"
-                              : "text-[var(--cmplt-coral-500)] hover:opacity-80"
+                              : "text-[var(--brand-500)] hover:opacity-80"
                           )}
                         >
                           {isAdded ? (
@@ -232,18 +232,18 @@ export function AppManagerBlock() {
             </div>
 
             {/* Right Nested Card (Concentric: 16px Card -> 10px Row -> 4.5px Icon) */}
-            <div className="md:col-span-6 2xl:col-span-7 rounded-cmplt-xl-inner-sm border border-border-subtle bg-elevated p-3 sm:p-4 2xl:p-5 shadow-cmplt-xs">
+            <div className="md:col-span-6 2xl:col-span-7 rounded-xl-inner-sm border border-border-subtle bg-elevated p-3 sm:p-4 2xl:p-5 shadow-xs">
               <div className="flex gap-3 sm:gap-4 2xl:gap-5">
-                {/* Mini Icon Rail (16px Card - 10px p-2.5 = 6px rounded-cmplt-xs) */}
+                {/* Mini Icon Rail (16px Card - 10px p-2.5 = 6px rounded-xs) */}
                 <div className="flex flex-col items-center gap-2.5 border-r border-border-subtle pr-3 sm:pr-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-cmplt-xs text-[var(--cmplt-coral-500)] font-bold text-xs">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xs text-[var(--brand-500)] font-bold text-xs">
                     ✦
                   </span>
-                  <span className="flex h-8 w-8 items-center justify-center rounded-cmplt-xs bg-subtle text-fg-primary">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xs bg-subtle text-fg-primary">
                     <Home className="h-4 w-4" />
                   </span>
-                  <span className="h-8 w-8 rounded-cmplt-xs bg-subtle/60" />
-                  <span className="h-8 w-8 rounded-cmplt-xs bg-subtle/60" />
+                  <span className="h-8 w-8 rounded-xs bg-subtle/60" />
+                  <span className="h-8 w-8 rounded-xs bg-subtle/60" />
                 </div>
 
                 {/* Your Apps Selection List */}
@@ -261,16 +261,16 @@ export function AppManagerBlock() {
                           type="button"
                           onClick={() => setSelectedApp(app.id)}
                           className={cn(
-                            "flex w-full items-center gap-2.5 sm:gap-3 rounded-cmplt-md p-2 pr-3 text-left text-xs transition-all cursor-pointer border min-w-0",
+                            "flex w-full items-center gap-2.5 sm:gap-3 rounded-md p-2 pr-3 text-left text-xs transition-all cursor-pointer border min-w-0",
                             isActive
-                              ? "border-[var(--cmplt-coral-500)] bg-surface shadow-cmplt-xs"
+                              ? "border-[var(--brand-500)] bg-surface shadow-xs"
                               : "border-transparent hover:bg-subtle/60"
                           )}
                         >
-                          {/* Concentric Icon: Row (10px) - Padding (5.5px) = 4.5px (rounded-cmplt-2xs) */}
+                          {/* Concentric Icon: Row (10px) - Padding (5.5px) = 4.5px (rounded-2xs) */}
                           <span
                             className={cn(
-                              "flex h-6 w-6 items-center justify-center rounded-cmplt-2xs shrink-0",
+                              "flex h-6 w-6 items-center justify-center rounded-2xs shrink-0",
                               app.color
                             )}
                           >

@@ -51,14 +51,14 @@ export function DashboardShellBlock() {
   ];
 
   return (
-    <div className="flex h-[520px] w-full overflow-hidden rounded-cmplt-panel border border-border-default bg-surface shadow-cmplt-md">
+    <div className="flex h-[520px] w-full overflow-hidden rounded-panel border border-border-default bg-surface shadow-md">
       {/* Sidebar */}
       <aside className="w-56 shrink-0 border-r border-border-subtle bg-subtle/40 flex flex-col justify-between p-3">
         <div className="space-y-4">
           {/* Workspace Switcher */}
-          <div className="flex items-center justify-between rounded-cmplt-md border border-border-subtle bg-surface p-2 shadow-cmplt-xs">
+          <div className="flex items-center justify-between rounded-md border border-border-subtle bg-surface p-2 shadow-xs">
             <div className="flex items-center gap-2">
-              <div className="flex size-7 items-center justify-center rounded bg-accent text-accent-fg font-mono text-xs font-bold">
+              <div className="flex size-7 items-center justify-center rounded bg-brand text-brand-fg font-mono text-xs font-bold">
                 C
               </div>
               <div className="text-left">
@@ -78,9 +78,9 @@ export function DashboardShellBlock() {
                 <button
                   key={item.id}
                   onClick={() => setActiveTab(item.id)}
-                  className={`flex w-full items-center justify-between px-2.5 py-1.5 rounded-cmplt-sm text-xs font-medium transition-colors ${
+                  className={`flex w-full items-center justify-between px-2.5 py-1.5 rounded-sm text-xs font-medium transition-colors ${
                     isActive
-                      ? "bg-accent/10 text-accent font-semibold"
+                      ? "bg-brand/10 text-brand font-semibold"
                       : "text-fg-secondary hover:text-fg hover:bg-subtle"
                   }`}
                 >
@@ -146,7 +146,7 @@ export function DashboardShellBlock() {
 
             <Button variant="outline" size="sm" className="size-8 p-0 relative">
               <Bell className="size-3.5" />
-              <span className="absolute top-1 right-1 size-1.5 rounded-full bg-accent" />
+              <span className="absolute top-1 right-1 size-1.5 rounded-full bg-brand" />
             </Button>
 
             <DropdownMenu>
@@ -163,7 +163,7 @@ export function DashboardShellBlock() {
                 <DropdownMenuItem>Account Settings</DropdownMenuItem>
                 <DropdownMenuItem>API Keys</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="text-rose-600 dark:text-rose-400 gap-2">
+                <DropdownMenuItem className="text-status-danger gap-2">
                   <LogOut className="size-3.5" />
                   <span>Log out</span>
                 </DropdownMenuItem>
@@ -183,17 +183,17 @@ export function DashboardShellBlock() {
           </div>
 
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-cmplt-md border border-border-subtle bg-surface p-3 space-y-1">
+            <div className="rounded-md border border-border-subtle bg-surface p-3 space-y-1">
               <span className="text-[11px] text-fg-muted">Active Workers</span>
               <div className="font-mono text-xl font-bold text-fg">128</div>
             </div>
-            <div className="rounded-cmplt-md border border-border-subtle bg-surface p-3 space-y-1">
+            <div className="rounded-md border border-border-subtle bg-surface p-3 space-y-1">
               <span className="text-[11px] text-fg-muted">Health Check</span>
-              <div className="font-mono text-xl font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+              <div className="font-mono text-xl font-bold text-status-success flex items-center gap-1">
                 <CheckCircle2 className="size-4" /> 100%
               </div>
             </div>
-            <div className="rounded-cmplt-md border border-border-subtle bg-surface p-3 space-y-1">
+            <div className="rounded-md border border-border-subtle bg-surface p-3 space-y-1">
               <span className="text-[11px] text-fg-muted">Requests / min</span>
               <div className="font-mono text-xl font-bold text-fg">84.2k</div>
             </div>

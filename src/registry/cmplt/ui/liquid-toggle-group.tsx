@@ -207,7 +207,7 @@ export const LiquidToggleGroup = React.forwardRef<HTMLDivElement, LiquidToggleGr
             // @ts-expect-error Base UI variance
             onValueChange={setValue}
             className={cn(
-              "relative inline-flex items-center justify-center rounded-cmplt-full bg-subtle border border-border-subtle select-none",
+              "relative inline-flex items-center justify-center rounded-full bg-subtle border border-border-subtle select-none",
               sizeClasses,
               className
             )}
@@ -216,16 +216,16 @@ export const LiquidToggleGroup = React.forwardRef<HTMLDivElement, LiquidToggleGr
             {/* Gooey Layer */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-cmplt-full overflow-hidden"
+              className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
               style={{ filter: `url(#${filterId})` }}
             >
               <span
                 ref={mainPillRef}
-                className="absolute left-0 top-0 rounded-cmplt-full bg-surface shadow-cmplt-xs opacity-0"
+                className="absolute left-0 top-0 rounded-full bg-surface shadow-xs opacity-0"
               />
               <span
                 ref={trailPillRef}
-                className="absolute left-0 top-0 rounded-cmplt-full bg-surface opacity-0"
+                className="absolute left-0 top-0 rounded-full bg-surface opacity-0"
               />
             </div>
 
@@ -284,7 +284,7 @@ export const LiquidToggleGroupItem = React.forwardRef<
         }
       }}
       className={cn(
-        "relative inline-flex items-center justify-center whitespace-nowrap rounded-cmplt-full px-3.5 py-1 text-xs font-medium text-fg-muted transition-colors duration-200 ease-cmplt-out cursor-pointer select-none active:scale-[0.97] hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[pressed]:text-fg-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-45 [&_svg]:h-3.5 [&_svg]:w-3.5",
+        "relative inline-flex items-center justify-center whitespace-nowrap rounded-full px-3.5 py-1 text-xs font-medium text-fg-muted transition-colors duration-200 ease-out cursor-pointer select-none active:scale-[0.97] hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus data-[pressed]:text-fg-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-45 [&_svg]:h-3.5 [&_svg]:w-3.5",
         className
       )}
       {...props}

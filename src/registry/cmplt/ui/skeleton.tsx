@@ -9,7 +9,7 @@ function Skeleton({ className, shimmer = true, ...props }: SkeletonProps) {
   return (
     <div
       className={cn(
-        "rounded-cmplt-sm bg-subtle/85",
+        "rounded-sm bg-subtle/85",
         shimmer && "animate-pulse",
         className
       )}
@@ -73,7 +73,7 @@ function SkeletonAvatar({
   }[size];
 
   const shapeClass =
-    shape === "circle" ? "rounded-cmplt-full" : "rounded-cmplt-md";
+    shape === "circle" ? "rounded-full" : "rounded-md";
 
   return (
     <Skeleton

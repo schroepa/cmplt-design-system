@@ -37,13 +37,13 @@ const AccordionTrigger = React.forwardRef<
     <BaseAccordion.Trigger
       ref={ref}
       className={cn(
-        "group flex flex-1 items-center justify-between py-4 text-left text-sm font-medium text-fg-primary transition-colors duration-200 ease-cmplt-out cursor-pointer hover:text-fg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-cmplt-xs",
+        "group flex flex-1 items-center justify-between py-4 text-left text-sm font-medium text-fg-primary transition-colors duration-200 ease-out cursor-pointer hover:text-fg-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus rounded-xs",
         className
       )}
       {...props}
     >
       {children}
-      <ChevronDown className="h-4 w-4 shrink-0 text-fg-muted transition-transform duration-300 ease-cmplt-out group-data-[panel-open]:rotate-180 group-data-[open]:rotate-180" />
+      <ChevronDown className="h-4 w-4 shrink-0 text-fg-muted transition-transform duration-300 ease-out group-data-[panel-open]:rotate-180 group-data-[open]:rotate-180" />
     </BaseAccordion.Trigger>
   </BaseAccordion.Header>
 ));

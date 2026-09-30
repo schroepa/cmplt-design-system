@@ -14,10 +14,13 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-tokens-studio.mjs && node scripts/build-registry.mjs && next build",
+    "build": "node scripts/build-tokens-studio.mjs && node scripts/build-registry.mjs && node scripts/validate-registry.mjs && next build",
     "start": "next start",
     "lint": "next lint",
-    "registry:build": "node scripts/build-tokens-studio.mjs && node scripts/build-registry.mjs"
+    "test": "node scripts/validate-registry.mjs && node scripts/figma-tokens-parity.mjs",
+    "registry:build": "node scripts/build-tokens-studio.mjs && node scripts/build-registry.mjs",
+    "registry:validate": "node scripts/validate-registry.mjs",
+    "tokens:figma-parity": "node scripts/figma-tokens-parity.mjs"
   },
   "dependencies": {
     "@base-ui/react": "latest",

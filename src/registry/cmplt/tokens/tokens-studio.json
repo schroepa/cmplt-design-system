@@ -116,13 +116,13 @@
       },
       "700": {
         "$type": "color",
-        "$value": "#007a5a",
-        "$description": "OKLCH Brand Step 700: oklch(0.515 0.115 162)"
+        "$value": "#b53f22",
+        "$description": "OKLCH Brand Step 700: oklch(0.51 0.15 34)"
       },
       "800": {
         "$type": "color",
-        "$value": "#5e5ce6",
-        "$description": "OKLCH Brand Step 800: oklch(0.57 0.19 275)"
+        "$value": "#8a3019",
+        "$description": "OKLCH Brand Step 800: oklch(0.43 0.12 34)"
       },
       "900": {
         "$type": "color",
@@ -168,56 +168,98 @@
       "canvas": {
         "$type": "color",
         "$value": "#eeeeec",
-        "$description": "Soft warm stone (Light) / Matte graphite (Dark) canvas — never pure white or black (Light: #eeeeec (oklch 0.950))"
+        "$description": "Page canvas (Light: #eeeeec (oklch 0.950))"
       },
       "surface": {
         "$type": "color",
         "$value": "#fbfbf9",
-        "$description": "Primary card shell surface (Light: #fbfbf9 (oklch 0.985))"
+        "$description": "Primary card shell (Light: #fbfbf9 (oklch 0.985))"
       },
       "elevated": {
         "$type": "color",
         "$value": "#fdfdfc",
-        "$description": "Nested inner panel ('Product Design' pane) & floating overlays (Light: #fdfdfc (oklch 0.992))"
+        "$description": "Elevated panel (Light: #fdfdfc (oklch 0.992))"
       },
       "subtle": {
         "$type": "color",
         "$value": "#f5f5f3",
-        "$description": "Left sidebar pane (Light) & inset grouped key-value boxes (Dark) (Light: #f5f5f3 (oklch 0.968))"
+        "$description": "Inset / hover surface (Light: #f5f5f3 (oklch 0.968))"
       },
-      "accent": {
+      "muted": {
+        "$type": "color",
+        "$value": "#e5e5e3",
+        "$description": "Muted track (Light: #e5e5e3 (oklch 0.922))"
+      },
+      "brand": {
         "$type": "color",
         "$value": "#ea623f",
-        "$description": "Primary action surface ('Done' Coral pill in Light, 'Accept' Jade button in Dark) (Light: #ea623f (Warm Coral))"
+        "$description": "Brand fill (same ramp both modes) (Light: #ea623f (oklch 0.645))"
+      },
+      "brand-hover": {
+        "$type": "color",
+        "$value": "#d44f2d",
+        "$description": "Brand hover (Light: #d44f2d)"
+      },
+      "brand-subtle": {
+        "$type": "color",
+        "$value": "#fdf0ed",
+        "$description": "Brand subtle (Light: #fdf0ed)"
       }
     },
     "fg": {
       "primary": {
         "$type": "color",
         "$value": "#1f1f1e",
-        "$description": "Soft charcoal (Light) & warm off-white (Dark) primary text (Light: #1f1f1e (oklch 0.242))"
+        "$description": "Primary text (Light: #1f1f1e (oklch 0.242))"
       },
       "secondary": {
         "$type": "color",
         "$value": "#666663",
-        "$description": "Supporting descriptions and secondary values (Light: #666663 (oklch 0.510))"
+        "$description": "Secondary text (Light: #666663)"
       },
       "muted": {
         "$type": "color",
         "$value": "#8b8b88",
-        "$description": "Key-value labels ('Hourly Rate', 'Location') and section headers (Light: #8b8b88 (oklch 0.635))"
+        "$description": "Muted text (Light: #8b8b88)"
+      },
+      "on-brand": {
+        "$type": "color",
+        "$value": "#fdfdfc",
+        "$description": "Text on brand (Light: #fdfdfc)"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "#ea623f",
+        "$description": "Brand as text (Light: #ea623f)"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
         "$value": "#e5e5e3",
-        "$description": "Delicate 1px row dividers inside grouped lists and cards (Light: #e5e5e3 (oklch 0.922))"
+        "$description": "Hairline (Light: #e5e5e3)"
       },
       "default": {
         "$type": "color",
         "$value": "#dadad7",
-        "$description": "Card contours, search fields, and grouped table borders (Light: #dadad7 (oklch 0.882))"
+        "$description": "Default border (Light: #dadad7)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "#adadaa",
+        "$description": "Strong border (Light: #adadaa)"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "#ec7657",
+        "$description": "Brand border (Light: #ec7657)"
+      }
+    },
+    "ring": {
+      "focus": {
+        "$type": "color",
+        "$value": "#ea623f",
+        "$description": "Focus ring (Light: #ea623f)"
       }
     }
   },
@@ -226,56 +268,98 @@
       "canvas": {
         "$type": "color",
         "$value": "#1f1f1e",
-        "$description": "Soft warm stone (Light) / Matte graphite (Dark) canvas — never pure white or black (Dark: #1f1f1e (oklch 0.242))"
+        "$description": "Page canvas (Dark: #1f1f1e (oklch 0.242))"
       },
       "surface": {
         "$type": "color",
         "$value": "#262625",
-        "$description": "Primary card shell surface (Dark: #262625 (oklch 0.270))"
+        "$description": "Primary card shell (Dark: #262625 (oklch 0.270))"
       },
       "elevated": {
         "$type": "color",
         "$value": "#2e2e2d",
-        "$description": "Nested inner panel ('Product Design' pane) & floating overlays (Dark: #2e2e2d (oklch 0.304))"
+        "$description": "Elevated panel (Dark: #2e2e2d (oklch 0.304))"
       },
       "subtle": {
         "$type": "color",
         "$value": "#2a2a29",
-        "$description": "Left sidebar pane (Light) & inset grouped key-value boxes (Dark) (Dark: #2a2a29 (oklch 0.286))"
+        "$description": "Inset / hover surface (Dark: #2a2a29 (oklch 0.286))"
       },
-      "accent": {
+      "muted": {
         "$type": "color",
-        "$value": "#007a5a",
-        "$description": "Primary action surface ('Done' Coral pill in Light, 'Accept' Jade button in Dark) (Dark: #007a5a (Forest Jade))"
+        "$value": "#353534",
+        "$description": "Muted track (Dark: #353534 (oklch 0.332))"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "#ea623f",
+        "$description": "Brand fill (same ramp both modes) (Dark: #ea623f (oklch 0.645))"
+      },
+      "brand-hover": {
+        "$type": "color",
+        "$value": "#ec7657",
+        "$description": "Brand hover (Dark: #ec7657)"
+      },
+      "brand-subtle": {
+        "$type": "color",
+        "$value": "#5c2516",
+        "$description": "Brand subtle (Dark: #5c2516)"
       }
     },
     "fg": {
       "primary": {
         "$type": "color",
-        "$value": "#e4e4e2",
-        "$description": "Soft charcoal (Light) & warm off-white (Dark) primary text (Dark: #e4e4e2 (oklch 0.915))"
+        "$value": "#eeeeec",
+        "$description": "Primary text (Dark: #eeeeec (oklch 0.950))"
       },
       "secondary": {
         "$type": "color",
-        "$value": "#a9a9a6",
-        "$description": "Supporting descriptions and secondary values (Dark: #a9a9a6 (oklch 0.735))"
+        "$value": "#adadaa",
+        "$description": "Secondary text (Dark: #adadaa)"
       },
       "muted": {
         "$type": "color",
-        "$value": "#858582",
-        "$description": "Key-value labels ('Hourly Rate', 'Location') and section headers (Dark: #858582 (oklch 0.615))"
+        "$value": "#8b8b88",
+        "$description": "Muted text (Dark: #8b8b88)"
+      },
+      "on-brand": {
+        "$type": "color",
+        "$value": "#fdfdfc",
+        "$description": "Text on brand (Dark: #fdfdfc)"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "#ec7657",
+        "$description": "Brand as text (Dark: #ec7657)"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
         "$value": "#353534",
-        "$description": "Delicate 1px row dividers inside grouped lists and cards (Dark: #353534 (oklch 0.332))"
+        "$description": "Hairline (Dark: #353534)"
       },
       "default": {
         "$type": "color",
         "$value": "#3d3d3b",
-        "$description": "Card contours, search fields, and grouped table borders (Dark: #3d3d3b (oklch 0.360))"
+        "$description": "Default border (Dark: #3d3d3b)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "#666663",
+        "$description": "Strong border (Dark: #666663)"
+      },
+      "brand": {
+        "$type": "color",
+        "$value": "#ec7657",
+        "$description": "Brand border (Dark: #ec7657)"
+      }
+    },
+    "ring": {
+      "focus": {
+        "$type": "color",
+        "$value": "#ec7657",
+        "$description": "Focus ring (Dark: #ec7657)"
       }
     }
   },
@@ -305,7 +389,7 @@
       "light",
       "dark"
     ],
-    "version": "1.2.0",
+    "version": "2.0.0",
     "engine": "cmplt DTCG to Tokens Studio Converter"
   }
 }

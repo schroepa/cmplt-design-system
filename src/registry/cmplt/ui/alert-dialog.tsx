@@ -19,7 +19,7 @@ const AlertDialogContent = React.forwardRef<
     <BaseAlertDialog.Popup
       ref={ref}
       className={cn(
-        "cmplt-overlay-popup fixed left-1/2 top-1/2 z-50 grid w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 gap-4 rounded-cmplt-xl border border-border-subtle bg-elevated p-6 text-fg-primary shadow-cmplt-xl focus:outline-none",
+        "cmplt-overlay-popup fixed left-1/2 top-1/2 z-50 grid w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border border-border-subtle bg-elevated p-6 text-fg-primary shadow-xl focus:outline-none",
         className
       )}
       {...props}

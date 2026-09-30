@@ -51,9 +51,9 @@ export default function TokensDocPage() {
         <p className="cmplt-lead text-fg-secondary">
           All <strong className="text-fg-primary">cmplt</strong> components are styled
           exclusively through semantic CSS custom properties authored in perceptual{" "}
-          <code className="font-mono text-xs text-fg-accent">OKLCH</code>. Because every
+          <code className="font-mono text-xs text-fg-brand">OKLCH</code>. Because every
           token is simultaneously defined in{" "}
-          <code className="font-mono text-xs text-fg-accent">tokens.json</code> with Figma
+          <code className="font-mono text-xs text-fg-brand">tokens.json</code> with Figma
           Variable Scopes, your code and Figma libraries stay 100% synchronized.
         </p>
         <div className="max-w-3xl pt-2">
@@ -81,13 +81,13 @@ export default function TokensDocPage() {
           <div>
             <div className="mb-4 flex items-center justify-between text-xs">
               <span className="font-semibold text-fg-primary">
-                Neutral Scale (--cmplt-neutral-*)
+                Neutral Scale (--neutral-*)
               </span>
               <span className="font-mono text-fg-muted">15 Steps · Calibrated Warm Stone / Matte Graphite</span>
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-5 2xl:grid-cols-15 gap-3">
               {neutralSteps.map(([step, info]) => {
-                const cssVar = `--cmplt-neutral-${step}`;
+                const cssVar = `--neutral-${step}`;
                 return (
                   <button
                     key={step}
@@ -96,7 +96,7 @@ export default function TokensDocPage() {
                     className="group flex flex-col items-start gap-2 text-left cursor-pointer"
                   >
                     <div
-                      className="h-12 w-full rounded-cmplt-sm border border-border-default shadow-cmplt-xs transition-transform group-hover:scale-105"
+                      className="h-12 w-full rounded-sm border border-border-default shadow-xs transition-transform group-hover:scale-105"
                       style={{ backgroundColor: `var(${cssVar})` }}
                     />
                     <span className="font-mono text-[11px] font-medium text-fg-primary">
@@ -114,15 +114,15 @@ export default function TokensDocPage() {
           <div className="border-t border-border-subtle pt-8">
             <div className="mb-4 flex items-center justify-between text-xs">
               <span className="font-semibold text-fg-primary">
-                Brand Scale (--cmplt-brand-*)
+                Brand Scale (--brand-*)
               </span>
-              <span className="font-mono text-fg-accent">
+              <span className="font-mono text-fg-brand">
                 10 Steps · Dynamic Preset Reactive
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-3">
               {brandSteps.map(([step, info]) => {
-                const cssVar = `--cmplt-brand-${step}`;
+                const cssVar = `--brand-${step}`;
                 return (
                   <button
                     key={step}
@@ -131,7 +131,7 @@ export default function TokensDocPage() {
                     className="group flex flex-col items-start gap-2 text-left cursor-pointer"
                   >
                     <div
-                      className="h-12 w-full rounded-cmplt-sm border border-border-subtle shadow-cmplt-xs transition-transform group-hover:scale-105"
+                      className="h-12 w-full rounded-sm border border-border-subtle shadow-xs transition-transform group-hover:scale-105"
                       style={{ backgroundColor: `var(${cssVar})` }}
                     />
                     <span className="font-mono text-[11px] font-medium text-fg-primary">
@@ -164,7 +164,7 @@ export default function TokensDocPage() {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-cmplt-lg border border-border-subtle bg-surface">
+        <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface">
           <table className="w-full text-left text-xs">
             <thead className="border-b border-border-subtle bg-subtle/60 text-fg-muted uppercase text-[11px]">
               <tr>
@@ -180,19 +180,19 @@ export default function TokensDocPage() {
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-2.5">
                       <span
-                        className="h-5 w-5 shrink-0 rounded-cmplt-xs border border-border-default shadow-cmplt-xs"
+                        className="h-5 w-5 shrink-0 rounded-xs border border-border-default shadow-xs"
                         style={{ backgroundColor: `var(${token.cssVar})` }}
                       />
                       <button
                         type="button"
                         onClick={() => copyText(`var(${token.cssVar})`)}
-                        className="font-mono font-semibold text-fg-primary hover:text-fg-accent cursor-pointer"
+                        className="font-mono font-semibold text-fg-primary hover:text-fg-brand cursor-pointer"
                       >
                         {token.cssVar}
                       </button>
                     </div>
                   </td>
-                  <td className="py-3 px-4 font-mono text-fg-accent">
+                  <td className="py-3 px-4 font-mono text-fg-brand">
                     {token.tailwindClass}
                   </td>
                   <td className="py-3 px-4 hidden sm:table-cell">
@@ -229,7 +229,7 @@ export default function TokensDocPage() {
             </Badge>
           </div>
           <h2 className="text-lg font-semibold text-fg-primary">
-            Liquid Type Scale (<code className="font-mono text-fg-accent">clamp()</code>) &amp; Optimal Reading Measure (<code className="font-mono text-fg-accent">ch</code>)
+            Liquid Type Scale (<code className="font-mono text-fg-brand">clamp()</code>) &amp; Optimal Reading Measure (<code className="font-mono text-fg-brand">ch</code>)
           </h2>
           <p className="text-xs text-fg-muted">
             Editorial display, headings, and body copy interpolate smoothly between a compact <strong className="text-fg-primary">1.200 Minor Third</strong> scale at <code className="font-mono">360px</code> and an expressive <strong className="text-fg-primary">1.333 Perfect Fourth</strong> scale at <code className="font-mono">1440px</code>, while dense App UI controls remain locked to pixel-aligned <code className="font-mono">rem</code> steps.
@@ -256,9 +256,9 @@ export default function TokensDocPage() {
                 value={simulatedViewport}
                 onChange={(e) => setSimulatedViewport(Number(e.target.value))}
                 aria-label="Simulated viewport width in pixels"
-                className="w-36 sm:w-44 accent-[var(--bg-accent)] cursor-pointer"
+                className="w-36 sm:w-44 accent-[var(--bg-brand)] cursor-pointer"
               />
-              <span className="inline-flex min-w-[4.5rem] justify-center rounded-cmplt-sm border border-border-default bg-subtle px-2 py-1 font-mono text-xs font-semibold text-fg-accent cmplt-tabular">
+              <span className="inline-flex min-w-[4.5rem] justify-center rounded-sm border border-border-default bg-subtle px-2 py-1 font-mono text-xs font-semibold text-fg-brand cmplt-tabular">
                 {simulatedViewport}px
               </span>
             </div>
@@ -277,7 +277,7 @@ export default function TokensDocPage() {
                       <button
                         type="button"
                         onClick={() => copyText(`var(${item.cssVar})`)}
-                        className="font-mono text-xs font-semibold text-fg-primary hover:text-fg-accent cursor-pointer"
+                        className="font-mono text-xs font-semibold text-fg-primary hover:text-fg-brand cursor-pointer"
                       >
                         .{item.roleClass}
                       </button>
@@ -287,7 +287,7 @@ export default function TokensDocPage() {
                     </div>
                     <div className="font-mono text-[11px] text-fg-muted cmplt-tabular">
                       {item.minPx}px → {item.maxPx}px · Now:{" "}
-                      <strong className="text-fg-accent">{livePx}px</strong>
+                      <strong className="text-fg-brand">{livePx}px</strong>
                     </div>
                     <div className="font-mono text-[10px] text-fg-muted">
                       LH {item.lineHeight} · Track {item.tracking}
@@ -340,7 +340,7 @@ export default function TokensDocPage() {
                   <button
                     type="button"
                     onClick={() => copyText(item.tailwindClass)}
-                    className="font-mono font-semibold text-fg-accent hover:underline cursor-pointer"
+                    className="font-mono font-semibold text-fg-brand hover:underline cursor-pointer"
                   >
                     .{item.tailwindClass}
                   </button>
@@ -376,7 +376,7 @@ export default function TokensDocPage() {
                   <button
                     type="button"
                     onClick={() => copyText(item.tailwindClass)}
-                    className="font-mono font-semibold text-fg-primary hover:text-fg-accent cursor-pointer"
+                    className="font-mono font-semibold text-fg-primary hover:text-fg-brand cursor-pointer"
                   >
                     .{item.tailwindClass}
                   </button>
@@ -411,12 +411,12 @@ export default function TokensDocPage() {
               {radiusTokens.map(([key, item]) => (
                 <Card key={key} className="p-4 flex flex-col items-center gap-3">
                   <div
-                    className="h-14 w-14 border-2 border-border-accent bg-accent-subtle"
+                    className="h-14 w-14 border-2 border-border-brand bg-brand-subtle"
                     style={{ borderRadius: `var(${item.cssVar})` }}
                   />
                   <div className="text-center">
                     <div className="font-mono text-xs font-semibold text-fg-primary">
-                      rounded-cmplt-{key}
+                      rounded-{key}
                     </div>
                     <div className="font-mono text-[11px] text-fg-muted">
                       {item.px}
@@ -438,52 +438,52 @@ export default function TokensDocPage() {
                   </p>
                 </div>
                 <Badge variant="brand" size="sm" className="font-mono">
-                  calc(var(--cmplt-radius-*) - d)
+                  calc(var(--radius-*) - d)
                 </Badge>
               </div>
 
               <div className="grid gap-4 md:grid-cols-3">
                 {/* Pair 1: Outer Shell 24px -> Inner Panel 14px */}
-                <div className="rounded-cmplt-xl border border-border-default bg-surface p-2.5 shadow-cmplt-xs">
-                  <div className="rounded-cmplt-xl-inner border border-border-accent/60 bg-elevated p-3 space-y-1">
+                <div className="rounded-xl border border-border-default bg-surface p-2.5 shadow-xs">
+                  <div className="rounded-xl-inner border border-border-brand/60 bg-elevated p-3 space-y-1">
                     <div className="font-mono text-[11px] font-semibold text-fg-primary">
                       Shell → Elevated Panel
                     </div>
                     <div className="font-mono text-[10px] text-fg-muted">
-                      Outer 24px − 10px (p-2.5) = <strong className="text-fg-accent">14px</strong>
+                      Outer 24px − 10px (p-2.5) = <strong className="text-fg-brand">14px</strong>
                     </div>
                     <div className="font-mono text-[10px] text-fg-secondary">
-                      .rounded-cmplt-xl-inner
+                      .rounded-xl-inner
                     </div>
                   </div>
                 </div>
 
                 {/* Pair 2: Primary Card 20px -> Preview Stage 12px */}
-                <div className="rounded-cmplt-lg border border-border-default bg-surface p-2 shadow-cmplt-xs">
-                  <div className="rounded-cmplt-lg-inner-sm border border-border-accent/60 bg-subtle p-3 space-y-1">
+                <div className="rounded-lg border border-border-default bg-surface p-2 shadow-xs">
+                  <div className="rounded-lg-inner-sm border border-border-brand/60 bg-subtle p-3 space-y-1">
                     <div className="font-mono text-[11px] font-semibold text-fg-primary">
                       Card → Inset Stage
                     </div>
                     <div className="font-mono text-[10px] text-fg-muted">
-                      Outer 20px − 8px (p-2) = <strong className="text-fg-accent">12px</strong>
+                      Outer 20px − 8px (p-2) = <strong className="text-fg-brand">12px</strong>
                     </div>
                     <div className="font-mono text-[10px] text-fg-secondary">
-                      .rounded-cmplt-lg-inner-sm
+                      .rounded-lg-inner-sm
                     </div>
                   </div>
                 </div>
 
                 {/* Pair 3: Select/Popover Popup 14px -> Menu Item 8px */}
-                <div className="rounded-cmplt-panel border border-border-default bg-elevated p-1.5 shadow-cmplt-xs">
-                  <div className="rounded-cmplt-sm border border-border-accent/60 bg-subtle p-3.5 space-y-1">
+                <div className="rounded-panel border border-border-default bg-elevated p-1.5 shadow-xs">
+                  <div className="rounded-sm border border-border-brand/60 bg-subtle p-3.5 space-y-1">
                     <div className="font-mono text-[11px] font-semibold text-fg-primary">
                       Popup → Menu Item
                     </div>
                     <div className="font-mono text-[10px] text-fg-muted">
-                      Outer 14px − 6px (p-1.5) = <strong className="text-fg-accent">8px</strong>
+                      Outer 14px − 6px (p-1.5) = <strong className="text-fg-brand">8px</strong>
                     </div>
                     <div className="font-mono text-[10px] text-fg-secondary">
-                      .rounded-cmplt-panel → .rounded-cmplt-sm
+                      .rounded-panel → .rounded-sm
                     </div>
                   </div>
                 </div>
@@ -515,7 +515,7 @@ export default function TokensDocPage() {
                   )}
                 </Button>
               </div>
-              <pre className="max-h-96 overflow-auto rounded-cmplt-md bg-subtle p-4 font-mono text-xs text-fg-primary">
+              <pre className="max-h-96 overflow-auto rounded-md bg-subtle p-4 font-mono text-xs text-fg-primary">
                 {JSON.stringify(tokensData, null, 2)}
               </pre>
             </Card>

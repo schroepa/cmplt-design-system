@@ -235,7 +235,7 @@ export const InteractiveDotField = React.forwardRef<
         const styles = getComputedStyle(document.documentElement);
         const isDark = document.documentElement.classList.contains("dark");
         const rawMuted = styles.getPropertyValue("--fg-muted");
-        const rawAccent = styles.getPropertyValue("--bg-accent");
+        const rawAccent = styles.getPropertyValue("--bg-brand");
 
         const baseColor = resolveCssColorToThree(
           rawMuted,

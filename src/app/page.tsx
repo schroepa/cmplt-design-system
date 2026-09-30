@@ -189,7 +189,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-4xl 2xl:max-w-5xl text-center space-y-6 sm:space-y-8 md:space-y-10 2xl:space-y-12">
             <div
               data-hero-badge
-              className="inline-flex items-center gap-2 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 py-1.5 shadow-cmplt-xs"
+              className="inline-flex items-center gap-2 rounded-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 py-1.5 shadow-xs"
             >
               <Badge variant="success" size="sm">v1.5</Badge>
               <span className="text-xs text-fg-secondary">
@@ -212,7 +212,7 @@ export default function HomePage() {
                 </React.Fragment>
               ))}
               <span className="relative inline">
-                <span className="relative text-fg-accent">
+                <span className="relative text-fg-brand">
                   {HERO_ACCENT_WORDS.map((word, idx) => (
                     <React.Fragment key={`a-${idx}`}>
                       <span
@@ -252,7 +252,7 @@ export default function HomePage() {
               </Link>
               <Link href="/blocks" className="w-full sm:w-auto">
                 <Button variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto min-h-[44px]">
-                  <Sparkles className="h-4 w-4 text-fg-accent" />
+                  <Sparkles className="h-4 w-4 text-fg-brand" />
                   Browse Pro Blocks
                 </Button>
               </Link>
@@ -263,7 +263,7 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={handleCliCopy}
-                className="group flex w-full items-center gap-2.5 sm:gap-3 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 sm:px-4 py-2.5 shadow-cmplt-xs transition-colors hover:border-border-accent hover:bg-surface cursor-pointer min-h-[42px]"
+                className="group flex w-full items-center gap-2.5 sm:gap-3 rounded-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 sm:px-4 py-2.5 shadow-xs transition-colors hover:border-border-brand hover:bg-surface cursor-pointer min-h-[42px]"
                 aria-label="Copy CLI install command"
               >
                 <span className="text-fg-muted font-mono text-xs select-none">$</span>
@@ -272,7 +272,7 @@ export default function HomePage() {
                 </span>
                 <span className={cn(
                   "shrink-0 text-[11px] font-medium transition-colors",
-                  cliCopied ? "text-status-success" : "text-fg-muted group-hover:text-fg-accent"
+                  cliCopied ? "text-status-success" : "text-fg-muted group-hover:text-fg-brand"
                 )}>
                   {cliCopied ? "Copied!" : "Copy"}
                 </span>
@@ -282,32 +282,32 @@ export default function HomePage() {
             {/* Interactive Mode Switcher */}
             <div
               data-hero-switcher
-              className="mx-auto pt-2 inline-flex items-center gap-1 rounded-cmplt-full border border-border-default bg-surface/90 backdrop-blur-sm p-1 shadow-cmplt-sm"
+              className="mx-auto pt-2 inline-flex items-center gap-1 rounded-full border border-border-default bg-surface/90 backdrop-blur-sm p-1 shadow-sm"
             >
               <button
                 type="button"
                 onClick={() => setMode("light")}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
+                  "inline-flex items-center gap-1.5 rounded-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
                   mode === "light"
-                    ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                    ? "bg-surface text-fg-primary shadow-xs"
                     : "text-fg-muted hover:text-fg-primary"
                 )}
               >
-                <Sun className="h-3.5 w-3.5 text-[var(--cmplt-coral-500)]" />
+                <Sun className="h-3.5 w-3.5 text-[var(--brand-500)]" />
                 Light
               </button>
               <button
                 type="button"
                 onClick={() => setMode("dark")}
                 className={cn(
-                  "inline-flex items-center gap-1.5 rounded-cmplt-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
+                  "inline-flex items-center gap-1.5 rounded-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
                   mode === "dark"
-                    ? "bg-surface text-fg-primary shadow-cmplt-xs"
+                    ? "bg-surface text-fg-primary shadow-xs"
                     : "text-fg-muted hover:text-fg-primary"
                 )}
               >
-                <Moon className="h-3.5 w-3.5 text-[var(--cmplt-jade-400)]" />
+                <Moon className="h-3.5 w-3.5 text-[var(--success-400)]" />
                 Dark
               </button>
             </div>
@@ -496,7 +496,7 @@ export default function HomePage() {
                   href="/r/index.json"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-accent hover:underline pt-2"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline pt-2"
                 >
                   Inspect /r/index.json <ExternalLink className="h-3.5 w-3.5" />
                 </a>
@@ -533,7 +533,7 @@ export default function HomePage() {
                 className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between"
               >
                 <div className="space-y-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-cmplt-squircle bg-subtle border border-border-subtle text-fg-accent">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-brand">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
                   <Badge variant="mono" size="sm" dot={false}>
@@ -544,15 +544,15 @@ export default function HomePage() {
                   </h3>
                   <p className="cmplt-body-sm text-fg-secondary">
                     Built on <code className="font-mono text-fg-primary">@base-ui/react</code> by the engineers behind Radix, Floating UI, and MUI. Declarative{" "}
-                    <code className="font-mono text-fg-accent">data-[open]</code>,{" "}
-                    <code className="font-mono text-fg-accent">data-[highlighted]</code>, and{" "}
-                    <code className="font-mono text-fg-accent">data-[checked]</code> selectors make styling effortless.
+                    <code className="font-mono text-fg-brand">data-[open]</code>,{" "}
+                    <code className="font-mono text-fg-brand">data-[highlighted]</code>, and{" "}
+                    <code className="font-mono text-fg-brand">data-[checked]</code> selectors make styling effortless.
                   </p>
                 </div>
                 <div className="mt-8 border-t border-border-subtle pt-5">
                   <Link
                     href="/docs/components/dialog"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline"
                   >
                     Explore Base UI Primitives <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -566,7 +566,7 @@ export default function HomePage() {
                 className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between"
               >
                 <div className="space-y-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-cmplt-squircle bg-subtle border border-border-subtle text-fg-accent">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-brand">
                     <Terminal className="h-5 w-5" />
                   </div>
                   <Badge variant="mono" size="sm" dot={false}>
@@ -577,14 +577,14 @@ export default function HomePage() {
                   </h3>
                   <p className="cmplt-body-sm text-fg-secondary">
                     No opaque node_modules CSS bundles. Every primitive, token sheet, and Pro block is served as a schema-validated JSON artifact under{" "}
-                    <code className="font-mono text-fg-accent">/r/[name].json</code>. Install with{" "}
+                    <code className="font-mono text-fg-brand">/r/[name].json</code>. Install with{" "}
                     <code className="font-mono text-fg-primary">npx shadcn add @cmplt/*</code> and own 100% of your code.
                   </p>
                 </div>
                 <div className="mt-8 border-t border-border-subtle pt-5">
                   <Link
                     href="/docs#registry"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline"
                   >
                     See Registry Architecture <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -601,7 +601,7 @@ export default function HomePage() {
                 className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between"
               >
                 <div className="space-y-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-cmplt-squircle bg-subtle border border-border-subtle text-fg-accent">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-brand">
                     <Figma className="h-5 w-5" />
                   </div>
                   <Badge variant="mono" size="sm" dot={false}>
@@ -611,13 +611,13 @@ export default function HomePage() {
                     Code-First, Figma-Synced Token DNA
                   </h3>
                   <p className="cmplt-body-sm text-fg-secondary">
-                    Our 3-tier token hierarchy (Primitive → Semantic → Component) is authored in calibrated OKLCH and mirrored in W3C DTCG JSON with explicit Figma Variable Scopes (<code className="font-mono text-fg-accent">FRAME_FILL</code>, <code className="font-mono text-fg-accent">TEXT_FILL</code>).
+                    Our 3-tier token hierarchy (Primitive → Semantic → Component) is authored in calibrated OKLCH and mirrored in W3C DTCG JSON with explicit Figma Variable Scopes (<code className="font-mono text-fg-brand">FRAME_FILL</code>, <code className="font-mono text-fg-brand">TEXT_FILL</code>).
                   </p>
                 </div>
                 <div className="mt-8 border-t border-border-subtle pt-5">
                   <Link
                     href="/figma"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-accent hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline"
                   >
                     Inspect Code ↔ Figma Bridge <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -663,9 +663,9 @@ export default function HomePage() {
                     type="button"
                     onClick={() => setInstallComponent(name)}
                     className={cn(
-                      "rounded-cmplt-full border px-3.5 py-1.5 font-mono text-xs transition-all cursor-pointer",
+                      "rounded-full border px-3.5 py-1.5 font-mono text-xs transition-all cursor-pointer",
                       installComponent === name
-                        ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
+                        ? "border-border-brand bg-brand-subtle text-fg-brand font-semibold"
                         : "border-border-subtle bg-surface text-fg-secondary hover:border-border-default hover:text-fg-primary"
                     )}
                   >
@@ -692,8 +692,8 @@ export default function HomePage() {
                     npx shadcn@latest add @cmplt/{installComponent}
                   </code>
                   , the CLI automatically installs{" "}
-                  <code className="font-mono text-fg-accent">@base-ui/react</code>, resolves internal{" "}
-                  <code className="font-mono text-fg-accent">registryDependencies</code>, and places the TypeScript source into your project.
+                  <code className="font-mono text-fg-brand">@base-ui/react</code>, resolves internal{" "}
+                  <code className="font-mono text-fg-brand">registryDependencies</code>, and places the TypeScript source into your project.
                 </p>
               </Card>
             </div>

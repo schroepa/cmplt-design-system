@@ -3,20 +3,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/registry/cmplt/lib/utils";
 
 const timelineDotVariants = cva(
-  "relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border shadow-cmplt-xs text-xs transition-colors",
+  "relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full border shadow-xs text-xs transition-colors",
   {
     variants: {
       variant: {
         default:
-          "border-border bg-surface text-fg",
+          "border-border-default bg-surface text-fg-primary",
         accent:
-          "border-accent/30 bg-accent text-accent-fg shadow-sm",
+          "border-border-brand/30 bg-brand text-fg-on-brand shadow-sm",
         success:
-          "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+          "border-status-success/20 bg-status-success-bg text-status-success",
         warning:
-          "border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400",
+          "border-status-warning/20 bg-status-warning-bg text-status-warning",
         danger:
-          "border-rose-500/20 bg-rose-500/10 text-rose-600 dark:text-rose-400",
+          "border-status-danger/20 bg-status-danger-bg text-status-danger",
         neutral:
           "border-border-subtle bg-subtle text-fg-muted",
       },

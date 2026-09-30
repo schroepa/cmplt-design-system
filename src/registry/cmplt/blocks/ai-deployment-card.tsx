@@ -55,8 +55,8 @@ export function AiDeploymentCard() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3.5">
               {/* Squircle App Icon (Section 2) */}
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-squircle bg-subtle border border-border-subtle text-fg-primary">
-                <Cpu className="h-4 w-4 stroke-[1.75] text-fg-accent" />
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-primary">
+                <Cpu className="h-4 w-4 stroke-[1.75] text-fg-brand" />
               </span>
               <div>
                 <CardTitle>Edge Cluster Telemetry</CardTitle>
@@ -96,7 +96,7 @@ export function AiDeploymentCard() {
 
         <CardContent className="space-y-6 pt-6">
           {/* Analytical Dot-Matrix Focus Area + Top-Rounded / Flat-Bottom Chart Bars (Sections 2 & 5) */}
-          <div className="rounded-cmplt-md border border-border-subtle bg-cmplt-dots p-4 sm:p-5">
+          <div className="rounded-md border border-border-subtle bg-cmplt-dots p-4 sm:p-5">
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs mb-4">
               <span className="cmplt-meta font-medium text-fg-secondary">
                 Throughput Distribution (12h Window)
@@ -110,7 +110,7 @@ export function AiDeploymentCard() {
                 <div
                   key={idx}
                   style={{ height: `${val}%` }}
-                  className="flex-1 rounded-t-[5px] rounded-b-none bg-accent/80 transition-all hover:bg-fg-accent"
+                  className="flex-1 rounded-t-[5px] rounded-b-none bg-brand/80 transition-all hover:bg-fg-brand"
                   title={`${val}% capacity`}
                 />
               ))}
@@ -147,7 +147,7 @@ export function AiDeploymentCard() {
           </div>
 
           {/* Clean 1px Divided List Rows with Pill Switches (Sections 4, 6, 7) */}
-          <div className="divide-y divide-border-subtle rounded-cmplt-md border border-border-subtle bg-subtle/35 px-4 sm:px-5">
+          <div className="divide-y divide-border-subtle rounded-md border border-border-subtle bg-subtle/35 px-4 sm:px-5">
             <div className="flex items-center justify-between gap-4 py-3.5">
               <div>
                 <div className="text-[13px] font-medium text-fg-primary">
@@ -194,7 +194,7 @@ export function AiDeploymentCard() {
               <button
                 type="button"
                 onClick={() => setLoad((prev) => (prev >= 92 ? 42 : prev + 12))}
-                className="text-fg-accent hover:underline cursor-pointer font-medium cmplt-tabular"
+                className="text-fg-brand hover:underline cursor-pointer font-medium cmplt-tabular"
               >
                 Simulate Burst (+12%)
               </button>
@@ -228,7 +228,7 @@ export function AiDeploymentCard() {
                 .
               </DialogDescription>
             </DialogHeader>
-            <div className="rounded-cmplt-md border border-border-subtle bg-subtle p-3.5 font-mono text-xs text-fg-secondary">
+            <div className="rounded-md border border-border-subtle bg-subtle p-3.5 font-mono text-xs text-fg-secondary">
               npx shadcn@latest add @cmplt/ai-deployment-card
             </div>
             <DialogFooter>

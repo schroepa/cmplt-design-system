@@ -145,7 +145,7 @@ const MotionSurface = React.forwardRef<HTMLDivElement, MotionSurfaceProps>(
       <div
         ref={setMergedRef}
         className={cn(
-          "relative overflow-hidden rounded-cmplt-lg",
+          "relative overflow-hidden rounded-lg",
           className
         )}
         {...props}
@@ -157,7 +157,7 @@ const MotionSurface = React.forwardRef<HTMLDivElement, MotionSurfaceProps>(
             className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0"
             style={{
               background:
-                "radial-gradient(circle, color-mix(in oklab, var(--bg-accent) 11%, transparent) 0%, transparent 70%)",
+                "radial-gradient(circle, color-mix(in oklab, var(--bg-brand) 11%, transparent) 0%, transparent 70%)",
             }}
           />
         )}

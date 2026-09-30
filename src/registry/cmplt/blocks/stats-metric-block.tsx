@@ -33,7 +33,7 @@ export function StatsMetricBlock() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="flex size-2 rounded-full bg-status-success animate-pulse" />
           <span className="font-mono text-xs text-fg-secondary">All clusters operational</span>
         </div>
       </div>
@@ -44,7 +44,7 @@ export function StatsMetricBlock() {
         <Card className="p-5 flex flex-col justify-between space-y-4 bg-surface">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-fg-secondary">Monthly Active Users</span>
-            <div className="flex size-8 items-center justify-center rounded-cmplt-sm bg-subtle text-fg">
+            <div className="flex size-8 items-center justify-center rounded-sm bg-subtle text-fg">
               <Activity className="size-4" />
             </div>
           </div>
@@ -66,7 +66,7 @@ export function StatsMetricBlock() {
         <Card className="p-5 flex flex-col justify-between space-y-4 bg-surface">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-fg-secondary">Edge Latency (p99)</span>
-            <div className="flex size-8 items-center justify-center rounded-cmplt-sm bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+            <div className="flex size-8 items-center justify-center rounded-sm bg-status-success-bg text-status-success">
               <Server className="size-4" />
             </div>
           </div>
@@ -75,7 +75,7 @@ export function StatsMetricBlock() {
               1.42<span className="text-base text-fg-muted font-normal">ms</span>
             </div>
             <div className="flex items-center gap-1.5 mt-2">
-              <Badge variant="outline" size="sm" className="gap-1 text-emerald-600 border-emerald-500/30">
+              <Badge variant="outline" size="sm" className="gap-1 text-status-success border-status-success/30">
                 <CheckCircle2 className="size-3" /> 99.98% SLA
               </Badge>
               <span className="text-[11px] text-fg-muted">32 regions</span>
@@ -88,7 +88,7 @@ export function StatsMetricBlock() {
         <Card className="p-5 flex flex-col justify-between space-y-4 bg-surface">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-fg-secondary">Cluster Storage Quota</span>
-            <div className="flex size-8 items-center justify-center rounded-cmplt-sm bg-amber-500/10 text-amber-600 dark:text-amber-400">
+            <div className="flex size-8 items-center justify-center rounded-sm bg-status-warning-bg text-status-warning">
               <HardDrive className="size-4" />
             </div>
           </div>
@@ -110,7 +110,7 @@ export function StatsMetricBlock() {
         <Card className="p-5 flex flex-col justify-between space-y-4 bg-surface">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-fg-secondary">CLI Component Installs</span>
-            <div className="flex size-8 items-center justify-center rounded-cmplt-sm bg-accent/10 text-accent">
+            <div className="flex size-8 items-center justify-center rounded-sm bg-brand/10 text-brand">
               <DownloadCloud className="size-4" />
             </div>
           </div>

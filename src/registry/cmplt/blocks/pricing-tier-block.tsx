@@ -19,7 +19,7 @@ export function PricingTierBlock() {
 
   return (
     <div className="space-y-8 md:space-y-10 2xl:space-y-12 w-full">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-cmplt-lg border border-border-subtle bg-surface p-5 sm:p-6 lg:px-8 lg:py-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg border border-border-subtle bg-surface p-5 sm:p-6 lg:px-8 lg:py-6">
         <div className="space-y-1">
           <div className="text-sm sm:text-base font-semibold text-fg-primary">
             Flexible Licensing Architecture
@@ -93,7 +93,7 @@ export function PricingTierBlock() {
         {/* Tier 2: Pro Solo + Figma */}
         <Card
           variant="elevated"
-          className="relative flex flex-col justify-between border-border-accent ring-1 ring-border-accent/40 shadow-cmplt-glow"
+          className="relative flex flex-col justify-between border-border-brand ring-1 ring-border-brand/40 shadow-glow"
         >
           <div>
             <CardHeader>
@@ -102,7 +102,7 @@ export function PricingTierBlock() {
                   <Sparkles className="h-3 w-3" />
                   Most Popular
                 </Badge>
-                <span className="font-mono text-xs text-fg-accent">
+                <span className="font-mono text-xs text-fg-brand">
                   Code + Figma
                 </span>
               </div>
@@ -129,7 +129,7 @@ export function PricingTierBlock() {
                 "Lifetime updates & commercial project license",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
-                  <Check className="h-4 w-4 shrink-0 text-fg-accent mt-0.5" />
+                  <Check className="h-4 w-4 shrink-0 text-fg-brand mt-0.5" />
                   <span>{item}</span>
                 </div>
               ))}

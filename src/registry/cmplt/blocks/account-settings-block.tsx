@@ -102,7 +102,7 @@ export function AccountSettingsBlock() {
         <CardFooter className="flex items-center justify-between border-t border-border-subtle pt-4">
           <div className="text-xs text-fg-muted">
             {saveSuccess && (
-              <span className="text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
+              <span className="text-status-success font-medium flex items-center gap-1">
                 <Check className="size-3.5" /> Changes saved successfully!
               </span>
             )}
@@ -150,7 +150,7 @@ export function AccountSettingsBlock() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between rounded-cmplt-md border border-border-subtle p-3.5">
+          <div className="flex items-center justify-between rounded-md border border-border-subtle p-3.5">
             <div>
               <div className="text-xs font-semibold text-fg">Two-Factor Authentication</div>
               <div className="text-[11px] text-fg-muted">
@@ -160,7 +160,7 @@ export function AccountSettingsBlock() {
             <Switch checked={security2FA} onCheckedChange={setSecurity2FA} />
           </div>
 
-          <div className="flex items-center justify-between rounded-cmplt-md border border-border-subtle p-3.5">
+          <div className="flex items-center justify-between rounded-md border border-border-subtle p-3.5">
             <div>
               <div className="text-xs font-semibold text-fg">Automated Email Digests</div>
               <div className="text-[11px] text-fg-muted">
@@ -173,11 +173,11 @@ export function AccountSettingsBlock() {
       </Card>
 
       {/* Card 4: Danger Zone */}
-      <Card className="border-rose-500/20 bg-rose-500/5">
+      <Card className="border-status-danger/20 bg-status-danger-bg">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <ShieldAlert className="size-4 text-rose-600 dark:text-rose-400" />
-            <CardTitle className="text-rose-600 dark:text-rose-400">Danger Zone</CardTitle>
+            <ShieldAlert className="size-4 text-status-danger" />
+            <CardTitle className="text-status-danger">Danger Zone</CardTitle>
           </div>
           <CardDescription>
             Permanently delete this organization, unbind custom domains, and revoke all API tokens.

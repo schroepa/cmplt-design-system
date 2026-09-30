@@ -18,9 +18,9 @@ export function generateStaticParams() {
 }
 
 const PILLAR_ICONS: Record<PillarSlug, React.ReactNode> = {
-  "visual-foundations": <Palette className="h-5 w-5 text-fg-accent" />,
-  "interaction-ergonomics": <Eye className="h-5 w-5 text-fg-accent" />,
-  "architecture-delivery": <Cpu className="h-5 w-5 text-fg-accent" />,
+  "visual-foundations": <Palette className="h-5 w-5 text-fg-brand" />,
+  "interaction-ergonomics": <Eye className="h-5 w-5 text-fg-brand" />,
+  "architecture-delivery": <Cpu className="h-5 w-5 text-fg-brand" />,
 };
 
 export default async function PillarDetailPage({
@@ -63,7 +63,7 @@ export default async function PillarDetailPage({
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-squircle border border-border-subtle bg-subtle">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-squircle border border-border-subtle bg-subtle">
             {PILLAR_ICONS[pillar.slug]}
           </span>
           <h1 className="cmplt-h1 text-fg-primary">{pillar.fullTitle}</h1>
@@ -75,8 +75,8 @@ export default async function PillarDetailPage({
         </p>
 
         {/* UI-Writing Rationale Note */}
-        <div className="rounded-cmplt-md border border-border-subtle bg-subtle/50 p-4 space-y-1">
-          <div className="text-xs font-semibold uppercase tracking-wider text-fg-accent">
+        <div className="rounded-md border border-border-subtle bg-subtle/50 p-4 space-y-1">
+          <div className="text-xs font-semibold uppercase tracking-wider text-fg-brand">
             UI-Writing Rationale
           </div>
           <p className="text-xs text-fg-secondary leading-relaxed">
@@ -113,11 +113,11 @@ export default async function PillarDetailPage({
             {pillar.keyMetrics.map((km) => (
               <div
                 key={km.label}
-                className="rounded-cmplt-sm border border-border-subtle bg-subtle/40 p-3 space-y-1"
+                className="rounded-sm border border-border-subtle bg-subtle/40 p-3 space-y-1"
               >
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-fg-muted">{km.label}</span>
-                  <span className="font-mono font-semibold text-fg-accent cmplt-tabular">
+                  <span className="font-mono font-semibold text-fg-brand cmplt-tabular">
                     {km.value}
                   </span>
                 </div>
@@ -166,7 +166,7 @@ export default async function PillarDetailPage({
                 className="p-4 flex items-center justify-between gap-3"
               >
                 <div className="flex items-center gap-2.5">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-cmplt-sm border border-border-subtle bg-subtle">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-sm border border-border-subtle bg-subtle">
                     {PILLAR_ICONS[sp.slug]}
                   </span>
                   <div>
@@ -178,7 +178,7 @@ export default async function PillarDetailPage({
                     </div>
                   </div>
                 </div>
-                <ArrowRight className="h-4 w-4 text-fg-accent" />
+                <ArrowRight className="h-4 w-4 text-fg-brand" />
               </Card>
             </Link>
           ))}

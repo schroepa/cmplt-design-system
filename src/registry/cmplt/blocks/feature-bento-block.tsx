@@ -48,7 +48,7 @@ export function FeatureBentoBlock() {
         <Card className="md:col-span-2 flex flex-col justify-between p-6 sm:p-8 bg-surface">
           <div>
             <div className="flex items-center justify-between pb-4">
-              <div className="flex size-10 items-center justify-center rounded-cmplt-md bg-accent/10 text-accent">
+              <div className="flex size-10 items-center justify-center rounded-md bg-brand/10 text-brand">
                 <Palette className="size-5" />
               </div>
               <Badge variant="mono" size="sm">
@@ -61,7 +61,7 @@ export function FeatureBentoBlock() {
             </CardDescription>
           </div>
 
-          <div className="mt-8 space-y-4 rounded-cmplt-md border border-border-subtle bg-subtle/50 p-4">
+          <div className="mt-8 space-y-4 rounded-md border border-border-subtle bg-subtle/50 p-4">
             <Slider
               label="Chroma Saturation Gamut"
               showValue
@@ -72,7 +72,7 @@ export function FeatureBentoBlock() {
             />
             <div className="flex items-center justify-between text-xs font-mono text-fg-muted">
               <span>Display-P3</span>
-              <span className="text-accent font-semibold">oklch(0.65 0.18 {Math.round(oklchChroma * 3.6)})</span>
+              <span className="text-brand font-semibold">oklch(0.65 0.18 {Math.round(oklchChroma * 3.6)})</span>
               <span>sRGB Guard</span>
             </div>
           </div>
@@ -81,7 +81,7 @@ export function FeatureBentoBlock() {
         {/* Bento 2: Base UI Headless (Col span 1 or 2) */}
         <Card className="flex flex-col justify-between p-6 bg-surface">
           <div>
-            <div className="flex size-10 items-center justify-center rounded-cmplt-md bg-subtle text-fg">
+            <div className="flex size-10 items-center justify-center rounded-md bg-subtle text-fg">
               <Layers className="size-5" />
             </div>
             <CardTitle className="mt-4 text-base">Headless Primitives</CardTitle>
@@ -101,7 +101,7 @@ export function FeatureBentoBlock() {
         {/* Bento 3: CLI Parity (Col span 1) */}
         <Card className="flex flex-col justify-between p-6 bg-surface">
           <div>
-            <div className="flex size-10 items-center justify-center rounded-cmplt-md bg-subtle text-fg">
+            <div className="flex size-10 items-center justify-center rounded-md bg-subtle text-fg">
               <Terminal className="size-5" />
             </div>
             <CardTitle className="mt-4 text-base">shadcn CLI Native</CardTitle>
@@ -109,7 +109,7 @@ export function FeatureBentoBlock() {
               Instantly installed via standard package managers directly to your code.
             </CardDescription>
           </div>
-          <div className="mt-6 rounded-cmplt-sm bg-subtle/80 p-2.5 font-mono text-[11px] text-fg-primary flex items-center justify-between border border-border-subtle">
+          <div className="mt-6 rounded-sm bg-subtle/80 p-2.5 font-mono text-[11px] text-fg-primary flex items-center justify-between border border-border-subtle">
             <code>npx shadcn add @cmplt/ui</code>
             <ArrowUpRight className="size-3.5 text-fg-muted" />
           </div>
@@ -118,7 +118,7 @@ export function FeatureBentoBlock() {
         {/* Bento 4: Accessible by default (Col span 1) */}
         <Card className="flex flex-col justify-between p-6 bg-surface">
           <div>
-            <div className="flex size-10 items-center justify-center rounded-cmplt-md bg-subtle text-fg">
+            <div className="flex size-10 items-center justify-center rounded-md bg-subtle text-fg">
               <Lock className="size-5" />
             </div>
             <CardTitle className="mt-4 text-base">WCAG AAA Certified</CardTitle>
@@ -137,7 +137,7 @@ export function FeatureBentoBlock() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2">
-                <Zap className="size-4 text-amber-500" />
+                <Zap className="size-4 text-status-warning" />
                 <CardTitle className="text-base">Zero Runtime Styling Overhead</CardTitle>
               </div>
               <CardDescription className="mt-1 text-xs sm:text-sm">

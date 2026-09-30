@@ -37,10 +37,10 @@ export default function DocsOverviewPage() {
         <p className="cmplt-lead text-fg-secondary">
           <strong className="text-fg-primary">cmplt</strong> is not a black-box npm
           component library. It combines unstyled, WAI-ARIA compliant{" "}
-          <code className="font-mono text-xs text-fg-accent">@base-ui/react</code>{" "}
+          <code className="font-mono text-xs text-fg-brand">@base-ui/react</code>{" "}
           primitives with a 3-tier W3C/OKLCH token system — distributed directly into
           your codebase via our native{" "}
-          <code className="font-mono text-xs text-fg-accent">shadcn</code> registry.
+          <code className="font-mono text-xs text-fg-brand">shadcn</code> registry.
         </p>
         <div className="flex flex-wrap items-center gap-3.5 pt-2">
           <Link href="/docs/tokens">
@@ -145,7 +145,7 @@ export default function DocsOverviewPage() {
                 components.json
               </Badge>
             </div>
-            <pre className="rounded-cmplt-md border border-border-subtle bg-subtle p-4 font-mono text-xs text-fg-primary overflow-x-auto leading-relaxed">
+            <pre className="rounded-md border border-border-subtle bg-subtle p-4 font-mono text-xs text-fg-primary overflow-x-auto leading-relaxed">
 {`{
   "$schema": "https://ui.shadcn.com/schema.json",
   "registries": {
@@ -157,7 +157,7 @@ export default function DocsOverviewPage() {
 
           <div className="space-y-4">
             <div className="text-xs font-semibold text-fg-primary flex items-center gap-2">
-              <Terminal className="h-4 w-4 text-fg-accent" />
+              <Terminal className="h-4 w-4 text-fg-brand" />
               Step 2: Install Tokens &amp; Primitives
             </div>
             <CliInstallTabs itemName="tokens" />
@@ -187,7 +187,7 @@ export default function DocsOverviewPage() {
             <p className="cmplt-body-xs text-fg-muted">
               WAI-ARIA accessible Base UI components (Button, Dialog, Select, Tabs) with 3-tier tokens.
             </p>
-            <div className="pt-2 text-xs font-mono text-fg-accent">
+            <div className="pt-2 text-xs font-mono text-fg-brand">
               npx shadcn add @cmplt/button
             </div>
           </Card>
@@ -199,7 +199,7 @@ export default function DocsOverviewPage() {
               Hardware-accelerated tracking, reduced motion a11y, and reactive media query subscriptions.
             </p>
             <div className="pt-2">
-              <Link href="/docs/hooks" className="text-xs font-semibold text-fg-accent hover:underline flex items-center gap-1">
+              <Link href="/docs/hooks" className="text-xs font-semibold text-fg-brand hover:underline flex items-center gap-1">
                 Explore Hooks <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
@@ -211,7 +211,7 @@ export default function DocsOverviewPage() {
             <p className="cmplt-body-xs text-fg-muted">
               Pre-calibrated semantic OKLCH CSS variables for Tailwind v4 @theme integration.
             </p>
-            <div className="pt-2 text-xs font-mono text-fg-accent">
+            <div className="pt-2 text-xs font-mono text-fg-brand">
               npx shadcn add @cmplt/theme
             </div>
           </Card>
@@ -222,7 +222,7 @@ export default function DocsOverviewPage() {
             <p className="cmplt-body-xs text-fg-muted">
               Initialize a complete cmplt workspace with base configs, fonts, and icons in 1 step.
             </p>
-            <div className="pt-2 text-xs font-mono text-fg-accent">
+            <div className="pt-2 text-xs font-mono text-fg-brand">
               npx shadcn init @cmplt/base
             </div>
           </Card>
@@ -251,7 +251,7 @@ export default function DocsOverviewPage() {
               >
                 <div>
                   {/* Visual Component Preview Stage */}
-                  <div className="relative flex h-40 w-full items-center justify-center overflow-hidden rounded-cmplt-lg-inner-sm border border-border-subtle bg-subtle/75 bg-cmplt-dots p-5 transition-transform duration-200 group-hover:bg-subtle">
+                  <div className="relative flex h-40 w-full items-center justify-center overflow-hidden rounded-lg-inner-sm border border-border-subtle bg-subtle/75 bg-cmplt-dots p-5 transition-transform duration-200 group-hover:bg-subtle">
                     <div className="transition-transform duration-200 group-hover:scale-[1.03]">
                       <ComponentThumbnail slug={comp.slug} />
                     </div>
@@ -260,7 +260,7 @@ export default function DocsOverviewPage() {
                   {/* Card Body */}
                   <div className="space-y-2.5 px-3.5 pt-5 pb-3">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-semibold text-fg-primary group-hover:text-fg-accent transition-colors">
+                      <span className="text-sm font-semibold text-fg-primary group-hover:text-fg-brand transition-colors">
                         {comp.title}
                       </span>
                       <Badge variant="mono" size="sm" dot={false}>
@@ -277,7 +277,7 @@ export default function DocsOverviewPage() {
                   <span className="font-mono truncate max-w-[170px]">
                     {comp.baseUiPackage}
                   </span>
-                  <span className="inline-flex items-center gap-1 font-medium text-fg-accent">
+                  <span className="inline-flex items-center gap-1 font-medium text-fg-brand">
                     Docs <ArrowRight className="h-3 w-3" />
                   </span>
                 </div>

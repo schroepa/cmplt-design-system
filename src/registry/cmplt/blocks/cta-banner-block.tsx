@@ -24,15 +24,15 @@ export function CtaBannerBlock() {
   };
 
   return (
-    <section className="relative overflow-hidden rounded-cmplt-panel border border-border-default bg-surface p-8 sm:p-12 lg:p-16 shadow-cmplt-sm w-full">
+    <section className="relative overflow-hidden rounded-panel border border-border-default bg-surface p-8 sm:p-12 lg:p-16 shadow-sm w-full">
       {/* Background Glow Accent */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-brand/10 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-20 -bottom-20 size-80 rounded-full bg-accent/5 blur-3xl"
+        className="pointer-events-none absolute -left-20 -bottom-20 size-80 rounded-full bg-brand/5 blur-3xl"
       />
 
       <div className="relative z-10 max-w-2xl mx-auto text-center space-y-6">
@@ -44,7 +44,7 @@ export function CtaBannerBlock() {
 
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-fg">
           Elevate your next project with{" "}
-          <span className="text-accent">cmplt</span>.
+          <span className="text-brand">cmplt</span>.
         </h2>
 
         <p className="text-sm sm:text-base text-fg-secondary leading-relaxed max-w-lg mx-auto">
@@ -52,7 +52,7 @@ export function CtaBannerBlock() {
         </p>
 
         {submitted ? (
-          <div className="flex items-center justify-center gap-2 p-4 rounded-cmplt-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm font-medium animate-in fade-in">
+          <div className="flex items-center justify-center gap-2 p-4 rounded-md bg-status-success-bg border border-status-success/20 text-status-success text-sm font-medium animate-in fade-in">
             <CheckCircle2 className="size-4" />
             <span>Thank you for subscribing! Check your inbox for your starter kit.</span>
           </div>
@@ -69,7 +69,7 @@ export function CtaBannerBlock() {
               required
               className="h-10 bg-subtle/50 text-sm"
             />
-            <Button type="submit" size="md" className="w-full sm:w-auto h-10 gap-1.5 shrink-0 shadow-cmplt-xs">
+            <Button type="submit" size="md" className="w-full sm:w-auto h-10 gap-1.5 shrink-0 shadow-xs">
               <span>Subscribe</span>
               <ArrowRight className="size-4" />
             </Button>

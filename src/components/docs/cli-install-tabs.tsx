@@ -32,10 +32,10 @@ export function CliInstallTabs({
   };
 
   return (
-    <div className="rounded-cmplt-lg border border-border-default bg-surface overflow-hidden shadow-cmplt-xs">
+    <div className="rounded-lg border border-border-default bg-surface overflow-hidden shadow-xs">
       <div className="flex items-center justify-between gap-2 border-b border-border-subtle bg-subtle/60 px-3 py-2">
         <div className="flex items-center gap-2">
-          <Terminal className="h-3.5 w-3.5 text-fg-accent" />
+          <Terminal className="h-3.5 w-3.5 text-fg-brand" />
           <Tabs
             value={pm}
             onValueChange={(val) => setPm(val as typeof pm)}

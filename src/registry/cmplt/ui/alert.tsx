@@ -9,7 +9,7 @@ import {
 import { cn } from "@/registry/cmplt/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full rounded-cmplt-lg border p-4 text-xs transition-all duration-200 ease-cmplt-out flex items-start gap-3.5",
+  "relative w-full rounded-lg border p-4 text-xs transition-all duration-200 ease-out flex items-start gap-3.5",
   {
     variants: {
       variant: {

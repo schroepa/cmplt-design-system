@@ -68,9 +68,9 @@ export default function LivingBlueprintPage() {
   }, [allDecisions, selectedPillar, searchQuery]);
 
   const pillarIcons: Record<PillarSlug, React.ReactNode> = {
-    "visual-foundations": <Palette className="h-4 w-4 text-fg-accent" />,
-    "interaction-ergonomics": <Eye className="h-4 w-4 text-fg-accent" />,
-    "architecture-delivery": <Cpu className="h-4 w-4 text-fg-accent" />,
+    "visual-foundations": <Palette className="h-4 w-4 text-fg-brand" />,
+    "interaction-ergonomics": <Eye className="h-4 w-4 text-fg-brand" />,
+    "architecture-delivery": <Cpu className="h-4 w-4 text-fg-brand" />,
   };
 
   return (
@@ -151,7 +151,7 @@ export default function LivingBlueprintPage() {
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-cmplt-squircle border border-border-subtle bg-subtle">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-squircle border border-border-subtle bg-subtle">
                     {pillarIcons[pillar.slug]}
                   </span>
                   <div className="flex items-center gap-1.5">
@@ -177,8 +177,8 @@ export default function LivingBlueprintPage() {
                   {pillar.tagline}
                 </p>
 
-                <div className="rounded-cmplt-sm border border-border-subtle bg-subtle/50 p-2.5 space-y-1">
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-fg-accent">
+                <div className="rounded-sm border border-border-subtle bg-subtle/50 p-2.5 space-y-1">
+                  <div className="text-[10px] font-semibold uppercase tracking-wider text-fg-brand">
                     UI-Writing Rationale
                   </div>
                   <p className="text-[11px] text-fg-muted leading-relaxed">
@@ -194,7 +194,7 @@ export default function LivingBlueprintPage() {
                 </span>
                 <Link
                   href={`/docs/blueprint/${pillar.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-fg-accent hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-fg-brand hover:underline"
                 >
                   Deep Dive <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
@@ -204,7 +204,7 @@ export default function LivingBlueprintPage() {
         </div>
 
         {/* UI-Writing Guidelines Table */}
-        <div className="overflow-hidden rounded-cmplt-lg border border-border-subtle bg-surface">
+        <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface">
           <div className="border-b border-border-subtle bg-subtle/50 px-4 py-3 flex items-center justify-between">
             <span className="text-xs font-semibold text-fg-primary">
               Enforced UI-Writing & Terminology Rules (UW-01 – UW-05)
@@ -227,7 +227,7 @@ export default function LivingBlueprintPage() {
                 {UI_WRITING_TAXONOMY.map((item) => (
                   <tr key={item.id} className="hover:bg-subtle/25">
                     <td className="py-2.5 px-4 align-top">
-                      <span className="font-mono font-semibold text-fg-accent">
+                      <span className="font-mono font-semibold text-fg-brand">
                         {item.id}
                       </span>
                       <div className="font-medium text-fg-primary mt-0.5">
@@ -279,9 +279,9 @@ export default function LivingBlueprintPage() {
             {LIVING_DOC_META.updateProtocol.map((step) => (
               <div
                 key={step.step}
-                className="rounded-cmplt-md border border-border-subtle bg-subtle/55 p-3.5 space-y-1.5"
+                className="rounded-md border border-border-subtle bg-subtle/55 p-3.5 space-y-1.5"
               >
-                <div className="font-mono text-xs font-semibold text-fg-accent">
+                <div className="font-mono text-xs font-semibold text-fg-brand">
                   {step.step}
                 </div>
                 <p className="text-xs text-fg-secondary leading-relaxed">
@@ -330,9 +330,9 @@ export default function LivingBlueprintPage() {
                 type="button"
                 onClick={() => setSelectedPillar("all")}
                 className={cn(
-                  "rounded-cmplt-full border px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer cmplt-tabular",
+                  "rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer cmplt-tabular",
                   selectedPillar === "all"
-                    ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
+                    ? "border-border-brand bg-brand-subtle text-fg-brand font-semibold"
                     : "border-border-subtle bg-surface text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                 )}
               >
@@ -344,9 +344,9 @@ export default function LivingBlueprintPage() {
                   type="button"
                   onClick={() => setSelectedPillar(p.slug)}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-cmplt-full border px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer cmplt-tabular",
+                    "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-medium transition-colors cursor-pointer cmplt-tabular",
                     selectedPillar === p.slug
-                      ? "border-border-accent bg-accent-subtle text-fg-accent font-semibold"
+                      ? "border-border-brand bg-brand-subtle text-fg-brand font-semibold"
                       : "border-border-subtle bg-surface text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                   )}
                 >
@@ -365,7 +365,7 @@ export default function LivingBlueprintPage() {
                 placeholder="Filter decisions (e.g. OKLCH, GSAP)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-border-subtle bg-surface py-2 pl-8 pr-16 text-xs text-fg-primary placeholder:text-fg-muted focus:border-border-accent focus:outline-none focus:ring-1 focus:ring-border-accent transition-colors"
+                className="w-full rounded-full border border-border-subtle bg-surface py-2 pl-8 pr-16 text-xs text-fg-primary placeholder:text-fg-muted focus:border-border-brand focus:outline-none focus:ring-1 focus:ring-border-brand transition-colors"
               />
               {searchQuery && (
                 <button
@@ -453,7 +453,7 @@ export default function LivingBlueprintPage() {
           </div>
 
           <TabsContent value="matrix">
-            <div className="overflow-hidden rounded-cmplt-lg border border-border-subtle bg-surface">
+            <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead className="border-b border-border-subtle bg-subtle/60 text-fg-muted uppercase text-[10.5px]">
@@ -489,7 +489,7 @@ export default function LivingBlueprintPage() {
                               <a
                                 key={id}
                                 href={`#${id}`}
-                                className="rounded-cmplt-2xs border border-border-accent/50 bg-accent-subtle px-1.5 py-0.5 font-mono text-[10px] font-semibold text-fg-accent hover:underline"
+                                className="rounded-2xs border border-border-brand/50 bg-brand-subtle px-1.5 py-0.5 font-mono text-[10px] font-semibold text-fg-brand hover:underline"
                               >
                                 {id}
                               </a>
@@ -521,7 +521,7 @@ export default function LivingBlueprintPage() {
                       </span>
                     </div>
                     <span className="font-mono text-xs text-fg-muted cmplt-tabular flex items-center gap-1">
-                      <GitCommit className="h-3.5 w-3.5 text-fg-accent" />
+                      <GitCommit className="h-3.5 w-3.5 text-fg-brand" />
                       {entry.date}
                     </span>
                   </div>
@@ -536,7 +536,7 @@ export default function LivingBlueprintPage() {
                       <a
                         key={id}
                         href={`#${id}`}
-                        className="rounded-cmplt-2xs border border-border-subtle bg-subtle px-2 py-0.5 font-mono text-[10.5px] font-semibold text-fg-accent hover:border-border-accent"
+                        className="rounded-2xs border border-border-subtle bg-subtle px-2 py-0.5 font-mono text-[10.5px] font-semibold text-fg-brand hover:border-border-brand"
                       >
                         {id}
                       </a>

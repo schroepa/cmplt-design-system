@@ -16,7 +16,7 @@ const headingVariants = cva("font-sans tracking-tight", {
       primary: "text-fg-primary",
       secondary: "text-fg-secondary",
       muted: "text-fg-muted",
-      accent: "text-fg-accent",
+      accent: "text-fg-brand",
     },
     measure: {
       auto: "",
@@ -91,7 +91,7 @@ const textVariants = cva("font-sans", {
       primary: "text-fg-primary",
       secondary: "text-fg-secondary",
       muted: "text-fg-muted",
-      accent: "text-fg-accent",
+      accent: "text-fg-brand",
     },
     measure: {
       auto: "",
@@ -157,7 +157,7 @@ export function Code({
       <pre
         data-slot="code-block"
         className={cn(
-          "overflow-x-auto rounded-cmplt-md border border-border-subtle bg-subtle p-4 font-mono text-ui-xs leading-[1.6] text-fg-primary shadow-cmplt-xs",
+          "overflow-x-auto rounded-md border border-border-subtle bg-subtle p-4 font-mono text-ui-xs leading-[1.6] text-fg-primary shadow-xs",
           className
         )}
         {...props}

@@ -5,7 +5,7 @@
   "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
   "owner": "Patrick Schrödter (ptrckschrdtr)",
   "github": "https://github.com/schroepa",
-  "totalItems": 80,
+  "totalItems": 81,
   "items": [
     {
       "name": "utils",
@@ -1226,6 +1226,27 @@
       "dependencies": [],
       "registryDependencies": [],
       "endpoint": "/r/tokens-studio.json"
+    },
+    {
+      "name": "app-dock-block",
+      "type": "registry:block",
+      "title": "Fluid Workspace Dock & Presence Block",
+      "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
+      "description": "Fluid desktop dock centerpiece combining gooey surface tension physics, live collaborator avatar stack, and workspace module switcher.",
+      "dependencies": [
+        "lucide-react",
+        "gsap",
+        "@gsap/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "liquid-dock",
+        "liquid-avatar-group",
+        "badge",
+        "card",
+        "typography"
+      ],
+      "endpoint": "/r/app-dock-block.json"
     }
   ]
 }

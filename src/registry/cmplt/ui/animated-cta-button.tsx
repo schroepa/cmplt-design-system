@@ -82,9 +82,9 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
         if (prefersReduced) return;
 
         // 1. Continuous, super-natural orbital border light + gentle breathing aura
-        gsap.set(beam, { "--cmplt-beam-angle": "0deg" });
+        gsap.set(beam, { "--beam-angle": "0deg" });
         const orbitTween = gsap.to(beam, {
-          "--cmplt-beam-angle": "360deg",
+          "--beam-angle": "360deg",
           duration: 6.5,
           ease: "none",
           repeat: -1,
@@ -235,7 +235,7 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
       <BaseButton
         ref={setMergedRef}
         className={cn(
-          "group relative inline-flex items-center justify-center rounded-cmplt-full p-[1.5px] font-medium select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
+          "group relative inline-flex items-center justify-center rounded-full p-[1.5px] font-medium select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
           className
         )}
         {...props}
@@ -245,10 +245,10 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
           ref={auraRef}
           aria-hidden="true"
           className={cn(
-            "pointer-events-none absolute -inset-[2px] rounded-cmplt-full opacity-40 blur-[6px] transition-opacity",
+            "pointer-events-none absolute -inset-[2px] rounded-full opacity-40 blur-[6px] transition-opacity",
             isAccent
-              ? "bg-[radial-gradient(circle_at_50%_50%,var(--bg-accent)_0%,transparent_75%)]"
-              : "bg-[radial-gradient(circle_at_50%_50%,var(--border-accent)_0%,transparent_75%)]"
+              ? "bg-[radial-gradient(circle_at_50%_50%,var(--bg-brand)_0%,transparent_75%)]"
+              : "bg-[radial-gradient(circle_at_50%_50%,var(--border-brand)_0%,transparent_75%)]"
           )}
         />
 
@@ -258,22 +258,22 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
           aria-hidden="true"
           style={
             {
-              "--cmplt-beam-angle": "0deg",
+              "--beam-angle": "0deg",
               background: isAccent
-                ? "conic-gradient(from var(--cmplt-beam-angle), color-mix(in oklab, var(--bg-accent) 75%, transparent) 0%, color-mix(in oklab, var(--bg-accent) 85%, white 15%) 68%, rgba(255,255,255,0.92) 84%, color-mix(in oklab, var(--bg-accent) 85%, white 15%) 94%, color-mix(in oklab, var(--bg-accent) 75%, transparent) 100%)"
-                : "conic-gradient(from var(--cmplt-beam-angle), var(--border-default) 0%, var(--border-default) 62%, var(--bg-accent) 84%, color-mix(in oklab, var(--bg-accent) 65%, white 35%) 92%, var(--border-default) 100%)",
+                ? "conic-gradient(from var(--beam-angle), color-mix(in oklab, var(--bg-brand) 75%, transparent) 0%, color-mix(in oklab, var(--bg-brand) 85%, white 15%) 68%, rgba(255,255,255,0.92) 84%, color-mix(in oklab, var(--bg-brand) 85%, white 15%) 94%, color-mix(in oklab, var(--bg-brand) 75%, transparent) 100%)"
+                : "conic-gradient(from var(--beam-angle), var(--border-default) 0%, var(--border-default) 62%, var(--bg-brand) 84%, color-mix(in oklab, var(--bg-brand) 65%, white 35%) 92%, var(--border-default) 100%)",
             } as React.CSSProperties
           }
-          className="pointer-events-none absolute inset-0 rounded-cmplt-full opacity-80"
+          className="pointer-events-none absolute inset-0 rounded-full opacity-80"
         />
 
         {/* Inner Pill Surface */}
         <span
           className={cn(
-            "relative inline-flex h-full w-full items-center justify-center overflow-hidden rounded-cmplt-full transition-colors",
+            "relative inline-flex h-full w-full items-center justify-center overflow-hidden rounded-full transition-colors",
             sizeClasses,
             isAccent
-              ? "bg-accent text-fg-on-accent"
+              ? "bg-brand text-fg-on-brand"
               : "bg-elevated text-fg-primary"
           )}
         >
@@ -285,7 +285,7 @@ const AnimatedCtaButton = React.forwardRef<HTMLElement, AnimatedCtaButtonProps>(
             style={{
               background: isAccent
                 ? "radial-gradient(circle, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 70%)"
-                : "radial-gradient(circle, color-mix(in oklab, var(--bg-accent) 22%, transparent) 0%, transparent 70%)",
+                : "radial-gradient(circle, color-mix(in oklab, var(--bg-brand) 22%, transparent) 0%, transparent 70%)",
             }}
           />
 

@@ -50,7 +50,7 @@ const FieldError = React.forwardRef<
   <BaseField.Error
     ref={ref}
     className={cn(
-      "text-xs font-medium text-status-danger transition-all duration-200 ease-cmplt-out",
+      "text-xs font-medium text-status-danger transition-all duration-200 ease-out",
       className
     )}
     {...props}

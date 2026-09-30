@@ -6,8 +6,8 @@ import { cn } from "@/registry/cmplt/lib/utils";
 
 /**
  * cmplt Popover — Style Guide v1.1 (Sections 2 & 5):
- * - Container Radius: soft organic 20px radius (rounded-cmplt-lg)
- * - Level 2 Elevation: diffuse ambient drop shadow (shadow-cmplt-lg) + 1px hairline border
+ * - Container Radius: soft organic 20px radius (rounded-lg)
+ * - Level 2 Elevation: diffuse ambient drop shadow (shadow-lg) + 1px hairline border
  */
 const Popover = BasePopover.Root;
 const PopoverTrigger = BasePopover.Trigger;
@@ -42,7 +42,7 @@ const PopoverContent = React.forwardRef<
         <BasePopover.Popup
           ref={ref}
           className={cn(
-            "cmplt-overlay-popup w-72 max-w-[calc(100vw-1.5rem)] rounded-cmplt-lg border border-border-subtle bg-elevated p-5 text-fg-primary shadow-cmplt-lg outline-none",
+            "cmplt-overlay-popup w-72 max-w-[calc(100vw-1.5rem)] rounded-lg border border-border-subtle bg-elevated p-5 text-fg-primary shadow-lg outline-none",
             className
           )}
           {...props}

@@ -63,7 +63,7 @@ export default function HooksDocumentationPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <MousePointer2 className="h-5 w-5 text-fg-accent" />
+              <MousePointer2 className="h-5 w-5 text-fg-brand" />
               <h2 className="cmplt-h3 text-fg-primary">useMousePosition()</h2>
             </div>
             <p className="cmplt-body-sm text-fg-muted">
@@ -81,10 +81,10 @@ export default function HooksDocumentationPage() {
             </span>
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
               <span className="text-fg-secondary">
-                X: <strong className="text-fg-accent">{Math.round(mouse.x)}px</strong>
+                X: <strong className="text-fg-brand">{Math.round(mouse.x)}px</strong>
               </span>
               <span className="text-fg-secondary">
-                Y: <strong className="text-fg-accent">{Math.round(mouse.y)}px</strong>
+                Y: <strong className="text-fg-brand">{Math.round(mouse.y)}px</strong>
               </span>
               <span className="text-fg-secondary">
                 normX: <strong className="text-fg-primary">{mouse.normalizedX.toFixed(3)}</strong>
@@ -95,12 +95,12 @@ export default function HooksDocumentationPage() {
             </div>
           </div>
 
-          <div className="relative h-44 w-full rounded-cmplt-md border border-dashed border-border-default bg-subtle/50 flex items-center justify-center overflow-hidden">
+          <div className="relative h-44 w-full rounded-md border border-dashed border-border-default bg-subtle/50 flex items-center justify-center overflow-hidden">
             <div className="text-center text-xs text-fg-muted select-none pointer-events-none px-4">
               Move your mouse across the window to observe real-time tracking
             </div>
             <div
-              className="absolute h-5 w-5 rounded-full border-2 border-border-accent bg-accent-subtle/60 pointer-events-none transition-all duration-75 -translate-x-1/2 -translate-y-1/2"
+              className="absolute h-5 w-5 rounded-full border-2 border-border-brand bg-brand-subtle/60 pointer-events-none transition-all duration-75 -translate-x-1/2 -translate-y-1/2"
               style={{
                 left: `${mouse.normalizedX * 100}%`,
                 top: `${mouse.normalizedY * 100}%`,
@@ -152,7 +152,7 @@ export default function HooksDocumentationPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-cmplt-md border border-border-subtle bg-subtle p-4 space-y-2">
+            <div className="rounded-md border border-border-subtle bg-subtle p-4 space-y-2">
               <span className="text-xs font-semibold text-fg-primary">
                 WCAG 2.2 Success Criterion 2.3.3
               </span>
@@ -161,7 +161,7 @@ export default function HooksDocumentationPage() {
                 automatically to avoid vestibular trigger symptoms.
               </p>
             </div>
-            <div className="rounded-cmplt-md border border-border-subtle bg-subtle p-4 space-y-2">
+            <div className="rounded-md border border-border-subtle bg-subtle p-4 space-y-2">
               <span className="text-xs font-semibold text-fg-primary">
                 Hardware &amp; Battery Efficiency
               </span>
@@ -181,7 +181,7 @@ export default function HooksDocumentationPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <Laptop className="h-5 w-5 text-fg-accent" />
+              <Laptop className="h-5 w-5 text-fg-brand" />
               <h2 className="cmplt-h3 text-fg-primary">useMediaQuery()</h2>
             </div>
             <p className="cmplt-body-sm text-fg-muted">
@@ -199,7 +199,7 @@ export default function HooksDocumentationPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 font-mono text-xs">
-            <div className="rounded-cmplt-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
+            <div className="rounded-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
               <span className="text-fg-muted">sm (≥ 640px)</span>
               <span className="flex items-center gap-1.5 font-semibold">
                 {isSm ? (
@@ -211,7 +211,7 @@ export default function HooksDocumentationPage() {
               </span>
             </div>
 
-            <div className="rounded-cmplt-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
+            <div className="rounded-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
               <span className="text-fg-muted">md (≥ 768px)</span>
               <span className="flex items-center gap-1.5 font-semibold">
                 {isMd ? (
@@ -223,7 +223,7 @@ export default function HooksDocumentationPage() {
               </span>
             </div>
 
-            <div className="rounded-cmplt-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
+            <div className="rounded-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
               <span className="text-fg-muted">lg (≥ 1024px)</span>
               <span className="flex items-center gap-1.5 font-semibold">
                 {isLg ? (
@@ -235,7 +235,7 @@ export default function HooksDocumentationPage() {
               </span>
             </div>
 
-            <div className="rounded-cmplt-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
+            <div className="rounded-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
               <span className="text-fg-muted">xl (≥ 1280px)</span>
               <span className="flex items-center gap-1.5 font-semibold">
                 {isXl ? (
@@ -247,7 +247,7 @@ export default function HooksDocumentationPage() {
               </span>
             </div>
 
-            <div className="rounded-cmplt-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
+            <div className="rounded-md border border-border-subtle p-3 flex flex-col justify-between gap-2 bg-subtle/50">
               <span className="text-fg-muted">dark-mode OS</span>
               <span className="flex items-center gap-1.5 font-semibold">
                 {isDarkSystem ? (
@@ -268,7 +268,7 @@ export default function HooksDocumentationPage() {
       <section id="registry-base-theme" className="space-y-6">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <Layers className="h-5 w-5 text-fg-accent" />
+            <Layers className="h-5 w-5 text-fg-brand" />
             <h2 className="cmplt-h3 text-fg-primary">Theme &amp; Project Base</h2>
           </div>
           <p className="cmplt-body-sm text-fg-muted">
@@ -288,7 +288,7 @@ export default function HooksDocumentationPage() {
             <CardDescription className="cmplt-body-xs">
               Installs Base UI primitives, Lucide icons, Geist typography and OKLCH tokens into a clean Next.js project.
             </CardDescription>
-            <pre className="rounded-cmplt-md border border-border-subtle bg-subtle p-3 font-mono text-xs text-fg-primary overflow-x-auto">
+            <pre className="rounded-md border border-border-subtle bg-subtle p-3 font-mono text-xs text-fg-primary overflow-x-auto">
               npx shadcn@latest init https://cmplt.design/r/base.json
             </pre>
           </Card>

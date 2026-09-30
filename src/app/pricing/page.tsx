@@ -65,7 +65,7 @@ export default function PricingLandingPage() {
         <Badge variant="brand">Pricing &amp; Licensing</Badge>
         <h1 className="cmplt-h1 text-fg-primary mx-auto">
           Invest once.{" "}
-          <span className="text-fg-accent">
+          <span className="text-fg-brand">
             Ship consistent interfaces forever.
           </span>
         </h1>
@@ -90,13 +90,13 @@ export default function PricingLandingPage() {
           </p>
         </div>
 
-        <div className="overflow-x-auto rounded-cmplt-xl border border-border-subtle bg-surface shadow-cmplt-xs">
+        <div className="overflow-x-auto rounded-xl border border-border-subtle bg-surface shadow-xs">
           <table className="w-full text-left text-xs sm:text-sm min-w-[640px]">
             <thead className="border-b border-border-subtle bg-subtle/60 text-fg-muted uppercase text-[11px]">
               <tr>
                 <th className="py-4 md:py-5 px-6 md:px-8">Capability</th>
                 <th className="py-4 md:py-5 px-6 md:px-8">Core UI (Free)</th>
-                <th className="py-4 md:py-5 px-6 md:px-8 text-fg-accent">Pro + Figma Kit</th>
+                <th className="py-4 md:py-5 px-6 md:px-8 text-fg-brand">Pro + Figma Kit</th>
                 <th className="py-4 md:py-5 px-6 md:px-8">Team Suite</th>
               </tr>
             </thead>

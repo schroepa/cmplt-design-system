@@ -37,7 +37,7 @@ export const LiquidSwitch = React.forwardRef<HTMLElement, LiquidSwitchProps>(
           defaultChecked={defaultChecked}
           onCheckedChange={onCheckedChange}
           className={cn(
-            "group peer relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-cmplt-full border border-border-default bg-muted p-0.5 transition-colors duration-300 ease-cmplt-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[checked]:bg-accent data-[checked]:border-accent data-[disabled]:cursor-not-allowed data-[disabled]:opacity-45 select-none",
+            "group peer relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border border-border-default bg-muted p-0.5 transition-colors duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-canvas data-[checked]:bg-brand data-[checked]:border-brand data-[disabled]:cursor-not-allowed data-[disabled]:opacity-45 select-none",
             className
           )}
           {...props}
@@ -45,7 +45,7 @@ export const LiquidSwitch = React.forwardRef<HTMLElement, LiquidSwitchProps>(
           {/* Gooey Filtered Layer */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-cmplt-full overflow-hidden"
+            className="pointer-events-none absolute inset-0 rounded-full overflow-hidden"
             style={{
               filter: `url(#${filterId})`,
             }}
@@ -53,8 +53,8 @@ export const LiquidSwitch = React.forwardRef<HTMLElement, LiquidSwitchProps>(
             {/* Trailing Fluid Bridge Droplet (lags and stretches organically across the track) */}
             <span
               className={cn(
-                "absolute top-0.5 block h-5 w-5 rounded-cmplt-full bg-surface transition-all duration-380 ease-cmplt-out",
-                "left-0.5 group-data-[checked]:left-5.5 group-data-[checked]:bg-fg-on-accent",
+                "absolute top-0.5 block h-5 w-5 rounded-full bg-surface transition-all duration-380 ease-out",
+                "left-0.5 group-data-[checked]:left-5.5 group-data-[checked]:bg-fg-on-brand",
                 "group-active:scale-x-140 group-active:scale-y-75"
               )}
             />
@@ -62,8 +62,8 @@ export const LiquidSwitch = React.forwardRef<HTMLElement, LiquidSwitchProps>(
             {/* Leading Fluid Droplet (snaps into destination with spring) */}
             <span
               className={cn(
-                "absolute top-0.5 block h-5 w-5 rounded-cmplt-full bg-surface shadow-cmplt-xs transition-all duration-280 ease-cmplt-spring",
-                "left-0.5 group-data-[checked]:left-5.5 group-data-[checked]:bg-fg-on-accent",
+                "absolute top-0.5 block h-5 w-5 rounded-full bg-surface shadow-xs transition-all duration-280 ease-spring",
+                "left-0.5 group-data-[checked]:left-5.5 group-data-[checked]:bg-fg-on-brand",
                 "group-active:w-6 group-active:scale-95"
               )}
             />
@@ -72,7 +72,7 @@ export const LiquidSwitch = React.forwardRef<HTMLElement, LiquidSwitchProps>(
           {/* Accessible Base UI Thumb (transparent hit/render box) */}
           <BaseSwitch.Thumb
             className={cn(
-              "pointer-events-none block h-4 w-4 rounded-cmplt-full opacity-0 translate-x-0 transition-transform duration-300 ease-cmplt-spring data-[checked]:translate-x-5"
+              "pointer-events-none block h-4 w-4 rounded-full opacity-0 translate-x-0 transition-transform duration-300 ease-spring data-[checked]:translate-x-5"
             )}
           />
         </BaseSwitch.Root>

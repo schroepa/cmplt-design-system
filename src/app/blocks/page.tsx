@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { HeroMotionBlock } from "@/registry/cmplt/blocks/hero-motion-block";
+import { AppDockBlock } from "@/registry/cmplt/blocks/app-dock-block";
 import { EngagementPanelBlock } from "@/registry/cmplt/blocks/engagement-panel-block";
 import { AppManagerBlock } from "@/registry/cmplt/blocks/app-manager-block";
 import { AiDeploymentCard } from "@/registry/cmplt/blocks/ai-deployment-card";
@@ -35,13 +36,13 @@ export default function BlocksLandingPage() {
         </div>
         <h1 className="cmplt-h1 text-fg-primary">
           Production-Ready Blocks.{" "}
-          <span className="text-fg-accent">Installed via CLI.</span>
+          <span className="text-fg-brand">Installed via CLI.</span>
         </h1>
         <p className="cmplt-lead text-fg-secondary">
           Every <strong className="text-fg-primary">cmplt Block</strong> is composed
           from our headless <code className="font-mono text-fg-primary">@base-ui/react</code>{" "}
           primitives and calibrated 4-step surface hierarchy. Run{" "}
-          <code className="font-mono text-fg-accent">npx shadcn add @cmplt/[block]</code>{" "}
+          <code className="font-mono text-fg-brand">npx shadcn add @cmplt/[block]</code>{" "}
           to install the block and all required primitives into your repository.
         </p>
       </div>
@@ -66,7 +67,7 @@ export default function BlocksLandingPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/showcase"
-              className="inline-flex items-center gap-1.5 font-medium text-xs text-fg-accent hover:underline"
+              className="inline-flex items-center gap-1.5 font-medium text-xs text-fg-brand hover:underline"
             >
               Full Page Showcase <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -83,6 +84,39 @@ export default function BlocksLandingPage() {
 
         <CliInstallTabs itemName="hero-motion-block" />
         <HeroMotionBlock />
+      </section>
+
+      {/* Featured: Fluid Workspace Dock & Presence Block */}
+      <section className="space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border-subtle pb-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge variant="brand">Liquid Physics</Badge>
+              <h2 className="cmplt-h3 text-fg-primary">
+                Fluid Workspace Dock &amp; Presence
+              </h2>
+              <Badge variant="mono" size="sm" dot={false}>
+                @cmplt/app-dock-block
+              </Badge>
+            </div>
+            <p className="cmplt-body-sm text-fg-muted">
+              Interactive workspace dock combining gooey surface tension physics, live collaborator avatar group, and reactive stage switching.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href="/r/app-dock-block.json"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-muted hover:text-fg-primary hover:underline"
+            >
+              /r/app-dock-block.json <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div>
+        </div>
+
+        <CliInstallTabs itemName="app-dock-block" />
+        <AppDockBlock />
       </section>
 
       {/* Block 01: Multi-Layer Engagement Offer Shell */}
@@ -105,7 +139,7 @@ export default function BlocksLandingPage() {
             href="/r/engagement-panel-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/engagement-panel-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -137,7 +171,7 @@ export default function BlocksLandingPage() {
             href="/r/app-manager-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/app-manager-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -169,7 +203,7 @@ export default function BlocksLandingPage() {
             href="/r/ai-deployment-card.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/ai-deployment-card.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -202,7 +236,7 @@ export default function BlocksLandingPage() {
                   "dialog",
                 ].map((dep) => (
                   <Link key={dep} href={`/docs/components/${dep}`}>
-                    <Badge variant="outline" size="sm" className="hover:border-border-accent">
+                    <Badge variant="outline" size="sm" className="hover:border-border-brand">
                       @cmplt/{dep}
                     </Badge>
                   </Link>
@@ -233,7 +267,7 @@ export default function BlocksLandingPage() {
             href="/r/token-sync-inspector.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/token-sync-inspector.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -279,7 +313,7 @@ export default function BlocksLandingPage() {
             href="/r/pricing-tier-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/pricing-tier-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -313,13 +347,13 @@ export default function BlocksLandingPage() {
             href="/r/site-header-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/site-header-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
         <CliInstallTabs itemName="site-header-block" />
-        <div className="rounded-cmplt-panel border border-border-default overflow-hidden">
+        <div className="rounded-panel border border-border-default overflow-hidden">
           <SiteHeaderBlock />
         </div>
       </section>
@@ -344,7 +378,7 @@ export default function BlocksLandingPage() {
             href="/r/feature-bento-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/feature-bento-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -375,7 +409,7 @@ export default function BlocksLandingPage() {
             href="/r/stats-metric-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/stats-metric-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -406,7 +440,7 @@ export default function BlocksLandingPage() {
             href="/r/faq-accordion-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/faq-accordion-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -437,7 +471,7 @@ export default function BlocksLandingPage() {
             href="/r/cta-banner-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/cta-banner-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -468,7 +502,7 @@ export default function BlocksLandingPage() {
             href="/r/dashboard-shell-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/dashboard-shell-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -499,7 +533,7 @@ export default function BlocksLandingPage() {
             href="/r/activity-feed-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/activity-feed-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -530,7 +564,7 @@ export default function BlocksLandingPage() {
             href="/r/data-table-toolbar-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/data-table-toolbar-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -561,7 +595,7 @@ export default function BlocksLandingPage() {
             href="/r/account-settings-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/account-settings-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
@@ -592,13 +626,13 @@ export default function BlocksLandingPage() {
             href="/r/site-footer-block.json"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-accent hover:underline"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-fg-brand hover:underline"
           >
             /r/site-footer-block.json <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
         <CliInstallTabs itemName="site-footer-block" />
-        <div className="rounded-cmplt-panel border border-border-default overflow-hidden">
+        <div className="rounded-panel border border-border-default overflow-hidden">
           <SiteFooterBlock />
         </div>
       </section>

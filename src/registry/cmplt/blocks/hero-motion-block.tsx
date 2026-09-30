@@ -18,7 +18,7 @@ import { ArrowRight, Terminal, Sparkles, ShieldCheck, Zap } from "lucide-react";
 
 export function HeroMotionBlock() {
   return (
-    <section className="relative overflow-hidden rounded-cmplt-2xl border border-border-default bg-canvas/80 p-8 sm:p-12 md:p-16 lg:p-20 shadow-cmplt-lg">
+    <section className="relative overflow-hidden rounded-2xl border border-border-default bg-canvas/80 p-8 sm:p-12 md:p-16 lg:p-20 shadow-lg">
       {/* Three.js + GSAP Interactive Background */}
       <InteractiveDotField
         spacing={26}
@@ -32,7 +32,7 @@ export function HeroMotionBlock() {
         {/* Eyebrow Pill */}
         <div className="inline-flex items-center gap-2">
           <Badge variant="brand" size="md" className="backdrop-blur-md">
-            <Sparkles className="h-3.5 w-3.5 text-accent" />
+            <Sparkles className="h-3.5 w-3.5 text-brand" />
             <span>cmplt Design System v1.2</span>
           </Badge>
           <Badge variant="outline" size="md" className="hidden sm:inline-flex backdrop-blur-md">
@@ -44,7 +44,7 @@ export function HeroMotionBlock() {
         <div className="space-y-4">
           <Heading size="h1" as="h1" className="text-balance tracking-tight">
             Design Engineering with{" "}
-            <span className="text-fg-accent underline decoration-border-accent/40 decoration-wavy decoration-2 underline-offset-8">
+            <span className="text-fg-brand underline decoration-border-brand/40 decoration-wavy decoration-2 underline-offset-8">
               Parity &amp; Polish
             </span>
           </Heading>
@@ -82,8 +82,8 @@ export function HeroMotionBlock() {
 
         {/* CLI Terminal Pill */}
         <div className="pt-4 flex justify-center">
-          <div className="inline-flex items-center gap-2.5 rounded-cmplt-full border border-border-default/80 bg-surface/85 px-4 py-2 font-mono text-xs text-fg-secondary backdrop-blur-md shadow-cmplt-xs">
-            <Terminal className="h-3.5 w-3.5 text-fg-accent" />
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-border-default/80 bg-surface/85 px-4 py-2 font-mono text-xs text-fg-secondary backdrop-blur-md shadow-xs">
+            <Terminal className="h-3.5 w-3.5 text-fg-brand" />
             <span className="text-fg-muted">Run</span>
             <span className="text-fg-primary font-semibold">npx shadcn@latest add @cmplt/base</span>
           </div>
@@ -103,7 +103,7 @@ export function HeroMotionBlock() {
 
           <div className="space-y-1">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-fg-primary">
-              <Zap className="h-4 w-4 text-fg-accent" />
+              <Zap className="h-4 w-4 text-fg-brand" />
               <span>Tailwind v4 Native</span>
             </div>
             <p className="cmplt-body-xs text-fg-muted">
@@ -113,7 +113,7 @@ export function HeroMotionBlock() {
 
           <div className="col-span-2 sm:col-span-1 space-y-1">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-fg-primary">
-              <Sparkles className="h-4 w-4 text-accent" />
+              <Sparkles className="h-4 w-4 text-brand" />
               <span>Figma DTCG Sync</span>
             </div>
             <p className="cmplt-body-xs text-fg-muted">

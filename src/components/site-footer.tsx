@@ -9,7 +9,7 @@ export function SiteFooter() {
           {/* Brand Column */}
           <div className="md:col-span-2 lg:col-span-4 2xl:col-span-5 space-y-4 max-w-md">
             <div className="flex items-center gap-2.5 font-semibold text-fg-primary">
-              <span className="flex h-7 w-7 items-center justify-center rounded-cmplt-squircle bg-accent text-fg-on-accent font-mono text-xs font-bold shadow-cmplt-xs">
+              <span className="flex h-7 w-7 items-center justify-center rounded-squircle bg-brand text-fg-on-brand font-mono text-xs font-bold shadow-xs">
                 c/
               </span>
               <span className="text-sm 2xl:text-base">cmplt design system</span>
@@ -84,7 +84,7 @@ export function SiteFooter() {
             <p className="text-xs sm:text-[13px] text-fg-muted leading-relaxed">
               Install any primitive or block directly into your repository:
             </p>
-            <div className="rounded-cmplt-md border border-border-default bg-subtle px-4 py-3 font-mono text-xs text-fg-primary overflow-x-auto whitespace-nowrap">
+            <div className="rounded-md border border-border-default bg-subtle px-4 py-3 font-mono text-xs text-fg-primary overflow-x-auto whitespace-nowrap">
               <span className="select-none text-fg-muted mr-2">$</span>
               npx shadcn@latest add @cmplt/button
             </div>
@@ -99,7 +99,7 @@ export function SiteFooter() {
                 href="https://ptrckschrdtr.de"
                 target="_blank"
                 rel="noreferrer"
-                className="font-medium text-fg-primary hover:text-fg-accent transition-colors"
+                className="font-medium text-fg-primary hover:text-fg-brand transition-colors"
               >
                 Patrick Schrödter (ptrckschrdtr)
               </a>

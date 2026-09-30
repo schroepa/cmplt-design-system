@@ -75,7 +75,7 @@ export default function FigmaLandingPage() {
 
           <h1 className="cmplt-h1 text-fg-primary">
             Built in Code First.{" "}
-            <span className="text-fg-accent">
+            <span className="text-fg-brand">
               Engineered for 1:1 Figma Synchronization.
             </span>
           </h1>
@@ -105,7 +105,7 @@ export default function FigmaLandingPage() {
               <DialogTrigger
                 render={
                   <Button variant="ghost" size="lg">
-                    <Sparkles className="h-4 w-4 text-fg-accent" />
+                    <Sparkles className="h-4 w-4 text-fg-brand" />
                     Reserve UI Kit Access
                   </Button>
                 }
@@ -162,7 +162,7 @@ export default function FigmaLandingPage() {
           <Card className="p-6 md:p-8 space-y-4">
             <div className="flex items-center justify-between">
               <Badge variant="mono" size="sm">registry:file</Badge>
-              <span className="text-xs font-mono text-fg-accent">@cmplt/tokens-studio</span>
+              <span className="text-xs font-mono text-fg-brand">@cmplt/tokens-studio</span>
             </div>
             <h3 className="cmplt-h4 text-fg-primary">Tokens Studio for Figma</h3>
             <p className="cmplt-body-xs text-fg-muted">
@@ -174,7 +174,7 @@ export default function FigmaLandingPage() {
           <Card className="p-6 md:p-8 space-y-4">
             <div className="flex items-center justify-between">
               <Badge variant="mono" size="sm">registry:file</Badge>
-              <span className="text-xs font-mono text-fg-accent">@cmplt/design-tokens</span>
+              <span className="text-xs font-mono text-fg-brand">@cmplt/design-tokens</span>
             </div>
             <h3 className="cmplt-h4 text-fg-primary">Raw W3C DTCG Format</h3>
             <p className="cmplt-body-xs text-fg-muted">
@@ -206,8 +206,8 @@ export default function FigmaLandingPage() {
               OKLCH Ramps → Figma Color Primitives
             </h3>
             <p className="cmplt-body-sm text-fg-secondary">
-              Every <code className="font-mono text-fg-primary">--cmplt-neutral-*</code> and{" "}
-              <code className="font-mono text-fg-primary">--cmplt-brand-*</code>{" "}
+              Every <code className="font-mono text-fg-primary">--neutral-*</code> and{" "}
+              <code className="font-mono text-fg-primary">--brand-*</code>{" "}
               step in <code className="font-mono text-fg-primary">tokens.css</code>{" "}
               includes a calibrated sRGB/P3 fallback in{" "}
               <code className="font-mono text-fg-primary">tokens.json</code> for lossless import into Figma&apos;s Primitive Collection.
@@ -222,9 +222,9 @@ export default function FigmaLandingPage() {
               :root &amp; .dark → Figma Variable Modes
             </h3>
             <p className="cmplt-body-sm text-fg-secondary">
-              Semantic tokens (<code className="font-mono text-fg-accent">bg.surface</code>,{" "}
-              <code className="font-mono text-fg-accent">fg.primary</code>,{" "}
-              <code className="font-mono text-fg-accent">border.subtle</code>) carry explicit{" "}
+              Semantic tokens (<code className="font-mono text-fg-brand">bg.surface</code>,{" "}
+              <code className="font-mono text-fg-brand">fg.primary</code>,{" "}
+              <code className="font-mono text-fg-brand">border.subtle</code>) carry explicit{" "}
               <code className="font-mono text-fg-primary">figmaScope</code> metadata (<code className="font-mono">FRAME_FILL</code>, <code className="font-mono">TEXT_FILL</code>, <code className="font-mono">STROKE_COLOR</code>) across Light, Dark, and Preset modes.
             </p>
           </Card>

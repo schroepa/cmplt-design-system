@@ -7,10 +7,10 @@ import { cn } from "@/registry/cmplt/lib/utils";
 
 /**
  * EngagementPanelBlock — Implements the exact multi-surface architecture from the Dark Mode reference:
- * - Outer Shell: bg-surface (#262625 in Dark / #FBFBF9 in Light), 24px radius (rounded-cmplt-xl)
- * - Left Summary Column: Alert Banner + 1px divided entity rows + stacked Accept (Forest Jade) / Reject buttons
- * - Right Nested Elevated Panel: bg-elevated (#2E2E2D in Dark / #FDFDFC in Light), 20px radius (rounded-cmplt-lg)
- * - Inset Grouped Key-Value List Boxes: bg-subtle (#2A2A29 in Dark / #F5F5F3 in Light), 10px radius, 1px hairline dividers
+ * - Outer Shell: bg-surface (#262625 in Dark / #FBFBF9 in Light), 24px radius (rounded-xl)
+ * - Left Summary Column: Alert Banner + entity rows + stacked Accept (brand) / Reject buttons
+ * - Right Nested Elevated Panel: bg-elevated, rounded-lg
+ * - Inset Key-Value List Boxes: bg-subtle, hairline dividers
  */
 export function EngagementPanelBlock() {
   const [status, setStatus] = React.useState<"pending" | "accepted" | "rejected">(
@@ -18,7 +18,7 @@ export function EngagementPanelBlock() {
   );
 
   return (
-    <div className="w-full rounded-cmplt-xl border border-border-default bg-surface p-2.5 sm:p-3 shadow-cmplt-lg">
+    <div className="w-full rounded-xl border border-border-default bg-surface p-2.5 sm:p-3 shadow-lg">
       <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-6 2xl:gap-8">
         {/* Left Column: Summary, Alert Banner, Entity Links & Primary Actions */}
         <div className="lg:col-span-5 2xl:col-span-4 flex flex-col justify-between p-3.5 sm:p-6 md:p-7 lg:p-8 2xl:p-10">
@@ -28,7 +28,7 @@ export function EngagementPanelBlock() {
             </h3>
 
             {/* Subtle Warm Banner */}
-            <div className="flex items-center gap-3 rounded-cmplt-md bg-muted/80 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-[13px] text-fg-primary border border-border-subtle">
+            <div className="flex items-center gap-3 rounded-md bg-muted/80 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-[13px] text-fg-primary border border-border-subtle">
               <AlertTriangle className="h-4 w-4 shrink-0 text-status-warning fill-status-warning/20" />
               <span>
                 {status === "pending"
@@ -41,8 +41,8 @@ export function EngagementPanelBlock() {
 
             {/* 1px Divided Entity Rows (2-col on Tablet, stacked on Mobile & Desktop sidebar) */}
             <div className="divide-y md:divide-y-0 lg:divide-y divide-border-subtle md:grid md:grid-cols-2 md:gap-4 lg:block pt-1">
-              <div className="flex items-center gap-3.5 py-3 sm:py-4 md:rounded-cmplt-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-sm bg-canvas border border-border-default font-mono text-xs font-bold text-fg-primary">
+              <div className="flex items-center gap-3.5 py-3 sm:py-4 md:rounded-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-canvas border border-border-default font-mono text-xs font-bold text-fg-primary">
                   OC
                 </span>
                 <div className="min-w-0">
@@ -54,8 +54,8 @@ export function EngagementPanelBlock() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3.5 py-3 sm:py-4 md:rounded-cmplt-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-cmplt-sm bg-subtle border border-border-subtle text-sm">
+              <div className="flex items-center gap-3.5 py-3 sm:py-4 md:rounded-md md:border md:border-border-subtle md:px-4 lg:rounded-none lg:border-0 lg:px-0">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-subtle border border-border-subtle text-sm">
                   🖌️
                 </span>
                 <div className="min-w-0">
@@ -74,7 +74,7 @@ export function EngagementPanelBlock() {
             <Button
               shape="rounded"
               onClick={() => setStatus("accepted")}
-              className="w-full h-11 bg-[var(--cmplt-jade-500)] hover:bg-[var(--cmplt-jade-400)] text-white border border-[var(--cmplt-jade-400)]/30 font-medium"
+              className="w-full h-11 bg-status-success hover:opacity-90 text-fg-on-brand border border-transparent font-medium"
             >
               <Check className="h-4 w-4 stroke-[2]" />
               {status === "accepted" ? "Accepted" : "Accept"}
@@ -91,8 +91,8 @@ export function EngagementPanelBlock() {
           </div>
         </div>
 
-        {/* Right Nested Elevated Panel (Concentric: Outer 24px - 10px p-2.5 = 14px rounded-cmplt-xl-inner) */}
-        <div className="lg:col-span-7 2xl:col-span-8 rounded-cmplt-xl-inner bg-elevated border border-border-subtle p-3.5 sm:p-7 md:p-8 lg:p-9 2xl:p-11 space-y-5 sm:space-y-6 md:space-y-8">
+        {/* Right Nested Elevated Panel (Concentric: Outer 24px - 10px p-2.5 = 14px rounded-xl-inner) */}
+        <div className="lg:col-span-7 2xl:col-span-8 rounded-xl-inner bg-elevated border border-border-subtle p-3.5 sm:p-7 md:p-8 lg:p-9 2xl:p-11 space-y-5 sm:space-y-6 md:space-y-8">
           {/* Grouped Key-Value Tables (Stacked on Mobile/Tablet/Desktop, Side-by-side on Desktop+ 2xl) */}
           <div className="grid grid-cols-1 2xl:grid-cols-2 gap-6 md:gap-7 2xl:gap-8">
             {/* Group 1 */}
@@ -112,7 +112,7 @@ export function EngagementPanelBlock() {
               </div>
 
               {/* Inset Grouped Key-Value List Box */}
-              <div className="divide-y divide-border-subtle rounded-cmplt-md border border-border-default/60 bg-subtle px-4 sm:px-5">
+              <div className="divide-y divide-border-subtle rounded-md border border-border-default/60 bg-subtle px-4 sm:px-5">
                 <div className="flex items-center justify-between py-3 text-[13px]">
                   <span className="text-fg-muted">Hourly Rate</span>
                   <span className="font-medium text-fg-primary cmplt-tabular">
@@ -147,7 +147,7 @@ export function EngagementPanelBlock() {
                   <X className="h-4 w-4" />
                 </button>
               </div>
-              <div className="divide-y divide-border-subtle rounded-cmplt-md border border-border-default/60 bg-subtle px-4 sm:px-5">
+              <div className="divide-y divide-border-subtle rounded-md border border-border-default/60 bg-subtle px-4 sm:px-5">
                 <div className="flex items-center justify-between py-3 text-[13px]">
                   <span className="text-fg-muted">Hourly Rate</span>
                   <span className="font-medium text-fg-primary cmplt-tabular">

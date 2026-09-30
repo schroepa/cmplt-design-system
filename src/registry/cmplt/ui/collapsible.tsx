@@ -14,7 +14,7 @@ const CollapsibleContent = React.forwardRef<
   <BaseCollapsible.Panel
     ref={ref}
     className={cn(
-      "overflow-hidden transition-all duration-200 ease-cmplt-out data-[ending-style]:h-0 data-[starting-style]:h-0",
+      "overflow-hidden transition-all duration-200 ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
       className
     )}
     {...props}

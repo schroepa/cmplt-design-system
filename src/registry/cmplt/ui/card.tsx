@@ -24,29 +24,29 @@ import {
 
 /**
  * cmplt Card & Domain Presets — Style Guide v1.3:
- * - Soft, organic container border-radius (20px-24px via rounded-cmplt-lg / xl)
+ * - Soft, organic container border-radius (20px-24px via rounded-lg / xl)
  * - Optical Concentricity: Inner media & wells use R_inner = R_outer - padding
- *   (e.g., Card 20px - 8px p-2 = 12px rounded-cmplt-lg-inner-sm)
+ *   (e.g., Card 20px - 8px p-2 = 12px rounded-lg-inner-sm)
  * - Level 1 Elevation: crisp 1px hairline border + ultra-subtle micro-shadow
  * - Includes composable primitives (CardMedia, CardEyebrow, CardMeta, CardPrice)
  *   and 7 domain presets (BlogCard, ProductCard, MetricCard, ProfileCard,
  *   FeatureCard, TestimonialCard, EventCard).
  */
 const cardVariants = cva(
-  "cmplt-card rounded-cmplt-lg text-fg-primary transition-all duration-250 ease-cmplt-out",
+  "cmplt-card rounded-lg text-fg-primary transition-all duration-250 ease-out",
   {
     variants: {
       variant: {
-        default: "bg-surface border border-border-subtle shadow-cmplt-xs",
+        default: "bg-surface border border-border-subtle shadow-xs",
         elevated:
-          "bg-elevated border border-border-default shadow-cmplt-sm rounded-cmplt-xl",
-        subtle: "bg-subtle/55 border border-border-subtle shadow-cmplt-none",
+          "bg-elevated border border-border-default shadow-sm rounded-xl",
+        subtle: "bg-subtle/55 border border-border-subtle shadow-none",
         interactive:
-          "bg-surface border border-border-subtle shadow-cmplt-xs hover:border-border-strong hover:shadow-cmplt-md hover:-translate-y-0.5 active:translate-y-0 active:duration-100 cursor-pointer",
+          "bg-surface border border-border-subtle shadow-xs hover:border-border-strong hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:duration-100 cursor-pointer",
         outline:
-          "bg-transparent border border-border-default shadow-cmplt-none",
+          "bg-transparent border border-border-default shadow-none",
         featured:
-          "bg-elevated border border-border-accent/65 shadow-cmplt-sm rounded-cmplt-xl",
+          "bg-elevated border border-border-brand/65 shadow-sm rounded-xl",
       },
       layout: {
         vertical: "flex flex-col",
@@ -117,8 +117,8 @@ const CardMedia = React.forwardRef<HTMLDivElement, CardMediaProps>(
       className={cn(
         "relative overflow-hidden bg-subtle/80 bg-cmplt-dots",
         inset
-          ? "m-2 rounded-cmplt-lg-inner-sm border border-border-subtle"
-          : "rounded-t-cmplt-lg border-b border-border-subtle",
+          ? "m-2 rounded-lg-inner-sm border border-border-subtle"
+          : "rounded-t-lg border-b border-border-subtle",
         aspectClasses[aspect],
         className
       )}
@@ -224,7 +224,7 @@ const CardMeta = React.forwardRef<
     ref={ref}
     data-slot="card-meta"
     className={cn(
-      "rounded-cmplt-md border border-border-subtle bg-subtle px-3.5 py-2.5 text-xs text-fg-secondary",
+      "rounded-md border border-border-subtle bg-subtle px-3.5 py-2.5 text-xs text-fg-secondary",
       className
     )}
     {...props}
@@ -366,8 +366,8 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         >
           {media ?? (
             <div className="flex flex-col items-center justify-center gap-2 p-6 text-center transition-transform duration-300 group-hover:scale-[1.03]">
-              <div className="flex h-10 w-10 items-center justify-center rounded-cmplt-squircle border border-border-default bg-elevated shadow-cmplt-xs">
-                <Sparkles className="h-4 w-4 text-fg-accent" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-squircle border border-border-default bg-elevated shadow-xs">
+                <Sparkles className="h-4 w-4 text-fg-brand" />
               </div>
               <span className="font-mono text-[10px] text-fg-muted">
                 Editorial Surface · OKLCH
@@ -389,7 +389,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
 
             <CardTitle
               className={cn(
-                "group-hover:text-fg-accent transition-colors",
+                "group-hover:text-fg-brand transition-colors",
                 featured || isHorizontal ? "text-base sm:text-lg" : "text-[15px]"
               )}
             >
@@ -403,7 +403,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-cmplt-2xs border border-border-subtle bg-subtle px-2 py-0.5 font-mono text-[10px] text-fg-secondary"
+                    className="rounded-2xs border border-border-subtle bg-subtle px-2 py-0.5 font-mono text-[10px] text-fg-secondary"
                   >
                     #{tag}
                   </span>
@@ -440,7 +440,7 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
             <button
               type="button"
               onClick={onReadMore}
-              className="inline-flex shrink-0 items-center gap-1 text-xs font-medium text-fg-primary group-hover:text-fg-accent transition-colors cursor-pointer"
+              className="inline-flex shrink-0 items-center gap-1 text-xs font-medium text-fg-primary group-hover:text-fg-brand transition-colors cursor-pointer"
             >
               <span>{ctaLabel}</span>
               <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -542,7 +542,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
                 <Badge
                   variant={badgeVariant}
                   size="sm"
-                  className="backdrop-blur-md shadow-cmplt-xs"
+                  className="backdrop-blur-md shadow-xs"
                 >
                   {badge}
                 </Badge>
@@ -558,7 +558,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
                 className={cn(
                   "flex h-7 w-7 items-center justify-center rounded-full border transition-all cursor-pointer",
                   wishlisted
-                    ? "border-border-accent bg-accent/15 text-fg-accent"
+                    ? "border-border-brand bg-brand/15 text-fg-brand"
                     : "border-border-default bg-surface/90 text-fg-muted hover:text-fg-primary"
                 )}
               >
@@ -572,7 +572,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
             }
             bottomSlot={
               swatches && swatches.length > 0 ? (
-                <div className="inline-flex items-center gap-1.5 rounded-cmplt-full border border-border-subtle bg-surface/90 px-2.5 py-1 backdrop-blur-md shadow-cmplt-xs">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-surface/90 px-2.5 py-1 backdrop-blur-md shadow-xs">
                   {swatches.map((swatch, idx) => (
                     <button
                       key={swatch.name}
@@ -583,7 +583,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
                       className={cn(
                         "h-3.5 w-3.5 rounded-full border border-border-default transition-transform cursor-pointer",
                         selectedSwatchIdx === idx &&
-                          "scale-110 ring-2 ring-fg-accent ring-offset-1 ring-offset-surface"
+                          "scale-110 ring-2 ring-fg-brand ring-offset-1 ring-offset-surface"
                       )}
                       style={{ backgroundColor: swatch.color }}
                     />
@@ -597,8 +597,8 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
           >
             {media ?? (
               <div className="flex flex-col items-center justify-center gap-2 p-6 transition-transform duration-300 group-hover:scale-105">
-                <div className="flex h-16 w-16 items-center justify-center rounded-cmplt-lg border border-border-default bg-elevated shadow-cmplt-sm">
-                  <ShoppingBag className="h-6 w-6 text-fg-accent" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-lg border border-border-default bg-elevated shadow-sm">
+                  <ShoppingBag className="h-6 w-6 text-fg-brand" />
                 </div>
               </div>
             )}
@@ -611,7 +611,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
               </span>
               {rating !== undefined && (
                 <span className="inline-flex items-center gap-1 text-fg-primary cmplt-tabular">
-                  <Star className="h-3 w-3 fill-[var(--cmplt-amber-500)] text-[var(--cmplt-amber-500)]" />
+                  <Star className="h-3 w-3 fill-[var(--warning-500)] text-[var(--warning-500)]" />
                   <span className="font-semibold">{rating.toFixed(1)}</span>
                   {reviewCount !== undefined && (
                     <span className="text-fg-muted">({reviewCount})</span>
@@ -620,7 +620,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
               )}
             </CardEyebrow>
 
-            <CardTitle className="group-hover:text-fg-accent transition-colors">
+            <CardTitle className="group-hover:text-fg-brand transition-colors">
               {title}
             </CardTitle>
 
@@ -632,7 +632,7 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
 
             {/* Optional Compact Spec Strip */}
             {specs && specs.length > 0 && (
-              <div className="mt-2 grid grid-cols-2 gap-1.5 rounded-cmplt-md border border-border-subtle bg-subtle p-2">
+              <div className="mt-2 grid grid-cols-2 gap-1.5 rounded-md border border-border-subtle bg-subtle p-2">
                 {specs.map((s) => (
                   <div key={s.label} className="px-1">
                     <div className="text-[10px] text-fg-muted">{s.label}</div>
@@ -739,7 +739,7 @@ const MetricCard = React.forwardRef<HTMLDivElement, MetricCardProps>(
           <div className="flex items-center justify-between gap-2">
             <span className="text-xs font-medium text-fg-muted">{label}</span>
             {icon ? (
-              <span className="flex h-7 w-7 items-center justify-center rounded-cmplt-sm border border-border-subtle bg-subtle text-fg-secondary">
+              <span className="flex h-7 w-7 items-center justify-center rounded-sm border border-border-subtle bg-subtle text-fg-secondary">
                 {icon}
               </span>
             ) : null}
@@ -773,8 +773,8 @@ const MetricCard = React.forwardRef<HTMLDivElement, MetricCardProps>(
                 className={cn(
                   "flex-1 rounded-t-[3px] transition-all duration-200",
                   idx === sparkline.length - 1
-                    ? "bg-accent"
-                    : "bg-accent/35 hover:bg-accent/65"
+                    ? "bg-brand"
+                    : "bg-brand/35 hover:bg-brand/65"
                 )}
               />
             ))}
@@ -855,7 +855,7 @@ const ProfileCard = React.forwardRef<HTMLDivElement, ProfileCardProps>(
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <span className="flex h-12 w-12 items-center justify-center rounded-cmplt-squircle border border-border-default bg-subtle font-mono text-sm font-semibold text-fg-primary shadow-cmplt-xs">
+                <span className="flex h-12 w-12 items-center justify-center rounded-squircle border border-border-default bg-subtle font-mono text-sm font-semibold text-fg-primary shadow-xs">
                   {avatarText}
                 </span>
                 <span
@@ -878,7 +878,7 @@ const ProfileCard = React.forwardRef<HTMLDivElement, ProfileCardProps>(
                   {verified && (
                     <CheckCircle2
                       aria-label="Verified"
-                      className="h-3.5 w-3.5 text-fg-accent"
+                      className="h-3.5 w-3.5 text-fg-brand"
                     />
                   )}
                 </div>
@@ -911,7 +911,7 @@ const ProfileCard = React.forwardRef<HTMLDivElement, ProfileCardProps>(
 
           {/* Inset Grouped Key-Value Metrics */}
           {stats && stats.length > 0 && (
-            <div className="grid grid-cols-3 divide-x divide-border-subtle rounded-cmplt-md border border-border-subtle bg-subtle py-2.5 text-center">
+            <div className="grid grid-cols-3 divide-x divide-border-subtle rounded-md border border-border-subtle bg-subtle py-2.5 text-center">
               {stats.map((st) => (
                 <div key={st.label} className="px-2">
                   <div className="cmplt-metric text-sm text-fg-primary">
@@ -1007,7 +1007,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
           <div className="flex items-center justify-between gap-2">
             <div className="inline-flex items-center gap-2">
               {icon && (
-                <span className="flex h-7 w-7 items-center justify-center rounded-cmplt-sm border border-border-default bg-subtle text-fg-accent">
+                <span className="flex h-7 w-7 items-center justify-center rounded-sm border border-border-default bg-subtle text-fg-brand">
                   {icon}
                 </span>
               )}
@@ -1020,7 +1020,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             )}
           </div>
 
-          <CardTitle className="mt-1 group-hover:text-fg-accent transition-colors">
+          <CardTitle className="mt-1 group-hover:text-fg-brand transition-colors">
             {title}
           </CardTitle>
           <CardDescription>{description}</CardDescription>
@@ -1046,7 +1046,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
           <button
             type="button"
             onClick={onAction}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-fg-primary group-hover:text-fg-accent transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-fg-primary group-hover:text-fg-brand transition-colors cursor-pointer"
           >
             <span>{ctaLabel}</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -1104,7 +1104,7 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
                 className={cn(
                   "h-3.5 w-3.5",
                   idx < rating
-                    ? "fill-[var(--cmplt-amber-500)] text-[var(--cmplt-amber-500)]"
+                    ? "fill-[var(--warning-500)] text-[var(--warning-500)]"
                     : "text-border-default"
                 )}
               />
@@ -1125,7 +1125,7 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
         {metricHighlight && (
           <CardMeta className="flex items-center justify-between">
             <span className="text-xs text-fg-muted">{metricHighlight.label}</span>
-            <span className="cmplt-metric text-sm text-fg-accent">
+            <span className="cmplt-metric text-sm text-fg-brand">
               {metricHighlight.value}
             </span>
           </CardMeta>
@@ -1200,8 +1200,8 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
         <div className="space-y-3.5">
           <div className="flex items-start justify-between gap-3">
             {/* Concentric Date Tile */}
-            <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-cmplt-md border border-border-default bg-subtle text-center shadow-cmplt-xs">
-              <span className="font-mono text-[9px] font-semibold uppercase tracking-wider text-fg-accent">
+            <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-md border border-border-default bg-subtle text-center shadow-xs">
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-wider text-fg-brand">
                 {month}
               </span>
               <span className="cmplt-metric text-base text-fg-primary">

@@ -12,7 +12,7 @@ const DrawerClose = BaseDrawer.Close;
 const DrawerPortal = BaseDrawer.Portal;
 
 const drawerVariants = cva(
-  "cmplt-overlay-popup fixed z-50 flex flex-col bg-elevated text-fg-primary shadow-cmplt-xl transition-transform ease-cmplt-out focus:outline-none",
+  "cmplt-overlay-popup fixed z-50 flex flex-col bg-elevated text-fg-primary shadow-xl transition-transform ease-out focus:outline-none",
   {
     variants: {
       side: {
@@ -21,9 +21,9 @@ const drawerVariants = cva(
         left:
           "inset-y-0 left-0 h-full w-full max-w-md border-r border-border-subtle p-6",
         bottom:
-          "inset-x-0 bottom-0 max-h-[85vh] rounded-t-cmplt-xl border-t border-border-subtle p-6",
+          "inset-x-0 bottom-0 max-h-[85vh] rounded-t-xl border-t border-border-subtle p-6",
         top:
-          "inset-x-0 top-0 max-h-[85vh] rounded-b-cmplt-xl border-b border-border-subtle p-6",
+          "inset-x-0 top-0 max-h-[85vh] rounded-b-xl border-b border-border-subtle p-6",
       },
     },
     defaultVariants: {
@@ -51,7 +51,7 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
         {showClose && (
           <BaseDrawer.Close
             aria-label="Close drawer"
-            className="absolute right-5 top-5 inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-cmplt-full text-fg-muted transition-all duration-200 ease-cmplt-out hover:bg-subtle hover:text-fg-primary hover:rotate-90 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
+            className="absolute right-5 top-5 inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-full text-fg-muted transition-all duration-200 ease-out hover:bg-subtle hover:text-fg-primary hover:rotate-90 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
           >
             <X className="h-4 w-4 stroke-[1.75]" />
           </BaseDrawer.Close>

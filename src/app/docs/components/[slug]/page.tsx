@@ -147,7 +147,7 @@ export default function ComponentDocPage() {
               <h2 className="cmplt-h3 text-fg-primary">
                 API Reference &amp; Props
               </h2>
-              <div className="overflow-x-auto rounded-cmplt-lg border border-border-subtle bg-surface">
+              <div className="overflow-x-auto rounded-lg border border-border-subtle bg-surface">
                 <table className="w-full text-left text-xs">
                   <thead className="border-b border-border-subtle bg-subtle/60 text-fg-muted uppercase text-[11px]">
                     <tr>
@@ -163,7 +163,7 @@ export default function ComponentDocPage() {
                         <td className="py-3.5 px-5 font-mono font-semibold text-fg-primary">
                           {row.prop}
                         </td>
-                        <td className="py-3.5 px-5 font-mono text-fg-accent">
+                        <td className="py-3.5 px-5 font-mono text-fg-brand">
                           {row.type}
                         </td>
                         <td className="py-3.5 px-5 font-mono text-fg-muted">
@@ -199,7 +199,7 @@ export default function ComponentDocPage() {
               <h2 className="cmplt-h4 text-fg-primary">
                 Base UI State Data Attributes
               </h2>
-              <div className="overflow-x-auto rounded-cmplt-lg border border-border-subtle bg-surface">
+              <div className="overflow-x-auto rounded-lg border border-border-subtle bg-surface">
                 <table className="w-full text-left text-xs">
                   <thead className="border-b border-border-subtle bg-subtle/60 text-fg-muted uppercase text-[11px]">
                     <tr>
@@ -210,7 +210,7 @@ export default function ComponentDocPage() {
                   <tbody className="divide-y divide-border-subtle">
                     {doc.dataAttributes.map((d) => (
                       <tr key={d.attr}>
-                        <td className="py-3.5 px-5 font-mono font-semibold text-fg-accent">
+                        <td className="py-3.5 px-5 font-mono font-semibold text-fg-brand">
                           {d.attr}
                         </td>
                         <td className="py-3.5 px-5 text-fg-secondary">

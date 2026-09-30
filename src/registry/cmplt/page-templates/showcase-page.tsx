@@ -34,7 +34,7 @@ export default function ShowcasePage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             <Card variant="subtle" className="p-6 space-y-3">
-              <div className="h-10 w-10 rounded-cmplt-md bg-accent-subtle flex items-center justify-center text-fg-accent">
+              <div className="h-10 w-10 rounded-md bg-brand-subtle flex items-center justify-center text-fg-brand">
                 <Layers className="h-5 w-5" />
               </div>
               <CardTitle className="text-base">3-Tier OKLCH Scales</CardTitle>
@@ -45,7 +45,7 @@ export default function ShowcasePage() {
             </Card>
 
             <Card variant="subtle" className="p-6 space-y-3">
-              <div className="h-10 w-10 rounded-cmplt-md bg-accent-subtle flex items-center justify-center text-fg-accent">
+              <div className="h-10 w-10 rounded-md bg-brand-subtle flex items-center justify-center text-fg-brand">
                 <ShieldCheck className="h-5 w-5" />
               </div>
               <CardTitle className="text-base">WAI-ARIA Accessibility</CardTitle>
@@ -56,7 +56,7 @@ export default function ShowcasePage() {
             </Card>
 
             <Card variant="subtle" className="p-6 space-y-3">
-              <div className="h-10 w-10 rounded-cmplt-md bg-accent-subtle flex items-center justify-center text-fg-accent">
+              <div className="h-10 w-10 rounded-md bg-brand-subtle flex items-center justify-center text-fg-brand">
                 <Sparkles className="h-5 w-5" />
               </div>
               <CardTitle className="text-base">Natural Motion Physics</CardTitle>

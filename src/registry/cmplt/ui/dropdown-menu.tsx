@@ -33,7 +33,7 @@ const DropdownMenuContent = React.forwardRef<
       <BaseMenu.Popup
         ref={ref}
         className={cn(
-          "cmplt-overlay-popup min-w-[8rem] overflow-hidden rounded-cmplt-md border border-border-subtle bg-elevated p-1 text-fg-primary shadow-cmplt-lg outline-none",
+          "cmplt-overlay-popup min-w-[8rem] overflow-hidden rounded-md border border-border-subtle bg-elevated p-1 text-fg-primary shadow-lg outline-none",
           className
         )}
         {...props}
@@ -54,7 +54,7 @@ const DropdownMenuItem = React.forwardRef<HTMLElement, DropdownMenuItemProps>(
     <BaseMenu.Item
       ref={ref}
       className={cn(
-        "relative flex cursor-pointer select-none items-center gap-2 rounded-cmplt-sm px-2.5 py-1.5 text-xs outline-none transition-colors ease-cmplt-out data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
+        "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2.5 py-1.5 text-xs outline-none transition-colors ease-out data-[disabled]:pointer-events-none data-[disabled]:opacity-45",
         variant === "default" &&
           "text-fg-secondary data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary",
         variant === "destructive" &&
@@ -78,7 +78,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   <BaseMenu.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-cmplt-sm py-1.5 pl-8 pr-2.5 text-xs text-fg-secondary outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-45 data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary",
+      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2.5 text-xs text-fg-secondary outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-45 data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary",
       className
     )}
     {...props}
@@ -101,7 +101,7 @@ const DropdownMenuRadioItem = React.forwardRef<
   <BaseMenu.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-cmplt-sm py-1.5 pl-8 pr-2.5 text-xs text-fg-secondary outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-45 data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary",
+      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 pl-8 pr-2.5 text-xs text-fg-secondary outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-45 data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary",
       className
     )}
     {...props}
@@ -169,7 +169,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <BaseMenu.SubmenuTrigger
     ref={ref}
     className={cn(
-      "flex cursor-pointer select-none items-center rounded-cmplt-sm px-2.5 py-1.5 text-xs text-fg-secondary outline-none transition-colors data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary data-[state=open]:bg-subtle",
+      "flex cursor-pointer select-none items-center rounded-sm px-2.5 py-1.5 text-xs text-fg-secondary outline-none transition-colors data-[highlighted]:bg-subtle data-[highlighted]:text-fg-primary data-[state=open]:bg-subtle",
       inset && "pl-8",
       className
     )}
@@ -193,7 +193,7 @@ const DropdownMenuSubContent = React.forwardRef<
       <BaseMenu.Popup
         ref={ref}
         className={cn(
-          "cmplt-overlay-popup min-w-[8rem] overflow-hidden rounded-cmplt-md border border-border-subtle bg-elevated p-1 text-fg-primary shadow-cmplt-lg outline-none",
+          "cmplt-overlay-popup min-w-[8rem] overflow-hidden rounded-md border border-border-subtle bg-elevated p-1 text-fg-primary shadow-lg outline-none",
           className
         )}
         {...props}

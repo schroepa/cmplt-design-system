@@ -28,8 +28,8 @@ const OTPFieldInput = React.forwardRef<
   <BaseOTPField.Input
     ref={ref}
     className={cn(
-      "relative flex size-10 sm:size-11 items-center justify-center rounded-cmplt-md border border-border bg-surface text-center font-mono text-base font-semibold text-fg shadow-cmplt-xs transition-all",
-      "hover:border-border-strong focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 focus:scale-[1.03]",
+      "relative flex size-10 sm:size-11 items-center justify-center rounded-md border border-border bg-surface text-center font-mono text-base font-semibold text-fg shadow-xs transition-all",
+      "hover:border-border-strong focus:border-brand focus:outline-none focus:ring-2 focus:ring-accent/30 focus:scale-[1.03]",
       "data-[filled]:border-border-strong data-[filled]:bg-subtle/30",
       "disabled:cursor-not-allowed disabled:opacity-50",
       className
