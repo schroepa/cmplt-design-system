@@ -106,7 +106,7 @@ export default function FigmaLandingPage() {
                 render={
                   <Button variant="ghost" size="lg">
                     <Sparkles className="h-4 w-4 text-fg-brand" />
-                    Reserve UI Kit Access
+                    Get Figma UI Kit
                   </Button>
                 }
               />
@@ -114,7 +114,7 @@ export default function FigmaLandingPage() {
                 <DialogHeader>
                   <DialogTitle>cmplt Figma UI Kit &amp; Sync Plugin</DialogTitle>
                   <DialogDescription>
-                    Get instant access to the W3C Variable collections and pre-order the full Auto-Layout Figma Component Library.
+                    Get instant access to the W3C Variable collections and the full Auto-Layout Figma Component Library.
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-3 py-2">
@@ -122,7 +122,7 @@ export default function FigmaLandingPage() {
                     <FieldLabel>Work Email</FieldLabel>
                     <Input placeholder="you@company.com" type="email" />
                     <FieldDescription>
-                      We&apos;ll send your Figma Variables import guide and Pro license link.
+                      We&apos;ll send your Figma Variables import guide and download link.
                     </FieldDescription>
                   </Field>
                 </div>
@@ -131,7 +131,7 @@ export default function FigmaLandingPage() {
                     render={<Button variant="outline">Cancel</Button>}
                   />
                   <DialogClose
-                    render={<Button variant="primary">Request Access</Button>}
+                    render={<Button variant="primary">Get Free UI Kit</Button>}
                   />
                 </DialogFooter>
               </DialogContent>

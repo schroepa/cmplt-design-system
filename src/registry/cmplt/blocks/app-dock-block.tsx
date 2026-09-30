@@ -36,7 +36,7 @@ export function AppDockBlock() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-subtle pb-6">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <Badge variant="default">Interactive Pro Block</Badge>
+            <Badge variant="default">Interactive Block</Badge>
             <span className="text-xs font-mono text-fg-muted">Liquid Physics Engine</span>
           </div>
           <Heading as="h3" size="h3">

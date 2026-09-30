@@ -129,13 +129,13 @@ export function AccountSettingsBlock() {
           >
             <RadioCard
               value="starter"
-              title="Starter License"
+              title="Starter Workspace"
               description="Up to 5 developers, unlimited open-source registry downloads."
             />
             <RadioCard
               value="team"
-              title="Team Enterprise"
-              description="Unlimited developers, Pro blocks access, and private registry support."
+              title="Team Workspace"
+              description="Unlimited developers, shared workspaces, and priority support."
             />
           </RadioGroup>
         </CardContent>

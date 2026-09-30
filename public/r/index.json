@@ -302,9 +302,9 @@
     {
       "name": "pricing-tier-block",
       "type": "registry:block",
-      "title": "SaaS & Design System Pricing Block",
+      "title": "SaaS Pricing Tier Block",
       "author": "Patrick Schrödter (ptrckschrdtr) <https://ptrckschrdtr.de>",
-      "description": "3-tier pricing matrix with billing cycle Tabs, feature checklists, and highlighted Pro card.",
+      "description": "3-tier pricing matrix with billing cycle Tabs, feature checklists, and highlighted plan card.",
       "dependencies": [
         "@base-ui/react",
         "lucide-react"

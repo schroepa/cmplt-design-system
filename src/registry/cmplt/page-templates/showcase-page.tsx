@@ -86,7 +86,7 @@ export default function ShowcasePage() {
         <section className="space-y-6">
           <div className="flex items-center justify-between border-b border-border-subtle pb-4">
             <div>
-              <Heading size="h3" as="h3">Tiered Commercial Elevation</Heading>
+              <Heading size="h3" as="h3">Tiered SaaS Pricing Matrix</Heading>
               <Text tone="muted" className="text-xs">
                 Production-grade pricing matrix demonstrating Bringhurst typography measures and badge accents.
               </Text>

@@ -403,8 +403,8 @@
     {
       "name": "pricing-tier-block",
       "type": "registry:block",
-      "title": "SaaS & Design System Pricing Block",
-      "description": "3-tier pricing matrix with billing cycle Tabs, feature checklists, and highlighted Pro card.",
+      "title": "SaaS Pricing Tier Block",
+      "description": "3-tier pricing matrix with billing cycle Tabs, feature checklists, and highlighted plan card.",
       "dependencies": [
         "@base-ui/react",
         "lucide-react"

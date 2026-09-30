@@ -1,6 +1,6 @@
 # Figma Dev Mode & Design Tokens Parity Report
 
-**Date:** 2026-09-30T11:35:29.354Z
+**Date:** 2026-09-30T16:51:42.831Z
 **Source:** Figma Dev Mode Live Inspection (07 - Neuvertrag `45438:5244`)
 **Result:** 100% Parity (43/43 verified)
 

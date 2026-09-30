@@ -12,33 +12,33 @@ import {
 import { Badge } from "@/registry/cmplt/ui/badge";
 import { Button } from "@/registry/cmplt/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/registry/cmplt/ui/tabs";
-import { Check, Sparkles, Terminal } from "lucide-react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
 
 export function PricingTierBlock() {
-  const [billing, setBilling] = React.useState<"annual" | "lifetime">("lifetime");
+  const [billing, setBilling] = React.useState<"monthly" | "annual">("annual");
 
   return (
     <div className="space-y-8 md:space-y-10 2xl:space-y-12 w-full">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg border border-border-subtle bg-surface p-5 sm:p-6 lg:px-8 lg:py-6">
         <div className="space-y-1">
           <div className="text-sm sm:text-base font-semibold text-fg-primary">
-            Flexible Licensing Architecture
+            Transparent, Predictable Plans
           </div>
           <div className="text-xs sm:text-[13px] text-fg-muted">
-            Start free with the Open Source Registry or unlock Pro Blocks & Figma Sync.
+            Choose the right plan for your team and scale with confidence.
           </div>
         </div>
         <Tabs
           value={billing}
-          onValueChange={(v) => setBilling(v as "annual" | "lifetime")}
+          onValueChange={(v) => setBilling(v as "monthly" | "annual")}
           className="w-full sm:w-auto"
         >
           <TabsList className="w-full sm:w-auto grid grid-cols-2 sm:flex">
-            <TabsTrigger value="annual" className="justify-center">Annual Pass</TabsTrigger>
-            <TabsTrigger value="lifetime" className="justify-center">
-              <span>Lifetime</span>
+            <TabsTrigger value="monthly" className="justify-center">Monthly</TabsTrigger>
+            <TabsTrigger value="annual" className="justify-center">
+              <span>Annual</span>
               <Badge variant="brand" size="sm" className="ml-1.5 hidden sm:inline-flex">
-                Popular
+                Save 20%
               </Badge>
             </TabsTrigger>
           </TabsList>
@@ -46,19 +46,19 @@ export function PricingTierBlock() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 md:gap-7 lg:grid-cols-3 lg:gap-8 xl:gap-10 2xl:gap-12">
-        {/* Tier 1: Core Open Source */}
+        {/* Tier 1: Starter */}
         <Card className="flex flex-col justify-between">
           <div>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <Badge variant="outline" size="sm">
-                  MIT License
+                  Starter
                 </Badge>
-                <span className="font-mono text-xs text-fg-muted">v1.0</span>
+                <span className="font-mono text-xs text-fg-muted">Hobby</span>
               </div>
-              <CardTitle className="mt-3 text-lg sm:text-xl">cmplt Core UI</CardTitle>
+              <CardTitle className="mt-3 text-lg sm:text-xl">Free Tier</CardTitle>
               <CardDescription>
-                Complete Base UI primitives, 3-tier OKLCH tokens & public shadcn registry.
+                Essential tools and infrastructure for indie hackers and small projects.
               </CardDescription>
               <div className="mt-5 flex items-baseline gap-1.5">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-fg-primary cmplt-tabular">
@@ -69,11 +69,11 @@ export function PricingTierBlock() {
             </CardHeader>
             <CardContent className="space-y-3.5 text-xs sm:text-[13px] text-fg-secondary">
               {[
-                "16+ unstyled Base UI primitives with CVA",
-                "3-Tier W3C Design Tokens (Light & Dark OKLCH)",
-                "Install via npx shadcn@latest add @cmplt/*",
-                "100% own the source code — zero lock-in",
-                "WCAG 2.2 AA & Top-Layer Motion ready",
+                "Up to 3 active projects",
+                "Community support and public forum",
+                "Standard analytics dashboard",
+                "10,000 monthly API requests",
+                "Automated weekly backups",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
                   <Check className="h-4 w-4 shrink-0 text-status-success mt-0.5" />
@@ -84,13 +84,12 @@ export function PricingTierBlock() {
           </div>
           <CardFooter className="pt-5">
             <Button variant="secondary" className="w-full h-11">
-              <Terminal className="h-3.5 w-3.5" />
-              npx shadcn add @cmplt/button
+              Get Started Free
             </Button>
           </CardFooter>
         </Card>
 
-        {/* Tier 2: Pro Solo + Figma */}
+        {/* Tier 2: Professional */}
         <Card
           variant="elevated"
           className="relative flex flex-col justify-between border-border-brand ring-1 ring-border-brand/40 shadow-glow"
@@ -103,30 +102,30 @@ export function PricingTierBlock() {
                   Most Popular
                 </Badge>
                 <span className="font-mono text-xs text-fg-brand">
-                  Code + Figma
+                  Pro Team
                 </span>
               </div>
-              <CardTitle className="mt-3 text-lg sm:text-xl">cmplt Pro + Figma Kit</CardTitle>
+              <CardTitle className="mt-3 text-lg sm:text-xl">Professional</CardTitle>
               <CardDescription>
-                Production blocks, multi-page templates, private registry & 1:1 Figma Variables Kit.
+                Advanced features and accelerated pipelines for growing teams and SaaS apps.
               </CardDescription>
               <div className="mt-5 flex items-baseline gap-1.5">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-fg-primary cmplt-tabular">
-                  {billing === "lifetime" ? "€189" : "€119"}
+                  {billing === "annual" ? "€24" : "€29"}
                 </span>
                 <span className="text-xs text-fg-muted">
-                  {billing === "lifetime" ? "one-time payment" : "/ year"}
+                  {billing === "annual" ? "per seat / month (billed annually)" : "per seat / month"}
                 </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-3.5 text-xs sm:text-[13px] text-fg-secondary">
               {[
-                "Everything in cmplt Core UI",
-                "60+ Production Marketing & Dashboard Blocks",
-                "Complete Figma UI Kit with synced W3C Variables",
-                "3 Live Theme Presets (Precision, Editorial, Emerald)",
-                "Private Registry Token for 1-command Pro installs",
-                "Lifetime updates & commercial project license",
+                "Unlimited projects & deployments",
+                "Unlimited team workspaces",
+                "Priority chat and email support",
+                "Custom domains & automated SSL",
+                "Real-time analytics & export APIs",
+                "Automated daily backups & snapshots",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
                   <Check className="h-4 w-4 shrink-0 text-fg-brand mt-0.5" />
@@ -137,43 +136,43 @@ export function PricingTierBlock() {
           </div>
           <CardFooter className="pt-5">
             <Button variant="primary" className="w-full h-11">
-              Get cmplt Pro Access
+              Start 14-Day Free Trial
             </Button>
           </CardFooter>
         </Card>
 
-        {/* Tier 3: Team / Organization (Full-width 2-col card on Tablet, 3rd col on Desktop/Desktop+) */}
+        {/* Tier 3: Enterprise */}
         <Card className="md:col-span-2 lg:col-span-1 flex flex-col justify-between">
           <div className="md:grid md:grid-cols-2 md:gap-8 lg:block">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <Badge variant="mono" size="sm">
-                  Unlimited Seats
+                  Dedicated
                 </Badge>
                 <span className="font-mono text-xs text-fg-muted">
                   Enterprise
                 </span>
               </div>
-              <CardTitle className="mt-3 text-lg sm:text-xl">cmplt Team Suite</CardTitle>
+              <CardTitle className="mt-3 text-lg sm:text-xl">Enterprise</CardTitle>
               <CardDescription>
-                For product teams scaling design-to-code across multiple repositories & Figma orgs.
+                Maximum security, dedicated resources, and tailored SLAs for organizations.
               </CardDescription>
               <div className="mt-5 flex items-baseline gap-1.5">
                 <span className="text-3xl sm:text-4xl font-bold tracking-tight text-fg-primary cmplt-tabular">
-                  {billing === "lifetime" ? "€490" : "€290"}
+                  {billing === "annual" ? "€99" : "€119"}
                 </span>
                 <span className="text-xs text-fg-muted">
-                  {billing === "lifetime" ? "one-time org license" : "/ year"}
+                  {billing === "annual" ? "per seat / month (billed annually)" : "per seat / month"}
                 </span>
               </div>
             </CardHeader>
             <CardContent className="space-y-3.5 text-xs sm:text-[13px] text-fg-secondary md:pt-7 lg:pt-0">
               {[
-                "Unlimited designers & developers in your org",
-                "Automated GitHub Action for Code -> Figma Token Sync",
-                "Custom Brand Token Generator & Contrast Auditor",
-                "Multi-brand registry namespace configuration",
-                "Priority Discord & architectural support",
+                "Unlimited team seats & sub-organizations",
+                "99.99% uptime guarantee with enterprise SLA",
+                "Dedicated customer success engineer",
+                "Single Sign-On (SAML / Okta / Azure AD)",
+                "Audit logging & SOC 2 compliance reports",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
                   <Check className="h-4 w-4 shrink-0 text-status-success mt-0.5" />
@@ -184,7 +183,8 @@ export function PricingTierBlock() {
           </div>
           <CardFooter className="pt-5">
             <Button variant="outline" className="w-full h-11">
-              License for Your Team
+              Contact Sales
+              <ArrowRight className="h-3.5 w-3.5 ml-1" />
             </Button>
           </CardFooter>
         </Card>

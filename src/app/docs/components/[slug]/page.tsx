@@ -248,7 +248,7 @@ export default function ComponentDocPage() {
         ) : (
           <Link href="/blocks">
             <Button variant="primary" size="md">
-              Explore Pro Blocks
+              Explore UI Blocks
               <ArrowRight className="h-3.5 w-3.5" />
             </Button>
           </Link>

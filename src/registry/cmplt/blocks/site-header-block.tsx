@@ -94,10 +94,10 @@ export function SiteHeaderBlock() {
               </DropdownMenuContent>
             </DropdownMenu>
             <Link
-              href="/pricing"
+              href="/figma"
               className="px-3 py-1.5 rounded-sm text-fg-secondary hover:text-fg hover:bg-subtle transition-colors"
             >
-              Pricing
+              Figma
             </Link>
           </nav>
         </div>
@@ -170,11 +170,11 @@ export function SiteHeaderBlock() {
                   Blocks
                 </Link>
                 <Link
-                  href="/pricing"
+                  href="/figma"
                   onClick={() => setMobileOpen(false)}
                   className="px-3 py-2 rounded-md hover:bg-subtle text-fg-secondary hover:text-fg transition-colors"
                 >
-                  Pricing
+                  Figma
                 </Link>
                 <Link
                   href="/showcase"

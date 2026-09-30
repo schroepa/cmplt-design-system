@@ -173,11 +173,11 @@ export default function DocsLayout({
               );
             })}
 
-            {/* Group 3: Pro Ecosystem */}
+            {/* Group 3: Ecosystem */}
             <div>
               <div className="mb-3 flex items-center gap-2 px-2.5 text-[11px] font-semibold uppercase tracking-wider text-fg-muted">
                 <Sparkles className="h-3 w-3 text-fg-brand" />
-                Ecosystem &amp; Sales
+                Ecosystem
               </div>
               <ul className="space-y-1">
                 <li>
@@ -185,10 +185,7 @@ export default function DocsLayout({
                     href="/blocks"
                     className="flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                   >
-                    <span>Pro UI Blocks</span>
-                    <Badge variant="brand" size="sm" className="px-1.5 py-0 text-[10px]">
-                      Pro
-                    </Badge>
+                    <span>UI Blocks</span>
                   </Link>
                 </li>
                 <li>

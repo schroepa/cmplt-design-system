@@ -299,7 +299,7 @@ export default function BlocksLandingPage() {
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="cmplt-h3 text-fg-primary">
-                05. SaaS &amp; Design System Pricing Matrix
+                05. SaaS Pricing Matrix
               </h2>
               <Badge variant="mono" size="sm" dot={false}>
                 @cmplt/pricing-tier-block

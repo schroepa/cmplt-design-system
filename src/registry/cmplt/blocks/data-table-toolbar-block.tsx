@@ -52,7 +52,7 @@ const initialDeployments: DeploymentItem[] = [
     id: "dep_981a",
     project: "cmplt-design-system",
     branch: "main",
-    commit: "feat(blocks): add 10 pro blocks",
+    commit: "feat(blocks): add 10 new blocks",
     status: "active",
     duration: "42s",
     updated: "2m ago",

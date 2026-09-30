@@ -9,7 +9,6 @@ import { EngagementPanelBlock } from "@/registry/cmplt/blocks/engagement-panel-b
 import { AppManagerBlock } from "@/registry/cmplt/blocks/app-manager-block";
 import { AiDeploymentCard } from "@/registry/cmplt/blocks/ai-deployment-card";
 import { TokenSyncInspectorBlock } from "@/registry/cmplt/blocks/token-sync-inspector";
-import { PricingTierBlock } from "@/registry/cmplt/blocks/pricing-tier-block";
 import { CliInstallTabs } from "@/components/docs/cli-install-tabs";
 import { Button } from "@/registry/cmplt/ui/button";
 import dynamic from "next/dynamic";
@@ -253,7 +252,7 @@ export default function HomePage() {
               <Link href="/blocks" className="w-full sm:w-auto">
                 <Button variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto min-h-[44px]">
                   <Sparkles className="h-4 w-4 text-fg-brand" />
-                  Browse Pro Blocks
+                  Browse UI Blocks
                 </Button>
               </Link>
             </div>
@@ -434,7 +433,7 @@ export default function HomePage() {
                     <HighlightInput
                       shape="rounded"
                       highlightMode="ambient"
-                      defaultValue="@cmplt/pro-blocks"
+                      defaultValue="@cmplt/blocks"
                     />
                     <FieldDescription>
                       GSAP border light elevates key inputs in the hierarchy.
@@ -576,7 +575,7 @@ export default function HomePage() {
                     Zero Lock-in via Native Registry CLI
                   </h3>
                   <p className="cmplt-body-sm text-fg-secondary">
-                    No opaque node_modules CSS bundles. Every primitive, token sheet, and Pro block is served as a schema-validated JSON artifact under{" "}
+                    No opaque node_modules CSS bundles. Every primitive, token sheet, and UI block is served as a schema-validated JSON artifact under{" "}
                     <code className="font-mono text-fg-brand">/r/[name].json</code>. Install with{" "}
                     <code className="font-mono text-fg-primary">npx shadcn add @cmplt/*</code> and own 100% of your code.
                   </p>
@@ -698,26 +697,6 @@ export default function HomePage() {
               </Card>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          SECTION 6: PRICING & MONETIZATION SHOWCASE
-         ===================================================================== */}
-      <section className="cmplt-section border-b border-border-subtle">
-        <div className="cmplt-container space-y-12 md:space-y-16 2xl:space-y-20">
-          <div className="max-w-3xl space-y-4">
-            <Badge variant="brand">Open Core + Pro Ecosystem</Badge>
-            <h2 className="cmplt-h2 text-fg-primary">
-              Free Open-Source Primitives. Commercial Pro Blocks &amp; Figma Kit.
-            </h2>
-            <p className="cmplt-body text-fg-secondary">
-              Adopt the core design system for free across unlimited projects, or upgrade to{" "}
-              <strong className="text-fg-primary">cmplt Pro</strong> to ship faster with 60+ multi-component blocks and our synced Figma Variables UI Kit.
-            </p>
-          </div>
-
-          <PricingTierBlock />
         </div>
       </section>
 

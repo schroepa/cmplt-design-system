@@ -98,7 +98,7 @@ export default function DocsOverviewPage() {
               </Badge>
               <CardTitle className="text-base">Own Your Code via CLI</CardTitle>
               <CardDescription className="cmplt-body-sm">
-                Every component and Pro block is compiled into{" "}
+                Every component and UI block is compiled into{" "}
                 <code className="font-mono text-fg-primary">/r/[name].json</code>.
                 Install with a single{" "}
                 <code className="font-mono text-fg-primary">npx shadcn add</code>{" "}

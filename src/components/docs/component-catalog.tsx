@@ -27,6 +27,9 @@ import {
   CardFooter,
   BlogCard,
   ProductCard,
+  ApparelProductCard,
+  TechProductCard,
+  DigitalProductCard,
   MetricCard,
   ProfileCard,
   FeatureCard,
@@ -695,30 +698,30 @@ function TextareaCatalogDemo() {
 }
 
 function RadioGroupCatalogDemo() {
-  const [plan, setPlan] = React.useState("pro");
+  const [plan, setPlan] = React.useState("team");
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4 py-2">
       <RadioGroup value={plan} onValueChange={(val) => setPlan(val as string)}>
         <RadioCard
           value="starter"
-          title="Starter Tier"
-          description="Basic token sync and headless components for personal projects."
+          title="Personal Workspace"
+          description="Basic token sync and headless components for personal exploration."
           price="Free"
         />
         <RadioCard
-          value="pro"
-          title="Pro License"
-          description="All UI primitives, Figma token parity, and production blocks."
+          value="team"
+          title="Team Workspace"
+          description="Collaborative workspace with shared tokens and real-time syncing."
           badge={<Badge variant="brand" size="sm">Popular</Badge>}
-          price="€79"
+          price="Free"
         />
         <RadioCard
           value="enterprise"
           title="Enterprise Suite"
-          description="Custom theme generator, multi-brand tokens, and priority support."
-          badge={<Badge variant="mono" size="sm">Dedicated</Badge>}
-          price="€299"
+          description="Dedicated infrastructure, custom security policies, and SLA guarantee."
+          badge={<Badge variant="mono" size="sm">Self-Hosted</Badge>}
+          price="Free"
         />
       </RadioGroup>
     </div>
@@ -1587,6 +1590,509 @@ function TimelineCatalogDemo() {
   );
 }
 
+function CardPresetsCatalogDemo() {
+  const [shopFilter, setShopFilter] = React.useState<
+    "all" | "apparel" | "tech" | "digital" | "interior"
+  >("all");
+
+  return (
+    <div className="space-y-6">
+      <Tabs defaultValue="shop">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2">
+          <TabsList variant="segmented" className="flex-wrap">
+            <TabsTrigger value="shop">Shop / E-Commerce</TabsTrigger>
+            <TabsTrigger value="blog">Blog / Editorial</TabsTrigger>
+            <TabsTrigger value="metrics">KPI / Telemetry</TabsTrigger>
+            <TabsTrigger value="social">Profile & Reviews</TabsTrigger>
+            <TabsTrigger value="bento">Bento & Events</TabsTrigger>
+            <TabsTrigger value="surfaces">Base Surfaces</TabsTrigger>
+          </TabsList>
+        </div>
+
+        {/* TAB 1: E-COMMERCE / SHOP PRODUCT CARDS */}
+        <TabsContent value="shop" className="pt-3 space-y-5">
+          {/* Shop Domain Filter Chips */}
+          <div className="flex flex-wrap items-center gap-2 pb-1">
+            <span className="text-xs font-medium text-fg-muted mr-1">
+              Shop-Bereich:
+            </span>
+            {[
+              { id: "all", label: "Alle Shops", count: 7 },
+              { id: "apparel", label: "Bekleidung (Fashion)", count: 2 },
+              { id: "tech", label: "Technik (Hardware)", count: 2 },
+              { id: "digital", label: "Digitale Güter", count: 2 },
+              { id: "interior", label: "Interior & Living", count: 1 },
+            ].map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => setShopFilter(f.id as any)}
+                className={cn(
+                  "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium transition-all cursor-pointer",
+                  shopFilter === f.id
+                    ? "border-border-brand bg-brand/10 text-fg-brand font-semibold shadow-xs"
+                    : "border-border-subtle bg-surface text-fg-secondary hover:border-border-default hover:text-fg-primary"
+                )}
+              >
+                <span>{f.label}</span>
+                <span
+                  className={cn(
+                    "rounded-full px-1.5 py-0.2 font-mono text-[10px]",
+                    shopFilter === f.id
+                      ? "bg-brand text-fg-on-brand"
+                      : "bg-subtle text-fg-muted"
+                  )}
+                >
+                  {f.count}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {/* 1. BEKLEIDUNG: Overshirt */}
+            {(shopFilter === "all" || shopFilter === "apparel") && (
+              <ProductCard
+                category="apparel"
+                brand="cmplt Atelier · Studio 01"
+                title="Relaxed Merino Wool Overshirt"
+                subtitle="Heavyweight 340gsm double-faced virgin wool with concealed horn buttons."
+                price="$220.00"
+                compareAtPrice="$260.00"
+                badge="Autumn Drop"
+                badgeVariant="brand"
+                rating={4.9}
+                reviewCount={84}
+                material="100% Virgin Merino Wool"
+                fitBadge="Relaxed Fit"
+                sizes={["XS", "S", "M", "L", "XL"]}
+                image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&auto=format&fit=crop&q=80"
+                swatches={[
+                  {
+                    name: "Camel",
+                    color: "oklch(0.68 0.08 72)",
+                    image:
+                      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&auto=format&fit=crop&q=80",
+                  },
+                  {
+                    name: "Charcoal",
+                    color: "oklch(0.28 0.003 85)",
+                    image:
+                      "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80",
+                  },
+                  { name: "Oat Milk", color: "oklch(0.92 0.015 85)" },
+                ]}
+              />
+            )}
+
+            {/* 2. BEKLEIDUNG: Selvedge Denim */}
+            {(shopFilter === "all" || shopFilter === "apparel") && (
+              <ProductCard
+                category="apparel"
+                brand="cmplt Denim Lab"
+                title="14oz Kurabo Selvedge Jacket"
+                subtitle="Woven on vintage Toyoda shuttle looms in Okayama with custom copper hardware."
+                price="$285.00"
+                badge="Craft Edition"
+                badgeVariant="default"
+                rating={5.0}
+                reviewCount={47}
+                material="14oz Japanese Selvedge Denim"
+                fitBadge="Boxy Silhouette"
+                sizes={["S", "M", "L", "XL"]}
+                image="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80"
+                swatches={[
+                  { name: "Raw Indigo", color: "oklch(0.32 0.08 260)" },
+                  { name: "Washed Black", color: "oklch(0.25 0.005 85)" },
+                ]}
+              />
+            )}
+
+            {/* 3. TECHNIK: Reference Headphones */}
+            {(shopFilter === "all" || shopFilter === "tech") && (
+              <ProductCard
+                category="tech"
+                brand="cmplt Audio Lab · Series 04"
+                title="Reference Wireless ANC Headphones"
+                subtitle="40mm custom beryllium drivers with hybrid active noise cancellation and lossless 24-bit DAC."
+                price="$349.00"
+                compareAtPrice="$420.00"
+                badge="-17% Launch Offer"
+                badgeVariant="brand"
+                rating={4.9}
+                reviewCount={142}
+                warranty="2-Year International Warranty"
+                image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
+                specs={[
+                  { label: "Battery", value: "48h ANC" },
+                  { label: "Driver", value: "40mm Beryllium" },
+                  { label: "Codec", value: "LDAC / aptX HD" },
+                  { label: "Weight", value: "264g Aluminum" },
+                ]}
+                swatches={[
+                  { name: "Matte Black", color: "oklch(0.24 0.003 85)" },
+                  { name: "Lunar Silver", color: "oklch(0.85 0.005 85)" },
+                  { name: "Brand Accent", color: "oklch(0.645 0.175 34)" },
+                ]}
+              />
+            )}
+
+            {/* 4. TECHNIK: Mechanical Keyboard */}
+            {(shopFilter === "all" || shopFilter === "tech") && (
+              <ProductCard
+                category="tech"
+                brand="cmplt Hardware Lab"
+                title="Apex-75 Custom Mechanical Keyboard"
+                subtitle="CNC-machined 6063 aluminum chassis with gasket mount and hot-swappable PBT keycaps."
+                price="$199.00"
+                badge="In Stock"
+                badgeVariant="success"
+                rating={4.8}
+                reviewCount={96}
+                warranty="1-Year Hardware Warranty"
+                image="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&auto=format&fit=crop&q=80"
+                specs={[
+                  { label: "Layout", value: "75% Exploded" },
+                  { label: "Wireless", value: "2.4GHz + BT 5.4" },
+                  { label: "Mount", value: "Poron Gasket" },
+                  { label: "Plate", value: "FR4 Precision" },
+                ]}
+                swatches={[
+                  { name: "Space Gray", color: "oklch(0.38 0.01 270)" },
+                  { name: "Warm White", color: "oklch(0.94 0.01 90)" },
+                  { name: "Forest", color: "oklch(0.45 0.08 150)" },
+                ]}
+              />
+            )}
+
+            {/* 5. DIGITALE GÜTER: Vector Iconography Studio */}
+            {(shopFilter === "all" || shopFilter === "digital") && (
+              <ProductCard
+                category="digital"
+                brand="cmplt Community · Free Assets"
+                title="Geometric Vector Icons & Glyph Library"
+                subtitle="450+ clean geometric SVG glyphs, Figma component library, and optimized React icon components."
+                price="Free"
+                badge="MIT License"
+                badgeVariant="success"
+                rating={5.0}
+                reviewCount={89}
+                image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80"
+                fileFormats={[
+                  "Figma (.fig)",
+                  "SVG Icons",
+                  "React JSX",
+                  "JSON",
+                ]}
+                license="MIT Open Source License"
+                version="v2.4.0 (Sep 2026)"
+                fileSize="12.4 MB ZIP"
+                instantDownload
+                ctaLabel="Download Pack"
+                ctaType="download"
+              />
+            )}
+
+            {/* 6. DIGITALE GÜTER: 3D Chromatic Asset Pack */}
+            {(shopFilter === "all" || shopFilter === "digital") && (
+              <ProductCard
+                category="digital"
+                brand="cmplt Community Assets"
+                title="Chromatic 3D Prisms & Spatial Icons"
+                subtitle="120+ high-fidelity 4K 3D renders, editable Blender scene files, and lightweight GLTF models."
+                price="Free"
+                badge="Free Download"
+                badgeVariant="brand"
+                rating={4.9}
+                reviewCount={63}
+                image="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&auto=format&fit=crop&q=80"
+                fileFormats={[
+                  "Blender (.blend)",
+                  "GLTF / GLB",
+                  "4K PNG Alpha",
+                  "Figma",
+                ]}
+                license="Creative Commons Zero (CC0)"
+                version="v1.2 (Updated)"
+                fileSize="1.8 GB ZIP"
+                instantDownload
+                ctaLabel="Download Pack"
+                ctaType="download"
+              />
+            )}
+
+            {/* 7. INTERIOR & LIVING: Smoked Oak Lounge Chair */}
+            {(shopFilter === "all" || shopFilter === "interior") && (
+              <ProductCard
+                category="interior"
+                brand="cmplt Living · Atelier Nord"
+                title="Koto Smoked Oak Lounge Chair"
+                subtitle="FSC-certified solid European white oak frame with Italian textured bouclé upholstery."
+                price="$640.00"
+                compareAtPrice="$750.00"
+                badge="Handcrafted in Portugal"
+                badgeVariant="default"
+                rating={4.9}
+                reviewCount={31}
+                image="https://images.unsplash.com/photo-1580481077195-c3a821a58875?w=800&auto=format&fit=crop&q=80"
+                material="Solid Smoked Oak & Bouclé"
+                dimensions="W: 74 × D: 82 × H: 76 cm"
+                stockLabel="In stock · White Glove Delivery"
+                swatches={[
+                  { name: "Oatmeal Bouclé", color: "oklch(0.91 0.02 85)" },
+                  { name: "Forest", color: "oklch(0.38 0.06 145)" },
+                  { name: "Charcoal", color: "oklch(0.28 0.005 85)" },
+                ]}
+              />
+            )}
+          </div>
+        </TabsContent>
+
+        {/* TAB 2: BLOG & EDITORIAL ARTICLE CARDS */}
+        <TabsContent value="blog" className="pt-3 space-y-6">
+          {/* Horizontal Featured Article with Unsplash Photo */}
+          <BlogCard
+            layout="horizontal"
+            featured
+            category="Architecture Deep-Dive"
+            date="Sep 28, 2026"
+            readTime="7 min read"
+            image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format&fit=crop&q=80"
+            title="Why We Replaced #FFFFFF and #000000 with Calibrated OKLCH Stone & Graphite"
+            excerpt="Pure white and pitch black create halation and visual fatigue on modern OLED displays. Discover how our 4-step warm neutral luminance curve (Hue 85) keeps interfaces crisp and tactile."
+            tags={["oklch", "color-science", "design-tokens"]}
+            author={{
+              name: "Elena Rostova",
+              role: "Staff Design Systems Architect",
+              avatarUrl:
+                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
+            }}
+          />
+
+          {/* 3-Column Vertical Blog Cards with Unsplash Photos */}
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <BlogCard
+              category="Engineering"
+              date="Sep 24, 2026"
+              readTime="5 min read"
+              image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80"
+              title="Zero-Lock-In Component Distribution with Base UI and shadcn CLI"
+              excerpt="How we compile headless @base-ui/react primitives and GSAP motion highlights into static JSON endpoints ready for 1-command installation."
+              tags={["base-ui", "shadcn", "cli"]}
+              author={{
+                name: "Aria Chen",
+                role: "Core Maintainer",
+                avatarUrl:
+                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80",
+              }}
+            />
+
+            <BlogCard
+              category="Design Geometry"
+              date="Sep 19, 2026"
+              readTime="6 min read"
+              image="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80"
+              title="Optical Concentricity: Calculating Inner Border Radii in Nested UI Shells"
+              excerpt="When nesting a media frame inside a 20px rounded card with 8px padding, using the same radius looks pinched. Learn the R_inner = R_outer - padding formula."
+              tags={["css", "geometry", "cards"]}
+              author={{
+                name: "Marcus Vance",
+                role: "UI Infrastructure Lead",
+                avatarUrl:
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80",
+              }}
+            />
+
+            <BlogCard
+              category="Design Philosophy"
+              date="Sep 14, 2026"
+              readTime="4 min read"
+              image="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80"
+              title="Tactile Interfaces: Bringing Organic Materiality Back to Web Design"
+              excerpt="Digital fatigue is real. By combining subtle micro-textures, concentric borders, and spring physics, software can feel tangible like handcrafted hardware."
+              tags={["philosophy", "motion", "tactile"]}
+              author={{
+                name: "Julian Thorne",
+                role: "Design Director",
+                avatarUrl:
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80",
+              }}
+            />
+          </div>
+        </TabsContent>
+
+        {/* TAB 3: KPI & TELEMETRY METRIC CARDS */}
+        <TabsContent value="metrics" className="pt-3">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <MetricCard
+              label="Net Store Revenue"
+              value="$128,450"
+              delta="+18.4%"
+              deltaTrend="up"
+              period="vs. $108,490 last month"
+              sparkline={[38, 52, 46, 64, 58, 76, 72, 90, 85, 100]}
+              targetLabel="Q3 Goal Progress"
+              targetValue="94.2%"
+              icon={<Sparkles className="h-3.5 w-3.5 text-fg-brand" />}
+            />
+
+            <MetricCard
+              label="Registry CLI Installs"
+              value="42,810"
+              delta="+24.1%"
+              deltaTrend="up"
+              period="Last 30 days across 18 endpoints"
+              sparkline={[25, 35, 42, 40, 55, 62, 70, 68, 84, 96]}
+              targetLabel="Top Endpoint"
+              targetValue="@cmplt/card"
+              icon={<Code2 className="h-3.5 w-3.5 text-fg-brand" />}
+            />
+
+            <MetricCard
+              label="Edge P95 Latency"
+              value="14.2ms"
+              delta="-3.8ms"
+              deltaTrend="up"
+              period="Global multi-region average"
+              sparkline={[80, 75, 68, 72, 60, 54, 48, 45, 38, 32]}
+              targetLabel="SLA Threshold"
+              targetValue="< 25.0ms"
+              icon={<Layers className="h-3.5 w-3.5 text-fg-brand" />}
+            />
+          </div>
+        </TabsContent>
+
+        {/* TAB 4: PROFILE / CREATOR & TESTIMONIAL / REVIEW CARDS */}
+        <TabsContent value="social" className="pt-3">
+          <div className="grid gap-5 md:grid-cols-2">
+            <ProfileCard
+              name="Lukas Lindqvist"
+              handle="@lukas.cmplt"
+              role="Principal Design Engineer"
+              avatarText="LL"
+              verified
+              status="online"
+              statusText="Open for Advisory"
+              bio="Crafting tactile OKLCH design systems, headless Base UI primitives, and automated Figma Variable pipelines."
+              skills={[
+                "@base-ui/react",
+                "OKLCH Tokens",
+                "GSAP Physics",
+                "Tailwind v4",
+              ]}
+              stats={[
+                { label: "Components", value: "84" },
+                { label: "Figma Syncs", value: "1.4k" },
+                { label: "Community", value: "4.8★" },
+              ]}
+            />
+
+            <TestimonialCard
+              quote="The optical concentricity on nested cards and tactile OKLCH surfaces completely transformed our design system. Our engineers stopped arguing about border-radii formulas."
+              authorName="Sarah Jenkins"
+              authorRole="VP of Product Design"
+              company="Finscale Labs"
+              avatarText="SJ"
+              rating={5}
+              verifiedBadge="Enterprise Customer"
+              metricHighlight={{
+                label: "Design-to-Code Delivery",
+                value: "+340% velocity",
+              }}
+            />
+          </div>
+        </TabsContent>
+
+        {/* TAB 5: BENTO GRID FEATURES & EVENT TICKETING */}
+        <TabsContent value="bento" className="pt-3">
+          <div className="grid gap-5 md:grid-cols-2">
+            <FeatureCard
+              eyebrow="Architecture 01"
+              title="Headless Base UI Foundation"
+              description="Unstyled, fully accessible Radix/Base UI state machines wrapped in calibrated OKLCH token styling."
+              icon={<Layers className="h-4 w-4" />}
+              badge="W3C Compliant"
+              highlights={[
+                "Zero CSS lock-in: copy-paste into Tailwind v4",
+                "WCAG 2.2 AAA color contrast compliance",
+                "Optical concentric container geometry",
+              ]}
+              ctaLabel="Inspect token contracts"
+            />
+
+            <EventCard
+              month="OCT"
+              day="14"
+              time="18:00 – 20:30 CET"
+              category="System Architecture"
+              title="Scaling Headless Design Systems with OKLCH Tokens"
+              description="Live hands-on workshop building production-ready concentric cards and fluid animations."
+              location="Virtual Stage 01 · Livestream"
+              spotsLeft="18 spots left"
+              price="Free Admission"
+              ctaLabel="Reserve Ticket"
+            />
+          </div>
+        </TabsContent>
+
+        {/* TAB 6: BASE COMPOSABLE SURFACES */}
+        <TabsContent value="surfaces" className="pt-3">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Card variant="default">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm">Default Surface</CardTitle>
+                <CardDescription className="text-xs">
+                  Warm Alabaster / Matte Graphite (--bg-surface)
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card variant="elevated">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm">Elevated Surface</CardTitle>
+                <CardDescription className="text-xs">
+                  Lifted inner pane (--bg-elevated + shadow-sm)
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card variant="subtle">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm">Subtle Well</CardTitle>
+                <CardDescription className="text-xs">
+                  Recessed grouping container (--bg-subtle)
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card variant="interactive">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm">Interactive Surface</CardTitle>
+                <CardDescription className="text-xs">
+                  Hover border & diffused shadow lift
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card variant="outline">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm">Outline Frame</CardTitle>
+                <CardDescription className="text-xs">
+                  Transparent canvas + 1px default border
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card variant="featured">
+              <CardHeader className="p-4">
+                <CardTitle className="text-sm">Featured Highlight</CardTitle>
+                <CardDescription className="text-xs">
+                  Accent border contour (--border-brand)
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
+
 export interface ComponentDocEntry {
   slug: string;
   title: string;
@@ -2065,7 +2571,7 @@ export function AnimatedCtaDemo() {
       </AnimatedCtaButton>
       <AnimatedCtaButton variant="surface-halo" size="lg">
         <Sparkles className="h-4 w-4 text-fg-brand" />
-        Explore Pro Blocks
+        Explore UI Blocks
       </AnimatedCtaButton>
     </div>
   )
@@ -2078,7 +2584,7 @@ export function AnimatedCtaDemo() {
         </AnimatedCtaButton>
         <AnimatedCtaButton variant="surface-halo" size="lg">
           <Sparkles className="h-4 w-4 text-fg-brand" />
-          Explore Pro Blocks
+          Explore UI Blocks
         </AnimatedCtaButton>
         <AnimatedCtaButton variant="accent-beam" size="sm">
           Compact CTA
@@ -2120,7 +2626,7 @@ export function HighlightInputDemo() {
         shape="rounded"
         highlightMode="ambient"
         leadingIcon={<Sparkles />}
-        defaultValue="@cmplt/pro-blocks"
+        defaultValue="@cmplt/blocks"
       />
     </div>
   )
@@ -2697,13 +3203,14 @@ export function InputFieldDemo() {
       </div>
     ),
   },
+
   {
     slug: "card",
     title: "Card & Domain Presets",
     category: "Primitives & Actions",
     baseUiPackage: "cmplt surface + 7 domain presets",
     summary:
-      "Concentric surface container with composable sub-primitives (CardMedia, CardEyebrow, CardMeta, CardPrice) and 7 ready-to-use domain presets: ProductCard (E-Commerce), BlogCard (Editorial), MetricCard (KPI/Telemetry), ProfileCard (Creator/Team), FeatureCard (Bento), TestimonialCard (Reviews), and EventCard (Bookings).",
+      "Concentric surface container with composable sub-primitives (CardMedia, CardEyebrow, CardMeta, CardPrice) and domain presets: ProductCard (with tailored support for Bekleidung/Apparel, Technik/Hardware, Digitale Güter/Licenses & Interior), BlogCard (Editorial & Magazine with Unsplash Imagery), MetricCard (KPI/Telemetry), ProfileCard (Creator/Team), FeatureCard (Bento), TestimonialCard (Reviews), and EventCard (Bookings).",
     dataAttributes: [
       { attr: "data-slot=\"card-media\"", description: "Triggers automatic content-based header spacing via CSS :has([data-slot=\"card-media\"])." },
       { attr: "data-slot=\"card-meta\"", description: "Inset grouped key-value / metadata well with 10px concentric radius." },
@@ -2712,8 +3219,9 @@ export function InputFieldDemo() {
     propsTable: [
       { prop: "variant (Card)", type: "'default' | 'elevated' | 'subtle' | 'interactive' | 'outline' | 'featured'", defaultVal: "'default'", description: "Surface elevation, border role, and highlight contour." },
       { prop: "layout (Card / BlogCard)", type: "'vertical' | 'horizontal' | 'adaptive'", defaultVal: "'vertical'", description: "Stacked vertical flow, side-by-side split, or @container size-aware adaptive layout." },
-      { prop: "ProductCard", type: "brand, title, price, compareAtPrice, swatches, specs, rating, badge", defaultVal: "preset", description: "E-Commerce & shop product card with interactive swatches, wishlist heart, and bag state." },
-      { prop: "BlogCard", type: "category, readTime, date, title, excerpt, author, tags, layout", defaultVal: "preset", description: "Editorial & blog article card supporting vertical grid and horizontal featured layouts." },
+      { prop: "ProductCard", type: "category, image, brand, title, price, compareAtPrice, swatches, sizes, specs, fileFormats, license, warranty", defaultVal: "preset", description: "Multi-domain shop card with variants for Bekleidung (Apparel), Technik (Hardware), Digitale Güter (Software/Licenses), and Interior." },
+      { prop: "BlogCard", type: "image, category, readTime, date, title, excerpt, author (name, role, avatarUrl), tags, layout", defaultVal: "preset", description: "Editorial article card with Unsplash imagery, concentric media stage, author byline, and tags." },
+      { prop: "ApparelProductCard / TechProductCard / DigitalProductCard", type: "ProductCardProps", defaultVal: "preset", description: "Specialized domain convenience presets with tailored actions, specs, format pills, and size pickers." },
       { prop: "MetricCard", type: "label, value, delta, deltaTrend, sparkline, targetLabel, targetValue", defaultVal: "preset", description: "Analytical KPI & telemetry card with tabular figures and bar sparkline." },
       { prop: "ProfileCard", type: "name, role, handle, avatarText, verified, status, skills, stats", defaultVal: "preset", description: "Creator, author, or seller card with 3-column inset metrics box." },
       { prop: "FeatureCard", type: "eyebrow, title, description, icon, badge, visual, highlights", defaultVal: "preset", description: "Bento grid & product feature highlight card with checklist items." },
@@ -2723,45 +3231,92 @@ export function InputFieldDemo() {
     usageCode: `import {
   BlogCard,
   ProductCard,
-  MetricCard,
-  ProfileCard,
-  FeatureCard,
-  TestimonialCard,
-  EventCard,
+  ApparelProductCard,
+  TechProductCard,
+  DigitalProductCard,
 } from "@/components/ui/card"
 
 export function CardPresetsDemo() {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
-      {/* 1. E-Commerce / Shop Product Card */}
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {/* 1. Bekleidung / Apparel Shop Card */}
       <ProductCard
-        brand="cmplt Audio Lab · Series 04"
-        title="Reference Studio Monitor M-01"
-        subtitle="Anodized warm aluminum enclosure with room-calibrated DSP."
-        price="$349.00"
-        compareAtPrice="$420.00"
-        badge="New Release"
+        category="apparel"
+        brand="cmplt Atelier · Studio 01"
+        title="Relaxed Merino Wool Overshirt"
+        subtitle="Heavyweight 340gsm double-faced virgin wool with concealed horn buttons."
+        price="$220.00"
+        compareAtPrice="$260.00"
+        badge="Autumn Drop"
+        material="100% Virgin Merino Wool"
+        fitBadge="Relaxed Fit"
+        sizes={["XS", "S", "M", "L", "XL"]}
+        image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&auto=format&fit=crop&q=80"
         rating={4.9}
-        reviewCount={142}
+        reviewCount={84}
         swatches={[
-          { name: "Alabaster", color: "oklch(0.95 0.003 85)" },
-          { name: "Graphite", color: "oklch(0.28 0.003 85)" },
-          { name: "Brand", color: "oklch(0.645 0.175 34)" },
+          { name: "Camel", color: "oklch(0.68 0.08 72)" },
+          { name: "Charcoal", color: "oklch(0.28 0.003 85)" },
         ]}
       />
 
-      {/* 2. Editorial / Blog Article Card */}
+      {/* 2. Technik / Hardware Shop Card */}
+      <ProductCard
+        category="tech"
+        brand="cmplt Audio Lab · Series 04"
+        title="Reference Wireless ANC Headphones"
+        subtitle="40mm custom beryllium drivers with hybrid active noise cancellation."
+        price="$349.00"
+        compareAtPrice="$420.00"
+        badge="-17% Launch Offer"
+        image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80"
+        rating={4.9}
+        reviewCount={142}
+        warranty="2-Year International Warranty"
+        specs={[
+          { label: "Battery", value: "48h ANC" },
+          { label: "Driver", value: "40mm Beryllium" },
+          { label: "Codec", value: "LDAC / aptX HD" },
+          { label: "Weight", value: "264g" },
+        ]}
+        swatches={[
+          { name: "Matte Black", color: "oklch(0.24 0.003 85)" },
+          { name: "Lunar Silver", color: "oklch(0.85 0.005 85)" },
+        ]}
+      />
+
+      {/* 3. Digitale Güter / Free Open-Source Asset Card */}
+      <ProductCard
+        category="digital"
+        brand="cmplt Community · Free Assets"
+        title="Geometric Vector Icons & Glyph Library"
+        subtitle="450+ clean geometric SVG glyphs, Figma component library, and optimized React icon components."
+        price="Free"
+        badge="MIT License"
+        badgeVariant="success"
+        image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80"
+        fileFormats={["Figma (.fig)", "SVG Icons", "React JSX"]}
+        license="MIT Open Source License"
+        version="v2.4.0"
+        fileSize="12.4 MB ZIP"
+        instantDownload
+        ctaLabel="Download Pack"
+        ctaType="download"
+      />
+
+      {/* 4. Editorial / Blog Article Card */}
       <BlogCard
-        category="Design Engineering"
+        image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format&fit=crop&q=80"
+        category="Architecture Deep-Dive"
         date="Sep 28, 2026"
-        readTime="6 min read"
-        title="Calibrating Perceptual OKLCH Surfaces Without Harsh Extremes"
-        excerpt="Why replacing #FFFFFF and #000000 with Warm Alabaster and Matte Graphite reduces eye strain and elevates hierarchy."
-        tags={["oklch", "tokens", "a11y"]}
+        readTime="7 min read"
+        title="Why We Replaced #FFFFFF and #000000 with Calibrated OKLCH Stone & Graphite"
+        excerpt="Pure white and pitch black create halation and visual fatigue on modern OLED displays."
+        tags={["oklch", "color-science", "design-tokens"]}
         author={{
           name: "Elena Rostova",
           role: "Staff Design Systems Architect",
-          avatarText: "ER",
+          avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
         }}
       />
     </div>
@@ -2818,35 +3373,35 @@ export function CardPresetsDemo() {
               />
 
               <ProductCard
-                brand="cmplt Digital Goods · v1.3"
-                title="Complete Enterprise Token & Figma Kit"
-                subtitle="Full W3C DTCG JSON pipeline, 42 OKLCH variables, and 25+ Base UI registry components."
+                brand="cmplt Studio · Hardware Series"
+                title="Ergonomic Split Mechanical Keyboard"
+                subtitle="Hot-swappable tactile switches, aluminum chassis, and low-latency wireless Bluetooth 5.2 connectivity."
                 price="$189.00"
-                badge="Instant CLI"
+                badge="In Stock"
                 badgeVariant="success"
                 rating={5.0}
                 reviewCount={89}
                 defaultWishlisted
                 swatches={[
-                  { name: "Brand", color: "oklch(0.645 0.175 34)" },
-                  { name: "Success", color: "oklch(0.515 0.115 162)" },
-                  { name: "Info", color: "oklch(0.57 0.19 275)" },
+                  { name: "Slate", color: "oklch(0.35 0.02 260)" },
+                  { name: "Alabaster", color: "oklch(0.92 0.01 85)" },
+                  { name: "Emerald", color: "oklch(0.55 0.12 160)" },
                 ]}
                 specs={[
-                  { label: "License", value: "Unlimited Teams" },
-                  { label: "Format", value: "TSX + Figma JSON" },
+                  { label: "Switches", value: "Tactile Linear" },
+                  { label: "Layout", value: "65% Ergonomic" },
                 ]}
-                ctaLabel="Buy License"
+                ctaLabel="Order Device"
                 media={
                   <div className="flex flex-col items-center justify-center gap-2.5 p-6 transition-transform duration-300 group-hover:scale-105">
                     <div className="flex items-center gap-2 rounded-lg border border-border-default bg-elevated px-3.5 py-2.5 shadow-sm">
                       <Layers className="h-5 w-5 text-fg-brand" />
                       <div className="text-left">
                         <div className="font-mono text-[11px] font-semibold text-fg-primary">
-                          @cmplt/pro-kit
+                          Studio Series
                         </div>
                         <div className="font-mono text-[9.5px] text-fg-muted">
-                          tokens.json ↔ Figma
+                          CNC Machined Aluminum
                         </div>
                       </div>
                     </div>
@@ -3346,18 +3901,18 @@ export function TextareaDemo() {
 
 export function RadioGroupDemo() {
   return (
-    <RadioGroup defaultValue="pro">
+    <RadioGroup defaultValue="team">
       <RadioCard
-        value="starter"
-        title="Starter"
+        value="personal"
+        title="Personal"
         description="For personal exploration."
         price="Free"
       />
       <RadioCard
-        value="pro"
-        title="Pro"
-        description="For production apps and teams."
-        price="€79"
+        value="team"
+        title="Team"
+        description="For collaborative workspaces and teams."
+        price="Free"
       />
     </RadioGroup>
   )

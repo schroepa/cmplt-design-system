@@ -80,10 +80,10 @@ const NAV_ITEMS: NavItem[] = [
     isActive: (pathname) => pathname.startsWith("/blocks"),
   },
   {
-    href: "/pricing",
-    label: "Pricing",
-    description: "Open-source primitives and team licensing",
-    isActive: (pathname) => pathname.startsWith("/pricing"),
+    href: "/figma",
+    label: "Figma",
+    description: "Code-to-Figma bridge and W3C token export",
+    isActive: (pathname) => pathname.startsWith("/figma"),
   },
 ];
 
@@ -109,7 +109,7 @@ interface SearchEntry {
     | "Primitives & Actions"
     | "Forms & Inputs"
     | "Overlays & Navigation"
-    | "Ecosystem & Pro";
+    | "Ecosystem";
   keywords?: string;
 }
 
@@ -249,27 +249,20 @@ const QUICK_SEARCH_LINKS: SearchEntry[] = [
     category: "Overlays & Navigation",
   },
 
-  // Ecosystem & Pro
+  // Ecosystem
   {
-    title: "Pro UI Blocks Library",
+    title: "UI Blocks Library",
     subtitle: "Multi-surface shells, AI telemetry cards & application directories",
     href: "/blocks",
-    category: "Ecosystem & Pro",
-    keywords: "blocks pro templates shells",
+    category: "Ecosystem",
+    keywords: "blocks templates shells",
   },
   {
     title: "Figma UI Kit & Variables Sync",
     subtitle: "1:1 W3C DTCG token parity with Figma Variables & Auto-Layout",
     href: "/figma",
-    category: "Ecosystem & Pro",
+    category: "Ecosystem",
     keywords: "figma design kit variables sync",
-  },
-  {
-    title: "Pricing & Licensing",
-    subtitle: "Open-source MIT primitives & cmplt Pro team licensing",
-    href: "/pricing",
-    category: "Ecosystem & Pro",
-    keywords: "pricing license pro enterprise buy",
   },
 ];
 

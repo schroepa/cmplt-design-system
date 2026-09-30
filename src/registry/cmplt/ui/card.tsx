@@ -12,14 +12,20 @@ import {
   Check,
   CheckCircle2,
   Clock,
+  Download,
+  FileCode2,
   Heart,
+  Key,
+  Layers,
   MapPin,
   Quote,
+  ShieldCheck,
   ShoppingBag,
   Sparkles,
   Star,
   TrendingDown,
   TrendingUp,
+  Zap,
 } from "lucide-react";
 
 /**
@@ -84,6 +90,10 @@ Card.displayName = "Card";
 export interface CardMediaProps extends React.HTMLAttributes<HTMLDivElement> {
   aspect?: "video" | "square" | "portrait" | "wide" | "auto";
   inset?: boolean;
+  src?: string;
+  alt?: string;
+  imageClassName?: string;
+  overlay?: boolean;
   topLeftSlot?: React.ReactNode;
   topRightSlot?: React.ReactNode;
   bottomSlot?: React.ReactNode;
@@ -103,6 +113,10 @@ const CardMedia = React.forwardRef<HTMLDivElement, CardMediaProps>(
       className,
       aspect = "video",
       inset = true,
+      src,
+      alt = "",
+      imageClassName,
+      overlay = false,
       topLeftSlot,
       topRightSlot,
       bottomSlot,
@@ -110,38 +124,57 @@ const CardMedia = React.forwardRef<HTMLDivElement, CardMediaProps>(
       ...props
     },
     ref
-  ) => (
-    <div
-      ref={ref}
-      data-slot="card-media"
-      className={cn(
-        "relative overflow-hidden bg-subtle/80 bg-cmplt-dots",
-        inset
-          ? "m-2 rounded-lg-inner-sm border border-border-subtle"
-          : "rounded-t-lg border-b border-border-subtle",
-        aspectClasses[aspect],
-        className
-      )}
-      {...props}
-    >
-      {children}
-      {(topLeftSlot || topRightSlot) && (
-        <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
-          <div className="pointer-events-auto flex flex-wrap items-center gap-1.5">
-            {topLeftSlot}
+  ) => {
+    const [hasError, setHasError] = React.useState(false);
+
+    return (
+      <div
+        ref={ref}
+        data-slot="card-media"
+        className={cn(
+          "relative overflow-hidden bg-subtle/80 bg-cmplt-dots",
+          inset
+            ? "m-2 rounded-lg-inner-sm border border-border-subtle"
+            : "rounded-t-lg border-b border-border-subtle",
+          aspectClasses[aspect],
+          className
+        )}
+        {...props}
+      >
+        {src && !hasError ? (
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            onError={() => setHasError(true)}
+            className={cn(
+              "h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105",
+              imageClassName
+            )}
+          />
+        ) : null}
+        {(!src || hasError) && children}
+        {overlay && (
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+        )}
+        {(topLeftSlot || topRightSlot) && (
+          <div className="pointer-events-none absolute inset-x-3 top-3 z-10 flex items-start justify-between gap-2">
+            <div className="pointer-events-auto flex flex-wrap items-center gap-1.5">
+              {topLeftSlot}
+            </div>
+            <div className="pointer-events-auto flex items-center gap-1.5">
+              {topRightSlot}
+            </div>
           </div>
-          <div className="pointer-events-auto flex items-center gap-1.5">
-            {topRightSlot}
+        )}
+        {bottomSlot && (
+          <div className="pointer-events-none absolute inset-x-3 bottom-3 z-10 flex items-end justify-between">
+            <div className="pointer-events-auto w-full">{bottomSlot}</div>
           </div>
-        </div>
-      )}
-      {bottomSlot && (
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 z-10 flex items-end justify-between">
-          <div className="pointer-events-auto w-full">{bottomSlot}</div>
-        </div>
-      )}
-    </div>
-  )
+        )}
+      </div>
+    );
+  }
 );
 CardMedia.displayName = "CardMedia";
 
@@ -288,6 +321,7 @@ export interface BlogCardAuthor {
   name: string;
   role?: string;
   avatarText?: string;
+  avatarUrl?: string;
 }
 
 export interface BlogCardProps extends Omit<CardProps, "title"> {
@@ -298,6 +332,8 @@ export interface BlogCardProps extends Omit<CardProps, "title"> {
   excerpt: string;
   author?: BlogCardAuthor;
   tags?: string[];
+  image?: string;
+  imageAlt?: string;
   media?: React.ReactNode;
   featured?: boolean;
   ctaLabel?: string;
@@ -314,6 +350,8 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
       excerpt,
       author,
       tags,
+      image,
+      imageAlt,
       media,
       featured = false,
       layout = "vertical",
@@ -341,11 +379,13 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         {/* Concentric Media Stage */}
         <CardMedia
           aspect={isHorizontal ? "auto" : "video"}
+          src={image}
+          alt={imageAlt ?? title}
           className={cn(
             "flex items-center justify-center",
             isHorizontal
               ? "sm:w-2/5 sm:min-h-[220px] shrink-0"
-              : "h-44 w-[calc(100%-1rem)]"
+              : "h-48 sm:h-52 w-[calc(100%-1rem)]"
           )}
           topLeftSlot={
             <Badge
@@ -415,13 +455,21 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           <CardFooter className="border-t border-border-subtle/70 mx-5 sm:mx-6 px-0 pt-3.5 pb-4 mt-1">
             {author ? (
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border-default bg-subtle font-mono text-[10px] font-semibold text-fg-primary">
-                  {author.avatarText ??
-                    author.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                </span>
+                {author.avatarUrl ? (
+                  <img
+                    src={author.avatarUrl}
+                    alt={author.name}
+                    className="h-7 w-7 shrink-0 rounded-full border border-border-default object-cover"
+                  />
+                ) : (
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border-default bg-subtle font-mono text-[10px] font-semibold text-fg-primary">
+                    {author.avatarText ??
+                      author.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                  </span>
+                )}
                 <div className="min-w-0">
                   <div className="truncate text-xs font-medium text-fg-primary">
                     {author.name}
@@ -454,12 +502,23 @@ const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
 BlogCard.displayName = "BlogCard";
 
 /* ==========================================================================
-   PRESET 2: ProductCard — E-Commerce, Hardware & Digital Shop Preset
+   PRESET 2: ProductCard — E-Commerce, Apparel, Tech & Digital Shop Preset
    ========================================================================== */
+
+export type ShopCategory =
+  | "fashion"
+  | "apparel"
+  | "tech"
+  | "electronics"
+  | "digital"
+  | "interior"
+  | "lifestyle"
+  | "general";
 
 export interface ProductSwatch {
   name: string;
   color: string;
+  image?: string;
 }
 
 export interface ProductSpec {
@@ -477,14 +536,40 @@ export interface ProductCardProps extends Omit<CardProps, "title"> {
   badgeVariant?: "brand" | "success" | "warning" | "mono" | "default";
   rating?: number;
   reviewCount?: number;
-  swatches?: ProductSwatch[];
+  image?: string;
+  imageAlt?: string;
+  category?: ShopCategory;
+
+  // Fashion & Apparel (Bekleidung)
+  sizes?: string[];
+  defaultSize?: string;
+  onSelectSize?: (size: string) => void;
+  fitBadge?: string;
+  material?: string;
+
+  // Tech & Electronics (Technik)
   specs?: ProductSpec[];
+  warranty?: string;
+
+  // Digital Goods & Software (Digitale Güter)
+  fileFormats?: string[];
+  license?: string;
+  version?: string;
+  fileSize?: string;
+  instantDownload?: boolean;
+
+  // Interior & Lifestyle (Möbel & Wohnen)
+  dimensions?: string;
+
+  // Common
+  swatches?: ProductSwatch[];
   inStock?: boolean;
   stockLabel?: string;
   media?: React.ReactNode;
   ctaLabel?: string;
+  ctaType?: "cart" | "download" | "license";
   defaultWishlisted?: boolean;
-  onAddToCart?: (selectedSwatch?: ProductSwatch) => void;
+  onAddToCart?: (selectedSwatch?: ProductSwatch, selectedSize?: string) => void;
 }
 
 const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
@@ -499,12 +584,28 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
       badgeVariant = "brand",
       rating = 4.9,
       reviewCount = 128,
-      swatches,
+      image,
+      imageAlt,
+      category = "general",
+      sizes,
+      defaultSize,
+      onSelectSize,
+      fitBadge,
+      material,
       specs,
+      warranty,
+      fileFormats,
+      license,
+      version,
+      fileSize,
+      instantDownload = false,
+      dimensions,
+      swatches,
       inStock = true,
       stockLabel,
       media,
-      ctaLabel = "Add to Bag",
+      ctaLabel,
+      ctaType,
       defaultWishlisted = false,
       onAddToCart,
       className,
@@ -514,14 +615,41 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
   ) => {
     const [wishlisted, setWishlisted] = React.useState(defaultWishlisted);
     const [selectedSwatchIdx, setSelectedSwatchIdx] = React.useState(0);
+    const [selectedSize, setSelectedSize] = React.useState<string | undefined>(
+      defaultSize ?? sizes?.[0]
+    );
     const [added, setAdded] = React.useState(false);
 
     const activeSwatch = swatches?.[selectedSwatchIdx];
+    const activeImage = activeSwatch?.image ?? image;
+
+    const isDigital =
+      category === "digital" ||
+      ctaType === "download" ||
+      ctaType === "license";
+    const effectiveCtaType =
+      ctaType ??
+      (isDigital ? (license ? "license" : "download") : "cart");
+
+    const effectiveCtaLabel =
+      ctaLabel ??
+      (effectiveCtaType === "download"
+        ? "Download"
+        : effectiveCtaType === "license"
+        ? "Buy License"
+        : "Add to Bag");
+
+    const addedLabel =
+      effectiveCtaType === "download"
+        ? "Downloaded"
+        : effectiveCtaType === "license"
+        ? "Purchased"
+        : "Added";
 
     const handleAdd = () => {
-      if (!inStock) return;
+      if (!inStock && !isDigital) return;
       setAdded(true);
-      onAddToCart?.(activeSwatch);
+      onAddToCart?.(activeSwatch, selectedSize);
       setTimeout(() => setAdded(false), 1600);
     };
 
@@ -536,13 +664,15 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
           {/* Concentric Product Stage */}
           <CardMedia
             aspect="square"
-            className="h-48 w-[calc(100%-1rem)] flex items-center justify-center bg-subtle/75"
+            src={activeImage}
+            alt={imageAlt ?? title}
+            className="h-52 sm:h-56 w-[calc(100%-1rem)] flex items-center justify-center bg-subtle/75"
             topLeftSlot={
               badge ? (
                 <Badge
                   variant={badgeVariant}
                   size="sm"
-                  className="backdrop-blur-md shadow-xs"
+                  className="backdrop-blur-md shadow-xs bg-surface/90"
                 >
                   {badge}
                 </Badge>
@@ -592,13 +722,22 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
                     {activeSwatch?.name}
                   </span>
                 </div>
+              ) : isDigital && fileFormats && fileFormats.length > 0 ? (
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-surface/90 px-2.5 py-1 backdrop-blur-md shadow-xs font-mono text-[9.5px] text-fg-secondary">
+                  <FileCode2 className="h-3 w-3 text-fg-brand shrink-0" />
+                  <span>{fileFormats.slice(0, 3).join(" · ")}</span>
+                </div>
               ) : undefined
             }
           >
             {media ?? (
               <div className="flex flex-col items-center justify-center gap-2 p-6 transition-transform duration-300 group-hover:scale-105">
                 <div className="flex h-16 w-16 items-center justify-center rounded-lg border border-border-default bg-elevated shadow-sm">
-                  <ShoppingBag className="h-6 w-6 text-fg-brand" />
+                  {isDigital ? (
+                    <FileCode2 className="h-6 w-6 text-fg-brand" />
+                  ) : (
+                    <ShoppingBag className="h-6 w-6 text-fg-brand" />
+                  )}
                 </div>
               </div>
             )}
@@ -630,7 +769,49 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
               </CardDescription>
             )}
 
-            {/* Optional Compact Spec Strip */}
+            {/* Material & Fit Row (Apparel / Fashion) */}
+            {(material || fitBadge) && (
+              <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[11px] text-fg-secondary">
+                {material && (
+                  <span className="font-medium text-fg-primary">{material}</span>
+                )}
+                {material && fitBadge && <span className="text-fg-muted">·</span>}
+                {fitBadge && (
+                  <span className="rounded-2xs border border-border-subtle bg-subtle px-1.5 py-0.5 text-[10px] text-fg-muted font-mono">
+                    {fitBadge}
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Interactive Size Selector (Apparel / Fashion) */}
+            {sizes && sizes.length > 0 && (
+              <div className="mt-2.5 flex items-center justify-between gap-2 border-t border-border-subtle/70 pt-2.5">
+                <span className="text-[10.5px] font-medium text-fg-muted">Size:</span>
+                <div className="flex flex-wrap gap-1">
+                  {sizes.map((sz) => (
+                    <button
+                      key={sz}
+                      type="button"
+                      onClick={() => {
+                        setSelectedSize(sz);
+                        onSelectSize?.(sz);
+                      }}
+                      className={cn(
+                        "min-w-6 h-6 px-1.5 rounded-sm border text-[10.5px] font-mono font-medium transition-all cursor-pointer",
+                        selectedSize === sz
+                          ? "border-border-brand bg-brand/10 text-fg-brand font-semibold shadow-xs"
+                          : "border-border-subtle bg-subtle text-fg-secondary hover:border-border-default hover:text-fg-primary"
+                      )}
+                    >
+                      {sz}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Hardware / Tech Spec Strip */}
             {specs && specs.length > 0 && (
               <div className="mt-2 grid grid-cols-2 gap-1.5 rounded-md border border-border-subtle bg-subtle p-2">
                 {specs.map((s) => (
@@ -643,6 +824,57 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
                 ))}
               </div>
             )}
+
+            {/* Hardware Warranty Badge */}
+            {warranty && (
+              <div className="mt-2 flex items-center gap-1.5 text-[10.5px] text-fg-muted">
+                <ShieldCheck className="h-3.5 w-3.5 text-status-success shrink-0" />
+                <span>{warranty}</span>
+              </div>
+            )}
+
+            {/* Digital Goods License, Version & Formats Strip */}
+            {isDigital && (fileFormats || license || version || fileSize) && (
+              <div className="mt-2.5 space-y-1.5 border-t border-border-subtle/70 pt-2.5">
+                {fileFormats && fileFormats.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-1">
+                    {fileFormats.map((fmt) => (
+                      <span
+                        key={fmt}
+                        className="rounded-2xs border border-border-subtle bg-subtle px-1.5 py-0.5 font-mono text-[9.5px] font-medium text-fg-secondary"
+                      >
+                        {fmt}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {(license || version || fileSize) && (
+                  <div className="flex flex-wrap items-center gap-1.5 text-[10.5px] text-fg-muted">
+                    {version && (
+                      <span className="font-mono text-fg-primary font-semibold">
+                        {version}
+                      </span>
+                    )}
+                    {version && license && <span>·</span>}
+                    {license && <span>{license}</span>}
+                    {fileSize && (
+                      <>
+                        <span>·</span>
+                        <span className="font-mono">{fileSize}</span>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Interior Dimensions */}
+            {dimensions && (
+              <div className="mt-2 flex items-center gap-1.5 rounded-md border border-border-subtle bg-subtle px-2.5 py-1.5 font-mono text-[10.5px] text-fg-secondary cmplt-tabular">
+                <Layers className="h-3 w-3 text-fg-muted shrink-0" />
+                <span>{dimensions}</span>
+              </div>
+            )}
           </CardHeader>
         </div>
 
@@ -653,11 +885,22 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
               <span
                 className={cn(
                   "h-1.5 w-1.5 rounded-full",
-                  inStock ? "bg-status-success" : "bg-status-danger"
+                  isDigital
+                    ? "bg-status-success"
+                    : inStock
+                    ? "bg-status-success"
+                    : "bg-status-danger"
                 )}
               />
               <span>
-                {stockLabel ?? (inStock ? "In stock · Ready to ship" : "Out of stock")}
+                {stockLabel ??
+                  (isDigital
+                    ? instantDownload
+                      ? "Instant ZIP & CLI Access"
+                      : "Direct Digital Access"
+                    : inStock
+                    ? "In stock · Ready to ship"
+                    : "Out of stock")}
               </span>
             </div>
           </div>
@@ -665,19 +908,25 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
           <Button
             variant={added ? "secondary" : "primary"}
             size="sm"
-            disabled={!inStock}
+            disabled={!inStock && !isDigital}
             onClick={handleAdd}
             className="shrink-0"
           >
             {added ? (
               <>
                 <Check className="h-3.5 w-3.5 text-status-success" />
-                Added
+                {addedLabel}
               </>
             ) : (
               <>
-                <ShoppingBag className="h-3.5 w-3.5" />
-                {ctaLabel}
+                {effectiveCtaType === "download" ? (
+                  <Download className="h-3.5 w-3.5" />
+                ) : effectiveCtaType === "license" ? (
+                  <Key className="h-3.5 w-3.5" />
+                ) : (
+                  <ShoppingBag className="h-3.5 w-3.5" />
+                )}
+                {effectiveCtaLabel}
               </>
             )}
           </Button>
@@ -687,6 +936,21 @@ const ProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
   }
 );
 ProductCard.displayName = "ProductCard";
+
+const ApparelProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
+  (props, ref) => <ProductCard ref={ref} category="apparel" {...props} />
+);
+ApparelProductCard.displayName = "ApparelProductCard";
+
+const TechProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
+  (props, ref) => <ProductCard ref={ref} category="tech" {...props} />
+);
+TechProductCard.displayName = "TechProductCard";
+
+const DigitalProductCard = React.forwardRef<HTMLDivElement, ProductCardProps>(
+  (props, ref) => <ProductCard ref={ref} category="digital" {...props} />
+);
+DigitalProductCard.displayName = "DigitalProductCard";
 
 /* ==========================================================================
    PRESET 3: MetricCard — KPI, Telemetry & Analytics Dashboard Preset
@@ -1287,6 +1551,9 @@ export {
   CardFooter,
   BlogCard,
   ProductCard,
+  ApparelProductCard,
+  TechProductCard,
+  DigitalProductCard,
   MetricCard,
   ProfileCard,
   FeatureCard,

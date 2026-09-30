@@ -59,7 +59,7 @@ export function SiteFooter() {
               <ul className="space-y-3 text-xs sm:text-[13px] text-fg-muted">
                 <li>
                   <Link href="/blocks" className="hover:text-fg-primary transition-colors">
-                    cmplt Pro Blocks
+                    cmplt UI Blocks
                   </Link>
                 </li>
                 <li>
@@ -68,9 +68,14 @@ export function SiteFooter() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing" className="hover:text-fg-primary transition-colors">
-                    Pricing &amp; Team Licensing
-                  </Link>
+                  <a
+                    href="https://github.com/schroepa/cmplt-design-system"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-fg-primary transition-colors"
+                  >
+                    MIT License (Free &amp; Open Source)
+                  </a>
                 </li>
               </ul>
             </div>

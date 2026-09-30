@@ -3,8 +3,8 @@
 **cmplt** is a complete design system engineered in code first and structured for 1:1 Figma synchronization:
 1. **Headless Accessibility (`@base-ui/react` v1.8)** — Unstyled, WAI-ARIA compliant primitives with declarative `data-*` state attributes and Floating UI positioning.
 2. **3-Tier Perceptual Token Architecture (OKLCH + W3C DTCG)** — Primitive scales, semantic roles (`--bg-surface`, `--fg-primary`, `--border-subtle`), and live theme presets (`precision`, `editorial`, `emerald`) defined in `src/styles/tokens.css` and `src/registry/cmplt/tokens/tokens.json`.
-3. **Native `shadcn` Registry (`/r/[name].json`)** — All 21 tokens, primitives, and Pro blocks are compiled into static `registry-item.json` endpoints via `npm run registry:build`.
-4. **Self-Hosted Docs & Marketing Platform** — Built 100% with `@cmplt` components ("Dogfooding"), featuring a `shadcn/ui`-style documentation portal (`/docs`), interactive Token Explorer (`/docs/tokens`), Blocks Showcase (`/blocks`), Code ↔ Figma Bridge (`/figma`), and Pricing/Licensing page (`/pricing`).
+3. **Native `shadcn` Registry (`/r/[name].json`)** — All 21 tokens, primitives, and blocks are compiled into static `registry-item.json` endpoints via `npm run registry:build`.
+4. **Self-Hosted Docs & Marketing Platform** — Built 100% with `@cmplt` components ("Dogfooding"), featuring a `shadcn/ui`-style documentation portal (`/docs`), interactive Token Explorer (`/docs/tokens`), Blocks Showcase (`/blocks`), and Code ↔ Figma Bridge (`/figma`).
 
 ## Quickstart
 
@@ -32,7 +32,7 @@ Add the `@cmplt` registry namespace to your consumer project's `components.json`
 }
 ```
 
-Then install any token set, primitive, or Pro block:
+Then install any token set, primitive, or block:
 
 ```bash
 npx shadcn@latest add @cmplt/tokens

@@ -1025,7 +1025,7 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
       {
         label: "Compiled Registry Endpoints",
         value: "26 Static JSON Artifacts",
-        detail: "1 lib, 1 style/token pack, 19 UI/motion primitives, 5 Pro blocks in /public/r/*.json",
+        detail: "1 lib, 1 style/token pack, 19 UI/motion primitives, 5 UI blocks in /public/r/*.json",
       },
       {
         label: "Core Runtime Stack",
@@ -1322,13 +1322,13 @@ export const SYSTEM_PILLARS: PillarSpecification[] = [
         versionIntroduced: "v1.0.0",
         lastUpdated: "2026-09-28",
         summary:
-          "Mandates that every page of the cmplt platform (/docs, /docs/tokens, /docs/blueprint, /blocks, /figma, /pricing) is constructed exclusively from @cmplt registry primitives and blocks.",
+          "Mandates that every page of the cmplt platform (/docs, /docs/tokens, /docs/blueprint, /blocks, /figma) is constructed exclusively from @cmplt registry primitives and blocks.",
         contextAndProblem:
           "Many design systems build their documentation site with third-party doc themes (e.g., Nextra, Docusaurus, or custom one-off CSS), hiding usability flaws in their own components.",
         granularSpec: [
           {
             parameter: "Documentation & Showcase Routes",
-            value: "/, /docs, /docs/tokens, /docs/blueprint, /docs/components/[slug], /blocks, /figma, /pricing",
+            value: "/, /docs, /docs/tokens, /docs/blueprint, /docs/components/[slug], /blocks, /figma",
             detail: "Every navigation bar, modal search (⌘K), popover customizer, tab bar, accordion FAQ, and code preview uses src/registry/cmplt/ui/* directly.",
           },
           {
@@ -1673,7 +1673,7 @@ export const REGISTRY_INVENTORY_MATRIX: RegistryArtifactDoc[] = [
     sourcePath: "src/registry/cmplt/blocks/pricing-tier-block.tsx",
     targetPath: "components/blocks/pricing-tier-block.tsx",
     keyDecisions: ["VF-02", "IE-01", "IE-03"],
-    summary: "3-tier SaaS and Design System licensing matrix with segmented billing cycle Tabs and highlighted Pro card.",
+    summary: "3-tier SaaS pricing matrix with segmented billing cycle Tabs, feature checklists, and highlighted plan card.",
   },
   {
     name: "hero-motion-block",

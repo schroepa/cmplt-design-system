@@ -76,7 +76,7 @@ export function HeroMotionBlock() {
             className="min-w-[160px]"
             onClick={() => window.location.href = "/blocks"}
           >
-            Browse Pro Blocks
+            Browse UI Blocks
           </LiquidButton>
         </div>
 

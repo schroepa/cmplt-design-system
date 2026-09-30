@@ -11,10 +11,10 @@ export function SiteFooterBlock() {
       title: "Design System",
       links: [
         { label: "Component Catalog", href: "/docs" },
-        { label: "Pro UI Blocks", href: "/blocks" },
+        { label: "UI Blocks", href: "/blocks" },
         { label: "Design Blueprint", href: "/docs/blueprint" },
         { label: "Token Inspector", href: "/docs/tokens" },
-        { label: "Pricing & Passes", href: "/pricing" },
+        { label: "Figma Variables", href: "/figma" },
       ],
     },
     {
@@ -29,10 +29,10 @@ export function SiteFooterBlock() {
     {
       title: "Community & Code",
       links: [
-        { label: "GitHub Repository", href: "https://github.com" },
+        { label: "GitHub Repository", href: "https://github.com/schroepa/cmplt-design-system" },
         { label: "Figma Community Kit", href: "/figma" },
         { label: "Releases & Changelog", href: "/showcase" },
-        { label: "MIT License", href: "/pricing" },
+        { label: "MIT License", href: "https://github.com/schroepa/cmplt-design-system" },
       ],
     },
   ];
