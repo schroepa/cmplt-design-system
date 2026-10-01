@@ -5,6 +5,7 @@
 2. **3-Tier Perceptual Token Architecture (OKLCH + W3C DTCG)** — Primitive scales, semantic roles (`--bg-surface`, `--fg-primary`, `--border-subtle`), and live theme presets (`precision`, `editorial`, `emerald`) defined in `src/styles/tokens.css` and `src/registry/cmplt/tokens/tokens.json`.
 3. **Native `shadcn` Registry (`/r/[name].json`)** — All 21 tokens, primitives, and blocks are compiled into static `registry-item.json` endpoints via `npm run registry:build`.
 4. **Self-Hosted Docs & Marketing Platform** — Built 100% with `@cmplt` components ("Dogfooding"), featuring a `shadcn/ui`-style documentation portal (`/docs`), interactive Token Explorer (`/docs/tokens`), Blocks Showcase (`/blocks`), and Code ↔ Figma Bridge (`/figma`).
+5. **Borderless & Shadowless Design Language** — Authoritative design specification derived from Paper.design in [docs/design-language.md](file:///Users/ptrck/Developer/cmplt-design-system/docs/design-language.md), featuring pure surface luminance layering, 222px transition fades, and 100vh scroll-snapping.
 
 ## Quickstart
 

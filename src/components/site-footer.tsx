@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border-subtle bg-surface/60">
+    <footer className="relative snap-start snap-always bg-surface/40">
       <div className="cmplt-container py-16 md:py-20 lg:py-24 2xl:py-32">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-10 2xl:gap-16 items-start">
           {/* Brand Column */}
           <div className="md:col-span-2 lg:col-span-4 2xl:col-span-5 space-y-4 max-w-md">
             <div className="flex items-center gap-2.5 font-semibold text-fg-primary">
-              <span className="flex h-7 w-7 items-center justify-center rounded-squircle bg-brand text-fg-on-brand font-mono text-xs font-bold shadow-xs">
+              <span className="flex h-7 w-7 items-center justify-center rounded-[11px] bg-brand text-fg-on-brand font-mono text-xs font-bold">
                 c/
               </span>
               <span className="text-sm 2xl:text-base">cmplt design system</span>

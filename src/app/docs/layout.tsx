@@ -30,13 +30,13 @@ export default function DocsLayout({
     <div className="cmplt-container">
       <div className="flex flex-col md:grid md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] 2xl:grid-cols-[300px_minmax(0,1fr)] md:gap-8 lg:gap-14 xl:gap-16 2xl:gap-24">
         {/* Left Sticky Sidebar (Collapsible on Mobile, Sticky on Tablet/Desktop/Desktop+) */}
-        <aside className="border-b md:border-b-0 md:border-r border-border-subtle py-4 md:py-10 lg:py-14 2xl:py-16 md:pr-6 lg:pr-8 2xl:pr-10 md:sticky md:top-16 md:h-[calc(100vh-4rem)] md:overflow-y-auto">
+        <aside className="py-4 md:py-10 lg:py-14 2xl:py-16 md:pr-6 lg:pr-8 2xl:pr-10 md:sticky md:top-16 md:h-[calc(100vh-4rem)] md:overflow-y-auto">
           {/* Mobile Collapsible Index Trigger (< md) */}
           <button
             type="button"
             onClick={() => setMobileSidebarOpen((prev) => !prev)}
             aria-expanded={mobileSidebarOpen}
-            className="flex md:hidden w-full min-h-[44px] items-center justify-between rounded-md border border-border-default bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary shadow-xs cursor-pointer"
+            className="flex md:hidden w-full min-h-[44px] items-center justify-between rounded-xl bg-surface px-4 py-2.5 text-xs font-semibold text-fg-primary cursor-pointer border-0 shadow-none"
           >
             <span className="flex items-center gap-2">
               <BookOpen className="h-3.5 w-3.5 text-fg-brand" />
@@ -68,9 +68,9 @@ export default function DocsLayout({
                     href="/docs"
                     aria-current={pathname === "/docs" ? "page" : undefined}
                     className={cn(
-                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs"
-                        ? "bg-brand-subtle text-fg-brand font-semibold"
+                        ? "bg-brand text-fg-on-brand font-medium"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
@@ -84,14 +84,23 @@ export default function DocsLayout({
                       pathname?.startsWith("/docs/blueprint") ? "page" : undefined
                     }
                     className={cn(
-                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium transition-colors",
                       pathname?.startsWith("/docs/blueprint")
-                        ? "bg-brand-subtle text-fg-brand font-semibold"
+                        ? "bg-brand text-fg-on-brand font-medium"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
                     <span>Living Blueprint</span>
-                    <Badge variant="outline" size="sm" className="px-1.5 py-0 text-[10px]">
+                    <Badge
+                      variant="mono"
+                      size="sm"
+                      className={cn(
+                        "px-1.5 py-0 text-[10px] border-0 shadow-none",
+                        pathname?.startsWith("/docs/blueprint")
+                          ? "bg-black/20 text-fg-on-brand"
+                          : "bg-subtle text-fg-muted"
+                      )}
+                    >
                       ADR
                     </Badge>
                   </Link>
@@ -101,14 +110,23 @@ export default function DocsLayout({
                     href="/docs/tokens"
                     aria-current={pathname === "/docs/tokens" ? "page" : undefined}
                     className={cn(
-                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs/tokens"
-                        ? "bg-brand-subtle text-fg-brand font-semibold"
+                        ? "bg-brand text-fg-on-brand font-medium"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
                     <span>Design Tokens (OKLCH)</span>
-                    <Badge variant="brand" size="sm" className="px-1.5 py-0 text-[10px]">
+                    <Badge
+                      variant="mono"
+                      size="sm"
+                      className={cn(
+                        "px-1.5 py-0 text-[10px] border-0 shadow-none",
+                        pathname === "/docs/tokens"
+                          ? "bg-black/20 text-fg-on-brand"
+                          : "bg-subtle text-fg-muted"
+                      )}
+                    >
                       W3C
                     </Badge>
                   </Link>
@@ -118,14 +136,23 @@ export default function DocsLayout({
                     href="/docs/hooks"
                     aria-current={pathname === "/docs/hooks" ? "page" : undefined}
                     className={cn(
-                      "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
+                      "flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium transition-colors",
                       pathname === "/docs/hooks"
-                        ? "bg-brand-subtle text-fg-brand font-semibold"
+                        ? "bg-brand text-fg-on-brand font-medium"
                         : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                     )}
                   >
                     <span>React Hooks</span>
-                    <Badge variant="mono" size="sm" className="px-1.5 py-0 text-[10px]">
+                    <Badge
+                      variant="mono"
+                      size="sm"
+                      className={cn(
+                        "px-1.5 py-0 text-[10px] border-0 shadow-none",
+                        pathname === "/docs/hooks"
+                          ? "bg-black/20 text-fg-on-brand"
+                          : "bg-subtle text-fg-muted"
+                      )}
+                    >
                       Hooks
                     </Badge>
                   </Link>
@@ -157,9 +184,9 @@ export default function DocsLayout({
                             href={href}
                             aria-current={active ? "page" : undefined}
                             className={cn(
-                              "flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium transition-colors",
+                              "flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium transition-colors",
                               active
-                                ? "bg-brand-subtle text-fg-brand font-semibold"
+                                ? "bg-brand text-fg-on-brand font-medium shadow-none"
                                 : "text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                             )}
                           >
@@ -183,7 +210,7 @@ export default function DocsLayout({
                 <li>
                   <Link
                     href="/blocks"
-                    className="flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
+                    className="flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                   >
                     <span>UI Blocks</span>
                   </Link>
@@ -191,7 +218,7 @@ export default function DocsLayout({
                 <li>
                   <Link
                     href="/figma"
-                    className="flex items-center justify-between rounded-sm px-3 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
+                    className="flex items-center justify-between rounded-[11px] px-3.5 py-2 text-xs font-medium text-fg-secondary hover:bg-subtle hover:text-fg-primary"
                   >
                     <span className="flex items-center gap-1.5">
                       <Figma className="h-3 w-3" /> Figma UI Kit

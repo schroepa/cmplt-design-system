@@ -4,9 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useTheme } from "@/components/theme-provider";
-import { EngagementPanelBlock } from "@/registry/cmplt/blocks/engagement-panel-block";
-import { AppManagerBlock } from "@/registry/cmplt/blocks/app-manager-block";
 import { AiDeploymentCard } from "@/registry/cmplt/blocks/ai-deployment-card";
 import { TokenSyncInspectorBlock } from "@/registry/cmplt/blocks/token-sync-inspector";
 import { CliInstallTabs } from "@/components/docs/cli-install-tabs";
@@ -35,12 +32,6 @@ import {
 import { Field, FieldLabel, FieldDescription } from "@/registry/cmplt/ui/field";
 import { Checkbox } from "@/registry/cmplt/ui/checkbox";
 import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@/registry/cmplt/ui/tabs";
-import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
@@ -58,8 +49,6 @@ import {
   Figma,
   ShieldCheck,
   ExternalLink,
-  Sun,
-  Moon,
 } from "lucide-react";
 import { cn } from "@/registry/cmplt/lib/utils";
 
@@ -67,25 +56,22 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
 }
 
-
-const HERO_PRIMARY_WORDS = ["The", "Complete", "Design", "System."];
-const HERO_ACCENT_WORDS = ["Engineered", "in", "Code,", "Synced", "to", "Figma."];
+const HERO_WORDS = ["THE", "COMPLETE", "DESIGNSYSTEM."];
 
 export default function HomePage() {
-  const { mode, setMode } = useTheme();
   const [installComponent, setInstallComponent] = React.useState(
     "interactive-dot-field"
   );
-  const [cliCopied, setCliCopied] = React.useState(false);
   const [configCopied, setConfigCopied] = React.useState(false);
-
   const heroRef = React.useRef<HTMLElement>(null);
 
-  const handleCliCopy = () => {
-    navigator.clipboard.writeText("npx shadcn@latest add @cmplt/button");
-    setCliCopied(true);
-    setTimeout(() => setCliCopied(false), 2000);
-  };
+  // Enable CSS scroll-snap on html while on HomePage
+  React.useEffect(() => {
+    document.documentElement.classList.add("snap-y", "snap-mandatory");
+    return () => {
+      document.documentElement.classList.remove("snap-y", "snap-mandatory");
+    };
+  }, []);
 
   const handleConfigCopy = () => {
     navigator.clipboard.writeText("npx shadcn@latest add @cmplt/config");
@@ -127,7 +113,7 @@ export default function HomePage() {
             rotateX: 0,
             filter: "blur(0px)",
             duration: 0.9,
-            stagger: 0.042,
+            stagger: 0.06,
             ease: "power3.out",
           },
           "-=0.5"
@@ -143,259 +129,132 @@ export default function HomePage() {
           { y: 14, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.7 },
           "-=0.52"
-        )
-        .fromTo(
-          "[data-hero-search]",
-          { y: 14, opacity: 0, scale: 0.985 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.75 },
-          "-=0.5"
-        )
-        .fromTo(
-          "[data-hero-switcher]",
-          { y: 12, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.65 },
-          "-=0.48"
         );
     },
     { scope: heroRef }
   );
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative">
       {/* =====================================================================
-          SECTION 1: HERO STAGE + THREE.JS INTERACTIVE DOT FIELD + GSAP PHYSICS
-          Dedicated high-breathing-room hero stage across Mobile, Tablet, Desktop & Desktop+
+          SECTION 1: HERO STAGE (Paper Design 11-0)
+          Min 100vh height, snap-start, uppercase headline, glowing CTA
          ===================================================================== */}
       <section
         ref={heroRef}
-        className="relative border-b border-border-subtle py-12 sm:py-20 md:py-28 lg:py-36 2xl:py-44 overflow-hidden"
+        className="relative min-h-screen flex flex-col justify-center snap-start snap-always py-20 sm:py-28 md:py-36 overflow-hidden"
       >
         {/* Three.js WebGL Interactive Dot Matrix Field */}
         <InteractiveDotField />
 
-        {/* Soft radial vignette so center typography retains crisp contrast while dots breathe around */}
+        {/* Soft radial vignette as calibrated in Paper design */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 z-[1]"
           style={{
             background:
               "radial-gradient(circle at 50% 34%, color-mix(in oklch, var(--bg-canvas) 68%, transparent) 0%, transparent 56%, color-mix(in oklch, var(--bg-canvas) 82%, transparent) 100%)",
           }}
         />
 
-        <div className="cmplt-container relative z-10">
-          {/* Hero Central Editorial Stack with Generous Vertical Rhythm */}
-          <div className="mx-auto max-w-4xl 2xl:max-w-5xl text-center space-y-6 sm:space-y-8 md:space-y-10 2xl:space-y-12">
+        <div className="cmplt-container relative z-10 my-auto">
+          <div className="mx-auto max-w-4xl 2xl:max-w-5xl text-center space-y-8 sm:space-y-10 md:space-y-12">
+            {/* Version Badge from Paper */}
             <div
               data-hero-badge
-              className="inline-flex items-center gap-2 rounded-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 py-1.5 shadow-xs"
+              className="inline-flex items-center gap-2 rounded-full bg-subtle px-3.5 py-1.5 shadow-none"
             >
-              <Badge variant="success" size="sm">v1.5</Badge>
+              <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface text-xs font-mono font-medium text-fg-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-status-success inline-block shrink-0" />
+                v1.5
+              </div>
               <span className="text-xs text-fg-secondary">
                 Headless primitives · W3C OKLCH tokens · shadcn registry
               </span>
             </div>
 
+            {/* Uppercase Hero Headline in Brand Accent */}
             <h1
-              className="cmplt-display-xl mx-auto text-fg-primary"
+              className="mx-auto text-center font-black uppercase tracking-[-0.035em] text-fg-brand text-4xl sm:text-6xl md:text-7xl lg:text-[76px] leading-[1.04] text-balance"
               style={{ perspective: "900px" }}
             >
-              {HERO_PRIMARY_WORDS.map((word, idx) => (
-                <React.Fragment key={`p-${idx}`}>
-                  <span
-                    data-hero-word
-                    className="inline-block will-change-transform"
-                  >
-                    {word}
-                  </span>{" "}
-                </React.Fragment>
-              ))}
-              <span className="relative inline">
-                <span className="relative text-fg-brand">
-                  {HERO_ACCENT_WORDS.map((word, idx) => (
-                    <React.Fragment key={`a-${idx}`}>
-                      <span
-                        data-hero-word
-                        className="inline-block will-change-transform"
-                      >
-                        {word}
-                      </span>
-                      {idx < HERO_ACCENT_WORDS.length - 1 ? " " : ""}
-                    </React.Fragment>
-                  ))}
+              {HERO_WORDS.map((word, idx) => (
+                <span
+                  key={idx}
+                  data-hero-word
+                  className="inline-block will-change-transform mr-[0.25em] last:mr-0"
+                >
+                  {word}
                 </span>
-              </span>
+              ))}
             </h1>
 
-            <p data-hero-lead className="cmplt-lead mx-auto">
+            <p data-hero-lead className="cmplt-lead mx-auto text-fg-secondary max-w-3xl text-balance">
               Stop gluing together headless primitives, custom Tailwind configs,
-              and disconnected Figma files.{" "}
-              <strong className="text-fg-primary">cmplt</strong> ships a production-ready
-              design system with{" "}
-              <strong className="text-fg-primary">Base UI accessibility</strong>,{" "}
+              and disconnected Figma files. <strong className="text-fg-primary">cmplt</strong> ships a production-ready
+              design system with <strong className="text-fg-primary">Base UI accessibility</strong>,{" "}
               <strong className="text-fg-primary">W3C OKLCH tokens</strong>, and a{" "}
               <strong className="text-fg-primary">native shadcn registry</strong> — installed
               in one command.
             </p>
 
-            {/* 2 Primary CTAs */}
+            {/* Primary & Secondary Action CTAs */}
             <div
               data-hero-ctas
               className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 pt-2 w-full max-w-sm sm:max-w-none mx-auto"
             >
               <Link href="/docs" className="w-full sm:w-auto">
-                <AnimatedCtaButton variant="accent-beam" size="lg" className="w-full sm:w-auto min-h-[44px]">
+                <AnimatedCtaButton
+                  variant="accent-beam"
+                  size="lg"
+                  className="w-full sm:w-auto min-h-[44px] rounded-full border-0 shadow-none px-6"
+                >
                   Explore Documentation
                   <ArrowRight className="h-4 w-4" />
                 </AnimatedCtaButton>
               </Link>
               <Link href="/blocks" className="w-full sm:w-auto">
-                <Button variant="secondary" size="lg" shape="pill" className="w-full sm:w-auto min-h-[44px]">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  shape="pill"
+                  className="w-full sm:w-auto min-h-[44px] border-0 shadow-none bg-surface text-fg-primary hover:bg-subtle px-6"
+                >
                   <Sparkles className="h-4 w-4 text-fg-brand" />
                   Browse UI Blocks
                 </Button>
               </Link>
             </div>
-
-            {/* CLI Quick-Copy Bar */}
-            <div data-hero-search className="mx-auto max-w-md 2xl:max-w-lg pt-2 w-full">
-              <button
-                type="button"
-                onClick={handleCliCopy}
-                className="group flex w-full items-center gap-2.5 sm:gap-3 rounded-full border border-border-default bg-surface/90 backdrop-blur-sm px-3.5 sm:px-4 py-2.5 shadow-xs transition-colors hover:border-border-brand hover:bg-surface cursor-pointer min-h-[42px]"
-                aria-label="Copy CLI install command"
-              >
-                <span className="text-fg-muted font-mono text-xs select-none">$</span>
-                <span className="flex-1 text-left font-mono text-[11px] sm:text-xs text-fg-primary truncate min-w-0">
-                  npx shadcn@latest add @cmplt/button
-                </span>
-                <span className={cn(
-                  "shrink-0 text-[11px] font-medium transition-colors",
-                  cliCopied ? "text-status-success" : "text-fg-muted group-hover:text-fg-brand"
-                )}>
-                  {cliCopied ? "Copied!" : "Copy"}
-                </span>
-              </button>
-            </div>
-
-            {/* Interactive Mode Switcher */}
-            <div
-              data-hero-switcher
-              className="mx-auto pt-2 inline-flex items-center gap-1 rounded-full border border-border-default bg-surface/90 backdrop-blur-sm p-1 shadow-sm"
-            >
-              <button
-                type="button"
-                onClick={() => setMode("light")}
-                className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
-                  mode === "light"
-                    ? "bg-surface text-fg-primary shadow-xs"
-                    : "text-fg-muted hover:text-fg-primary"
-                )}
-              >
-                <Sun className="h-3.5 w-3.5 text-[var(--brand-500)]" />
-                Light
-              </button>
-              <button
-                type="button"
-                onClick={() => setMode("dark")}
-                className={cn(
-                  "inline-flex items-center gap-1.5 rounded-full px-3.5 sm:px-4 py-1.5 text-xs font-medium transition-all cursor-pointer min-h-[34px]",
-                  mode === "dark"
-                    ? "bg-surface text-fg-primary shadow-xs"
-                    : "text-fg-muted hover:text-fg-primary"
-                )}
-              >
-                <Moon className="h-3.5 w-3.5 text-[var(--success-400)]" />
-                Dark
-              </button>
-            </div>
           </div>
         </div>
+
+        {/* 222px Soft Edge Fade to Canvas */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 inset-x-0 h-[222px] bg-gradient-to-b from-transparent to-canvas z-10"
+        />
       </section>
 
       {/* =====================================================================
-          SECTION 2: CALIBRATED MULTI-SURFACE REFERENCE ARCHITECTURE
-          Dedicated full-width architectural showcase stage with generous breathing room
+          SECTION 2: LIVE TELEMETRY, TOKEN PARITY & HIERARCHY CONTROLS (Paper Design 5J-0)
+          Min 100vh height, snap-start, uppercase heading, borderless cards
          ===================================================================== */}
-      <section className="cmplt-section border-b border-border-subtle">
-        <div className="cmplt-container space-y-8 sm:space-y-12 md:space-y-16 2xl:space-y-20">
-          <Tabs defaultValue="engagement" className="w-full space-y-6 sm:space-y-10 md:space-y-12 2xl:space-y-16">
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6 pb-2 border-b border-border-subtle/80">
-              <div className="space-y-2 sm:space-y-3 max-w-2xl">
-                <Badge variant="brand">4-Step Surface Hierarchy</Badge>
-                <h2 className="cmplt-h2 text-fg-primary">
-                  Calibrated Multi-Surface Reference Architecture
-                </h2>
-                <p className="cmplt-body text-fg-secondary">
-                  Inspect how our 4-step surface hierarchy (<strong className="text-fg-primary">Canvas → Shell → Elevated Panel → Inset Group</strong>) maintains tactile depth in both Matte Graphite and Warm Alabaster.
-                </p>
-              </div>
-              <TabsList variant="segmented" className="w-full sm:w-auto overflow-x-auto max-w-full justify-start self-start lg:self-auto">
-                <TabsTrigger value="both" className="whitespace-nowrap">
-                  <span className="sm:hidden">Overview</span>
-                  <span className="hidden sm:inline">Split Overview</span>
-                </TabsTrigger>
-                <TabsTrigger value="engagement" className="whitespace-nowrap">
-                  <span>Engagement</span>
-                  <span className="hidden sm:inline"> Shell (Dark Ref)</span>
-                </TabsTrigger>
-                <TabsTrigger value="apps" className="whitespace-nowrap">
-                  <span>App Manager</span>
-                  <span className="hidden sm:inline"> (Light Ref)</span>
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="both">
-              <div className="space-y-12 md:space-y-16 lg:space-y-20 2xl:space-y-24">
-                <div className="cmplt-stage bg-cmplt-dots">
-                  <EngagementPanelBlock />
-                </div>
-                <div className="cmplt-stage bg-cmplt-dots">
-                  <AppManagerBlock />
-                </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="engagement">
-              <div className="cmplt-stage bg-cmplt-dots">
-                <EngagementPanelBlock />
-              </div>
-            </TabsContent>
-
-            <TabsContent value="apps">
-              <div className="cmplt-stage bg-cmplt-dots">
-                <AppManagerBlock />
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          SECTION 3: INTERACTIVE CONTROL SURFACES & TELEMETRY
-          Separated from the Hero & Reference Shells to eliminate visual overload.
-          Tailored per viewport:
-          - Mobile: 1-column stack with 32px gap
-          - Tablet (md): 2-column balanced grid
-          - Desktop (lg/xl): 2-row spacious 12-col architectural grid (6+6 top, 7+5 bottom)
-          - Desktop+ (2xl): Panoramic 12-col 3-zone gallery (5 cols AI + 4 cols Token + 3 cols Key)
-         ===================================================================== */}
-      <section className="cmplt-section border-b border-border-subtle bg-surface/35">
-        <div className="cmplt-container space-y-12 md:space-y-16 2xl:space-y-20">
+      <section className="relative min-h-screen flex flex-col justify-center snap-start snap-always py-20 sm:py-28 md:py-36 overflow-hidden [&_.cmplt-card]:border-0 [&_.cmplt-card]:shadow-none [&_.cmplt-card]:rounded-[20px]">
+        <div className="cmplt-container relative z-10 my-auto space-y-10 sm:space-y-14 md:space-y-16">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-2xl">
-              <Badge variant="mono">Interactive Control Surfaces</Badge>
-              <h2 className="cmplt-h2 text-fg-primary">
+            <div className="space-y-3 max-w-3xl">
+              <Badge variant="mono" className="border-0 shadow-none bg-subtle text-fg-secondary">
+                INTERACTIVE CONTROL SURFACES
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.035em] text-fg-primary leading-tight text-balance">
                 Live Telemetry, Token Parity &amp; Hierarchy Controls
               </h2>
               <p className="cmplt-body text-fg-secondary">
                 Every primitive and block is engineered with generous internal padding, concentric inner radii, and responsive grid alignment across Mobile, Tablet, Desktop, and Desktop+.
               </p>
             </div>
-            <Link href="/blocks" className="self-start lg:self-auto">
-              <Button variant="outline" size="md">
+            <Link href="/blocks" className="self-start lg:self-auto shrink-0">
+              <Button variant="outline" size="md" shape="pill" className="border-0 shadow-none bg-surface text-fg-primary hover:bg-subtle">
                 Explore All 5 Registry Blocks
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -415,11 +274,11 @@ export default function HomePage() {
 
             {/* Block 3: Registry Access Key & Live Endpoints */}
             <div className="md:col-span-2 lg:col-span-12 2xl:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 2xl:grid-cols-1 gap-8 md:gap-10 2xl:gap-8">
-              <Card variant="default" className="md:col-span-1 lg:col-span-7 2xl:col-span-1">
-                <CardHeader className="pb-3">
+              <Card variant="default" className="md:col-span-1 lg:col-span-7 2xl:col-span-1 rounded-[20px] bg-surface border-0 shadow-none">
+                <CardHeader className="pb-3 border-b border-border-subtle/40">
                   <div className="flex items-center justify-between gap-2">
                     <CardTitle className="text-base">Registry Access Key</CardTitle>
-                    <Badge variant="mono" size="sm" dot={false}>
+                    <Badge variant="mono" size="sm" dot={false} className="border-0 bg-subtle">
                       GSAP + Base UI
                     </Badge>
                   </div>
@@ -427,7 +286,7 @@ export default function HomePage() {
                     Elevated in hierarchy via GSAP HighlightInput &amp; AnimatedCtaButton.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-5">
+                <CardContent className="space-y-5 pt-4">
                   <Field>
                     <FieldLabel>Highlighted Namespace Scope</FieldLabel>
                     <HighlightInput
@@ -451,14 +310,14 @@ export default function HomePage() {
                     </label>
                   </div>
                 </CardContent>
-                <CardFooter className="border-t border-border-subtle pt-5">
+                <CardFooter className="pt-4">
                   <Tooltip>
                     <TooltipTrigger
                       render={
                         <AnimatedCtaButton
                           variant="accent-beam"
                           size="sm"
-                          className="w-full"
+                          className="w-full border-0 shadow-none rounded-full"
                           onClick={handleConfigCopy}
                         >
                           <Terminal className="h-3.5 w-3.5" />
@@ -475,7 +334,7 @@ export default function HomePage() {
 
               <Card
                 variant="subtle"
-                className="md:col-span-1 lg:col-span-5 2xl:col-span-1 p-6 md:p-7 2xl:p-8 flex flex-col justify-between space-y-4"
+                className="md:col-span-1 lg:col-span-5 2xl:col-span-1 p-6 md:p-7 2xl:p-8 flex flex-col justify-between space-y-4 rounded-[20px] bg-surface border-0 shadow-none"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs">
@@ -503,20 +362,26 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* 222px Soft Edge Fade to Canvas */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 inset-x-0 h-[222px] bg-gradient-to-b from-transparent to-canvas z-10"
+        />
       </section>
 
       {/* =====================================================================
-          SECTION 4: THE 3 PILLARS OF CMPLT (ARCHITECTURAL BENTO)
-          - Mobile: 1 col
-          - Tablet (md): 2 cols (Card 3 spans full width horizontally)
-          - Desktop (lg) & Desktop+ (2xl): 3 equal columns with generous padding
+          SECTION 3: THE 3 PILLARS OF CMPLT (Paper Design DI-0)
+          Min 100vh height, snap-start, uppercase heading, borderless cards
          ===================================================================== */}
-      <section className="cmplt-section border-b border-border-subtle">
-        <div className="cmplt-container space-y-12 md:space-y-16 2xl:space-y-20">
+      <section className="relative min-h-screen flex flex-col justify-center snap-start snap-always py-20 sm:py-28 md:py-36 overflow-hidden [&_.cmplt-card]:border-0 [&_.cmplt-card]:shadow-none [&_.cmplt-card]:rounded-[20px]">
+        <div className="cmplt-container relative z-10 my-auto space-y-10 sm:space-y-14 md:space-y-16">
           <div className="max-w-3xl space-y-4">
-            <Badge variant="brand">Why cmplt design system?</Badge>
-            <h2 className="cmplt-h2 text-fg-primary">
-              Three architectural breakthroughs in one cohesive system.
+            <Badge variant="brand" className="border-0 shadow-none bg-subtle text-fg-secondary">
+              WHY CMPLT DESIGN SYSTEM?
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.035em] text-fg-primary leading-tight text-balance">
+              Three architectural breakthroughs in one cohesive system
             </h2>
             <p className="cmplt-body text-fg-secondary">
               Most teams waste months gluing together headless primitives, custom
@@ -529,13 +394,13 @@ export default function HomePage() {
             <MotionSurface delay={0.05} className="md:col-span-1">
               <Card
                 variant="interactive"
-                className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between"
+                className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between rounded-[20px] bg-surface border-0 shadow-none hover:bg-subtle/80"
               >
                 <div className="space-y-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-brand">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[12px] bg-subtle text-fg-brand">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <Badge variant="mono" size="sm" dot={false}>
+                  <Badge variant="mono" size="sm" dot={false} className="border-0 bg-subtle">
                     Pillar 01 — @base-ui/react
                   </Badge>
                   <h3 className="cmplt-h4 text-fg-primary">
@@ -548,7 +413,7 @@ export default function HomePage() {
                     <code className="font-mono text-fg-brand">data-[checked]</code> selectors make styling effortless.
                   </p>
                 </div>
-                <div className="mt-8 border-t border-border-subtle pt-5">
+                <div className="mt-8 pt-5">
                   <Link
                     href="/docs/components/dialog"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline"
@@ -562,13 +427,13 @@ export default function HomePage() {
             <MotionSurface delay={0.12} className="md:col-span-1">
               <Card
                 variant="interactive"
-                className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between"
+                className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between rounded-[20px] bg-surface border-0 shadow-none hover:bg-subtle/80"
               >
                 <div className="space-y-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-brand">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[12px] bg-subtle text-fg-brand">
                     <Terminal className="h-5 w-5" />
                   </div>
-                  <Badge variant="mono" size="sm" dot={false}>
+                  <Badge variant="mono" size="sm" dot={false} className="border-0 bg-subtle">
                     Pillar 02 — shadcn Registry
                   </Badge>
                   <h3 className="cmplt-h4 text-fg-primary">
@@ -580,7 +445,7 @@ export default function HomePage() {
                     <code className="font-mono text-fg-primary">npx shadcn add @cmplt/*</code> and own 100% of your code.
                   </p>
                 </div>
-                <div className="mt-8 border-t border-border-subtle pt-5">
+                <div className="mt-8 pt-5">
                   <Link
                     href="/docs#registry"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline"
@@ -597,13 +462,13 @@ export default function HomePage() {
             >
               <Card
                 variant="interactive"
-                className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between"
+                className="h-full p-7 md:p-8 2xl:p-10 flex flex-col justify-between rounded-[20px] bg-surface border-0 shadow-none hover:bg-subtle/80"
               >
                 <div className="space-y-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-squircle bg-subtle border border-border-subtle text-fg-brand">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[12px] bg-subtle text-fg-brand">
                     <Figma className="h-5 w-5" />
                   </div>
-                  <Badge variant="mono" size="sm" dot={false}>
+                  <Badge variant="mono" size="sm" dot={false} className="border-0 bg-subtle">
                     Pillar 03 — W3C DTCG + OKLCH
                   </Badge>
                   <h3 className="cmplt-h4 text-fg-primary">
@@ -613,7 +478,7 @@ export default function HomePage() {
                     Our 3-tier token hierarchy (Primitive → Semantic → Component) is authored in calibrated OKLCH and mirrored in W3C DTCG JSON with explicit Figma Variable Scopes (<code className="font-mono text-fg-brand">FRAME_FILL</code>, <code className="font-mono text-fg-brand">TEXT_FILL</code>).
                   </p>
                 </div>
-                <div className="mt-8 border-t border-border-subtle pt-5">
+                <div className="mt-8 pt-5">
                   <Link
                     href="/figma"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg-brand hover:underline"
@@ -625,17 +490,26 @@ export default function HomePage() {
             </MotionSurface>
           </div>
         </div>
+
+        {/* 222px Soft Edge Fade to Canvas */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 inset-x-0 h-[222px] bg-gradient-to-b from-transparent to-canvas z-10"
+        />
       </section>
 
       {/* =====================================================================
-          SECTION 5: INTERACTIVE SHADCN REGISTRY EXPLORER
+          SECTION 4: INTERACTIVE SHADCN REGISTRY EXPLORER (Paper Design FB-0)
+          Min 100vh height, snap-start, uppercase heading, borderless cards
          ===================================================================== */}
-      <section className="cmplt-section border-b border-border-subtle bg-surface/40">
-        <div className="cmplt-container">
+      <section className="relative min-h-screen flex flex-col justify-center snap-start snap-always py-20 sm:py-28 md:py-36 overflow-hidden [&_.cmplt-card]:border-0 [&_.cmplt-card]:shadow-none [&_.cmplt-card]:rounded-[20px]">
+        <div className="cmplt-container relative z-10 my-auto">
           <div className="grid gap-10 md:gap-12 lg:gap-16 2xl:gap-24 lg:grid-cols-12 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <Badge variant="brand">Native Registry Distribution</Badge>
-              <h2 className="cmplt-h2 text-fg-primary">
+              <Badge variant="brand" className="border-0 shadow-none bg-subtle text-fg-secondary">
+                NATIVE REGISTRY DISTRIBUTION
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.035em] text-fg-primary leading-tight text-balance">
                 One CLI command. Tokens, GSAP motion, or multi-surface shells.
               </h2>
               <p className="cmplt-body text-fg-secondary">
@@ -662,10 +536,10 @@ export default function HomePage() {
                     type="button"
                     onClick={() => setInstallComponent(name)}
                     className={cn(
-                      "rounded-full border px-3.5 py-1.5 font-mono text-xs transition-all cursor-pointer",
+                      "rounded-full px-3.5 py-1.5 font-mono text-xs transition-all cursor-pointer border-0 shadow-none",
                       installComponent === name
-                        ? "border-border-brand bg-brand-subtle text-fg-brand font-semibold"
-                        : "border-border-subtle bg-surface text-fg-secondary hover:border-border-default hover:text-fg-primary"
+                        ? "bg-brand/15 text-fg-brand font-semibold"
+                        : "bg-surface text-fg-secondary hover:text-fg-primary hover:bg-subtle"
                     )}
                   >
                     @cmplt/{name}
@@ -676,7 +550,7 @@ export default function HomePage() {
 
             <div className="lg:col-span-7 space-y-6">
               <CliInstallTabs itemName={installComponent} />
-              <Card className="p-6 md:p-7 2xl:p-8 bg-subtle/50 space-y-2.5">
+              <Card className="p-6 md:p-7 2xl:p-8 bg-surface rounded-[20px] border-0 shadow-none space-y-2.5">
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-mono text-fg-muted">
                     Automatic Dependency Resolution
@@ -698,19 +572,26 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* 222px Soft Edge Fade to Canvas */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 inset-x-0 h-[222px] bg-gradient-to-b from-transparent to-canvas z-10"
+        />
       </section>
 
       {/* =====================================================================
-          SECTION 7: ARCHITECTURAL FAQ (Built with @cmplt/accordion)
-          - Mobile & Tablet: Stacked header + Accordion card
-          - Desktop & Desktop+: Asymmetric 12-column split (4 cols sticky intro + 8 cols Accordion)
+          SECTION 5: ARCHITECTURAL FAQ (Paper Design H6-0)
+          Min 100vh height, snap-start, uppercase heading, borderless cards
          ===================================================================== */}
-      <section className="cmplt-section">
-        <div className="cmplt-container">
+      <section className="relative min-h-screen flex flex-col justify-center snap-start snap-always py-20 sm:py-28 md:py-36 overflow-hidden [&_.cmplt-card]:border-0 [&_.cmplt-card]:shadow-none [&_.cmplt-card]:rounded-[20px]">
+        <div className="cmplt-container relative z-10 my-auto">
           <div className="grid gap-10 md:gap-12 lg:grid-cols-12 lg:gap-16 2xl:gap-24 items-start">
             <div className="lg:col-span-4 space-y-4">
-              <Badge variant="outline">FAQ</Badge>
-              <h2 className="cmplt-h2 text-fg-primary">
+              <Badge variant="outline" className="border-0 shadow-none bg-subtle text-fg-secondary">
+                FAQ
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.035em] text-fg-primary leading-tight text-balance">
                 Frequently Asked Questions
               </h2>
               <p className="cmplt-body text-fg-secondary">
@@ -720,9 +601,9 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-8">
-              <Card className="p-6 sm:p-8 2xl:p-10">
+              <Card className="p-6 sm:p-8 2xl:p-10 rounded-[20px] bg-surface border-0 shadow-none">
                 <Accordion defaultValue={["faq-1"]}>
-                  <AccordionItem value="faq-1">
+                  <AccordionItem value="faq-1" className="border-border-subtle/40">
                     <AccordionTrigger>
                       Why does cmplt avoid pure #FFFFFF white and #000000 black?
                     </AccordionTrigger>
@@ -732,7 +613,7 @@ export default function HomePage() {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
-                  <AccordionItem value="faq-2">
+                  <AccordionItem value="faq-2" className="border-border-subtle/40">
                     <AccordionTrigger>
                       How does the @cmplt shadcn registry work under the hood?
                     </AccordionTrigger>
@@ -742,7 +623,7 @@ export default function HomePage() {
                       </p>
                     </AccordionContent>
                   </AccordionItem>
-                  <AccordionItem value="faq-3">
+                  <AccordionItem value="faq-3" className="border-border-subtle/40">
                     <AccordionTrigger>
                       How are the Code Design Tokens transferred to Figma later?
                     </AccordionTrigger>
@@ -757,6 +638,12 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* 222px Soft Edge Fade to Canvas */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 inset-x-0 h-[222px] bg-gradient-to-b from-transparent to-canvas z-10"
+        />
       </section>
     </div>
   );

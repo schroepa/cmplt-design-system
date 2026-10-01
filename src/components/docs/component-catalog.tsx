@@ -2701,19 +2701,19 @@ export function ButtonDemo() {
           <AnimatedCtaButton variant="accent-beam" size="md">
             <Sparkles className="h-3.5 w-3.5" /> GSAP Highlight CTA
           </AnimatedCtaButton>
-          <Button variant="primary">Primary Action</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="subtle">Subtle Brand</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="danger">Destructive</Button>
+          <Button variant="primary" shape="pill">Primary Action</Button>
+          <Button variant="secondary" shape="pill">Secondary</Button>
+          <Button variant="outline" shape="pill">Outline</Button>
+          <Button variant="subtle" shape="pill">Subtle Brand</Button>
+          <Button variant="ghost" shape="pill">Ghost</Button>
+          <Button variant="danger" shape="pill">Destructive</Button>
         </div>
-        <div className="flex flex-wrap items-center gap-3 border-t border-border-subtle pt-4">
-          <Button size="xs" variant="secondary">Size XS</Button>
-          <Button size="sm" variant="secondary">Size SM</Button>
-          <Button size="md" variant="secondary">Size MD</Button>
-          <Button size="lg" variant="secondary">Size LG</Button>
-          <Button disabled variant="primary">Disabled State</Button>
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <Button size="xs" variant="secondary" shape="pill">Size XS</Button>
+          <Button size="sm" variant="secondary" shape="pill">Size SM</Button>
+          <Button size="md" variant="secondary" shape="pill">Size MD</Button>
+          <Button size="lg" variant="secondary" shape="pill">Size LG</Button>
+          <Button disabled variant="primary" shape="pill">Disabled State</Button>
         </div>
       </div>
     ),

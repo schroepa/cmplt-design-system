@@ -687,7 +687,7 @@ export function SiteHeader() {
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="pointer-events-auto group inline-flex h-9 items-center gap-2 rounded-full border border-border-subtle/90 bg-surface/85 pl-1.5 pr-3.5 font-semibold tracking-tight text-fg-primary shadow-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
+            className="pointer-events-auto group inline-flex h-9 items-center gap-2 rounded-full ring-2 ring-brand/60 bg-surface/85 pl-1.5 pr-3.5 font-semibold tracking-tight text-fg-primary backdrop-blur-md transition-all hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus"
           >
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand text-fg-on-brand font-mono text-[11px] font-bold transition-transform duration-150 group-hover:scale-[1.04]">
               c/
@@ -707,7 +707,7 @@ export function SiteHeader() {
                 <button
                   type="button"
                   aria-label="Search documentation and components (Cmd+K)"
-                  className="inline-flex h-9 w-9 sm:w-auto sm:min-w-[132px] items-center justify-center sm:justify-between gap-2 rounded-full border border-border-subtle/90 bg-surface/85 sm:px-3 text-xs text-fg-muted shadow-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
+                  className="inline-flex h-9 w-9 sm:w-auto sm:min-w-[132px] items-center justify-center sm:justify-between gap-2 rounded-full bg-surface/85 sm:px-3 text-xs text-fg-muted backdrop-blur-md transition-colors hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
                 >
                   <span className="flex items-center gap-1.5">
                     <Search className="h-3.5 w-3.5 stroke-[1.75] shrink-0" />
@@ -835,7 +835,7 @@ export function SiteHeader() {
                   type="button"
                   aria-label="Appearance and theme settings"
                   title="Appearance & Live Token Studio"
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle/90 bg-surface/85 text-fg-secondary shadow-sm backdrop-blur-md transition-colors hover:border-border-default hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-surface/85 text-fg-secondary backdrop-blur-md transition-colors hover:bg-surface hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer"
                 >
                   <SlidersHorizontal className="h-4 w-4" />
                 </button>
@@ -969,10 +969,10 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="cmplt-fullscreen-menu"
             className={cn(
-              "group inline-flex h-9 items-center gap-2.5 rounded-full border px-3.5 text-xs font-medium shadow-sm backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer",
+              "group inline-flex h-9 items-center gap-2.5 rounded-full px-3.5 text-xs font-medium backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus cursor-pointer",
               menuOpen
-                ? "border-border-strong bg-elevated text-fg-primary"
-                : "border-border-subtle/90 bg-surface/85 text-fg-primary hover:border-border-default hover:bg-surface"
+                ? "bg-elevated text-fg-primary"
+                : "bg-surface/85 text-fg-primary hover:bg-surface"
             )}
           >
             <span className="hidden sm:inline font-medium tracking-tight">
